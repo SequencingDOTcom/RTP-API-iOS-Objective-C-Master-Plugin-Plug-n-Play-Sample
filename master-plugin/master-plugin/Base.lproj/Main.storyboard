@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="smd-me-orf" kind="presentation" identifier="SELECT_FILES" modalTransitionStyle="crossDissolve" id="ksB-Vi-0AA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="1179"/>
+        </scene>
+        <!--TabbarFileSelector-->
+        <scene sceneID="EhL-QD-cAp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabbarFileSelector" id="bFk-pZ-B17" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2t-dG-dQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740.5" y="1179"/>
+        </scene>
+        <!--Select File View Controller-->
+        <scene sceneID="ttc-An-OL2">
+            <objects>
+                <viewController id="smd-me-orf" customClass="SelectFileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BQ4-lS-q5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="nU9-pc-swu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mHe-gV-cbi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZm-Ra-qvs">
+                                <rect key="frame" x="272" y="190" width="57" height="30"/>
+                                <state key="normal" title="My Files"/>
+                                <connections>
+                                    <action selector="myFilesSelected:" destination="smd-me-orf" eventType="touchUpInside" id="Udq-GJ-n80"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPT-Vd-vkw">
+                                <rect key="frame" x="257" y="250" width="87" height="30"/>
+                                <state key="normal" title="Sample Files"/>
+                                <connections>
+                                    <action selector="sampleFilesSelected:" destination="smd-me-orf" eventType="touchUpInside" id="6kk-ll-DCz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lZm-Ra-qvs" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="0Fw-YR-5LU"/>
+                            <constraint firstItem="xPT-Vd-vkw" firstAttribute="top" secondItem="lZm-Ra-qvs" secondAttribute="bottom" constant="30" id="DOg-R7-zhX"/>
+                            <constraint firstItem="xPT-Vd-vkw" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="Riy-E3-pBy"/>
+                            <constraint firstItem="lZm-Ra-qvs" firstAttribute="top" secondItem="BQ4-lS-q5v" secondAttribute="bottom" constant="170" id="vMb-np-VTl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="bFk-pZ-B17" kind="presentation" identifier="GET_FILES" modalTransitionStyle="crossDissolve" id="5m7-6Z-jKv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MKj-KB-Hij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237" y="1179"/>
+        </scene>
+    </scenes>
+</document>
