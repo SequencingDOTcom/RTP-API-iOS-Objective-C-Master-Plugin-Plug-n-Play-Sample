@@ -34,9 +34,9 @@ This is a sample project example on Objective-C with installed and integrated Ma
 
 ![sample files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.57%20PM.png)
 
-* selected files
+* selected file
 
-![selected files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.17.07%20PM.png)
+![selected file](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.17.07%20PM.png)
 
 
 Resources
