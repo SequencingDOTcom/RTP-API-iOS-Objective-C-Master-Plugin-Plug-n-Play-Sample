@@ -11,24 +11,31 @@ This is a sample project example on Objective-C with installed and integrated Ma
 
 **Screenshots examples:**
 * sign in page
+
 ![sign in page](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.15.42%20PM.png)
 
 * login dialog
+
 ![login dialog](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.15.47%20PM.png)
 
 * authorize access dialog
+
 ![authorize access dialog](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.38%20PM.png)
 
 * select file page
+
 ![select file page](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.44%20PM.png)
 
 * my files
+
 ![my files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.51%20PM.png)
 
 * sample files
+
 ![sample files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.57%20PM.png)
 
 * selected files
+
 ![selected files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.17.07%20PM.png)
 
 
