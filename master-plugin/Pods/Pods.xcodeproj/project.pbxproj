@@ -1,904 +1,2829 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		04F04BF671CA5714D947E8E7E3EC94D3 /* Pods-master-plugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 928389DD7B5CF3115894DDB29A1A2DFB /* Pods-master-plugin-dummy.m */; };
-		07E5E0FC6C9DF8978709E7E74E509C23 /* SQTokenUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 98C59585A0B1420A499C337F39EE67EF /* SQTokenUpdater.m */; };
-		094E7255E4958AE6A5FA354606224252 /* SQToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B1342EF17026EB8A65483A875B4BC901 /* SQToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0D84936387A1A86361B40430435A268F /* SQRequestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 57D4838205BAD2190D75BD84D9DF215B /* SQRequestHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		175DB00686EBFD0B82D37CC97A7B8622 /* SQSampleFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40392CA8F5FF8F69AFB5FA123F5A18F9 /* SQSampleFilesViewController.m */; };
-		2195A2E71FF9105D41BA1A02E54C548F /* SQSampleFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B06942693A0B4ADF56375C8D1B82AB1 /* SQSampleFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		279C38C1879A163EDA03FC40E975C6A1 /* SQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DB67D214508FDC467243B02DB0FF91 /* SQToken.m */; };
-		2CADAEDF7CCF2FA93949467AB69B38D1 /* SQLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85ED4E9060B022CE8385481791C484C2 /* SQLoginViewController.m */; };
-		2F13E94A60CE8603CC97CFAF9BFE46D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		318093D82C1C272CEB4EA37454A976E8 /* SQPopoverInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B89B58687C0B067EA2384DD2F14DE04B /* SQPopoverInfoViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3461F1571E70FE9333009AD2E4A35EDD /* sequencing-oauth-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBFF8EB9E2D2D2EFF2D817AEC8829F9E /* sequencing-oauth-api-objc-dummy.m */; };
-		39DA9AD067CE424FE57C6B7ECAC0C96A /* SQFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E0B0281046B796D1806C491FB62BDC23 /* SQFilesContainer.m */; };
-		3E1FC67DC70F390C2185306B651C1671 /* SQHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 205A868055296FC9910E32EC0F8D0623 /* SQHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		415536691934178B1E54601B73CF3A07 /* SQOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 204779791A5CAB0816325E6AF89A9FD3 /* SQOAuth.m */; };
-		485D9420516E20BF7DD7C65324F7E96D /* SQTokenRefreshProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = ACAF07ADE173C7A7D79627AC0C963EBB /* SQTokenRefreshProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B3B6F712FD6610ADCE4DAC74B090C6D /* AppChains.h in Headers */ = {isa = PBXBuildFile; fileRef = ADB632365FEA78F9879A07CF4421E478 /* AppChains.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4F85A0CB2F20D09395488A1889175CFD /* SQFilesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB64611FCA4B2340EB1083E157036D4 /* SQFilesHelper.m */; };
-		5C57C0202CC7DED8951C22A06A29D1CF /* SQFilesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = D2F3B7E27CE181225DF773E02EA37024 /* SQFilesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4 /* SQMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E20E22C2A19F7184DF588CABF270B82 /* SQMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5F4AF19E0570FC6BE24C53FF0901A2DE /* SQRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F12C950F3656A21EB6170A82EB3768 /* SQRequestHelper.m */; };
-		671394D152AA2C5554EFB4C7C7C4D471 /* SQFilesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 07E48F59F87A1D562CC9F79BB2FB8BC8 /* SQFilesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67F93D9E746EAAE0705F2E15BB59961A /* SQFilesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 807D50E191AB04F8BF181C1A98B21640 /* SQFilesAPI.m */; };
-		6CB54D517079B9EDBEB8D532BD7D103B /* SQAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD01B7BE1257B7785DAD4A4B7D7F897 /* SQAuthResult.m */; };
-		78AD121DFD343A758CC92316CF79C217 /* SQSegmentedControlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B97807BB17E9FF5B9658B33703C06 /* SQSegmentedControlHelper.m */; };
-		7C43267B84DEB2F65A650DDF4111D3C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		830141AC6023CFCBE66D7D96742C43DD /* SQFilesHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E4C2EFCD48F379BFDF91F62E6EAF1 /* SQFilesHttpHelper.m */; };
-		85AD1595201A4942BB082F5C8163946E /* SQLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = D7DC11897329F1062273454AB20F04BF /* SQLoginViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		85D819C69648BCFD9CC742FCC3DF6DBA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		881AB78FA3AB213171E5A97EB9522158 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		8A0D9EDCDB7210E9E509518D8BA96011 /* SQTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 584E233944804FAD5AFEA1A325612E7E /* SQTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E7B79951FC708D1824083942A4A7146 /* SQPopoverInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A45FB2ABD70F696189DD49CE8A5AD9 /* SQPopoverInfoViewController.m */; };
-		9D05CB69F3A3333A9F017F0C7E02B5CE /* SQSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E6C798F54BEEFF206CE1B75A56CA2A /* SQSectionInfo.m */; };
-		A02AF99C5C78DD190D8C153E6C8C77CA /* SQPopoverMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 740616D9D23879E67F950B1424947DC8 /* SQPopoverMyFilesViewController.m */; };
-		A111798A232017AA930BA8A50A372808 /* SQMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59849A820D487723567FD7B59257CEE8 /* SQMyFilesViewController.m */; };
-		A9DF8CE6E82DA35837C0681B41BD755D /* SQServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBB5B7D77CE44112D5DFC9545622FCE /* SQServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AFE80D587551A182C3C11CBC96499566 /* SQFilesServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D495DAA0D67B7B2FB7F230B5A3DDE67 /* SQFilesServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B6D0B634567D72937FC9265A7A91A02E /* SQSectionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 14FAC3CDF54F27B2749B0CDDB2D54A18 /* SQSectionInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8C3D447EC5E7E64FF30F1CD46B4D9F0 /* SQServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6061B47D97642BF6CD755705992C8D3 /* SQServerManager.m */; };
-		B8E7C299C9A06BBCB5410345838591DC /* SQFilesHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = FA6A589180B9B6A9239D47D8CE85C6FB /* SQFilesHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BA2F6DC09F42395F3074B1F057DA801C /* SQFileSelectorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D6F828C671929AD66FC1C53DC7872670 /* SQFileSelectorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDFBC46C94F7FB5BAA494A66FD8439D4 /* sequencing-file-selector-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF51D08A1C411A887F12085B5551F60 /* sequencing-file-selector-api-objc-dummy.m */; };
-		BE66177287531EBDDBE7E21EA6E0697E /* SQFilesServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B52466BD6272AC5A9FE7152C13D1B4 /* SQFilesServerManager.m */; };
-		BF70D38C9A36BCD78E1BA80C18585054 /* SQOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D6ADBF0BF737CB10BB504D94440B79 /* SQOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C23A6AF9F31415DFDDB9F5DC71202431 /* SQTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 994E2BF913C11240600C59E43FC27C86 /* SQTableCell.m */; };
-		CC6F62162DF567EFC52A625E681A5294 /* SQFilesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 11F5E261FC6F05BB377B257091CFB19F /* SQFilesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE0B9EE96FEB1FE693B62B56285D1BBA /* sequencing-app-chains-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4571F7B3BFDE1FDFC34CA98F27212428 /* sequencing-app-chains-api-objc-dummy.m */; };
-		D6DAF75FAFEB83991C158C0E11E20079 /* SQAuthorizationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = AEE4E02C08698B13913BDF498A29A820 /* SQAuthorizationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE97DB7B19A5D228E37B5D3C9F67226D /* SQPopoverMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0291565194AF73BBDC14C9B7BCD37513 /* SQPopoverMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E13A3D1B88C51E781EB5C575AADAB1A7 /* AppChains.m in Sources */ = {isa = PBXBuildFile; fileRef = F4435B92C1BBE67B7A576F04FDD01E1F /* AppChains.m */; };
-		E2EE98FF78C5C2CCAD98C5C2F68D307F /* SQTokenUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BC9F9C575D0BB3A81E13BD4A88248C2 /* SQTokenUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E3159D306A700A796383AF4CB8B1FF2A /* SQAuthResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 243B43C38E33DE713A04E291CDFC07E7 /* SQAuthResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EA488D9107270E7E6272B5B8663E65D1 /* SQExtendedNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 695A620573D810429F19565B1F0E621E /* SQExtendedNavBarView.m */; };
-		F0EDCB886C7A71F63C2B194BEC5B1F3F /* SQHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AF538B1810AAD950308BE23A54EDC81F /* SQHttpHelper.m */; };
-		F46DBDD563784EDDEA0E14723812894E /* SQExtendedNavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09D5535A14C72C7BCB8734992F953929 /* SQExtendedNavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FDF20D9B6B852EF9E04B92F3AC8CA738 /* SQSegmentedControlHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F7BD3F683335A13DD25BD19C728F2A /* SQSegmentedControlHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		167E0848E134212E708624854B0049E9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1C2C5594049C5FC568C56E4EC093CA35;
-			remoteInfo = "sequencing-oauth-api-objc";
-		};
-		4232EEAFD399D72304CB1232BE50D390 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A6F304E0013687F20C49BE12584F477;
-			remoteInfo = "sequencing-file-selector-api-objc";
-		};
-		BF10AE6ECC4E7289F9966AB9775DADDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC45BD13D6E0446B549076F074D7D318;
-			remoteInfo = "sequencing-app-chains-api-objc";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		0291565194AF73BBDC14C9B7BCD37513 /* SQPopoverMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverMyFilesViewController.h; path = Pod/SQPopoverMyFilesViewController.h; sourceTree = "<group>"; };
-		07E48F59F87A1D562CC9F79BB2FB8BC8 /* SQFilesHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHelper.h; path = Pod/SQFilesHelper.h; sourceTree = "<group>"; };
-		09D5535A14C72C7BCB8734992F953929 /* SQExtendedNavBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQExtendedNavBarView.h; path = Pod/SQExtendedNavBarView.h; sourceTree = "<group>"; };
-		0BA2B6C3F952C0B397A9B4C0E4E5D6C5 /* Pods-master-plugin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-master-plugin-acknowledgements.plist"; sourceTree = "<group>"; };
-		0DA197928AA864A5D02F851DEE350F1D /* libPods-master-plugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-master-plugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E20E22C2A19F7184DF588CABF270B82 /* SQMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQMyFilesViewController.h; path = Pod/SQMyFilesViewController.h; sourceTree = "<group>"; };
-		0F4B97807BB17E9FF5B9658B33703C06 /* SQSegmentedControlHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSegmentedControlHelper.m; path = Pod/SQSegmentedControlHelper.m; sourceTree = "<group>"; };
-		11F5E261FC6F05BB377B257091CFB19F /* SQFilesContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesContainer.h; path = Pod/SQFilesContainer.h; sourceTree = "<group>"; };
-		14F7BD3F683335A13DD25BD19C728F2A /* SQSegmentedControlHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSegmentedControlHelper.h; path = Pod/SQSegmentedControlHelper.h; sourceTree = "<group>"; };
-		14FAC3CDF54F27B2749B0CDDB2D54A18 /* SQSectionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSectionInfo.h; path = Pod/SQSectionInfo.h; sourceTree = "<group>"; };
-		16CB51266AE82FF0EF77580870374F79 /* libsequencing-app-chains-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsequencing-app-chains-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EB64611FCA4B2340EB1083E157036D4 /* SQFilesHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHelper.m; path = Pod/SQFilesHelper.m; sourceTree = "<group>"; };
-		204779791A5CAB0816325E6AF89A9FD3 /* SQOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQOAuth.m; path = Pod/SQOAuth.m; sourceTree = "<group>"; };
-		205A868055296FC9910E32EC0F8D0623 /* SQHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQHttpHelper.h; path = Pod/SQHttpHelper.h; sourceTree = "<group>"; };
-		241E4C2EFCD48F379BFDF91F62E6EAF1 /* SQFilesHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHttpHelper.m; path = Pod/SQFilesHttpHelper.m; sourceTree = "<group>"; };
-		243B43C38E33DE713A04E291CDFC07E7 /* SQAuthResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthResult.h; path = Pod/SQAuthResult.h; sourceTree = "<group>"; };
-		2850084D76F96316EBE939340EE5DC02 /* Pods-master-plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-master-plugin.release.xcconfig"; sourceTree = "<group>"; };
-		2D495DAA0D67B7B2FB7F230B5A3DDE67 /* SQFilesServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesServerManager.h; path = Pod/SQFilesServerManager.h; sourceTree = "<group>"; };
-		33A45FB2ABD70F696189DD49CE8A5AD9 /* SQPopoverInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverInfoViewController.m; path = Pod/SQPopoverInfoViewController.m; sourceTree = "<group>"; };
-		36D6ADBF0BF737CB10BB504D94440B79 /* SQOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQOAuth.h; path = Pod/SQOAuth.h; sourceTree = "<group>"; };
-		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3EF51D08A1C411A887F12085B5551F60 /* sequencing-file-selector-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-file-selector-api-objc-dummy.m"; sourceTree = "<group>"; };
-		3FAE08B50ABC82EA4FE3C76DD7A6D7D3 /* sequencing-app-chains-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-app-chains-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		40392CA8F5FF8F69AFB5FA123F5A18F9 /* SQSampleFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSampleFilesViewController.m; path = Pod/SQSampleFilesViewController.m; sourceTree = "<group>"; };
-		4571F7B3BFDE1FDFC34CA98F27212428 /* sequencing-app-chains-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-app-chains-api-objc-dummy.m"; sourceTree = "<group>"; };
-		4BC9F9C575D0BB3A81E13BD4A88248C2 /* SQTokenUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenUpdater.h; path = Pod/SQTokenUpdater.h; sourceTree = "<group>"; };
-		4D594872E8FA7597B812CEBC6B45ED32 /* Pods-master-plugin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-master-plugin-resources.sh"; sourceTree = "<group>"; };
-		558F40831A9F519EBEEAB5BDD4DFFD74 /* sequencing-file-selector-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-file-selector-api-objc.xcconfig"; sourceTree = "<group>"; };
-		56B52466BD6272AC5A9FE7152C13D1B4 /* SQFilesServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesServerManager.m; path = Pod/SQFilesServerManager.m; sourceTree = "<group>"; };
-		57D4838205BAD2190D75BD84D9DF215B /* SQRequestHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQRequestHelper.h; path = Pod/SQRequestHelper.h; sourceTree = "<group>"; };
-		584E233944804FAD5AFEA1A325612E7E /* SQTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTableCell.h; path = Pod/SQTableCell.h; sourceTree = "<group>"; };
-		59849A820D487723567FD7B59257CEE8 /* SQMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQMyFilesViewController.m; path = Pod/SQMyFilesViewController.m; sourceTree = "<group>"; };
-		5B06942693A0B4ADF56375C8D1B82AB1 /* SQSampleFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSampleFilesViewController.h; path = Pod/SQSampleFilesViewController.h; sourceTree = "<group>"; };
-		5C6E1320F4500947A524536C0FA6DD65 /* libsequencing-oauth-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsequencing-oauth-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5FBB5B7D77CE44112D5DFC9545622FCE /* SQServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQServerManager.h; path = Pod/SQServerManager.h; sourceTree = "<group>"; };
-		618217E112529669DFB9DF117A435AD3 /* libsequencing-file-selector-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libsequencing-file-selector-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		695A620573D810429F19565B1F0E621E /* SQExtendedNavBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQExtendedNavBarView.m; path = Pod/SQExtendedNavBarView.m; sourceTree = "<group>"; };
-		69F12C950F3656A21EB6170A82EB3768 /* SQRequestHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQRequestHelper.m; path = Pod/SQRequestHelper.m; sourceTree = "<group>"; };
-		740616D9D23879E67F950B1424947DC8 /* SQPopoverMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverMyFilesViewController.m; path = Pod/SQPopoverMyFilesViewController.m; sourceTree = "<group>"; };
-		7CFDEBBBF6CE9E2D792D959EA55C4A96 /* sequencing-oauth-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-oauth-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		7FD01B7BE1257B7785DAD4A4B7D7F897 /* SQAuthResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQAuthResult.m; path = Pod/SQAuthResult.m; sourceTree = "<group>"; };
-		807D50E191AB04F8BF181C1A98B21640 /* SQFilesAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesAPI.m; path = Pod/SQFilesAPI.m; sourceTree = "<group>"; };
-		85ED4E9060B022CE8385481791C484C2 /* SQLoginViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLoginViewController.m; path = Pod/SQLoginViewController.m; sourceTree = "<group>"; };
-		8A0D3334044FC21DA2BB61B9C1F424FA /* SQPopoverInfoViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverInfoViewController.xib; path = Resources/SQPopoverInfoViewController.xib; sourceTree = "<group>"; };
-		928389DD7B5CF3115894DDB29A1A2DFB /* Pods-master-plugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-master-plugin-dummy.m"; sourceTree = "<group>"; };
-		94BE0656703BEDAD0CED7408B3498290 /* Pods-master-plugin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-master-plugin-frameworks.sh"; sourceTree = "<group>"; };
-		98C59585A0B1420A499C337F39EE67EF /* SQTokenUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTokenUpdater.m; path = Pod/SQTokenUpdater.m; sourceTree = "<group>"; };
-		994E2BF913C11240600C59E43FC27C86 /* SQTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTableCell.m; path = Pod/SQTableCell.m; sourceTree = "<group>"; };
-		9B771AF0959F83B141579BF90A048D18 /* SQPopoverMyFilesViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverMyFilesViewController.xib; path = Resources/SQPopoverMyFilesViewController.xib; sourceTree = "<group>"; };
-		A2DB67D214508FDC467243B02DB0FF91 /* SQToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQToken.m; path = Pod/SQToken.m; sourceTree = "<group>"; };
-		AB2F0AABAFBE5EF5387EB4B1D36BDCDB /* TabbarFileSelector.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TabbarFileSelector.storyboard; path = Resources/TabbarFileSelector.storyboard; sourceTree = "<group>"; };
-		ACAF07ADE173C7A7D79627AC0C963EBB /* SQTokenRefreshProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenRefreshProtocol.h; path = Pod/SQTokenRefreshProtocol.h; sourceTree = "<group>"; };
-		ADB632365FEA78F9879A07CF4421E478 /* AppChains.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppChains.h; path = Pod/AppChains.h; sourceTree = "<group>"; };
-		AEE4E02C08698B13913BDF498A29A820 /* SQAuthorizationProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthorizationProtocol.h; path = Pod/SQAuthorizationProtocol.h; sourceTree = "<group>"; };
-		AF538B1810AAD950308BE23A54EDC81F /* SQHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQHttpHelper.m; path = Pod/SQHttpHelper.m; sourceTree = "<group>"; };
-		B1342EF17026EB8A65483A875B4BC901 /* SQToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQToken.h; path = Pod/SQToken.h; sourceTree = "<group>"; };
-		B6061B47D97642BF6CD755705992C8D3 /* SQServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQServerManager.m; path = Pod/SQServerManager.m; sourceTree = "<group>"; };
-		B89B58687C0B067EA2384DD2F14DE04B /* SQPopoverInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverInfoViewController.h; path = Pod/SQPopoverInfoViewController.h; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BB7899F1D3A48BB39BD968A265E58999 /* sequencing-app-chains-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-app-chains-api-objc.xcconfig"; sourceTree = "<group>"; };
-		BC8258C73E36C25712CFEE20D6C3D5A8 /* Pods-master-plugin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-master-plugin-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CA435FA67D995461D355A58E53AC7C5C /* Pods-master-plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-master-plugin.debug.xcconfig"; sourceTree = "<group>"; };
-		CBFF8EB9E2D2D2EFF2D817AEC8829F9E /* sequencing-oauth-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-oauth-api-objc-dummy.m"; sourceTree = "<group>"; };
-		D2F3B7E27CE181225DF773E02EA37024 /* SQFilesAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesAPI.h; path = Pod/SQFilesAPI.h; sourceTree = "<group>"; };
-		D693C4E71D81FDD0758D884755A7387F /* sequencing-oauth-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-oauth-api-objc.xcconfig"; sourceTree = "<group>"; };
-		D6F828C671929AD66FC1C53DC7872670 /* SQFileSelectorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFileSelectorProtocol.h; path = Pod/SQFileSelectorProtocol.h; sourceTree = "<group>"; };
-		D7DC11897329F1062273454AB20F04BF /* SQLoginViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLoginViewController.h; path = Pod/SQLoginViewController.h; sourceTree = "<group>"; };
-		E0B0281046B796D1806C491FB62BDC23 /* SQFilesContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesContainer.m; path = Pod/SQFilesContainer.m; sourceTree = "<group>"; };
-		F0F35EFB09C3745386585F2FACF0D47B /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
-		F4435B92C1BBE67B7A576F04FDD01E1F /* AppChains.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppChains.m; path = Pod/AppChains.m; sourceTree = "<group>"; };
-		F5E6C798F54BEEFF206CE1B75A56CA2A /* SQSectionInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSectionInfo.m; path = Pod/SQSectionInfo.m; sourceTree = "<group>"; };
-		FA6A589180B9B6A9239D47D8CE85C6FB /* SQFilesHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHttpHelper.h; path = Pod/SQFilesHttpHelper.h; sourceTree = "<group>"; };
-		FEE1012224187813816BDEA2D7392B83 /* sequencing-file-selector-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-file-selector-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		FEEB955E231098E6CBA44722F9E12F95 /* AuthImages.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = AuthImages.xcassets; path = Resources/AuthImages.xcassets; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		198F00A1C781944247C2341C25C474E9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7C43267B84DEB2F65A650DDF4111D3C0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27D41E42BB3BCAF5426D31B2452D8A53 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2F13E94A60CE8603CC97CFAF9BFE46D6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		86E93A4BBFFB2FD75DC7E4D10F2C8011 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				881AB78FA3AB213171E5A97EB9522158 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B0157BD542168D58CE6281C0C3B3CBD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				85D819C69648BCFD9CC742FCC3DF6DBA /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0FFA123D7C2C48A3D9948E0C74ABE994 /* sequencing-oauth-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-				AEE4E02C08698B13913BDF498A29A820 /* SQAuthorizationProtocol.h */,
-				243B43C38E33DE713A04E291CDFC07E7 /* SQAuthResult.h */,
-				7FD01B7BE1257B7785DAD4A4B7D7F897 /* SQAuthResult.m */,
-				205A868055296FC9910E32EC0F8D0623 /* SQHttpHelper.h */,
-				AF538B1810AAD950308BE23A54EDC81F /* SQHttpHelper.m */,
-				D7DC11897329F1062273454AB20F04BF /* SQLoginViewController.h */,
-				85ED4E9060B022CE8385481791C484C2 /* SQLoginViewController.m */,
-				36D6ADBF0BF737CB10BB504D94440B79 /* SQOAuth.h */,
-				204779791A5CAB0816325E6AF89A9FD3 /* SQOAuth.m */,
-				57D4838205BAD2190D75BD84D9DF215B /* SQRequestHelper.h */,
-				69F12C950F3656A21EB6170A82EB3768 /* SQRequestHelper.m */,
-				5FBB5B7D77CE44112D5DFC9545622FCE /* SQServerManager.h */,
-				B6061B47D97642BF6CD755705992C8D3 /* SQServerManager.m */,
-				B1342EF17026EB8A65483A875B4BC901 /* SQToken.h */,
-				A2DB67D214508FDC467243B02DB0FF91 /* SQToken.m */,
-				ACAF07ADE173C7A7D79627AC0C963EBB /* SQTokenRefreshProtocol.h */,
-				4BC9F9C575D0BB3A81E13BD4A88248C2 /* SQTokenUpdater.h */,
-				98C59585A0B1420A499C337F39EE67EF /* SQTokenUpdater.m */,
-				3677475BB254759E4835C47F40785E45 /* Resources */,
-				ED52AD7A0A3D850B723F9638A9BF1F17 /* Support Files */,
-			);
-			path = "sequencing-oauth-api-objc";
-			sourceTree = "<group>";
-		};
-		21E1AB6EFF705AC528A2C0663E8494D6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B817693D3500B548D3F7D61E8521E3A6 /* sequencing-app-chains-api-objc */,
-				B365AB7F644C4F2D370304959E6031D9 /* sequencing-file-selector-api-objc */,
-				6CD78041D3EA56F1A393717C7DE013AE /* sequencing-master-plugin-api-objc */,
-				0FFA123D7C2C48A3D9948E0C74ABE994 /* sequencing-oauth-api-objc */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3677475BB254759E4835C47F40785E45 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FEEB955E231098E6CBA44722F9E12F95 /* AuthImages.xcassets */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		53C6FBEF7C88D23A36887EECAE28D4B7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				558F40831A9F519EBEEAB5BDD4DFFD74 /* sequencing-file-selector-api-objc.xcconfig */,
-				3EF51D08A1C411A887F12085B5551F60 /* sequencing-file-selector-api-objc-dummy.m */,
-				FEE1012224187813816BDEA2D7392B83 /* sequencing-file-selector-api-objc-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/sequencing-file-selector-api-objc";
-			sourceTree = "<group>";
-		};
-		6CD78041D3EA56F1A393717C7DE013AE /* sequencing-master-plugin-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "sequencing-master-plugin-api-objc";
-			sourceTree = "<group>";
-		};
-		7DB346D0F39D3F0E887471402A8071AB = {
-			isa = PBXGroup;
-			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				21E1AB6EFF705AC528A2C0663E8494D6 /* Pods */,
-				B01320259274A58C62FD8DED9E137F18 /* Products */,
-				8958ABBA9CAA645714C8E0804D0EFF5C /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		8958ABBA9CAA645714C8E0804D0EFF5C /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F9113ADAB9EC37BFD9C2E8D0919FB01A /* Pods-master-plugin */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		AD10EEDABA82ECFFEAF18EDE4DC3149B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F0F35EFB09C3745386585F2FACF0D47B /* Images.xcassets */,
-				8A0D3334044FC21DA2BB61B9C1F424FA /* SQPopoverInfoViewController.xib */,
-				9B771AF0959F83B141579BF90A048D18 /* SQPopoverMyFilesViewController.xib */,
-				AB2F0AABAFBE5EF5387EB4B1D36BDCDB /* TabbarFileSelector.storyboard */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		B01320259274A58C62FD8DED9E137F18 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0DA197928AA864A5D02F851DEE350F1D /* libPods-master-plugin.a */,
-				16CB51266AE82FF0EF77580870374F79 /* libsequencing-app-chains-api-objc.a */,
-				618217E112529669DFB9DF117A435AD3 /* libsequencing-file-selector-api-objc.a */,
-				5C6E1320F4500947A524536C0FA6DD65 /* libsequencing-oauth-api-objc.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B365AB7F644C4F2D370304959E6031D9 /* sequencing-file-selector-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-				09D5535A14C72C7BCB8734992F953929 /* SQExtendedNavBarView.h */,
-				695A620573D810429F19565B1F0E621E /* SQExtendedNavBarView.m */,
-				D2F3B7E27CE181225DF773E02EA37024 /* SQFilesAPI.h */,
-				807D50E191AB04F8BF181C1A98B21640 /* SQFilesAPI.m */,
-				11F5E261FC6F05BB377B257091CFB19F /* SQFilesContainer.h */,
-				E0B0281046B796D1806C491FB62BDC23 /* SQFilesContainer.m */,
-				D6F828C671929AD66FC1C53DC7872670 /* SQFileSelectorProtocol.h */,
-				07E48F59F87A1D562CC9F79BB2FB8BC8 /* SQFilesHelper.h */,
-				1EB64611FCA4B2340EB1083E157036D4 /* SQFilesHelper.m */,
-				FA6A589180B9B6A9239D47D8CE85C6FB /* SQFilesHttpHelper.h */,
-				241E4C2EFCD48F379BFDF91F62E6EAF1 /* SQFilesHttpHelper.m */,
-				2D495DAA0D67B7B2FB7F230B5A3DDE67 /* SQFilesServerManager.h */,
-				56B52466BD6272AC5A9FE7152C13D1B4 /* SQFilesServerManager.m */,
-				0E20E22C2A19F7184DF588CABF270B82 /* SQMyFilesViewController.h */,
-				59849A820D487723567FD7B59257CEE8 /* SQMyFilesViewController.m */,
-				B89B58687C0B067EA2384DD2F14DE04B /* SQPopoverInfoViewController.h */,
-				33A45FB2ABD70F696189DD49CE8A5AD9 /* SQPopoverInfoViewController.m */,
-				0291565194AF73BBDC14C9B7BCD37513 /* SQPopoverMyFilesViewController.h */,
-				740616D9D23879E67F950B1424947DC8 /* SQPopoverMyFilesViewController.m */,
-				5B06942693A0B4ADF56375C8D1B82AB1 /* SQSampleFilesViewController.h */,
-				40392CA8F5FF8F69AFB5FA123F5A18F9 /* SQSampleFilesViewController.m */,
-				14FAC3CDF54F27B2749B0CDDB2D54A18 /* SQSectionInfo.h */,
-				F5E6C798F54BEEFF206CE1B75A56CA2A /* SQSectionInfo.m */,
-				14F7BD3F683335A13DD25BD19C728F2A /* SQSegmentedControlHelper.h */,
-				0F4B97807BB17E9FF5B9658B33703C06 /* SQSegmentedControlHelper.m */,
-				584E233944804FAD5AFEA1A325612E7E /* SQTableCell.h */,
-				994E2BF913C11240600C59E43FC27C86 /* SQTableCell.m */,
-				AD10EEDABA82ECFFEAF18EDE4DC3149B /* Resources */,
-				53C6FBEF7C88D23A36887EECAE28D4B7 /* Support Files */,
-			);
-			path = "sequencing-file-selector-api-objc";
-			sourceTree = "<group>";
-		};
-		B817693D3500B548D3F7D61E8521E3A6 /* sequencing-app-chains-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-				ADB632365FEA78F9879A07CF4421E478 /* AppChains.h */,
-				F4435B92C1BBE67B7A576F04FDD01E1F /* AppChains.m */,
-				D09CF0531456ED6C7C954639D98688CA /* Support Files */,
-			);
-			path = "sequencing-app-chains-api-objc";
-			sourceTree = "<group>";
-		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BF6342C8B29F4CEEA088EFF7AB4DE362 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		D09CF0531456ED6C7C954639D98688CA /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				BB7899F1D3A48BB39BD968A265E58999 /* sequencing-app-chains-api-objc.xcconfig */,
-				4571F7B3BFDE1FDFC34CA98F27212428 /* sequencing-app-chains-api-objc-dummy.m */,
-				3FAE08B50ABC82EA4FE3C76DD7A6D7D3 /* sequencing-app-chains-api-objc-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/sequencing-app-chains-api-objc";
-			sourceTree = "<group>";
-		};
-		ED52AD7A0A3D850B723F9638A9BF1F17 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				D693C4E71D81FDD0758D884755A7387F /* sequencing-oauth-api-objc.xcconfig */,
-				CBFF8EB9E2D2D2EFF2D817AEC8829F9E /* sequencing-oauth-api-objc-dummy.m */,
-				7CFDEBBBF6CE9E2D792D959EA55C4A96 /* sequencing-oauth-api-objc-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/sequencing-oauth-api-objc";
-			sourceTree = "<group>";
-		};
-		F9113ADAB9EC37BFD9C2E8D0919FB01A /* Pods-master-plugin */ = {
-			isa = PBXGroup;
-			children = (
-				BC8258C73E36C25712CFEE20D6C3D5A8 /* Pods-master-plugin-acknowledgements.markdown */,
-				0BA2B6C3F952C0B397A9B4C0E4E5D6C5 /* Pods-master-plugin-acknowledgements.plist */,
-				928389DD7B5CF3115894DDB29A1A2DFB /* Pods-master-plugin-dummy.m */,
-				94BE0656703BEDAD0CED7408B3498290 /* Pods-master-plugin-frameworks.sh */,
-				4D594872E8FA7597B812CEBC6B45ED32 /* Pods-master-plugin-resources.sh */,
-				CA435FA67D995461D355A58E53AC7C5C /* Pods-master-plugin.debug.xcconfig */,
-				2850084D76F96316EBE939340EE5DC02 /* Pods-master-plugin.release.xcconfig */,
-			);
-			name = "Pods-master-plugin";
-			path = "Target Support Files/Pods-master-plugin";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		AEF8A802E0C557C015502F0E70650476 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F46DBDD563784EDDEA0E14723812894E /* SQExtendedNavBarView.h in Headers */,
-				5C57C0202CC7DED8951C22A06A29D1CF /* SQFilesAPI.h in Headers */,
-				CC6F62162DF567EFC52A625E681A5294 /* SQFilesContainer.h in Headers */,
-				BA2F6DC09F42395F3074B1F057DA801C /* SQFileSelectorProtocol.h in Headers */,
-				671394D152AA2C5554EFB4C7C7C4D471 /* SQFilesHelper.h in Headers */,
-				B8E7C299C9A06BBCB5410345838591DC /* SQFilesHttpHelper.h in Headers */,
-				AFE80D587551A182C3C11CBC96499566 /* SQFilesServerManager.h in Headers */,
-				5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4 /* SQMyFilesViewController.h in Headers */,
-				318093D82C1C272CEB4EA37454A976E8 /* SQPopoverInfoViewController.h in Headers */,
-				DE97DB7B19A5D228E37B5D3C9F67226D /* SQPopoverMyFilesViewController.h in Headers */,
-				2195A2E71FF9105D41BA1A02E54C548F /* SQSampleFilesViewController.h in Headers */,
-				B6D0B634567D72937FC9265A7A91A02E /* SQSectionInfo.h in Headers */,
-				FDF20D9B6B852EF9E04B92F3AC8CA738 /* SQSegmentedControlHelper.h in Headers */,
-				8A0D9EDCDB7210E9E509518D8BA96011 /* SQTableCell.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D814F1FF3A1C8ECEBB6B73E1C96405E8 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D6DAF75FAFEB83991C158C0E11E20079 /* SQAuthorizationProtocol.h in Headers */,
-				E3159D306A700A796383AF4CB8B1FF2A /* SQAuthResult.h in Headers */,
-				3E1FC67DC70F390C2185306B651C1671 /* SQHttpHelper.h in Headers */,
-				85AD1595201A4942BB082F5C8163946E /* SQLoginViewController.h in Headers */,
-				BF70D38C9A36BCD78E1BA80C18585054 /* SQOAuth.h in Headers */,
-				0D84936387A1A86361B40430435A268F /* SQRequestHelper.h in Headers */,
-				A9DF8CE6E82DA35837C0681B41BD755D /* SQServerManager.h in Headers */,
-				094E7255E4958AE6A5FA354606224252 /* SQToken.h in Headers */,
-				485D9420516E20BF7DD7C65324F7E96D /* SQTokenRefreshProtocol.h in Headers */,
-				E2EE98FF78C5C2CCAD98C5C2F68D307F /* SQTokenUpdater.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F0B1FC78D738BE6E81086E0A47FD98AA /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B3B6F712FD6610ADCE4DAC74B090C6D /* AppChains.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		1A6F304E0013687F20C49BE12584F477 /* sequencing-file-selector-api-objc */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1FC8C1D9373837159BE0AE5A144D480B /* Build configuration list for PBXNativeTarget "sequencing-file-selector-api-objc" */;
-			buildPhases = (
-				6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB /* Sources */,
-				86E93A4BBFFB2FD75DC7E4D10F2C8011 /* Frameworks */,
-				AEF8A802E0C557C015502F0E70650476 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "sequencing-file-selector-api-objc";
-			productName = "sequencing-file-selector-api-objc";
-			productReference = 618217E112529669DFB9DF117A435AD3 /* libsequencing-file-selector-api-objc.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		1C2C5594049C5FC568C56E4EC093CA35 /* sequencing-oauth-api-objc */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2C474427FFEBD99E7CB711256CB8AD65 /* Build configuration list for PBXNativeTarget "sequencing-oauth-api-objc" */;
-			buildPhases = (
-				5AB24A2209D402646A163D7A0B961A8A /* Sources */,
-				9B0157BD542168D58CE6281C0C3B3CBD /* Frameworks */,
-				D814F1FF3A1C8ECEBB6B73E1C96405E8 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "sequencing-oauth-api-objc";
-			productName = "sequencing-oauth-api-objc";
-			productReference = 5C6E1320F4500947A524536C0FA6DD65 /* libsequencing-oauth-api-objc.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		CE6EE64228F965F9147AB15F278E3E09 /* Pods-master-plugin */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 723FFDE2D565F68559CFF7CB37980C94 /* Build configuration list for PBXNativeTarget "Pods-master-plugin" */;
-			buildPhases = (
-				2751CA7B229C5E5989E04FA1F264F3BC /* Sources */,
-				198F00A1C781944247C2341C25C474E9 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FC891315301CAFD6A4CC507D1134FD5F /* PBXTargetDependency */,
-				E56D0BB3B19BB0EAF6C51AD22DC61095 /* PBXTargetDependency */,
-				8D44F263F7CD6D41A2960169CF2977A5 /* PBXTargetDependency */,
-			);
-			name = "Pods-master-plugin";
-			productName = "Pods-master-plugin";
-			productReference = 0DA197928AA864A5D02F851DEE350F1D /* libPods-master-plugin.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		EC45BD13D6E0446B549076F074D7D318 /* sequencing-app-chains-api-objc */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AFAC1331E5303AAFAB9FC3D40DCEC307 /* Build configuration list for PBXNativeTarget "sequencing-app-chains-api-objc" */;
-			buildPhases = (
-				0021F0633A87A12B4B7AE6517BF630C7 /* Sources */,
-				27D41E42BB3BCAF5426D31B2452D8A53 /* Frameworks */,
-				F0B1FC78D738BE6E81086E0A47FD98AA /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "sequencing-app-chains-api-objc";
-			productName = "sequencing-app-chains-api-objc";
-			productReference = 16CB51266AE82FF0EF77580870374F79 /* libsequencing-app-chains-api-objc.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
-			};
-			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = B01320259274A58C62FD8DED9E137F18 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				CE6EE64228F965F9147AB15F278E3E09 /* Pods-master-plugin */,
-				EC45BD13D6E0446B549076F074D7D318 /* sequencing-app-chains-api-objc */,
-				1A6F304E0013687F20C49BE12584F477 /* sequencing-file-selector-api-objc */,
-				1C2C5594049C5FC568C56E4EC093CA35 /* sequencing-oauth-api-objc */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0021F0633A87A12B4B7AE6517BF630C7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E13A3D1B88C51E781EB5C575AADAB1A7 /* AppChains.m in Sources */,
-				CE0B9EE96FEB1FE693B62B56285D1BBA /* sequencing-app-chains-api-objc-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2751CA7B229C5E5989E04FA1F264F3BC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04F04BF671CA5714D947E8E7E3EC94D3 /* Pods-master-plugin-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5AB24A2209D402646A163D7A0B961A8A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3461F1571E70FE9333009AD2E4A35EDD /* sequencing-oauth-api-objc-dummy.m in Sources */,
-				6CB54D517079B9EDBEB8D532BD7D103B /* SQAuthResult.m in Sources */,
-				F0EDCB886C7A71F63C2B194BEC5B1F3F /* SQHttpHelper.m in Sources */,
-				2CADAEDF7CCF2FA93949467AB69B38D1 /* SQLoginViewController.m in Sources */,
-				415536691934178B1E54601B73CF3A07 /* SQOAuth.m in Sources */,
-				5F4AF19E0570FC6BE24C53FF0901A2DE /* SQRequestHelper.m in Sources */,
-				B8C3D447EC5E7E64FF30F1CD46B4D9F0 /* SQServerManager.m in Sources */,
-				279C38C1879A163EDA03FC40E975C6A1 /* SQToken.m in Sources */,
-				07E5E0FC6C9DF8978709E7E74E509C23 /* SQTokenUpdater.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BDFBC46C94F7FB5BAA494A66FD8439D4 /* sequencing-file-selector-api-objc-dummy.m in Sources */,
-				EA488D9107270E7E6272B5B8663E65D1 /* SQExtendedNavBarView.m in Sources */,
-				67F93D9E746EAAE0705F2E15BB59961A /* SQFilesAPI.m in Sources */,
-				39DA9AD067CE424FE57C6B7ECAC0C96A /* SQFilesContainer.m in Sources */,
-				4F85A0CB2F20D09395488A1889175CFD /* SQFilesHelper.m in Sources */,
-				830141AC6023CFCBE66D7D96742C43DD /* SQFilesHttpHelper.m in Sources */,
-				BE66177287531EBDDBE7E21EA6E0697E /* SQFilesServerManager.m in Sources */,
-				A111798A232017AA930BA8A50A372808 /* SQMyFilesViewController.m in Sources */,
-				8E7B79951FC708D1824083942A4A7146 /* SQPopoverInfoViewController.m in Sources */,
-				A02AF99C5C78DD190D8C153E6C8C77CA /* SQPopoverMyFilesViewController.m in Sources */,
-				175DB00686EBFD0B82D37CC97A7B8622 /* SQSampleFilesViewController.m in Sources */,
-				9D05CB69F3A3333A9F017F0C7E02B5CE /* SQSectionInfo.m in Sources */,
-				78AD121DFD343A758CC92316CF79C217 /* SQSegmentedControlHelper.m in Sources */,
-				C23A6AF9F31415DFDDB9F5DC71202431 /* SQTableCell.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		8D44F263F7CD6D41A2960169CF2977A5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sequencing-oauth-api-objc";
-			target = 1C2C5594049C5FC568C56E4EC093CA35 /* sequencing-oauth-api-objc */;
-			targetProxy = 167E0848E134212E708624854B0049E9 /* PBXContainerItemProxy */;
-		};
-		E56D0BB3B19BB0EAF6C51AD22DC61095 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sequencing-file-selector-api-objc";
-			target = 1A6F304E0013687F20C49BE12584F477 /* sequencing-file-selector-api-objc */;
-			targetProxy = 4232EEAFD399D72304CB1232BE50D390 /* PBXContainerItemProxy */;
-		};
-		FC891315301CAFD6A4CC507D1134FD5F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "sequencing-app-chains-api-objc";
-			target = EC45BD13D6E0446B549076F074D7D318 /* sequencing-app-chains-api-objc */;
-			targetProxy = BF10AE6ECC4E7289F9966AB9775DADDE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		2D75BE32B82AF5AA4233D3573B9EDC60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 558F40831A9F519EBEEAB5BDD4DFFD74 /* sequencing-file-selector-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		35D62C4971D1682D1AC07994D4FCB93E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D693C4E71D81FDD0758D884755A7387F /* sequencing-oauth-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5D48CF9008B078326082D816FEB6CF78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB7899F1D3A48BB39BD968A265E58999 /* sequencing-app-chains-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		5F3276D673735627E055588E959EB9D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA435FA67D995461D355A58E53AC7C5C /* Pods-master-plugin.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		67F5A5FA78C38FEE753C9D0C685A9A1B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB7899F1D3A48BB39BD968A265E58999 /* sequencing-app-chains-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		8D1534490D941DCA47C62AC4314182AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				ONLY_ACTIVE_ARCH = YES;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Debug;
-		};
-		C5A18280E9321A9268D1C80B7DA43967 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D17A083EBFE4ABA7AAC86675CC921B7A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D693C4E71D81FDD0758D884755A7387F /* sequencing-oauth-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		D40BE684F64C611F19A21301DD961673 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2850084D76F96316EBE939340EE5DC02 /* Pods-master-plugin.release.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		E4C65A2B17400F0394859BAEA851DE92 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 558F40831A9F519EBEEAB5BDD4DFFD74 /* sequencing-file-selector-api-objc.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		1FC8C1D9373837159BE0AE5A144D480B /* Build configuration list for PBXNativeTarget "sequencing-file-selector-api-objc" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D75BE32B82AF5AA4233D3573B9EDC60 /* Debug */,
-				E4C65A2B17400F0394859BAEA851DE92 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2C474427FFEBD99E7CB711256CB8AD65 /* Build configuration list for PBXNativeTarget "sequencing-oauth-api-objc" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D17A083EBFE4ABA7AAC86675CC921B7A /* Debug */,
-				35D62C4971D1682D1AC07994D4FCB93E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8D1534490D941DCA47C62AC4314182AF /* Debug */,
-				C5A18280E9321A9268D1C80B7DA43967 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		723FFDE2D565F68559CFF7CB37980C94 /* Build configuration list for PBXNativeTarget "Pods-master-plugin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F3276D673735627E055588E959EB9D1 /* Debug */,
-				D40BE684F64C611F19A21301DD961673 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AFAC1331E5303AAFAB9FC3D40DCEC307 /* Build configuration list for PBXNativeTarget "sequencing-app-chains-api-objc" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				67F5A5FA78C38FEE753C9D0C685A9A1B /* Debug */,
-				5D48CF9008B078326082D816FEB6CF78 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0021F0633A87A12B4B7AE6517BF630C7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>E13A3D1B88C51E781EB5C575AADAB1A7</string>
+				<string>CE0B9EE96FEB1FE693B62B56285D1BBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0291565194AF73BBDC14C9B7BCD37513</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQPopoverMyFilesViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQPopoverMyFilesViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>04F04BF671CA5714D947E8E7E3EC94D3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>928389DD7B5CF3115894DDB29A1A2DFB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>07E48F59F87A1D562CC9F79BB2FB8BC8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>07E5E0FC6C9DF8978709E7E74E509C23</key>
+		<dict>
+			<key>fileRef</key>
+			<string>98C59585A0B1420A499C337F39EE67EF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>094E7255E4958AE6A5FA354606224252</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B1342EF17026EB8A65483A875B4BC901</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>09D5535A14C72C7BCB8734992F953929</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQExtendedNavBarView.h</string>
+			<key>path</key>
+			<string>Pod/SQExtendedNavBarView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0BA2B6C3F952C0B397A9B4C0E4E5D6C5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Pods-master-plugin-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0D84936387A1A86361B40430435A268F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>57D4838205BAD2190D75BD84D9DF215B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>0DA197928AA864A5D02F851DEE350F1D</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods-master-plugin.a</string>
+			<key>path</key>
+			<string>libPods-master-plugin.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0E20E22C2A19F7184DF588CABF270B82</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQMyFilesViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQMyFilesViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0F4B97807BB17E9FF5B9658B33703C06</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQSegmentedControlHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQSegmentedControlHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0FFA123D7C2C48A3D9948E0C74ABE994</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>AEE4E02C08698B13913BDF498A29A820</string>
+				<string>243B43C38E33DE713A04E291CDFC07E7</string>
+				<string>7FD01B7BE1257B7785DAD4A4B7D7F897</string>
+				<string>205A868055296FC9910E32EC0F8D0623</string>
+				<string>AF538B1810AAD950308BE23A54EDC81F</string>
+				<string>D7DC11897329F1062273454AB20F04BF</string>
+				<string>85ED4E9060B022CE8385481791C484C2</string>
+				<string>36D6ADBF0BF737CB10BB504D94440B79</string>
+				<string>204779791A5CAB0816325E6AF89A9FD3</string>
+				<string>57D4838205BAD2190D75BD84D9DF215B</string>
+				<string>69F12C950F3656A21EB6170A82EB3768</string>
+				<string>5FBB5B7D77CE44112D5DFC9545622FCE</string>
+				<string>B6061B47D97642BF6CD755705992C8D3</string>
+				<string>B1342EF17026EB8A65483A875B4BC901</string>
+				<string>A2DB67D214508FDC467243B02DB0FF91</string>
+				<string>ACAF07ADE173C7A7D79627AC0C963EBB</string>
+				<string>4BC9F9C575D0BB3A81E13BD4A88248C2</string>
+				<string>98C59585A0B1420A499C337F39EE67EF</string>
+				<string>3677475BB254759E4835C47F40785E45</string>
+				<string>ED52AD7A0A3D850B723F9638A9BF1F17</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-oauth-api-objc</string>
+			<key>path</key>
+			<string>sequencing-oauth-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>11F5E261FC6F05BB377B257091CFB19F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesContainer.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesContainer.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>14F7BD3F683335A13DD25BD19C728F2A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSegmentedControlHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQSegmentedControlHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>14FAC3CDF54F27B2749B0CDDB2D54A18</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSectionInfo.h</string>
+			<key>path</key>
+			<string>Pod/SQSectionInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>167E0848E134212E708624854B0049E9</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>1C2C5594049C5FC568C56E4EC093CA35</string>
+			<key>remoteInfo</key>
+			<string>sequencing-oauth-api-objc</string>
+		</dict>
+		<key>16CB51266AE82FF0EF77580870374F79</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libsequencing-app-chains-api-objc.a</string>
+			<key>path</key>
+			<string>libsequencing-app-chains-api-objc.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>175DB00686EBFD0B82D37CC97A7B8622</key>
+		<dict>
+			<key>fileRef</key>
+			<string>40392CA8F5FF8F69AFB5FA123F5A18F9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>198F00A1C781944247C2341C25C474E9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>7C43267B84DEB2F65A650DDF4111D3C0</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>1A6F304E0013687F20C49BE12584F477</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>1FC8C1D9373837159BE0AE5A144D480B</string>
+			<key>buildPhases</key>
+			<array>
+				<string>6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB</string>
+				<string>86E93A4BBFFB2FD75DC7E4D10F2C8011</string>
+				<string>AEF8A802E0C557C015502F0E70650476</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>productName</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>productReference</key>
+			<string>618217E112529669DFB9DF117A435AD3</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>1C2C5594049C5FC568C56E4EC093CA35</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>2C474427FFEBD99E7CB711256CB8AD65</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5AB24A2209D402646A163D7A0B961A8A</string>
+				<string>9B0157BD542168D58CE6281C0C3B3CBD</string>
+				<string>D814F1FF3A1C8ECEBB6B73E1C96405E8</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>sequencing-oauth-api-objc</string>
+			<key>productName</key>
+			<string>sequencing-oauth-api-objc</string>
+			<key>productReference</key>
+			<string>5C6E1320F4500947A524536C0FA6DD65</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>1EB64611FCA4B2340EB1083E157036D4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1FC8C1D9373837159BE0AE5A144D480B</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>2D75BE32B82AF5AA4233D3573B9EDC60</string>
+				<string>E4C65A2B17400F0394859BAEA851DE92</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>204779791A5CAB0816325E6AF89A9FD3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQOAuth.m</string>
+			<key>path</key>
+			<string>Pod/SQOAuth.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>205A868055296FC9910E32EC0F8D0623</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQHttpHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQHttpHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2195A2E71FF9105D41BA1A02E54C548F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5B06942693A0B4ADF56375C8D1B82AB1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>21E1AB6EFF705AC528A2C0663E8494D6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>B817693D3500B548D3F7D61E8521E3A6</string>
+				<string>B365AB7F644C4F2D370304959E6031D9</string>
+				<string>6CD78041D3EA56F1A393717C7DE013AE</string>
+				<string>0FFA123D7C2C48A3D9948E0C74ABE994</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>241E4C2EFCD48F379BFDF91F62E6EAF1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesHttpHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesHttpHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>243B43C38E33DE713A04E291CDFC07E7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQAuthResult.h</string>
+			<key>path</key>
+			<string>Pod/SQAuthResult.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2751CA7B229C5E5989E04FA1F264F3BC</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>04F04BF671CA5714D947E8E7E3EC94D3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>279C38C1879A163EDA03FC40E975C6A1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A2DB67D214508FDC467243B02DB0FF91</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>27D41E42BB3BCAF5426D31B2452D8A53</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>2F13E94A60CE8603CC97CFAF9BFE46D6</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>2850084D76F96316EBE939340EE5DC02</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-master-plugin.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2C474427FFEBD99E7CB711256CB8AD65</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>D17A083EBFE4ABA7AAC86675CC921B7A</string>
+				<string>35D62C4971D1682D1AC07994D4FCB93E</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>2CADAEDF7CCF2FA93949467AB69B38D1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>85ED4E9060B022CE8385481791C484C2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>2D495DAA0D67B7B2FB7F230B5A3DDE67</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesServerManager.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesServerManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2D75BE32B82AF5AA4233D3573B9EDC60</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>8D1534490D941DCA47C62AC4314182AF</string>
+				<string>C5A18280E9321A9268D1C80B7DA43967</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>2F13E94A60CE8603CC97CFAF9BFE46D6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>318093D82C1C272CEB4EA37454A976E8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B89B58687C0B067EA2384DD2F14DE04B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>33A45FB2ABD70F696189DD49CE8A5AD9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQPopoverInfoViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3461F1571E70FE9333009AD2E4A35EDD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>35D62C4971D1682D1AC07994D4FCB93E</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D693C4E71D81FDD0758D884755A7387F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>3677475BB254759E4835C47F40785E45</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>FEEB955E231098E6CBA44722F9E12F95</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>36D6ADBF0BF737CB10BB504D94440B79</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQOAuth.h</string>
+			<key>path</key>
+			<string>Pod/SQOAuth.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>39DA9AD067CE424FE57C6B7ECAC0C96A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E0B0281046B796D1806C491FB62BDC23</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>3E1FC67DC70F390C2185306B651C1671</key>
+		<dict>
+			<key>fileRef</key>
+			<string>205A868055296FC9910E32EC0F8D0623</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>3E4E89230EF59BC255123B67864ACF77</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>3EF51D08A1C411A887F12085B5551F60</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3FAE08B50ABC82EA4FE3C76DD7A6D7D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>40392CA8F5FF8F69AFB5FA123F5A18F9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQSampleFilesViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQSampleFilesViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>415536691934178B1E54601B73CF3A07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>204779791A5CAB0816325E6AF89A9FD3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>4232EEAFD399D72304CB1232BE50D390</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>1A6F304E0013687F20C49BE12584F477</string>
+			<key>remoteInfo</key>
+			<string>sequencing-file-selector-api-objc</string>
+		</dict>
+		<key>4571F7B3BFDE1FDFC34CA98F27212428</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>485D9420516E20BF7DD7C65324F7E96D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ACAF07ADE173C7A7D79627AC0C963EBB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>4B3B6F712FD6610ADCE4DAC74B090C6D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ADB632365FEA78F9879A07CF4421E478</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>4BC9F9C575D0BB3A81E13BD4A88248C2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQTokenUpdater.h</string>
+			<key>path</key>
+			<string>Pod/SQTokenUpdater.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4D594872E8FA7597B812CEBC6B45ED32</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-master-plugin-resources.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>4F85A0CB2F20D09395488A1889175CFD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1EB64611FCA4B2340EB1083E157036D4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>53C6FBEF7C88D23A36887EECAE28D4B7</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
+				<string>3EF51D08A1C411A887F12085B5551F60</string>
+				<string>FEE1012224187813816BDEA2D7392B83</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/sequencing-file-selector-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>558F40831A9F519EBEEAB5BDD4DFFD74</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>56B52466BD6272AC5A9FE7152C13D1B4</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesServerManager.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesServerManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>57D4838205BAD2190D75BD84D9DF215B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQRequestHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQRequestHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>584E233944804FAD5AFEA1A325612E7E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQTableCell.h</string>
+			<key>path</key>
+			<string>Pod/SQTableCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>59849A820D487723567FD7B59257CEE8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQMyFilesViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQMyFilesViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5AB24A2209D402646A163D7A0B961A8A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>3461F1571E70FE9333009AD2E4A35EDD</string>
+				<string>6CB54D517079B9EDBEB8D532BD7D103B</string>
+				<string>F0EDCB886C7A71F63C2B194BEC5B1F3F</string>
+				<string>2CADAEDF7CCF2FA93949467AB69B38D1</string>
+				<string>415536691934178B1E54601B73CF3A07</string>
+				<string>5F4AF19E0570FC6BE24C53FF0901A2DE</string>
+				<string>B8C3D447EC5E7E64FF30F1CD46B4D9F0</string>
+				<string>279C38C1879A163EDA03FC40E975C6A1</string>
+				<string>07E5E0FC6C9DF8978709E7E74E509C23</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>5B06942693A0B4ADF56375C8D1B82AB1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSampleFilesViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQSampleFilesViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5C57C0202CC7DED8951C22A06A29D1CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D2F3B7E27CE181225DF773E02EA37024</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>5C6E1320F4500947A524536C0FA6DD65</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libsequencing-oauth-api-objc.a</string>
+			<key>path</key>
+			<string>libsequencing-oauth-api-objc.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>5D48CF9008B078326082D816FEB6CF78</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>BB7899F1D3A48BB39BD968A265E58999</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0E20E22C2A19F7184DF588CABF270B82</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>5F3276D673735627E055588E959EB9D1</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>CA435FA67D995461D355A58E53AC7C5C</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>5F4AF19E0570FC6BE24C53FF0901A2DE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>69F12C950F3656A21EB6170A82EB3768</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>5FBB5B7D77CE44112D5DFC9545622FCE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQServerManager.h</string>
+			<key>path</key>
+			<string>Pod/SQServerManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>618217E112529669DFB9DF117A435AD3</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libsequencing-file-selector-api-objc.a</string>
+			<key>path</key>
+			<string>libsequencing-file-selector-api-objc.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>671394D152AA2C5554EFB4C7C7C4D471</key>
+		<dict>
+			<key>fileRef</key>
+			<string>07E48F59F87A1D562CC9F79BB2FB8BC8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>67F5A5FA78C38FEE753C9D0C685A9A1B</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>BB7899F1D3A48BB39BD968A265E58999</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>67F93D9E746EAAE0705F2E15BB59961A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>807D50E191AB04F8BF181C1A98B21640</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>695A620573D810429F19565B1F0E621E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQExtendedNavBarView.m</string>
+			<key>path</key>
+			<string>Pod/SQExtendedNavBarView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>69F12C950F3656A21EB6170A82EB3768</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQRequestHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQRequestHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6CB54D517079B9EDBEB8D532BD7D103B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7FD01B7BE1257B7785DAD4A4B7D7F897</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6CD78041D3EA56F1A393717C7DE013AE</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-master-plugin-api-objc</string>
+			<key>path</key>
+			<string>sequencing-master-plugin-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BDFBC46C94F7FB5BAA494A66FD8439D4</string>
+				<string>EA488D9107270E7E6272B5B8663E65D1</string>
+				<string>67F93D9E746EAAE0705F2E15BB59961A</string>
+				<string>39DA9AD067CE424FE57C6B7ECAC0C96A</string>
+				<string>4F85A0CB2F20D09395488A1889175CFD</string>
+				<string>830141AC6023CFCBE66D7D96742C43DD</string>
+				<string>BE66177287531EBDDBE7E21EA6E0697E</string>
+				<string>A111798A232017AA930BA8A50A372808</string>
+				<string>8E7B79951FC708D1824083942A4A7146</string>
+				<string>A02AF99C5C78DD190D8C153E6C8C77CA</string>
+				<string>175DB00686EBFD0B82D37CC97A7B8622</string>
+				<string>9D05CB69F3A3333A9F017F0C7E02B5CE</string>
+				<string>78AD121DFD343A758CC92316CF79C217</string>
+				<string>C23A6AF9F31415DFDDB9F5DC71202431</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>723FFDE2D565F68559CFF7CB37980C94</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>5F3276D673735627E055588E959EB9D1</string>
+				<string>D40BE684F64C611F19A21301DD961673</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>740616D9D23879E67F950B1424947DC8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQPopoverMyFilesViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQPopoverMyFilesViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>78AD121DFD343A758CC92316CF79C217</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0F4B97807BB17E9FF5B9658B33703C06</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7C43267B84DEB2F65A650DDF4111D3C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7CFDEBBBF6CE9E2D792D959EA55C4A96</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>sequencing-oauth-api-objc-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
+				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
+				<string>21E1AB6EFF705AC528A2C0663E8494D6</string>
+				<string>B01320259274A58C62FD8DED9E137F18</string>
+				<string>8958ABBA9CAA645714C8E0804D0EFF5C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7FD01B7BE1257B7785DAD4A4B7D7F897</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQAuthResult.m</string>
+			<key>path</key>
+			<string>Pod/SQAuthResult.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>807D50E191AB04F8BF181C1A98B21640</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesAPI.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesAPI.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>830141AC6023CFCBE66D7D96742C43DD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>241E4C2EFCD48F379BFDF91F62E6EAF1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>85AD1595201A4942BB082F5C8163946E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D7DC11897329F1062273454AB20F04BF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>85D819C69648BCFD9CC742FCC3DF6DBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>85ED4E9060B022CE8385481791C484C2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQLoginViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQLoginViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>86E93A4BBFFB2FD75DC7E4D10F2C8011</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>881AB78FA3AB213171E5A97EB9522158</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>881AB78FA3AB213171E5A97EB9522158</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8958ABBA9CAA645714C8E0804D0EFF5C</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F9113ADAB9EC37BFD9C2E8D0919FB01A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Targets Support Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A0D3334044FC21DA2BB61B9C1F424FA</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.xib</string>
+			<key>path</key>
+			<string>Resources/SQPopoverInfoViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8A0D9EDCDB7210E9E509518D8BA96011</key>
+		<dict>
+			<key>fileRef</key>
+			<string>584E233944804FAD5AFEA1A325612E7E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>8D1534490D941DCA47C62AC4314182AF</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>8D44F263F7CD6D41A2960169CF2977A5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>sequencing-oauth-api-objc</string>
+			<key>target</key>
+			<string>1C2C5594049C5FC568C56E4EC093CA35</string>
+			<key>targetProxy</key>
+			<string>167E0848E134212E708624854B0049E9</string>
+		</dict>
+		<key>8E7B79951FC708D1824083942A4A7146</key>
+		<dict>
+			<key>fileRef</key>
+			<string>33A45FB2ABD70F696189DD49CE8A5AD9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>928389DD7B5CF3115894DDB29A1A2DFB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Pods-master-plugin-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>94BE0656703BEDAD0CED7408B3498290</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.script.sh</string>
+			<key>path</key>
+			<string>Pods-master-plugin-frameworks.sh</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>98C59585A0B1420A499C337F39EE67EF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQTokenUpdater.m</string>
+			<key>path</key>
+			<string>Pod/SQTokenUpdater.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>994E2BF913C11240600C59E43FC27C86</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQTableCell.m</string>
+			<key>path</key>
+			<string>Pod/SQTableCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9B0157BD542168D58CE6281C0C3B3CBD</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>85D819C69648BCFD9CC742FCC3DF6DBA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>9B771AF0959F83B141579BF90A048D18</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SQPopoverMyFilesViewController.xib</string>
+			<key>path</key>
+			<string>Resources/SQPopoverMyFilesViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9D05CB69F3A3333A9F017F0C7E02B5CE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F5E6C798F54BEEFF206CE1B75A56CA2A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A02AF99C5C78DD190D8C153E6C8C77CA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>740616D9D23879E67F950B1424947DC8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A111798A232017AA930BA8A50A372808</key>
+		<dict>
+			<key>fileRef</key>
+			<string>59849A820D487723567FD7B59257CEE8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A2DB67D214508FDC467243B02DB0FF91</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQToken.m</string>
+			<key>path</key>
+			<string>Pod/SQToken.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A9DF8CE6E82DA35837C0681B41BD755D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5FBB5B7D77CE44112D5DFC9545622FCE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>AB2F0AABAFBE5EF5387EB4B1D36BDCDB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>TabbarFileSelector.storyboard</string>
+			<key>path</key>
+			<string>Resources/TabbarFileSelector.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ACAF07ADE173C7A7D79627AC0C963EBB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQTokenRefreshProtocol.h</string>
+			<key>path</key>
+			<string>Pod/SQTokenRefreshProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AD10EEDABA82ECFFEAF18EDE4DC3149B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F0F35EFB09C3745386585F2FACF0D47B</string>
+				<string>8A0D3334044FC21DA2BB61B9C1F424FA</string>
+				<string>9B771AF0959F83B141579BF90A048D18</string>
+				<string>AB2F0AABAFBE5EF5387EB4B1D36BDCDB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>ADB632365FEA78F9879A07CF4421E478</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>AppChains.h</string>
+			<key>path</key>
+			<string>Pod/AppChains.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AEE4E02C08698B13913BDF498A29A820</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQAuthorizationProtocol.h</string>
+			<key>path</key>
+			<string>Pod/SQAuthorizationProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AEF8A802E0C557C015502F0E70650476</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>F46DBDD563784EDDEA0E14723812894E</string>
+				<string>5C57C0202CC7DED8951C22A06A29D1CF</string>
+				<string>CC6F62162DF567EFC52A625E681A5294</string>
+				<string>BA2F6DC09F42395F3074B1F057DA801C</string>
+				<string>671394D152AA2C5554EFB4C7C7C4D471</string>
+				<string>B8E7C299C9A06BBCB5410345838591DC</string>
+				<string>AFE80D587551A182C3C11CBC96499566</string>
+				<string>5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4</string>
+				<string>318093D82C1C272CEB4EA37454A976E8</string>
+				<string>DE97DB7B19A5D228E37B5D3C9F67226D</string>
+				<string>2195A2E71FF9105D41BA1A02E54C548F</string>
+				<string>B6D0B634567D72937FC9265A7A91A02E</string>
+				<string>FDF20D9B6B852EF9E04B92F3AC8CA738</string>
+				<string>8A0D9EDCDB7210E9E509518D8BA96011</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AF538B1810AAD950308BE23A54EDC81F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQHttpHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQHttpHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AFAC1331E5303AAFAB9FC3D40DCEC307</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>67F5A5FA78C38FEE753C9D0C685A9A1B</string>
+				<string>5D48CF9008B078326082D816FEB6CF78</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>AFE80D587551A182C3C11CBC96499566</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2D495DAA0D67B7B2FB7F230B5A3DDE67</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>B01320259274A58C62FD8DED9E137F18</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0DA197928AA864A5D02F851DEE350F1D</string>
+				<string>16CB51266AE82FF0EF77580870374F79</string>
+				<string>618217E112529669DFB9DF117A435AD3</string>
+				<string>5C6E1320F4500947A524536C0FA6DD65</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B1342EF17026EB8A65483A875B4BC901</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQToken.h</string>
+			<key>path</key>
+			<string>Pod/SQToken.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B365AB7F644C4F2D370304959E6031D9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>09D5535A14C72C7BCB8734992F953929</string>
+				<string>695A620573D810429F19565B1F0E621E</string>
+				<string>D2F3B7E27CE181225DF773E02EA37024</string>
+				<string>807D50E191AB04F8BF181C1A98B21640</string>
+				<string>11F5E261FC6F05BB377B257091CFB19F</string>
+				<string>E0B0281046B796D1806C491FB62BDC23</string>
+				<string>D6F828C671929AD66FC1C53DC7872670</string>
+				<string>07E48F59F87A1D562CC9F79BB2FB8BC8</string>
+				<string>1EB64611FCA4B2340EB1083E157036D4</string>
+				<string>FA6A589180B9B6A9239D47D8CE85C6FB</string>
+				<string>241E4C2EFCD48F379BFDF91F62E6EAF1</string>
+				<string>2D495DAA0D67B7B2FB7F230B5A3DDE67</string>
+				<string>56B52466BD6272AC5A9FE7152C13D1B4</string>
+				<string>0E20E22C2A19F7184DF588CABF270B82</string>
+				<string>59849A820D487723567FD7B59257CEE8</string>
+				<string>B89B58687C0B067EA2384DD2F14DE04B</string>
+				<string>33A45FB2ABD70F696189DD49CE8A5AD9</string>
+				<string>0291565194AF73BBDC14C9B7BCD37513</string>
+				<string>740616D9D23879E67F950B1424947DC8</string>
+				<string>5B06942693A0B4ADF56375C8D1B82AB1</string>
+				<string>40392CA8F5FF8F69AFB5FA123F5A18F9</string>
+				<string>14FAC3CDF54F27B2749B0CDDB2D54A18</string>
+				<string>F5E6C798F54BEEFF206CE1B75A56CA2A</string>
+				<string>14F7BD3F683335A13DD25BD19C728F2A</string>
+				<string>0F4B97807BB17E9FF5B9658B33703C06</string>
+				<string>584E233944804FAD5AFEA1A325612E7E</string>
+				<string>994E2BF913C11240600C59E43FC27C86</string>
+				<string>AD10EEDABA82ECFFEAF18EDE4DC3149B</string>
+				<string>53C6FBEF7C88D23A36887EECAE28D4B7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B6061B47D97642BF6CD755705992C8D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQServerManager.m</string>
+			<key>path</key>
+			<string>Pod/SQServerManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B6D0B634567D72937FC9265A7A91A02E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14FAC3CDF54F27B2749B0CDDB2D54A18</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>B817693D3500B548D3F7D61E8521E3A6</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>ADB632365FEA78F9879A07CF4421E478</string>
+				<string>F4435B92C1BBE67B7A576F04FDD01E1F</string>
+				<string>D09CF0531456ED6C7C954639D98688CA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B89B58687C0B067EA2384DD2F14DE04B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQPopoverInfoViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B8C3D447EC5E7E64FF30F1CD46B4D9F0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>B6061B47D97642BF6CD755705992C8D3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B8E7C299C9A06BBCB5410345838591DC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FA6A589180B9B6A9239D47D8CE85C6FB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>BA2F6DC09F42395F3074B1F057DA801C</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D6F828C671929AD66FC1C53DC7872670</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>Podfile</string>
+			<key>path</key>
+			<string>../Podfile</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+			<key>xcLanguageSpecificationIdentifier</key>
+			<string>xcode.lang.ruby</string>
+		</dict>
+		<key>BB7899F1D3A48BB39BD968A265E58999</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BC3CA7F9E30CC8F7E2DD044DD34432FC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BF6342C8B29F4CEEA088EFF7AB4DE362</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BC8258C73E36C25712CFEE20D6C3D5A8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>path</key>
+			<string>Pods-master-plugin-acknowledgements.markdown</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BDFBC46C94F7FB5BAA494A66FD8439D4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3EF51D08A1C411A887F12085B5551F60</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BE66177287531EBDDBE7E21EA6E0697E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>56B52466BD6272AC5A9FE7152C13D1B4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BF10AE6ECC4E7289F9966AB9775DADDE</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>D41D8CD98F00B204E9800998ECF8427E</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>EC45BD13D6E0446B549076F074D7D318</string>
+			<key>remoteInfo</key>
+			<string>sequencing-app-chains-api-objc</string>
+		</dict>
+		<key>BF6342C8B29F4CEEA088EFF7AB4DE362</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>3E4E89230EF59BC255123B67864ACF77</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>iOS</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BF70D38C9A36BCD78E1BA80C18585054</key>
+		<dict>
+			<key>fileRef</key>
+			<string>36D6ADBF0BF737CB10BB504D94440B79</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>C23A6AF9F31415DFDDB9F5DC71202431</key>
+		<dict>
+			<key>fileRef</key>
+			<string>994E2BF913C11240600C59E43FC27C86</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>C5A18280E9321A9268D1C80B7DA43967</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>RELEASE=1</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>STRIP_INSTALLED_PRODUCT</key>
+				<string>NO</string>
+				<key>SYMROOT</key>
+				<string>${SRCROOT}/../build</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>CA435FA67D995461D355A58E53AC7C5C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Pods-master-plugin.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>sequencing-oauth-api-objc-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CC6F62162DF567EFC52A625E681A5294</key>
+		<dict>
+			<key>fileRef</key>
+			<string>11F5E261FC6F05BB377B257091CFB19F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>CE0B9EE96FEB1FE693B62B56285D1BBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4571F7B3BFDE1FDFC34CA98F27212428</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>CE6EE64228F965F9147AB15F278E3E09</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>723FFDE2D565F68559CFF7CB37980C94</string>
+			<key>buildPhases</key>
+			<array>
+				<string>2751CA7B229C5E5989E04FA1F264F3BC</string>
+				<string>198F00A1C781944247C2341C25C474E9</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>FC891315301CAFD6A4CC507D1134FD5F</string>
+				<string>E56D0BB3B19BB0EAF6C51AD22DC61095</string>
+				<string>8D44F263F7CD6D41A2960169CF2977A5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Pods-master-plugin</string>
+			<key>productName</key>
+			<string>Pods-master-plugin</string>
+			<key>productReference</key>
+			<string>0DA197928AA864A5D02F851DEE350F1D</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>D09CF0531456ED6C7C954639D98688CA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB7899F1D3A48BB39BD968A265E58999</string>
+				<string>4571F7B3BFDE1FDFC34CA98F27212428</string>
+				<string>3FAE08B50ABC82EA4FE3C76DD7A6D7D3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/sequencing-app-chains-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D17A083EBFE4ABA7AAC86675CC921B7A</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D693C4E71D81FDD0758D884755A7387F</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-oauth-api-objc/sequencing-oauth-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>D2F3B7E27CE181225DF773E02EA37024</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesAPI.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesAPI.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D40BE684F64C611F19A21301DD961673</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>2850084D76F96316EBE939340EE5DC02</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MACH_O_TYPE</key>
+				<string>staticlib</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PODS_ROOT</key>
+				<string>$(SRCROOT)</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>D41D8CD98F00B204E9800998ECF8427E</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0700</string>
+				<key>LastUpgradeCheck</key>
+				<string>0700</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>2D8E8EC45A3A1A1D94AE762CB5028504</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>7DB346D0F39D3F0E887471402A8071AB</string>
+			<key>productRefGroup</key>
+			<string>B01320259274A58C62FD8DED9E137F18</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>CE6EE64228F965F9147AB15F278E3E09</string>
+				<string>EC45BD13D6E0446B549076F074D7D318</string>
+				<string>1A6F304E0013687F20C49BE12584F477</string>
+				<string>1C2C5594049C5FC568C56E4EC093CA35</string>
+			</array>
+		</dict>
+		<key>D693C4E71D81FDD0758D884755A7387F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>sequencing-oauth-api-objc.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D6DAF75FAFEB83991C158C0E11E20079</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AEE4E02C08698B13913BDF498A29A820</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>D6F828C671929AD66FC1C53DC7872670</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFileSelectorProtocol.h</string>
+			<key>path</key>
+			<string>Pod/SQFileSelectorProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D7DC11897329F1062273454AB20F04BF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQLoginViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQLoginViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>D814F1FF3A1C8ECEBB6B73E1C96405E8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>D6DAF75FAFEB83991C158C0E11E20079</string>
+				<string>E3159D306A700A796383AF4CB8B1FF2A</string>
+				<string>3E1FC67DC70F390C2185306B651C1671</string>
+				<string>85AD1595201A4942BB082F5C8163946E</string>
+				<string>BF70D38C9A36BCD78E1BA80C18585054</string>
+				<string>0D84936387A1A86361B40430435A268F</string>
+				<string>A9DF8CE6E82DA35837C0681B41BD755D</string>
+				<string>094E7255E4958AE6A5FA354606224252</string>
+				<string>485D9420516E20BF7DD7C65324F7E96D</string>
+				<string>E2EE98FF78C5C2CCAD98C5C2F68D307F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>DE97DB7B19A5D228E37B5D3C9F67226D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0291565194AF73BBDC14C9B7BCD37513</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E0B0281046B796D1806C491FB62BDC23</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesContainer.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesContainer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E13A3D1B88C51E781EB5C575AADAB1A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F4435B92C1BBE67B7A576F04FDD01E1F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E2EE98FF78C5C2CCAD98C5C2F68D307F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4BC9F9C575D0BB3A81E13BD4A88248C2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E3159D306A700A796383AF4CB8B1FF2A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>243B43C38E33DE713A04E291CDFC07E7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E4C65A2B17400F0394859BAEA851DE92</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>Target Support Files/sequencing-file-selector-api-objc/sequencing-file-selector-api-objc-prefix.pch</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.2</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>OTHER_LDFLAGS</key>
+				<string></string>
+				<key>OTHER_LIBTOOLFLAGS</key>
+				<string></string>
+				<key>PRIVATE_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PUBLIC_HEADERS_FOLDER_PATH</key>
+				<string></string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>E56D0BB3B19BB0EAF6C51AD22DC61095</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>target</key>
+			<string>1A6F304E0013687F20C49BE12584F477</string>
+			<key>targetProxy</key>
+			<string>4232EEAFD399D72304CB1232BE50D390</string>
+		</dict>
+		<key>EA488D9107270E7E6272B5B8663E65D1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>695A620573D810429F19565B1F0E621E</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>EC45BD13D6E0446B549076F074D7D318</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>AFAC1331E5303AAFAB9FC3D40DCEC307</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0021F0633A87A12B4B7AE6517BF630C7</string>
+				<string>27D41E42BB3BCAF5426D31B2452D8A53</string>
+				<string>F0B1FC78D738BE6E81086E0A47FD98AA</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>productName</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>productReference</key>
+			<string>16CB51266AE82FF0EF77580870374F79</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>ED52AD7A0A3D850B723F9638A9BF1F17</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>D693C4E71D81FDD0758D884755A7387F</string>
+				<string>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</string>
+				<string>7CFDEBBBF6CE9E2D792D959EA55C4A96</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/sequencing-oauth-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F0B1FC78D738BE6E81086E0A47FD98AA</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>4B3B6F712FD6610ADCE4DAC74B090C6D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>F0EDCB886C7A71F63C2B194BEC5B1F3F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AF538B1810AAD950308BE23A54EDC81F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F0F35EFB09C3745386585F2FACF0D47B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>name</key>
+			<string>Images.xcassets</string>
+			<key>path</key>
+			<string>Resources/Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F4435B92C1BBE67B7A576F04FDD01E1F</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AppChains.m</string>
+			<key>path</key>
+			<string>Pod/AppChains.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F46DBDD563784EDDEA0E14723812894E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>09D5535A14C72C7BCB8734992F953929</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>F5E6C798F54BEEFF206CE1B75A56CA2A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQSectionInfo.m</string>
+			<key>path</key>
+			<string>Pod/SQSectionInfo.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F9113ADAB9EC37BFD9C2E8D0919FB01A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BC8258C73E36C25712CFEE20D6C3D5A8</string>
+				<string>0BA2B6C3F952C0B397A9B4C0E4E5D6C5</string>
+				<string>928389DD7B5CF3115894DDB29A1A2DFB</string>
+				<string>94BE0656703BEDAD0CED7408B3498290</string>
+				<string>4D594872E8FA7597B812CEBC6B45ED32</string>
+				<string>CA435FA67D995461D355A58E53AC7C5C</string>
+				<string>2850084D76F96316EBE939340EE5DC02</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods-master-plugin</string>
+			<key>path</key>
+			<string>Target Support Files/Pods-master-plugin</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FA6A589180B9B6A9239D47D8CE85C6FB</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesHttpHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesHttpHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FC891315301CAFD6A4CC507D1134FD5F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>name</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>target</key>
+			<string>EC45BD13D6E0446B549076F074D7D318</string>
+			<key>targetProxy</key>
+			<string>BF10AE6ECC4E7289F9966AB9775DADDE</string>
+		</dict>
+		<key>FDF20D9B6B852EF9E04B92F3AC8CA738</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14F7BD3F683335A13DD25BD19C728F2A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>FEE1012224187813816BDEA2D7392B83</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FEEB955E231098E6CBA44722F9E12F95</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>name</key>
+			<string>AuthImages.xcassets</string>
+			<key>path</key>
+			<string>Resources/AuthImages.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>D41D8CD98F00B204E9800998ECF8427E</string>
+</dict>
+</plist>

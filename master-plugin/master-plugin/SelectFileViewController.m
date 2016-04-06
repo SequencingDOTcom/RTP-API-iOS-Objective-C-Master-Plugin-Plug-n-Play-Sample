@@ -125,6 +125,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 - (void)handleFileSelected:(NSDictionary *)file {
     NSLog(@"handleFileSelected: %@", file);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

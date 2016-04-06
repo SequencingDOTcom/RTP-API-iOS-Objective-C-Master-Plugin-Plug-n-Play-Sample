@@ -5,15 +5,13 @@
 
 #import "SQOAuth.h"
 #import "SQServerManager.h"
-
-@interface SQOAuth()
-
-@property (strong, nonatomic) SQAuthResult *auth;
-
-@end
+#import "SQToken.h"
 
 
 @implementation SQOAuth
+
+#pragma mark -
+#pragma mark Initializer
 
 + (instancetype)sharedInstance {
     static SQOAuth *instance = nil;
@@ -23,6 +21,7 @@
     });
     return instance;
 }
+
 
 - (void)registrateApplicationParametersCliendID:(NSString *)client_id
                                    ClientSecret:(NSString *)client_secret
@@ -34,6 +33,11 @@
                                                            Scope:scope];
 }
 
+
+
+#pragma mark -
+#pragma mark for Guest user
+
 - (void)authorizeUser {
     [[SQServerManager sharedInstance] authorizeUser:^(SQToken *token) {
         if (token) {
@@ -44,6 +48,34 @@
         }
     }];
 }
+
+
+
+#pragma mark -
+#pragma mark for Authorized user
+
+- (void)withRefreshToken:(SQToken *)refreshToken updateAccessToken:(void (^)(SQToken *))tokenResult {
+    [[SQServerManager sharedInstance] withRefreshToken:refreshToken
+                                     updateAccessToken:^(SQToken *token) {
+                                         if (token) {
+                                             tokenResult(token);
+                                         } else {
+                                             tokenResult(nil);
+                                         }
+                                     }];
+}
+
+
+- (void)launchTokenTimerUpdateWithToken:(SQToken *)token {
+    [[SQServerManager sharedInstance] launchTokenTimerUpdateWithToken:token];
+}
+
+
+- (void)userDidSignOut {
+    [[SQServerManager sharedInstance] userDidSignOut];
+}
+
+
 
 
 @end

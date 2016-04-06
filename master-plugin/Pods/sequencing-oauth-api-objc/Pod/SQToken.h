@@ -5,7 +5,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SQToken : NSObject
+@interface SQToken : NSObject <NSCoding>
 
 @property (readwrite, strong, nonatomic) NSString  *accessToken;
 @property (readwrite, strong, nonatomic) NSDate    *expirationDate;
