@@ -37,7 +37,7 @@
     if (parameters)
         [request setHTTPBody:[[parameters urlEncodedString] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    [request setTimeoutInterval:10];
+    [request setTimeoutInterval:15];
     [request setHTTPShouldHandleCookies:NO];
     
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request

@@ -4,13 +4,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SQToken.h"
+@class SQToken;
 
 @protocol SQAuthorizationProtocol <NSObject>
 
 @required
-
 - (void)userIsSuccessfullyAuthorized:(SQToken *)token;
 - (void)userIsNotAuthorized;
+
+@optional
+- (void)userDidCancelAuthorization;
 
 @end

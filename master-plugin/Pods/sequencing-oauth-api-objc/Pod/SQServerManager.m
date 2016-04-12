@@ -93,7 +93,7 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
 #pragma mark -
 #pragma mark for Guest user. Authorization
 
-- (void)authorizeUser:(void (^)(SQToken *))tokenResult {
+- (void)authorizeUser:(void (^)(SQToken *token, BOOL didCancel, BOOL error))result {
     NSString *randomState = [self randomStringWithLength:[self randomInt]];
     
     NSString *client_id_upd = [self.client_id stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
@@ -109,14 +109,17 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
     
     // ===== authorizing user request =====
     SQLoginViewController *loginViewController =
-    [[SQLoginViewController alloc] initWithURL:(NSURL *)url andCompletionBlock:^(NSMutableDictionary *response) {
-        if (response) {
-            
+    [[SQLoginViewController alloc] initWithURL:(NSURL *)url andCompletionBlock:^(NSMutableDictionary *response)
+    {
+
+        if ([response objectForKey:@"state"])
+        {
             // first, must check if "state" from response matches "state" in request
             if (![[response objectForKey:@"state"] isEqualToString:randomState]) {
                 NSLog(@"state mismatch, response is being spoofed");
-                if (tokenResult) {
-                    tokenResult(nil);
+                if (result) {
+                    [self stopActivityIndicator];
+                    result(nil, NO, YES);
                 }
             } else {
                 
@@ -130,24 +133,33 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                         [[SQTokenUpdater sharedInstance] cancelTimer];
                         // THIS WILL START TIMER TO AUTOMATICALLY REFRESH ACCESS_TOKEN WHEN IT'S EXPIRED
                         [[SQTokenUpdater sharedInstance] startTimer];
-                        tokenResult(token);
+                        result(token, NO, NO);
                     } else {
-                        if (tokenResult) {
+                        if (result) {
                             [self stopActivityIndicator];
-                            tokenResult(nil);
+                            result(nil, NO, YES);
                         }
                     }
                 } onFailure:^(NSError *error) {
                     NSLog(@"error = %@", [error localizedDescription]);
-                    if (tokenResult) {
+                    if (result) {
                         [self stopActivityIndicator];
-                        tokenResult(nil);
+                        result(nil, NO, YES);
                     }
                 }];
             }
-        } else if (tokenResult) {
-            [self stopActivityIndicator];
-            tokenResult(nil);
+            
+        } else if ([response objectForKey:@"didCancelAuthorization"]) {
+            if (result) {
+                [self stopActivityIndicator];
+                result(nil, YES, NO);
+            }
+        
+        } else if ([response objectForKey:@"error"]) {
+            if (result) {
+                [self stopActivityIndicator];
+                result(nil, NO, YES);
+            }
         }
     }];
     

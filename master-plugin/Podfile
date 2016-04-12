@@ -5,7 +5,7 @@
 
 target 'master-plugin' do
 
-pod 'sequencing-master-plugin-api-objc', '~> 1.0.1’
+pod 'sequencing-master-plugin-api-objc', '~> 1.0.2’
 
 end
 

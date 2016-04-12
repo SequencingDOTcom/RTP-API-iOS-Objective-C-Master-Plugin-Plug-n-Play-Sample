@@ -13,6 +13,7 @@
 @property (weak, nonatomic) UIWebView *webView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) NSURL *url;
+@property (nonatomic, retain) NSURLRequest *request;
 
 @end
 
@@ -49,7 +50,7 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.titleView = self.activityIndicator;
     
-    // open login page from url with params 
+    // open login page from url with params
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     webView.delegate = self;
     [webView loadRequest:request];
@@ -64,22 +65,33 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Actions
 
 - (void)actionCancel:(UIBarButtonItem *)sender {
     if (self.completionBlock) {
-        self.completionBlock(nil);
+        self.webView.delegate = nil;
+        NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+        [result setObject:[NSNumber numberWithBool:YES] forKey:@"didCancelAuthorization"];
+        self.completionBlock(result);
     }
     // put here some variations to close current webView depending on the way it was shown
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    [self.activityIndicator startAnimating];
+    
+    if ((self.request == nil) || ![[self.request URL] isEqual:request.URL]) {
+        self.request = request;
+    } else {
+        return NO;
+    }
+    
     if ([[SQRequestHelper sharedInstance] verifyRequestForRedirectBack:request]) {
         self.webView.delegate = nil;
         if (self.completionBlock) {
@@ -88,12 +100,96 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         return NO;
     }
+    
+    BOOL status = [self sendSynchRequest:request];
+    if (!status) {
+        self.webView.delegate = nil;
+        if (self.completionBlock) {
+            NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+            [result setObject:[NSNumber numberWithBool:YES] forKey:@"error"];
+            self.completionBlock(result);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return NO;
+    }
+    
+    return status;
+}
+
+
+- (BOOL)sendSynchRequest:(NSURLRequest *)request {
+    NSHTTPURLResponse *response;
+    NSError *error;
+    
+    [self.activityIndicator startAnimating];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+                                                 returningResponse:&response
+                                                             error:&error];
+    if (responseData) {
+        [self.activityIndicator stopAnimating];
+    }
+    
+    // NSLog(@"\nresponse \n\t-> %@", response);
+    // NSLog(@"\nresponse. statusCode \n\t-> %ld", [response statusCode]);
+    // NSLog(@"\nrerror -> \n\t%@", error);
+    
+    if (([response statusCode] != 200 &&
+         [response statusCode] != 301 &&
+         [response statusCode] != 302) || error)
+    {
+        NSLog(@"status code: %ld", (long)[response statusCode]);
+        // handle error condition
+        return NO;
+        
+    } else {
+        /*
+         [self.webView loadData:responseData
+         MIMEType:[response MIMEType]
+         textEncodingName:[response textEncodingName]
+         baseURL:[response URL]];
+         [self setView:self.webView];*/
+    }
+    
     return YES;
 }
+
+/*
+- (void)sendAsynchRequest:(NSURLRequest *)request withCompletion:(void (^)(BOOL success))completion {
+    [self.activityIndicator startAnimating];
+    
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+                                          NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+                                          NSInteger statusCode = [HTTPResponse statusCode];
+                                          
+                                          // NSLog(@"\nresponse \n\t-> %@", response);
+                                          // NSLog(@"\nresponse. statusCode \n\t-> %ld", [response statusCode]);
+                                          // NSLog(@"\nrerror -> \n\t%@", error);
+                                          
+                                          if ((statusCode != 200 && statusCode != 301 && statusCode != 302) || error) {
+                                              // one of the error responses, e.g. 4xx or 5xx, or error
+                                              [self.activityIndicator stopAnimating];
+                                              completion(NO);
+                                              
+                                              
+                                          } else {
+                                              // successfull response, e.g. 2xx
+                                              [self.activityIndicator stopAnimating];
+                                              completion(YES);
+                                              
+                                              // [self.webView loadData:responseData MIMEType:[response MIMEType] textEncodingName:[response textEncodingName] baseURL:[response URL]];
+                                              // [self setView:self.webView];
+                                          }
+                                      }];
+    [dataTask resume];
+}*/
+
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [self.activityIndicator startAnimating];
 }
+
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [self.activityIndicator stopAnimating];

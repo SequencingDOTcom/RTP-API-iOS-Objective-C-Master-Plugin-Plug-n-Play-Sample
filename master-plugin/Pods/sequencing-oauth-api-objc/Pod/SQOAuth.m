@@ -39,12 +39,19 @@
 #pragma mark for Guest user
 
 - (void)authorizeUser {
-    [[SQServerManager sharedInstance] authorizeUser:^(SQToken *token) {
-        if (token) {
+    [[SQServerManager sharedInstance] authorizeUser:^(SQToken *token, BOOL didCancel, BOOL error) {
+        
+        if (token.accessToken != nil) {
             [self.authorizationDelegate userIsSuccessfullyAuthorized:token];
             
-        } else {
+        } else if (didCancel) {
+            if ([self.authorizationDelegate respondsToSelector:@selector(userDidCancelAuthorization)]) {
+                [self.authorizationDelegate userDidCancelAuthorization];
+            }
+            
+        } else if (error) {
             [self.authorizationDelegate userIsNotAuthorized];
+            
         }
     }];
 }

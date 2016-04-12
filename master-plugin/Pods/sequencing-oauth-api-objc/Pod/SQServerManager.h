@@ -25,7 +25,7 @@
  *  for guest user
  *  method to authorize user on a lower level
  */
-- (void)authorizeUser:(void(^)(SQToken *token))tokenResult;
+- (void)authorizeUser:(void(^)(SQToken *token, BOOL didCancel, BOOL error))result;
 
 
 /*

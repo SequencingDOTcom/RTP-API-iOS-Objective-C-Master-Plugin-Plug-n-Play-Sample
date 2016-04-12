@@ -98,10 +98,15 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 - (void)userIsNotAuthorized {
     dispatch_async(kMainQueue, ^{
         self.view.userInteractionEnabled = YES;
-        [self showAlertWithMessage:@"Can't authorize user"];
+        [self showAlertWithMessage:@"Server error\nCan't authorize user"];
     });
 }
 
+- (void)userDidCancelAuthorization {
+    dispatch_async(kMainQueue, ^{
+        self.view.userInteractionEnabled = YES;
+    });
+}
 
 
 #pragma mark -
