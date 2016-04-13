@@ -13,7 +13,7 @@
 @property (weak, nonatomic) UIWebView *webView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) NSURL *url;
-@property (nonatomic, retain) NSURLRequest *request;
+// @property (nonatomic, retain) NSURLRequest *requestTest;
 
 @end
 
@@ -50,10 +50,12 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.navigationItem.titleView = self.activityIndicator;
     
+    [self.activityIndicator startAnimating];
     // open login page from url with params
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     webView.delegate = self;
     [webView loadRequest:request];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,11 +88,20 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     [self.activityIndicator startAnimating];
     
-    if ((self.request == nil) || ![[self.request URL] isEqual:request.URL]) {
-        self.request = request;
+    /*
+    if ((self.requestTest == nil) || ![[self.requestTest URL] isEqual:request.URL]) {
+        self.requestTest = request;
     } else {
-        return NO;
-    }
+        if (self.completionBlock) {
+            self.webView.delegate = nil;
+            NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
+            [result setObject:[NSNumber numberWithBool:YES] forKey:@"error"];
+            self.completionBlock(result);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return YES;
+    }*/
+    
     
     if ([[SQRequestHelper sharedInstance] verifyRequestForRedirectBack:request]) {
         self.webView.delegate = nil;
@@ -101,6 +112,7 @@
         return NO;
     }
     
+    /*
     BOOL status = [self sendSynchRequest:request];
     if (!status) {
         self.webView.delegate = nil;
@@ -111,12 +123,12 @@
         }
         [self dismissViewControllerAnimated:YES completion:nil];
         return NO;
-    }
+    }*/
     
-    return status;
+    return YES;
 }
 
-
+/*
 - (BOOL)sendSynchRequest:(NSURLRequest *)request {
     NSHTTPURLResponse *response;
     NSError *error;
@@ -128,30 +140,18 @@
     if (responseData) {
         [self.activityIndicator stopAnimating];
     }
-    
-    // NSLog(@"\nresponse \n\t-> %@", response);
-    // NSLog(@"\nresponse. statusCode \n\t-> %ld", [response statusCode]);
-    // NSLog(@"\nrerror -> \n\t%@", error);
-    
-    if (([response statusCode] != 200 &&
-         [response statusCode] != 301 &&
-         [response statusCode] != 302) || error)
-    {
-        NSLog(@"status code: %ld", (long)[response statusCode]);
-        // handle error condition
+    NSString *string = [error domain];
+
+    if (([response statusCode] != 200 && [response statusCode] != 301 && [response statusCode] != 302) || error) {
         return NO;
         
     } else {
-        /*
-         [self.webView loadData:responseData
-         MIMEType:[response MIMEType]
-         textEncodingName:[response textEncodingName]
-         baseURL:[response URL]];
-         [self setView:self.webView];*/
+        // [self.webView loadData:responseData MIMEType:[response MIMEType] textEncodingName:[response textEncodingName] baseURL:[response URL]];
+        // [self setView:self.webView];
     }
     
     return YES;
-}
+} */
 
 /*
 - (void)sendAsynchRequest:(NSURLRequest *)request withCompletion:(void (^)(BOOL success))completion {
