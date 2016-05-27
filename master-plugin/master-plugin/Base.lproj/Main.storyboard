@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1z3-HO-6kE">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Master plugin sample-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
@@ -18,13 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Master plugin sample" id="cFp-mc-8rt"/>
                     <connections>
-                        <segue destination="smd-me-orf" kind="presentation" identifier="SELECT_FILES" modalTransitionStyle="crossDissolve" id="ksB-Vi-0AA"/>
+                        <segue destination="smd-me-orf" kind="show" identifier="SELECT_FILES" id="ksB-Vi-0AA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="1179"/>
+            <point key="canvasLocation" x="1282" y="1179"/>
         </scene>
         <!--TabbarFileSelector-->
         <scene sceneID="EhL-QD-cAp">
@@ -32,7 +34,7 @@
                 <viewControllerPlaceholder storyboardName="TabbarFileSelector" id="bFk-pZ-B17" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2t-dG-dQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740.5" y="1179"/>
+            <point key="canvasLocation" x="2552.5" y="1179"/>
         </scene>
         <!--Select File View Controller-->
         <scene sceneID="ttc-An-OL2">
@@ -46,36 +48,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZm-Ra-qvs">
-                                <rect key="frame" x="272" y="190" width="57" height="30"/>
-                                <state key="normal" title="My Files"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected genetic file:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zM8-oY-vTd">
+                                <rect key="frame" x="220" y="167" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIX-qX-GwL">
+                                <rect key="frame" x="30" y="196" width="548" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93k-Sk-eHi">
+                                <rect key="frame" x="172" y="257" width="257" height="29"/>
+                                <segments>
+                                    <segment title="Get vitamin D info"/>
+                                    <segment title="Get Melanoma risk"/>
+                                </segments>
                                 <connections>
-                                    <action selector="myFilesSelected:" destination="smd-me-orf" eventType="touchUpInside" id="Udq-GJ-n80"/>
+                                    <action selector="getGeneticInfoPressed:" destination="smd-me-orf" eventType="valueChanged" id="lmB-QJ-0A5"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPT-Vd-vkw">
-                                <rect key="frame" x="257" y="250" width="87" height="30"/>
-                                <state key="normal" title="Sample Files"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBv-ss-D6y">
+                                <rect key="frame" x="30" y="300" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNI-FZ-TZC">
+                                <rect key="frame" x="30" y="329" width="540" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1dA-41-I9D">
+                                <rect key="frame" x="209" y="114" width="183" height="29"/>
+                                <segments>
+                                    <segment title="My Files"/>
+                                    <segment title="Sample Files"/>
+                                </segments>
                                 <connections>
-                                    <action selector="sampleFilesSelected:" destination="smd-me-orf" eventType="touchUpInside" id="6kk-ll-DCz"/>
+                                    <action selector="loadFilesPressed:" destination="smd-me-orf" eventType="valueChanged" id="l8I-QF-3r8"/>
                                 </connections>
-                            </button>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lZm-Ra-qvs" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="0Fw-YR-5LU"/>
-                            <constraint firstItem="xPT-Vd-vkw" firstAttribute="top" secondItem="lZm-Ra-qvs" secondAttribute="bottom" constant="30" id="DOg-R7-zhX"/>
-                            <constraint firstItem="xPT-Vd-vkw" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="Riy-E3-pBy"/>
-                            <constraint firstItem="lZm-Ra-qvs" firstAttribute="top" secondItem="BQ4-lS-q5v" secondAttribute="bottom" constant="170" id="vMb-np-VTl"/>
+                            <constraint firstItem="IBv-ss-D6y" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="0mt-Fu-5TP"/>
+                            <constraint firstItem="IBv-ss-D6y" firstAttribute="top" secondItem="93k-Sk-eHi" secondAttribute="bottom" constant="15" id="1pZ-J0-MDQ"/>
+                            <constraint firstItem="1dA-41-I9D" firstAttribute="top" secondItem="BQ4-lS-q5v" secondAttribute="bottom" constant="50" id="2S0-ZL-ob2"/>
+                            <constraint firstItem="uIX-qX-GwL" firstAttribute="leading" secondItem="mHe-gV-cbi" secondAttribute="leadingMargin" constant="10" id="6mu-fQ-xqr"/>
+                            <constraint firstItem="RNI-FZ-TZC" firstAttribute="top" secondItem="IBv-ss-D6y" secondAttribute="bottom" constant="8" symbolic="YES" id="BXc-dj-cpr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RNI-FZ-TZC" secondAttribute="trailing" constant="10" id="H9a-rJ-5zv"/>
+                            <constraint firstItem="93k-Sk-eHi" firstAttribute="top" secondItem="uIX-qX-GwL" secondAttribute="bottom" constant="40" id="Hud-78-LeE"/>
+                            <constraint firstItem="1dA-41-I9D" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="Jnr-f4-eeq"/>
+                            <constraint firstItem="zM8-oY-vTd" firstAttribute="top" secondItem="1dA-41-I9D" secondAttribute="bottom" constant="25" id="S9Q-Jt-eZK"/>
+                            <constraint firstItem="uIX-qX-GwL" firstAttribute="top" secondItem="zM8-oY-vTd" secondAttribute="bottom" constant="8" symbolic="YES" id="TQW-Px-Dp0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IBv-ss-D6y" secondAttribute="trailing" constant="10" id="af7-0Y-ovb"/>
+                            <constraint firstItem="RNI-FZ-TZC" firstAttribute="leading" secondItem="mHe-gV-cbi" secondAttribute="leadingMargin" constant="10" id="hq2-nY-PZT"/>
+                            <constraint firstItem="IBv-ss-D6y" firstAttribute="leading" secondItem="mHe-gV-cbi" secondAttribute="leadingMargin" constant="10" id="kgx-dY-v7Z"/>
+                            <constraint firstItem="93k-Sk-eHi" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="qNE-0X-ohz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uIX-qX-GwL" secondAttribute="trailingMargin" constant="10" id="rkP-LA-b0K"/>
+                            <constraint firstItem="zM8-oY-vTd" firstAttribute="centerX" secondItem="mHe-gV-cbi" secondAttribute="centerX" id="sH6-LE-e4O"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getFileInfo" destination="93k-Sk-eHi" id="xRg-uM-pLq"/>
+                        <outlet property="melanomaInfo" destination="RNI-FZ-TZC" id="fNl-Da-3YV"/>
+                        <outlet property="selectFile" destination="1dA-41-I9D" id="UOk-Jr-wrj"/>
+                        <outlet property="selectedFileName" destination="uIX-qX-GwL" id="UWi-GM-xT0"/>
+                        <outlet property="selectedFileTagline" destination="zM8-oY-vTd" id="flz-ZN-aAz"/>
+                        <outlet property="vitaminDInfo" destination="IBv-ss-D6y" id="4rl-gW-Ok0"/>
                         <segue destination="bFk-pZ-B17" kind="presentation" identifier="GET_FILES" modalTransitionStyle="crossDissolve" id="5m7-6Z-jKv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKj-KB-Hij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="1179"/>
+            <point key="canvasLocation" x="2049" y="1179"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O2k-mU-IbX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1z3-HO-6kE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bUC-gt-0wK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7lQ-Qd-vCL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IqC-ni-Zkx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="470" y="1179"/>
         </scene>
     </scenes>
 </document>

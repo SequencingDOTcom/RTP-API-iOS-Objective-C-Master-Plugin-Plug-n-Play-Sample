@@ -7,6 +7,7 @@
 //
 
 #import "SelectFileViewController.h"
+#import "AppChainsHelper.h"
 
 // ADD THIS IMPORT
 #import "SQOAuth.h"
@@ -22,10 +23,19 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 @interface SelectFileViewController ()
 
 // activity indicator with label properties
-@property (retain, nonatomic) UIView            *messageFrame;
-@property (retain, nonatomic) UILabel           *strLabel;
-// @property (retain, nonatomic) UIViewController  *mainVC;
+@property (retain, nonatomic) UIView *messageFrame;
+@property (retain, nonatomic) UILabel *strLabel;
 @property (retain, nonatomic) UIActivityIndicatorView *activityIndicator;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *selectFile;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *getFileInfo;
+
+@property (weak, nonatomic) IBOutlet UILabel *selectedFileTagline;
+@property (weak, nonatomic) IBOutlet UILabel *selectedFileName;
+@property (weak, nonatomic) IBOutlet UILabel *vitaminDInfo;
+@property (weak, nonatomic) IBOutlet UILabel *melanomaInfo;
+
+@property (strong, nonatomic) NSDictionary *selectedFile;
 
 @end
 
@@ -35,18 +45,25 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"Using genetic file";
+    
     // prepare activity indicator items
     self.messageFrame = [UIView new];
     self.activityIndicator = [UIActivityIndicatorView new];
     self.strLabel = [UILabel new];
-    // self.mainVC = [[[[[UIApplication sharedApplication] windows] firstObject] rootViewController] presentedViewController];
-    
     
     // subscribe self as delegate to SQTokenRefreshProtocol
     [[SQOAuth sharedInstance] setRefreshTokenDelegate:self];
     
     // subscribe self as delegate to SQFileSelectorProtocol
     [[SQFilesAPI sharedInstance] setFileSelectedHandler:self];
+    
+    
+    [self.selectedFileTagline setHidden:YES];
+    [self.selectedFileName setHidden:YES];
+    [self.getFileInfo setHidden:YES];
+    [self.vitaminDInfo setHidden:YES];
+    [self.melanomaInfo setHidden:YES];
 }
 
 
@@ -54,33 +71,30 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)myFilesSelected:(id)sender {
-    [self getFiles:sender];
-}
-
-
-- (IBAction)sampleFilesSelected:(id)sender {
-    [self getFiles:sender];
-}
-
-
-- (void)getFiles:(UIButton *)sender {
+- (IBAction)loadFilesPressed:(UISegmentedControl *)sender {
+    NSString *selectedSegmentItem = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+    
     self.view.userInteractionEnabled = NO;
     [self startActivityIndicatorWithTitle:@"Loading files"];
+    [self.selectedFileTagline setHidden:YES];
+    [self.selectedFileName setHidden:YES];
+    [self.getFileInfo setHidden:YES];
+    [self.vitaminDInfo setHidden:YES];
+    [self.melanomaInfo setHidden:YES];
     
     [[SQFilesAPI sharedInstance] withToken:self.token.accessToken loadFiles:^(BOOL success) {
         dispatch_async(kMainQueue, ^{
             if (success) {
                 [self stopActivityIndicator];
                 self.view.userInteractionEnabled = YES;
-                // redirect user to view with tab bar with related files displayed (with subcategories)
                 
-                if ([sender.titleLabel.text containsString:@"Sample"]) {
-                    NSLog(@"%@", sender.titleLabel.text);
+                // redirect user to view with tab bar with related files displayed (with subcategories)
+                if ([selectedSegmentItem containsString:@"Sample"]) {
+                    NSLog(@"%@", selectedSegmentItem);
                     [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:@1];
                     
                 } else {
-                    NSLog(@"%@", sender.titleLabel.text);
+                    NSLog(@"%@", selectedSegmentItem);
                     [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:@0];
                 }
                 
@@ -94,6 +108,119 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 }
 
 
+- (IBAction)getGeneticInfoPressed:(UISegmentedControl *)sender {
+    if (_selectedFile && [[_selectedFile allKeys] count] > 0) {
+        NSString *selectedSegmentItem = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+        
+        if ([selectedSegmentItem containsString:@"vitamin"]) {
+            // load vitamin info
+            [self getVitaminDInfo];
+            
+        } else {
+            // load melanoma info
+            [self getMelanomaInfo];
+        }
+    } else {
+        [self showAlertWithMessage:@"Please select genetic file"];
+    }
+}
+
+
+
+#pragma mark -
+#pragma mark File Info
+
+- (void)getVitaminDInfo {
+    if (self.token && self.selectedFile) {
+        
+        [self startActivityIndicatorWithTitle:@"Loading info..."];
+        self.view.userInteractionEnabled = NO;
+        
+        AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
+        
+        [appChainsHelper requestForChain88BasedOnFileID:[_selectedFile objectForKey:@"Id"]
+                                            accessToken:self.token.accessToken
+                                         withCompletion:^(NSString *vitaminDValue) {
+                                             
+                                             if (vitaminDValue && [vitaminDValue length] > 0) {
+                                                 dispatch_async(kMainQueue, ^{
+                                                     if ([vitaminDValue containsString:@"False"]) {
+                                                         
+                                                         [self stopActivityIndicator];
+                                                         self.view.userInteractionEnabled = YES;
+                                                         [self.vitaminDInfo setHidden:NO];
+                                                         self.vitaminDInfo.text = @"There is no issue with vitamin D";
+                                                         
+                                                     } else if ([vitaminDValue containsString:@"True"]) {
+                                                         
+                                                         [self stopActivityIndicator];
+                                                         self.view.userInteractionEnabled = YES;
+                                                         [self.vitaminDInfo setHidden:NO];
+                                                         self.vitaminDInfo.text = @"There is an issue with vitamin D";
+                                                         
+                                                     } else {
+                                                         [self stopActivityIndicator];
+                                                         self.view.userInteractionEnabled = YES;
+                                                         [self.vitaminDInfo setHidden:YES];
+                                                         [self showAlertWithMessage:@"Sorry, there is an error from server."];
+                                                     }
+                                                 });
+                                             } else {
+                                                 dispatch_async(kMainQueue, ^{
+                                                     [self stopActivityIndicator];
+                                                     self.view.userInteractionEnabled = YES;
+                                                     [self.vitaminDInfo setHidden:YES];
+                                                     [self showAlertWithMessage:@"There is error from the server.Probably it's because you're using demo app parameters.\nPlease get valid CLIENT_ID and CLIENT_SECRET for your app in Developer Center on sequencing.com"];
+                                                 });
+                                             }
+                                         }];
+        
+    } else {
+        dispatch_async(kMainQueue, ^{
+            [self.vitaminDInfo setHidden:YES];
+            [self showAlertWithMessage:@"Corrupted user info, can't load information."];
+        });
+    }
+}
+
+
+- (void)getMelanomaInfo {
+    if (self.token && self.selectedFile) {
+        
+        [self startActivityIndicatorWithTitle:@"Loading info..."];
+        self.view.userInteractionEnabled = NO;
+        
+        AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
+        
+        [appChainsHelper requestForChain9BasedOnFileID:[_selectedFile objectForKey:@"Id"]
+                                           accessToken:self.token.accessToken
+                                        withCompletion:^(NSString *melanomaRiskValue) {
+                                            
+                                            if (melanomaRiskValue && [melanomaRiskValue length] > 0) {
+                                                dispatch_async(kMainQueue, ^{
+                                                    [self stopActivityIndicator];
+                                                    self.view.userInteractionEnabled = YES;
+                                                    [self.melanomaInfo setHidden:NO];
+                                                    self.melanomaInfo.text = [NSString stringWithFormat:@"Melanoma issue level is: %@", [melanomaRiskValue capitalizedString]];
+                                                });
+                                            } else {
+                                                dispatch_async(kMainQueue, ^{
+                                                    [self stopActivityIndicator];
+                                                    self.view.userInteractionEnabled = YES;
+                                                    [self.melanomaInfo setHidden:YES];
+                                                    [self showAlertWithMessage:@"There is error from the server.Probably it's because you're using demo app parameters.\nPlease get valid CLIENT_ID and CLIENT_SECRET for your app in Developer Center on sequencing.com"];
+                                                });
+                                            }
+                                        }];
+        
+    } else {
+        dispatch_async(kMainQueue, ^{
+            [self.melanomaInfo setHidden:YES];
+            [self showAlertWithMessage:@"Corrupted user info, can't load information."];
+        });
+    }
+    
+}
 
 #pragma mark -
 #pragma mark Navigation
@@ -126,6 +253,40 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 - (void)handleFileSelected:(NSDictionary *)file {
     NSLog(@"handleFileSelected: %@", file);
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if (file && [[file allKeys] count] > 0) {
+        dispatch_async(kMainQueue, ^{
+            [self stopActivityIndicator];
+            
+            _selectedFile = file;
+            
+            NSString *fileCategory = [file objectForKey:@"FileCategory"];
+            NSString *fileName;
+            
+            if ([fileCategory containsString:@"Community"]) {
+                fileName = [NSString stringWithFormat:@"%@ - %@", [file objectForKey:@"FriendlyDesc1"], [file objectForKey:@"FriendlyDesc2"]];
+            } else {
+                fileName = [NSString stringWithFormat:@"%@", [file objectForKey:@"Name"]];
+            }
+            
+            _selectedFileName.text = fileName;
+            
+            [self.selectedFileTagline setHidden:NO];
+            [self.selectedFileName setHidden:NO];
+            [self.getFileInfo setHidden:NO];
+        });
+        
+    } else {
+        dispatch_async(kMainQueue, ^{
+            [self stopActivityIndicator];
+            self.view.userInteractionEnabled = YES;
+            [self showAlertWithMessage:@"Can't load files"];
+            
+            [self.selectedFileTagline setHidden:YES];
+            [self.selectedFileName setHidden:YES];
+            [self.getFileInfo setHidden:YES];
+        });
+    }
 }
 
 
@@ -141,8 +302,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
         self.strLabel.textColor = [UIColor grayColor];
         
         CGFloat xPos = self.view.frame.size.width / 2 - 60;
-        CGFloat yPos = self.view.frame.size.height / 2 + 20;
-        self.messageFrame = [[UIView alloc] initWithFrame:CGRectMake(xPos, yPos, 120, 30)];
+        //CGFloat yPos = self.view.frame.size.height / 2 + 20;
+        self.messageFrame = [[UIView alloc] initWithFrame:CGRectMake(xPos, 60, 120, 30)];
         self.messageFrame.layer.cornerRadius = 15;
         self.messageFrame.backgroundColor = [UIColor clearColor];
         

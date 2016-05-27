@@ -17,6 +17,8 @@ Contents
 
 Introduction
 =========================================
+Search and find app chains -> https://sequencing.com/app-chains/
+
 An app chain is an integration of an API call and an analysis of an app user's genes. Each app chain provides information about a specific trait, condition, disease, supplement or medication. App chains are used to provide genetically tailored content to app users so that the user experience is instantly personalized at the genetic level. This is called [Real Time Personalization (RTP)](https://sequencing.com/developer-documentation/what-is-real-time-personalization-rtp).
 
 Each app chain consists of:
@@ -27,6 +29,25 @@ Each app chain consists of:
  * the straightforward, easy-to-use results are sent to your app as the API response
 3. **Personalzation**
  * your app uses this information, which is obtained directly from your app user's genes in real-time, to create a truly personalized user experience
+
+Each app chain is composed of 
+
+* an **API request** to Sequencing.com
+ * this request is secured using oAuth2
+* analysis of the app user's genes
+ * each app chain analyzes a specific trait or condition
+ * there are thousands of app chains to choose from
+ * all analysis occurs in real-time at Sequencing.com
+* an **API response** to your app
+ * the information provided by the response allows your app to tailor itself to the app user based on the user's genes.
+ * the documentation for each app chain provides a list of all possible API responses. The response for most app chains are simply 'Yes' or 'No'.
+
+Example
+
+* App Chain: It is very important for this person's health to apply sunscreen with SPF +30 whenever it is sunny or even partly sunny.
+* Possible responses: Yes, No, Insufficient Data, Error
+
+While there are already app chains to personalize most apps, if you need something but don't see an app chain for it, tell us! (ie email us: gittaca@sequencing.com).
 
 To code Real Time Personalization (RTP) technology into apps, developers may [register for a free account](https://sequencing.com/user/register/) at Sequencing.com. App development with RTP is always free.
 
@@ -48,27 +69,27 @@ Please follow this guide to install App-Chain module in your existed or new proj
 	
 * create Podfile in your project directory: 
 
-```
-$ pod init
-```
+	```
+	$ pod init
+	```
 		
-* specify ```sequencing-app-chains-api-objc``` pod parameters: 
+* specify ```sequencing-app-chains-api-objc``` pod parameters in Podfile: 
 
-```
-$ pod 'sequencing-app-chains-api-objc', '~> 1.0.0'
-```		
+	```
+	pod 'sequencing-app-chains-api-objc', '~> 1.0.2'
+	```		
 		
 * install the dependency in your project: 
 
-```
-$ pod install
-```
+	```
+	$ pod install
+	```
 		
 * always open the Xcode workspace instead of the project file: 
 
-```
-$ open *.xcworkspace
-```
+	```
+	$ open *.xcworkspace
+	```
 
 
 Configuration

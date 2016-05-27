@@ -36,6 +36,7 @@
 // parameters for authorization request
 static NSString *authURL        = @"https://sequencing.com/oauth2/authorize";
 static NSString *response_type  = @"code";
+static NSString *mobileParam    = @"mobile=1";
 
 // parameters for token request
 static NSString *tokenURL       = @"https://sequencing.com/oauth2/token";
@@ -103,8 +104,9 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                            "response_type=%@&"
                            "state=%@&"
                            "client_id=%@&"
-                           "scope=%@",
-                           authURL, self.redirect_uri, response_type, randomState, client_id_upd, self.scope];
+                           "scope=%@&"
+                           "%@",
+                           authURL, self.redirect_uri, response_type, randomState, client_id_upd, self.scope, mobileParam];
     NSURL *url = [NSURL URLWithString:urlString];
     
     // ===== authorizing user request =====

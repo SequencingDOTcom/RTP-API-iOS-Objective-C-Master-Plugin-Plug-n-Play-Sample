@@ -19,7 +19,7 @@
 static NSString *const CLIENT_ID        = @"oAuth2 Demo ObjectiveC";
 static NSString *const CLIENT_SECRET    = @"RZw8FcGerU9e1hvS5E-iuMb8j8Qa9cxI-0vfXnVRGaMvMT3TcvJme-Pnmr635IoE434KXAjelp47BcWsCrhk0g";
 static NSString *const REDIRECT_URI     = @"authapp://Default/Authcallback";
-static NSString *const SCOPE            = @"demo";
+static NSString *const SCOPE            = @"demo,external";
 
 #define kMainQueue dispatch_get_main_queue()
 static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";

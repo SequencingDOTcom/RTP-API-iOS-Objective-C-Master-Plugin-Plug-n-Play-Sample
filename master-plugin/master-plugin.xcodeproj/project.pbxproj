@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C17E1351CF8AAFE008C26E3 /* AppChainsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C17E1341CF8AAFE008C26E3 /* AppChainsHelper.m */; };
 		1C5B75BD1CAAE98300D68B59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */; };
 		1C5B75C01CAAE99B00D68B59 /* SelectFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B75BF1CAAE99B00D68B59 /* SelectFileViewController.m */; };
 		1C5B75C21CAAEE5300D68B59 /* TabbarFileSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B75C11CAAEE5300D68B59 /* TabbarFileSelector.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C17E1331CF8AAFE008C26E3 /* AppChainsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppChainsHelper.h; sourceTree = "<group>"; };
+		1C17E1341CF8AAFE008C26E3 /* AppChainsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppChainsHelper.m; sourceTree = "<group>"; };
 		1C5B75BB1CAAE98300D68B59 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1C5B75BE1CAAE99B00D68B59 /* SelectFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFileViewController.h; sourceTree = "<group>"; };
@@ -77,6 +80,8 @@
 				1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */,
 				1C5B75BE1CAAE99B00D68B59 /* SelectFileViewController.h */,
 				1C5B75BF1CAAE99B00D68B59 /* SelectFileViewController.m */,
+				1C17E1331CF8AAFE008C26E3 /* AppChainsHelper.h */,
+				1C17E1341CF8AAFE008C26E3 /* AppChainsHelper.m */,
 				1CAACEB01CA1C17900177B12 /* Main.storyboard */,
 				1CAACEA71CA1C17900177B12 /* Supporting Files */,
 			);
@@ -237,6 +242,7 @@
 				1C5B75BD1CAAE98300D68B59 /* LoginViewController.m in Sources */,
 				1CAACEAC1CA1C17900177B12 /* AppDelegate.m in Sources */,
 				1CAACEA91CA1C17900177B12 /* main.m in Sources */,
+				1C17E1351CF8AAFE008C26E3 /* AppChainsHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

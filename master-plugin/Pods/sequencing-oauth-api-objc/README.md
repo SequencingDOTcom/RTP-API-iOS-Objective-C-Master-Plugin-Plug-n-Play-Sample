@@ -94,7 +94,7 @@ You need to follow instruction below if you want to install and use OAuth logic 
 	* create Podfile in your project directory: ```$ pod init```
     * specify "sequencing-oauth-api-objc" pod parameters in Podfile:
     
-    	```pod 'sequencing-oauth-api-objc', '~> 1.0.3'```
+    	```pod 'sequencing-oauth-api-objc', '~> 1.0.7'```
     	
 	* install the dependency in your project: ```$ pod install```
 	* always open the Xcode workspace instead of the project file: ```$ open *.xcworkspace```

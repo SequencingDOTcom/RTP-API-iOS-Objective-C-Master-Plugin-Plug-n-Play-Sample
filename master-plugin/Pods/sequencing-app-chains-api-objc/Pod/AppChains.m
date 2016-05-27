@@ -18,7 +18,7 @@
 /**
  * Timeout to wait between tries to update Job status in seconds
  */
-static const NSUInteger kDefaultReportRetryTimeout = 1;
+static const NSUInteger kDefaultReportRetryTimeout = 3;
 
 /**
  * Default hostname for Beacon requests
@@ -28,7 +28,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 /**
  * Default hostname for sequesing requests
  */
-#define kDefaultHostName @"da.sequencing.com"
+#define kDefaultHostName @"api.sequencing.com"
 
 /**
  * Default AppChains protocol version
@@ -57,18 +57,18 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 
 // Simple init
 - (instancetype)init {
-
+    
     self = [super init];
-
+    
     if (self) {
-
+        
     }
     return self;
 }
 
 // Init with token, uses in getReport request
 - (instancetype)initWithToken:(NSString *)token {
-
+    
     self = [super init];
     if (self) {
         _token = token;
@@ -78,7 +78,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 
 // Init with token and with host name
 - (instancetype)initWithToken:(NSString *)token withHostName:(NSString *)hostName {
-
+    
     self = [super init];
     if (self) {
         _token = token;
@@ -100,12 +100,12 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                       withAllele:(NSString *)allele
                 withSuccessBlock:(void (^)(NSString *result))success
                 withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     [self getBeaconWithMethodName:@"PublicBeacons"
                    withParameters:[self getBeaconParametersWithChrom:chrom withPos:pos withAllele:allele]
                  withSuccessBlock:^(NSString *result) {
                      success(result);
-
+                     
                  } withFailureBlock:^(NSError *error) {
                      failure(error);
                  }];
@@ -122,12 +122,12 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                           withAllele:(NSString *)allele
                     withSuccessBlock:(void (^)(NSString *result))success
                     withFailureBlock:(void (^) (NSError *error))failure {
-
+    
     [self getBeaconWithMethodName:@"SequencingBeacon"
                    withParameters:[self getBeaconParametersWithChrom:chrom withPos:pos withAllele:allele]
                  withSuccessBlock:^(NSString *result) {
                      success(result);
-
+                     
                  } withFailureBlock:^(NSError *error) {
                      failure(error);
                  }];
@@ -145,22 +145,32 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                      withDatasourceId:(NSString *)datasourceId
                      withSuccessBlock:(void (^)(Report *result))success
                      withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     self.chainsHostname = kDefaultHostName;
-
+    
     // Submitting job request
     [self submitReportJobWithHTTPMethod:@"POST"
                    withRemoteMethodName:remoteMethodName
               withApplicationMethodName:applicationMethodName
                        withDatasourceId:datasourceId
                        withSuccessBlock:^(Job *job) {
-
-                           [self getReportImplWithJob:job
-                                     withSuccessBlock:^(Report *result) {
-                                         success(result);
-                                     } withFailureBlock:^(NSError *error) {
-                                         failure(error);
-                                     }];
+                           
+                           if (job.getJobId > 0) {
+                               [self getReportImplWithJob:job
+                                         withSuccessBlock:^(Report *result) {
+                                             success(result);
+                                         } withFailureBlock:^(NSError *error) {
+                                             failure(error);
+                                         }];
+                           } else {
+                               NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"jobID is zero.", nil)};
+                               NSError *error = [NSError errorWithDomain:@"jobID error"
+                                                                    code:0
+                                                                userInfo:userInfo];
+                               failure(error);
+                           }
                        }
                        withFailureBlock:^(NSError *error) {
                            failure(error);
@@ -178,20 +188,30 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                       withRequestBody:(NSString *)requestBody
                      withSuccessBlock:(void (^)(Report *result))success
                      withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     self.chainsHostname = kDefaultHostName;
-
+    
     [self submitReportJobWithHTTPMethod:@"POST"
                    withRemoteMethodName:remoteMethodName
                         withRequestBody:requestBody
                        withSuccessBlock:^(Job *job) {
-
-                           [self getReportImplWithJob:job
-                                     withSuccessBlock:^(Report *result) {
-                                         success(result);
-                                     } withFailureBlock:^(NSError *error) {
-                                         failure(error);
-                                     }];
+                           
+                           if (job.getJobId > 0) {
+                               [self getReportImplWithJob:job
+                                         withSuccessBlock:^(Report *result) {
+                                             success(result);
+                                         } withFailureBlock:^(NSError *error) {
+                                             failure(error);
+                                         }];
+                           } else {
+                               NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"jobID is zero.", nil)};
+                               NSError *error = [NSError errorWithDomain:@"jobID error"
+                                                                    code:0
+                                                                userInfo:userInfo];
+                               failure(error);
+                           }
                        }
                        withFailureBlock:^(NSError *error) {
                            failure(error);
@@ -211,9 +231,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                  withParameters:(NSDictionary *)parameters
                withSuccessBlock:(void (^)(NSString *result))success
                withFailureBlock:(void (^) (NSError *error))failure {
-
+    
     [self getBeaconWithMethodName:methodName
-              withQueryString:[self getRequestStringWithParameters:parameters]
+                  withQueryString:[self getRequestStringWithParameters:parameters]
                  withSuccessBlock:^(NSString *result) {
                      success(result);
                  } withFailureBlock:^(NSError *error) {
@@ -232,9 +252,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                 withQueryString:(NSString *)queryString
                withSuccessBlock:(void (^)(NSString *result))success
                withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     self.chainsHostname = kBeaconHostName;
-
+    
     [self httpRequestWithHTTPMethod:@"GET"
                             withURL:[self getBeaconUrlWithMethodName:methodName withQueryString:queryString]
                     withRequestBody:@""
@@ -259,22 +279,31 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                         withDatasourceId:(NSString *)datasourceId
                         withSuccessBlock:(void (^)(NSDictionary *result))success
                         withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     self.chainsHostname = kDefaultHostName;
-
+    
     [self submitReportJobWithHTTPMethod:@"POST"
                    withRemoteMethodName:remoteMethodName
               withApplicationMethodName:applicationMethodName
                        withDatasourceId:datasourceId
                        withSuccessBlock:^(Job *job) {
-
-                           [self getRawJobResultWithJob:job
-                                       withSuccessBlock:^(RawReportJobResult *rawResult) {
-                                           success([rawResult getSource]);
-                                       } withFailureBlock:^(NSError *error) {
-                                           failure(error);
-                                       }];
-
+                           
+                           if (job.getJobId > 0) {
+                               [self getRawJobResultWithJob:job
+                                           withSuccessBlock:^(RawReportJobResult *rawResult) {
+                                               success([rawResult getSource]);
+                                           } withFailureBlock:^(NSError *error) {
+                                               failure(error);
+                                           }];
+                           } else {
+                               NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"jobID is zero.", nil)};
+                               NSError *error = [NSError errorWithDomain:@"jobID error"
+                                                                    code:0
+                                                                userInfo:userInfo];
+                               failure(error);
+                           }
                        } withFailureBlock:^(NSError *error) {
                            failure(error);
                        }];
@@ -292,21 +321,30 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                          withRequestBody:(NSString *)requestBody
                         withSuccessBlock:(void (^)(NSDictionary *result))success
                         withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     self.chainsHostname = kDefaultHostName;
-
+    
     [self submitReportJobWithHTTPMethod:@"POST"
                    withRemoteMethodName:remoteMethodName
                         withRequestBody:requestBody
                        withSuccessBlock:^(Job *job) {
-
-                           [self getRawJobResultWithJob:job
-                                       withSuccessBlock:^(RawReportJobResult *rawResult) {
-                                           success([rawResult getSource]);
-                                       } withFailureBlock:^(NSError *error) {
-                                           failure(error);
-                                       }];
-
+                           
+                           if (job.getJobId > 0) {
+                               [self getRawJobResultWithJob:job
+                                           withSuccessBlock:^(RawReportJobResult *rawResult) {
+                                               success([rawResult getSource]);
+                                           } withFailureBlock:^(NSError *error) {
+                                               failure(error);
+                                           }];
+                           } else {
+                               NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"jobID is zero.", nil),
+                                                          NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"jobID is zero.", nil)};
+                               NSError *error = [NSError errorWithDomain:@"jobID error"
+                                                                    code:0
+                                                                userInfo:userInfo];
+                               failure(error);
+                           }
                        } withFailureBlock:^(NSError *error) {
                            failure(error);
                        }];
@@ -318,39 +356,39 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 - (NSDictionary *)getBeaconParametersWithChrom:(int)chrom
                                        withPos:(int)pos
                                     withAllele:(NSString *)allele {
-
+    
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(chrom), @"chrom",
-                                                                          @(pos), @"pos",
-                                                                          allele, @"allele", nil];
-
+                                @(pos), @"pos",
+                                allele, @"allele", nil];
+    
     return parameters;
 }
 
 - (NSString *)getRequestStringWithParameters:(NSDictionary *)parameters {
-
+    
     NSString *queryString = @"";
-
+    
     if (parameters) {
-
+        
         queryString = @"?";
-
+        
         for (NSString *key in parameters.allKeys) {
-
+            
             NSString *param = [NSString stringWithFormat:@"%@=%@&", key, parameters[key]];
             queryString = [queryString stringByAppendingString:param];
         }
-
+        
         queryString =  [queryString substringToIndex:[queryString length] - 1];
     }
-
+    
     return queryString;
 }
 
 - (NSURL *)getBeaconUrlWithMethodName:(NSString *)methodName withQueryString:(NSString *)queryString {
-
+    
     NSString *urlString = [NSString stringWithFormat:@"%@://%@:%d/%@/", kDefaultAppChainsSchema, self.chainsHostname, kDefaultAppChainsPort, methodName];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", urlString, queryString]];
-
+    
     return url;
 }
 
@@ -369,7 +407,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                      withDatasourceId:(NSString *)datasourceId
                      withSuccessBlock:(void (^)(Job *job))success
                      withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     [self submitReportJobWithHTTPMethod:httpMethod
                    withRemoteMethodName:remoteMethodName
                         withRequestBody:[self buildReportRequestBodyWithApplicationMethodName:applicationMethodName withDataSourceID:datasourceId]
@@ -394,18 +432,18 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                       withRequestBody:(NSString *)requestBody
                      withSuccessBlock:(void (^)(Job *job))success
                      withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     [self httpRequestWithHTTPMethod:httpMethod
                             withURL:[self getJobSubmissionUrlWithApplicationMethodName:remoteMethodName]
                     withRequestBody:requestBody
                    withSuccessBlock:^(HttpResponse *httpResponse) {
-
+                       
                        NSData *data = [httpResponse.getResponseData dataUsingEncoding:NSUTF8StringEncoding];
                        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-
+                       
                        Job *reportJob = [[Job alloc] init];
                        [reportJob jobWithId:[dict[@"jobId"] integerValue]];
-
+                       
                        success(reportJob);
                    }
                    withFailureBlock:^(NSError *error) {
@@ -426,111 +464,111 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
                   withRequestBody:(NSString *)requestBody
                  withSuccessBlock:(void (^)(HttpResponse *httpResponse))success
                  withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     if ([[httpMethod uppercaseString] isEqualToString:@"GET"]) {
-
-       [self openHTTPGETSessionWithURL:url withSuccessBlock:^(NSData *data, NSURLResponse *response) {
-
-           HttpResponse *resultResponse = [[HttpResponse alloc] init];
-
-           NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
-           NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-           [resultResponse httpResponseWithResponseCode:urlResponse.statusCode withResponseData:dataString];
-
-           success(resultResponse);
-
-       } withFailureBlock:^(NSError *error) {
-           failure(error);
-       }];
-
+        
+        [self openHTTPGETSessionWithURL:url withSuccessBlock:^(NSData *data, NSURLResponse *response) {
+            
+            HttpResponse *resultResponse = [[HttpResponse alloc] init];
+            
+            NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            [resultResponse httpResponseWithResponseCode:urlResponse.statusCode withResponseData:dataString];
+            
+            success(resultResponse);
+            
+        } withFailureBlock:^(NSError *error) {
+            failure(error);
+        }];
+        
     } else if ([[httpMethod uppercaseString] isEqualToString:@"POST"]) {
-
-       [self openHTTPPOSTSessionWithURL:url withBody:requestBody withSuccessBlock:^(NSData *data, NSURLResponse *response) {
-
-           HttpResponse *resultResponse = [[HttpResponse alloc] init];
-
-           NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
-           NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-
-           [resultResponse httpResponseWithResponseCode:urlResponse.statusCode withResponseData:dataString];
-
-           success(resultResponse);
-
-       } withFailureBlock:^(NSError *error) {
-
-       }];
-
+        
+        [self openHTTPPOSTSessionWithURL:url withBody:requestBody withSuccessBlock:^(NSData *data, NSURLResponse *response) {
+            
+            HttpResponse *resultResponse = [[HttpResponse alloc] init];
+            
+            NSHTTPURLResponse *urlResponse = (NSHTTPURLResponse *)response;
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            [resultResponse httpResponseWithResponseCode:urlResponse.statusCode withResponseData:dataString];
+            
+            success(resultResponse);
+            
+        } withFailureBlock:^(NSError *error) {
+            
+        }];
+        
     } else {
         NSLog(@"HTTP method %@ is not supported", httpMethod);
     }
-
+    
 }
 
 
 - (void)openHTTPGETSessionWithURL:(NSURL *)url
                  withSuccessBlock:(void (^)(NSData *data, NSURLResponse *response))success
                  withFailureBlock:(void (^) (NSError *error))failure {
-
+    
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue: [NSOperationQueue mainQueue]];
-
+    
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-
+    
     [urlRequest addValue:[NSString stringWithFormat:@"Bearer %@", self.token] forHTTPHeaderField:@"Authorization"];
-
+    
     [urlRequest setHTTPMethod:@"GET"];
-
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-
+                                                    
                                                     if (!error) {
-
+                                                        
                                                         success (data, response);
-
+                                                        
                                                     } else {
-
+                                                        
                                                         failure(error);
                                                     }
                                                 }];
     [dataTask resume];
-
+    
 }
 
 - (void)openHTTPPOSTSessionWithURL:(NSURL *)url
                           withBody:(NSString *)body
                   withSuccessBlock:(void (^)(NSData *data, NSURLResponse *response))success
                   withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-
+    
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-
+    
     NSData *requestBody = [body dataUsingEncoding:NSUTF8StringEncoding];
-
+    
     [urlRequest setHTTPBody:requestBody];
-
+    
     [urlRequest addValue:[NSString stringWithFormat:@"Bearer %@", self.token] forHTTPHeaderField:@"Authorization"];
     [urlRequest addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest addValue:[NSString stringWithFormat:@"%lu", (unsigned long)[body length]] forHTTPHeaderField:@"Content-Length"];
-
+    
     [urlRequest setHTTPMethod:@"POST"];
-
+    
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-
+                                                    
                                                     if (!error) {
-
+                                                        
                                                         success(data, response);
-
+                                                        
                                                     } else {
-
+                                                        
                                                         failure(error);
                                                     }
                                                 }];
     [dataTask resume];
-
+    
 }
 
 /**
@@ -540,23 +578,23 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
  * @return NSString report request body
  */
 - (NSString *)buildReportRequestBodyWithApplicationMethodName:(NSString *)appMethodName withDataSourceID:(NSString *)dataSourceID {
-
+    
     NSDictionary *parameters = @{@"Name": @"dataSourceId",
                                  @"Value": dataSourceID};
-
+    
     NSDictionary *result = @{@"AppCode": appMethodName,
                              @"Pars": @[parameters]};
-
+    
     NSError *err = nil;
     NSData *dJSON = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:&err];
-
+    
     if (err) {
-
+        
         NSLog(@"ERROR: %@", err.localizedDescription);
     }
-
+    
     NSString *resultString = [[NSString alloc] initWithData:dJSON encoding:NSUTF8StringEncoding];
-
+    
     return resultString;
 }
 
@@ -575,7 +613,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
  * @return NSURL
  */
 - (NSURL *)getJobResultsUrlWithJobId:(NSInteger)jobId {
-
+    
     NSString *appMethodNameString = [NSString stringWithFormat:@"GetAppResults?idJob=%ld", (long)jobId];
     return [self getBaseAppChainsUrlWithContext:appMethodNameString];
 }
@@ -602,15 +640,15 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 - (void)getReportImplWithJob:(Job *)job
             withSuccessBlock:(void (^)(Report *result))success
             withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     [self getRawJobResultWithJob:job
                 withSuccessBlock:^(RawReportJobResult *rawResult) {
-
+                    
                     if (rawResult.isCompleted) {
-
+                        
                         success([self processCompletedJobWithRawReportJobResult:rawResult]);
                     }
-
+                    
                 } withFailureBlock:^(NSError *error) {
                     failure(error);
                 }];
@@ -625,69 +663,81 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 - (void)getRawJobResultWithJob:(Job *)job
               withSuccessBlock:(void (^)(RawReportJobResult *rawResult))success
               withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     NSURL *url = [self getJobResultsUrlWithJobId:[job getJobId]];
-
+    
     [self httpRequestWithHTTPMethod:@"GET"
                             withURL:url
                     withRequestBody:@""
                    withSuccessBlock:^(HttpResponse *httpResponse) {
-
-                       NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
-
-                       NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
-
-                       NSArray *resultProps = decodedResponse[@"ResultProps"];
-
-                       NSDictionary *status = decodedResponse[@"Status"];
-
-                       BOOL succeeded;
-
-                       if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
-                           succeeded = NO;
+                       
+                       NSString *rawResponseData = [httpResponse getResponseData];
+                       
+                       if ([[rawResponseData lowercaseString] rangeOfString:@"exception"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"invalid"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"error"].location != NSNotFound) {
+                           
+                           NSLog(@"appchains error: %@", rawResponseData);
+                           failure([NSError errorWithDomain:@""
+                                                       code:0
+                                                   userInfo:@{@"Server error. Operation couldn't be completed" : @"localizationDescription"}]);
+                           
                        } else {
-                           succeeded = YES; // status[@"CompletedSuccesfully"]
-                       }
-
-                       NSString *jobStatus = status[@"Status"];
-
-                       NSString *statusString = [jobStatus lowercaseString];
-
-
-                       if ([statusString isEqualToString:@"completed"] || [statusString isEqualToString:@"failed"]) {
-
-                           RawReportJobResult *result = [[RawReportJobResult alloc] init];
-                           [result setSource:decodedResponse];
-                           [result setJobId:[job getJobId]];
-                           [result setSucceded:succeeded];
-                           [result setCompleted:YES];
-                           [result setResultProps:resultProps];
-                           [result setStatus:jobStatus];
-
-                           success(result);
-
-                       } else {
-
-//                           if (checkCompletionCount <= kDefaultTimeout) {
-
+                           
+                           NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
+                           
+                           NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+                           
+                           NSArray *resultProps = decodedResponse[@"ResultProps"];
+                           
+                           NSDictionary *status = decodedResponse[@"Status"];
+                           
+                           BOOL succeeded;
+                           
+                           if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
+                               succeeded = NO;
+                           } else {
+                               succeeded = YES; // status[@"CompletedSuccesfully"]
+                           }
+                           
+                           NSString *jobStatus = status[@"Status"];
+                           
+                           NSString *statusString = [jobStatus lowercaseString];
+                           
+                           
+                           if ([statusString isEqualToString:@"completed"] || [statusString isEqualToString:@"failed"]) {
+                               
+                               RawReportJobResult *result = [[RawReportJobResult alloc] init];
+                               [result setSource:decodedResponse];
+                               [result setJobId:[job getJobId]];
+                               [result setSucceded:succeeded];
+                               [result setCompleted:YES];
+                               [result setResultProps:resultProps];
+                               [result setStatus:jobStatus];
+                               
+                               success(result);
+                               
+                           } else {
+                               
+                               // if (checkCompletionCount <= kDefaultTimeout) {
+                               
                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kDefaultReportRetryTimeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
+                                   
                                    NSLog(@">> call check completion step {%02lu}, %@", (unsigned long)checkCompletionCount, statusString);
-
+                                   
                                    checkCompletionCount ++;
-
+                                   
                                    [self getRawJobResultWithJob:job withSuccessBlock:success withFailureBlock:failure];
                                });
-//                           } else {
-//
-//                               failure([NSError errorWithDomain:@""
-//                                                           code:0
-//                                                       userInfo:@{@"Operation couldn't be completed" : @"localizationDescription"}]);
-//                           }
+                               // } else {
+                               //       failure([NSError errorWithDomain:@""
+                               //                                   code:0
+                               //                               userInfo:@{@"Operation couldn't be completed" : @"localizationDescription"}]);
+                               // }
+                           }
+                           
                        }
-
-
-
+                       
                    } withFailureBlock:^(NSError *error) {
                        failure(error);
                    }];
@@ -695,53 +745,53 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 
 
 - (Report *)processCompletedJobWithRawReportJobResult:(RawReportJobResult *)rawResult {
-
+    
     NSMutableArray *results = [NSMutableArray new];
-
+    
     for (NSDictionary *resultProp in rawResult.getResultProps) {
-
+        
         id type = resultProp[@"Type"];
         id value = resultProp[@"Value"];
         id name = resultProp[@"Name"];
-
+        
         if (type == nil || value == nil || name == nil)
             continue;
-
+        
         NSString *resultPropType = [[NSString stringWithFormat:@"%@", type] lowercaseString];
         NSString *resultPropValue = [[NSString stringWithFormat:@"%@", value] lowercaseString];
         NSString *resultPropName = [NSString stringWithFormat:@"%@", name];
-
+        
         if ([resultPropType isEqualToString:@"plaintext"]) {
-
+            
             Result *textResult = [[Result alloc] init];
-
+            
             TextResultValue *textResultValue = [[TextResultValue alloc] init];
             [textResultValue textResultValueWithData:resultPropValue];
-
+            
             [textResult resultWithName:resultPropName withResultType:kResultTypeText withResultValue:textResultValue];
-
+            
             [results addObject:textResult];
-
+            
         } else if ([resultPropType isEqualToString:@"pdf"]) {
-
+            
             Result *fileResult = [[Result alloc] init];
-
+            
             NSString *filename = [NSString stringWithFormat:@"report_%ld.%@", (long)rawResult.getJobId, resultPropType];
             NSURL *reportFileUrl = [self getReportFileUrlWithFileId:[resultPropValue integerValue]];
-
+            
             FileResultValue *fileResultValue = [[FileResultValue alloc] init];
             [fileResultValue fileResultValueWithChains:self withName:filename withExtension:resultPropType withURL:reportFileUrl];
-
+            
             [fileResult resultWithName:resultPropName withResultType:kResultTypeFile withResultValue:(ResultValue *)fileResultValue];
-
+            
             [results addObject:fileResult];
         }
     }
-
+    
     Report *finalResult = [[Report alloc] init];
     [finalResult setSucceded:rawResult.isSucceeded];
     [finalResult setResults:[NSArray arrayWithArray:results]];
-
+    
     return finalResult;
 }
 
@@ -752,7 +802,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
  */
 
 - (NSURL *)getReportFileUrlWithFileId:(NSInteger)fileId {
-
+    
     NSString *appMethodNameString = [NSString stringWithFormat:@"GetReportFile?id=%ld", (long)fileId];
     return [self getBaseAppChainsUrlWithContext:appMethodNameString];
 }
@@ -867,7 +917,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 
 - (void)getStreamWithSuccessBlock:(void (^)(NSData *data))success
                  withFailureBlock:(void (^)(NSError *error))failure {
-
+    
     [self.chains openHTTPGETSessionWithURL:[self getURL]
                           withSuccessBlock:^(NSData *data, NSURLResponse *response) {
                               success(data);
@@ -878,20 +928,20 @@ static const NSUInteger kDefaultReportRetryTimeout = 1;
 
 - (void)saveAsWithFullPathWithName:(NSString *)fullPathWithName
 {
-   [self getStreamWithSuccessBlock:^(NSData *data) {
-       NSLog(@"Success");
-       NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-       path = [path stringByAppendingString:fullPathWithName];
-
-       [data writeToFile:path atomically:YES];
-
-   } withFailureBlock:^(NSError *error) {
+    [self getStreamWithSuccessBlock:^(NSData *data) {
+        NSLog(@"Success");
+        NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        path = [path stringByAppendingString:fullPathWithName];
+        
+        [data writeToFile:path atomically:YES];
+        
+    } withFailureBlock:^(NSError *error) {
         NSLog(@"Error: %@", error.localizedDescription);
     }];
 }
 
 - (void)saveToLocation:(NSString *)location {
-
+    
     [self saveAsWithFullPathWithName:[NSString stringWithFormat:@"%@/%@", location, [self getName]]];
 }
 
