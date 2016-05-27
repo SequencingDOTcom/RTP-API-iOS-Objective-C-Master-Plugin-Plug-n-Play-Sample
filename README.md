@@ -10,7 +10,7 @@ This demo works out of the box. To modify it to work with your apps:
 * Search and find one or more app chains you want your app to use. [Find App Chains](https://sequencing.com/app-chains)
 * Change the App Chain "Chain#" with the Chain# you want to use.
 * Configure your app based on the possible responses to your selected App Chain(s). 
-** Most app chains are just a simple "Yes" or "No" response.
+ * Most app chains are just a simple "Yes" or "No" response.
 
 **The Master Plugin with description is available on the following languages:**
 * [Objective-C (CocoaPod plugin)](https://github.com/SequencingDOTcom/CocoaPod-iOS-Master-Plugin-ObjectiveC)
