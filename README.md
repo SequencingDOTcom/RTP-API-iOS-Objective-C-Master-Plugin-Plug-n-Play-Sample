@@ -1,4 +1,4 @@
-# iOS Master Plugin - Plug-n-Play Demo in Objective-C
+# iOS Master Plugin - Plug-n-Play Objective-C Demo
 
 This is a plug-n-play demo of the iOS (Objective-C) Master Plugin from Sequencing.com. This is a 'plug-n-play' demo because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
 
