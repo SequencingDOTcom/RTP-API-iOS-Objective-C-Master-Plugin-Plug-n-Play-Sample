@@ -1,6 +1,16 @@
-# iOS-Master-Plugin-Sample
+# iOS Master Plugin - Plug-n-Play Demo in Objective-C
 
-This is a sample project example on Objective-C with installed and integrated Master plugin via CocoaPod dependency manager.
+This is a plug-n-play demo of the iOS (Objective-C) Master Plugin from Sequencing.com. This is a 'plug-n-play' demo because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
+
+This demo works out of the box. To modify it to work with your apps, just follow the following steps:
+
+* [Register](https://sequencing.com/user/register) for a free account at Sequencing.com
+* Clone this repo and add the code to your app
+* Swap the demo OAuth2 Secret with your OAuth2 secret generated when you are signed in to Sequencing.com. [Generate OAuth2 Secret](https://sequencing.com/developer-center/new-app-oauth-secret)
+* Search and find one or more app chains you want your app to use. [Find App Chains](https://sequencing.com/app-chains)
+* Change the App Chain "Chain#" with the Chain# you want to use.
+* Configure your app based on the possible responses to your selected App Chain(s). 
+** Most app chains are just a simple "Yes" or "No" response.
 
 **The Master Plugin with description is available on the following languages:**
 * [Objective-C (CocoaPod plugin)](https://github.com/SequencingDOTcom/CocoaPod-iOS-Master-Plugin-ObjectiveC)
@@ -56,4 +66,3 @@ This repo is actively maintained by [Sequencing.com](https://sequencing.com/). E
 Contribute
 ======================================
 We encourage you to passionately fork us. If interested in updating the master branch, please send us a pull request. If the changes contribute positively, we'll let it ride.
-
