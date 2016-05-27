@@ -1,6 +1,8 @@
 # iOS Objective-C Master Plugin - Plug-n-Play Sample
 
-This is a plug-n-play sample of the iOS (Objective-C) Master Plugin from Sequencing.com. This is 'plug-n-play' because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
+This is a plug-n-play sample of the iOS (Objective-C) Master Plugin from Sequencing.com. It is a sample in Objective-C with installed and integrated Master plugin via CocoaPod dependency manager.
+
+This is 'plug-n-play' because this repo can be cloned and the code added to your app if you want to get up and running as quick as possible.
 
 This sample works out of the box. To modify it to work with your apps:
 
