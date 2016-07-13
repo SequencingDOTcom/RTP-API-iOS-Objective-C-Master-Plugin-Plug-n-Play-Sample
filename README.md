@@ -12,7 +12,8 @@ This sample works out of the box. To modify it to work with your apps:
 * Search and find one or more app chains you want your app to use. [Find App Chains](https://sequencing.com/app-chains)
 * Change the App Chain "Chain#" with the Chain# you want to use.
 * Configure your app based on the possible responses to your selected App Chain(s). 
- * Most app chains are just a simple "Yes" or "No" response.
+* Most app chains are just a simple "Yes" or "No" response.
+
 
 **The Master Plugin with description is available on the following languages:**
 * [Objective-C (CocoaPod plugin)](https://github.com/SequencingDOTcom/CocoaPod-iOS-Master-Plugin-ObjectiveC)
@@ -23,32 +24,38 @@ This sample works out of the box. To modify it to work with your apps:
 
 **Screenshots examples:**
 * sign in page
-
-![sign in page](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.15.42%20PM.png)
+![sign in page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.49.56%20PM.png)
 
 * login dialog
-
-![login dialog](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.15.47%20PM.png)
+![login dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.50.36%20PM.png)
 
 * authorize access dialog
-
-![authorize access dialog](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.38%20PM.png)
+![authorize access dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.14%20PM.png)
 
 * select file page
+![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.28%20PM.png)
 
-![select file page](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.44%20PM.png)
+* select file - intro page
+![select file intro page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.34%20PM.png)
 
 * my files
-
-![my files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.51%20PM.png)
+![my files](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.37%20PM.png)
 
 * sample files
-
-![sample files](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.16.57%20PM.png)
+![sample files](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.39%20PM.png)
 
 * selected file
+![selected file](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.43%20PM.png)
 
-![selected file](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample/blob/master/Screenshots/Screen%20Shot%202016-04-04%20at%2012.17.07%20PM.png)
+* selected file displayed in Select File screen
+![selected file in previous screen](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.46%20PM.png)
+
+* retrieved information about "Vitamin D"
+![vitamin D](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.55%20PM.png)
+
+* retrieved information about "Melanoma risk"
+![melanoma risk](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.53.03%20PM.png)
+
 
 
 Resources
