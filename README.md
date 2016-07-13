@@ -23,37 +23,49 @@ This sample works out of the box. To modify it to work with your apps:
 
 
 **Screenshots examples:**
+
 * sign in page
+
 ![sign in page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.49.56%20PM.png)
 
 * login dialog
+
 ![login dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.50.36%20PM.png)
 
 * authorize access dialog
+
 ![authorize access dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.14%20PM.png)
 
 * select file page
+
 ![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.28%20PM.png)
 
 * select file - intro page
+
 ![select file intro page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.34%20PM.png)
 
 * my files
+
 ![my files](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.37%20PM.png)
 
 * sample files
+
 ![sample files](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.39%20PM.png)
 
 * selected file
+
 ![selected file](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.43%20PM.png)
 
 * selected file displayed in Select File screen
+
 ![selected file in previous screen](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.46%20PM.png)
 
 * retrieved information about "Vitamin D"
+
 ![vitamin D](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.55%20PM.png)
 
 * retrieved information about "Melanoma risk"
+
 ![melanoma risk](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.53.03%20PM.png)
 
 
