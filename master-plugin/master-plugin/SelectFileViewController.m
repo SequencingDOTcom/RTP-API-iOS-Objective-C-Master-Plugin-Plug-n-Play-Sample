@@ -7,6 +7,7 @@
 //
 
 #import "SelectFileViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "AppChainsHelper.h"
 
 // ADD THIS IMPORT
@@ -27,13 +28,16 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 @property (retain, nonatomic) UILabel *strLabel;
 @property (retain, nonatomic) UIActivityIndicatorView *activityIndicator;
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *selectFile;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *getFileInfo;
+@property (weak, nonatomic) IBOutlet UIView     *buttonView;
+@property (weak, nonatomic) IBOutlet UIButton   *buttonSelectFile;
 
-@property (weak, nonatomic) IBOutlet UILabel *selectedFileTagline;
-@property (weak, nonatomic) IBOutlet UILabel *selectedFileName;
-@property (weak, nonatomic) IBOutlet UILabel *vitaminDInfo;
-@property (weak, nonatomic) IBOutlet UILabel *melanomaInfo;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *getFileInfo;
+@property (weak, nonatomic) IBOutlet UIView *segmentedControlView;
+
+@property (weak, nonatomic) IBOutlet UILabel    *selectedFileTagline;
+@property (weak, nonatomic) IBOutlet UILabel    *selectedFileName;
+@property (weak, nonatomic) IBOutlet UILabel    *vitaminDInfo;
+@property (weak, nonatomic) IBOutlet UILabel    *melanomaInfo;
 
 @property (strong, nonatomic) NSDictionary *selectedFile;
 
@@ -57,13 +61,29 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     
     // subscribe self as delegate to SQFileSelectorProtocol
     [[SQFilesAPI sharedInstance] setFileSelectedHandler:self];
+    [SQFilesAPI sharedInstance].closeButton = YES;
     
+    // adjust buttons view
+    self.buttonView.layer.cornerRadius = 5;
+    self.buttonView.layer.masksToBounds = YES;
+    self.segmentedControlView.layer.cornerRadius = 5;
+    self.segmentedControlView.layer.masksToBounds = YES;
     
     [self.selectedFileTagline setHidden:YES];
     [self.selectedFileName setHidden:YES];
     [self.getFileInfo setHidden:YES];
+    [self.segmentedControlView setHidden:YES];
     [self.vitaminDInfo setHidden:YES];
     [self.melanomaInfo setHidden:YES];
+}
+
+
+- (void)dealloc {
+    // unsubscribe self as delegate to SQTokenRefreshProtocol
+    [[SQOAuth sharedInstance] setRefreshTokenDelegate:nil];
+    
+    // unsubscribe self as delegate to SQFileSelectorProtocol
+    [[SQFilesAPI sharedInstance] setFileSelectedHandler:nil];
 }
 
 
@@ -71,14 +91,13 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)loadFilesPressed:(UISegmentedControl *)sender {
-    NSString *selectedSegmentItem = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
-    
+- (IBAction)loadFilesPressed:(id)sender {
     self.view.userInteractionEnabled = NO;
     [self startActivityIndicatorWithTitle:@"Loading files"];
     [self.selectedFileTagline setHidden:YES];
     [self.selectedFileName setHidden:YES];
     [self.getFileInfo setHidden:YES];
+    [self.segmentedControlView setHidden:YES];
     [self.vitaminDInfo setHidden:YES];
     [self.melanomaInfo setHidden:YES];
     
@@ -87,26 +106,71 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
             if (success) {
                 [self stopActivityIndicator];
                 self.view.userInteractionEnabled = YES;
-                
-                // redirect user to view with tab bar with related files displayed (with subcategories)
-                if ([selectedSegmentItem containsString:@"Sample"]) {
-                    NSLog(@"%@", selectedSegmentItem);
-                    [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:@1];
-                    
-                } else {
-                    NSLog(@"%@", selectedSegmentItem);
-                    [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:@0];
-                }
+                [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:nil];
                 
             } else {
                 [self stopActivityIndicator];
                 self.view.userInteractionEnabled = YES;
-                [self showAlertWithMessage:@"Can't load files"];
+                [self showAlertWithMessage:@"Sorry, can't load files"];
             }
         });
     }];
 }
 
+
+
+#pragma mark -
+#pragma mark SQFileSelectorProtocol
+
+- (void)handleFileSelected:(NSDictionary *)file {
+    NSLog(@"handleFileSelected: %@", file);
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if (file && [[file allKeys] count] > 0) {
+        dispatch_async(kMainQueue, ^{
+            [self stopActivityIndicator];
+            
+            _selectedFile = file;
+            
+            NSString *fileCategory = [file objectForKey:@"FileCategory"];
+            NSString *fileName;
+            
+            if ([fileCategory containsString:@"Community"]) {
+                fileName = [NSString stringWithFormat:@"%@ - %@", [file objectForKey:@"FriendlyDesc1"], [file objectForKey:@"FriendlyDesc2"]];
+            } else {
+                fileName = [NSString stringWithFormat:@"%@", [file objectForKey:@"Name"]];
+            }
+            
+            _selectedFileName.text = fileName;
+            
+            [self.selectedFileTagline setHidden:NO];
+            [self.selectedFileName setHidden:NO];
+            [self.getFileInfo setHidden:NO];
+            [self.segmentedControlView setHidden:NO];
+        });
+        
+    } else {
+        dispatch_async(kMainQueue, ^{
+            [self stopActivityIndicator];
+            self.view.userInteractionEnabled = YES;
+            [self showAlertWithMessage:@"Sorry, can't load files"];
+            
+            [self.selectedFileTagline setHidden:YES];
+            [self.selectedFileName setHidden:YES];
+            [self.getFileInfo setHidden:YES];
+            [self.segmentedControlView setHidden:YES];
+        });
+    }
+}
+
+- (void)closeButtonPressed {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+#pragma mark -
+#pragma mark Get genetic information
 
 - (IBAction)getGeneticInfoPressed:(UISegmentedControl *)sender {
     if (_selectedFile && [[_selectedFile allKeys] count] > 0) {
@@ -125,10 +189,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     }
 }
 
-
-
-#pragma mark -
-#pragma mark File Info
 
 - (void)getVitaminDInfo {
     if (self.token && self.selectedFile) {
@@ -222,17 +282,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     
 }
 
-#pragma mark -
-#pragma mark Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:FILES_CONTROLLER_SEGUE_ID]) {
-        NSNumber *indexToShow = sender;
-        UITabBarController *tabBar = segue.destinationViewController;
-        [tabBar setSelectedIndex:indexToShow.unsignedIntegerValue];
-    }
-}
-
 
 
 #pragma mark -
@@ -244,49 +293,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     self.token.tokenType = updatedToken.tokenType;
     self.token.scope = updatedToken.scope;
     // DO NOT OVERRIDE REFRESH_TOKEN PROPERTY (it comes as null after refresh token request)
-}
-
-
-#pragma mark -
-#pragma mark SQFileSelectorProtocol
-
-- (void)handleFileSelected:(NSDictionary *)file {
-    NSLog(@"handleFileSelected: %@", file);
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    if (file && [[file allKeys] count] > 0) {
-        dispatch_async(kMainQueue, ^{
-            [self stopActivityIndicator];
-            
-            _selectedFile = file;
-            
-            NSString *fileCategory = [file objectForKey:@"FileCategory"];
-            NSString *fileName;
-            
-            if ([fileCategory containsString:@"Community"]) {
-                fileName = [NSString stringWithFormat:@"%@ - %@", [file objectForKey:@"FriendlyDesc1"], [file objectForKey:@"FriendlyDesc2"]];
-            } else {
-                fileName = [NSString stringWithFormat:@"%@", [file objectForKey:@"Name"]];
-            }
-            
-            _selectedFileName.text = fileName;
-            
-            [self.selectedFileTagline setHidden:NO];
-            [self.selectedFileName setHidden:NO];
-            [self.getFileInfo setHidden:NO];
-        });
-        
-    } else {
-        dispatch_async(kMainQueue, ^{
-            [self stopActivityIndicator];
-            self.view.userInteractionEnabled = YES;
-            [self showAlertWithMessage:@"Can't load files"];
-            
-            [self.selectedFileTagline setHidden:YES];
-            [self.selectedFileName setHidden:YES];
-            [self.getFileInfo setHidden:YES];
-        });
-    }
 }
 
 
