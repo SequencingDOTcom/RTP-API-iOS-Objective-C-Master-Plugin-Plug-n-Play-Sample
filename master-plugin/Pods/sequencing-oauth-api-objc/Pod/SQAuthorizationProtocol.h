@@ -11,8 +11,6 @@
 @required
 - (void)userIsSuccessfullyAuthorized:(SQToken *)token;
 - (void)userIsNotAuthorized;
-
-@optional
 - (void)userDidCancelAuthorization;
 
 @end

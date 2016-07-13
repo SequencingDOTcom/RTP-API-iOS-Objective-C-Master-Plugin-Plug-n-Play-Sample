@@ -28,7 +28,7 @@
 
 // buttons
 @property (strong, nonatomic) UIBarButtonItem   *continueButton;
-@property (strong, nonatomic) UIBarButtonItem   *infoButton;
+// @property (strong, nonatomic) UIBarButtonItem   *infoButton;
 
 // file details / selection index
 @property (strong, nonatomic) NSIndexPath       *nowSelectedFileIndexPath;
@@ -51,7 +51,7 @@
     
     // prepare navigation bar
     self.title = @"My Files";
-    [self.navigationItem setTitle:@"Select file"];
+    [self.navigationItem setTitle:@"Select a file"];
     
     
     // setup extended navbar images
@@ -71,11 +71,11 @@
     UITabBarItem *tabBarItem_SampleFiles = (UITabBarItem *)[self.tabBarController.tabBar.items objectAtIndex:1];
     tabBarItem_SampleFiles.image = [UIImage imageNamed:@"icon_samplefiles"];
     
-    
+    /*
     // infoButton
     UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
     [button addTarget:self action:@selector(showInfoPopover) forControlEvents:UIControlEventTouchUpInside];
-    self.infoButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.infoButton = [[UIBarButtonItem alloc] initWithCustomView:button];*/
     
     
     // continueButton
@@ -87,17 +87,15 @@
     
     
     // rightBarButtonItems
-    NSArray *rightButtonsArray = [[NSArray alloc] initWithObjects:self.continueButton, self.infoButton, nil];
+    NSArray *rightButtonsArray = [[NSArray alloc] initWithObjects:self.continueButton, nil]; // self.infoButton,
     self.navigationItem.rightBarButtonItems = rightButtonsArray;
     
-
-    if (filesAPI.backButton) {
-        // "Back" button
-        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                       style:UIBarButtonItemStyleDone
-                                                                      target:self
-                                                                      action:@selector(backButtonPressed)];
-        [self.navigationItem setLeftBarButtonItem:backButton animated:NO];
+    // closeButton
+    if (filesAPI.closeButton) {
+        UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                                    target:self
+                                                                                    action:@selector(closeButtonPressed)];
+        [self.navigationItem setLeftBarButtonItem:closeButton animated:NO];
     }
     
     
@@ -316,15 +314,15 @@
 }
 
 
-// Back button tapped
-- (void)backButtonPressed {
+// close button tapped
+- (void)closeButtonPressed {
     SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
     
-    if ([filesAPI.fileSelectedHandler respondsToSelector:@selector(backButtonPressed)]) {
+    if ([filesAPI.fileSelectedHandler respondsToSelector:@selector(closeButtonPressed)]) {
         SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
         filesAPI.selectedFileID = nil;
         
-        [filesAPI.fileSelectedHandler backButtonPressed];
+        [filesAPI.fileSelectedHandler closeButtonPressed];
     }
 }
 
@@ -436,7 +434,7 @@
 } */
 
 
-
+/*
 #pragma mark -
 #pragma mark Popover
 
@@ -460,7 +458,7 @@
 
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
     return UIModalPresentationNone;
-}
+} */
 
 
 

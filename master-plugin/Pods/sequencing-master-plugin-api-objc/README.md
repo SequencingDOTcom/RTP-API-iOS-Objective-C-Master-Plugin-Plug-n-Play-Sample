@@ -1,6 +1,6 @@
 # Master CocoaPod Plugin for adding Sequencing.com's Real-Time Personalization technology to iOS apps coded in Objective-C
 =========================================
-This Master CocoaPod Plugin can be used to quickly add Real-Time Personalization to your app. This Master Plugin contains a customizable, end-to-end plug-n-play solution that quickly adds all necessary code (OAuth2, File Selector and App Chain coding) to your app.
+This Master CocoaPod Plugin can be used to quickly add [Real-Time Personalization](https://sequencing.com/developer-documentation/what-is-real-time-personalization-rtp) to your app. This Master Plugin contains a customizable, end-to-end plug-n-play solution that quickly adds all necessary code (OAuth2, File Selector and App Chain coding) to your app.
 
 Once this Master Plugin is added to your app all you'll need to do is:
 
@@ -16,9 +16,9 @@ To code Real-Time Personalization technology into apps, developers may [register
 * [Android (Maven plugin)](https://github.com/SequencingDOTcom/Maven-Android-Master-Plugin-Java)
 * [Java (Maven plugin)](https://github.com/SequencingDOTcom/Maven-Android-Master-Plugin-Java)
 
-**Sample project with installed and integrated Master plugin:**
-* [Objective-C sample project (installed Master plugin via CocoaPod)](https://github.com/SequencingDOTcom/iOS-Master-Plugin-Sample)
-* [Android sample project (installed Master plugin via Maven)](https://github.com/SequencingDOTcom/Android-Master-Plugin-Sample)
+**Master Plugin - Plug-n-Play Samples** (These sample repos can be used as an out-of-the-box solution to quickly add Real-Time Personalization technology into your app):
+* [Objective-C (CocoaPod) Plug-n-Play Sample](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample)
+* [Android (Maven) Plug-n-Play Sample](https://github.com/SequencingDOTcom/Android-Master-Plugin-Plug-N-Play-Sample)
 
 
 Contents
@@ -55,7 +55,7 @@ Master CocoaPod Plugin install
 * create Podfile in your project directory: ```$ pod init```
 * specify "sequencing-master-plugin-api-objc" pod parameters in Podfile: 
 
-	```pod 'sequencing-master-plugin-api-objc', '~> 1.0.6'```
+	```pod 'sequencing-master-plugin-api-objc', '~> 1.0.10'```
 
 * install the dependency in your project: ```$ pod install```
 * always open the Xcode workspace instead of the project file: ```$ open *.xcworkspace```
@@ -197,6 +197,12 @@ OAuth CocoaPod Plugin integration
 			dispatch_async(dispatch_get_main_queue(), ^{
 				// your code is here for unsuccessful user authorization
 			});
+		}
+		
+		- (void)userDidCancelAuthorization {
+				dispatch_async(dispatch_get_main_queue(), ^{
+					// your code is here for abandoned user authorization
+				});
 		}
 		```
 		
@@ -359,6 +365,14 @@ File Selector CocoaPod Plugin integration
 			// your code here
 		}
 		```
+		
+	* implement optional "closeButtonPressed" method from protocol if needed
+		```
+		- (void)closeButtonPressed {
+		    // your code here
+		}
+		```
+
 
 * **Use file selector**
 
@@ -407,19 +421,24 @@ File Selector CocoaPod Plugin integration
 
 * **Examples**
 
-	* example of ```My Files```
+	* example of ```File Selector - Intro page```
 
-		![my files](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_myFiles.png)
+		![intro page](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_introPage.png)
+
+
+	* example of ```File Selector - My Files```
+
+		![my files](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_myFiles2.png)
 
 
 	* example of ```Sample Files```
 
-		![sample files](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_sampleFiles.png)
+		![sample files](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_sampleFiles2.png)
 
 	
 	* example of selected file
 
-		![selected file](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_selectedFile.png)
+		![selected file](https://github.com/SequencingDOTcom/CocoaPod-iOS-File-Selector-ObjectiveC/blob/master/Screenshots/fileSelector_sampleFiles2selected.png)
 
 		
 	* example of ```Select File``` button
@@ -452,7 +471,7 @@ File Selector CocoaPod Plugin integration
     	[self.view addConstraint:yCenter];
 		```
 	
-	* example of ```getFiles``` method
+	* example of ```getFiles``` method via ```performSegueWithIdentifier``` method
 		```
 		- (void)getFiles:(UIButton *)sender {	
 			[[SQFilesAPI sharedInstance] withToken:self.token.accessToken loadFiles:^(BOOL success) {
@@ -468,14 +487,46 @@ File Selector CocoaPod Plugin integration
 			}];
 		}
 		```
+		
+	* example of ```getFiles``` method via direct storyboard opening
+		```
+		- (void)getFiles:(UIButton *)sender {
+			SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
+    	    [filesAPI setFileSelectedHandler:self];
+        	filesAPI.closeButton = YES;	
+			[filesAPI withToken:self.token.accessToken loadFiles:^(BOOL success) {
+				dispatch_async(kMainQueue, ^{
+					if (success) {
+						// open file selector view
+						UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TabbarFileSelector" bundle:nil];
+						UINavigationController *fileSelectorVC = (UINavigationController *)[storyboard instantiateInitialViewController];
+						fileSelectorVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+						[self presentViewController:fileSelectorVC animated:YES completion:nil];
+				
+					} else {
+						[self showAlertWithMessage:@"Can't load files"];
+					}
+				});
+			}];
+		}
+		```
 	
 	* example of ```handleFileSelected``` method
-
 		```
 		- (void)handleFileSelected:(NSDictionary *)file {
 			NSLog(@"handleFileSelected: %@", file);
 		}
 		```
+		
+	* example of ```closeButtonPressed``` method
+		```
+		- (void)closeButtonPressed {
+    		dispatch_async(kMainQueue, ^{
+        		[self dismissViewControllerAnimated:YES completion:nil];
+	    	});
+		}
+		```
+
 		
 
 

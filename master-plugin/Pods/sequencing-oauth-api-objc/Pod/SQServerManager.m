@@ -4,7 +4,7 @@
 //
 
 #import "SQServerManager.h"
-#import "SQLoginViewController.h"
+#import "SQLoginWebViewController.h"
 #import "SQToken.h"
 #import "SQHttpHelper.h"
 #import "SQAuthResult.h"
@@ -66,18 +66,6 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
 }
 
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        self.messageFrame = [UIView new];
-        self.activityIndicator = [UIActivityIndicatorView new];
-        self.strLabel = [UILabel new];
-        self.mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
-    }
-    return self;
-}
-
-
 - (void)registrateParametersCliendID:(NSString *)client_id
                         ClientSecret:(NSString *)client_secret
                          RedirectUri:(NSString *)redirect_uri
@@ -110,12 +98,12 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
     NSURL *url = [NSURL URLWithString:urlString];
     
     // ===== authorizing user request =====
-    SQLoginViewController *loginViewController =
-    [[SQLoginViewController alloc] initWithURL:(NSURL *)url andCompletionBlock:^(NSMutableDictionary *response)
-    {
-
-        if ([response objectForKey:@"state"])
-        {
+    
+    SQLoginWebViewController *loginWebViewController = \
+    [[SQLoginWebViewController alloc] initWithURL:url andCompletionBlock:^(NSMutableDictionary *response) {
+        NSLog(@"%@", response);
+        
+        if ([response objectForKey:@"state"]) {
             // first, must check if "state" from response matches "state" in request
             if (![[response objectForKey:@"state"] isEqualToString:randomState]) {
                 NSLog(@"state mismatch, response is being spoofed");
@@ -156,7 +144,7 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                 [self stopActivityIndicator];
                 result(nil, YES, NO);
             }
-        
+            
         } else if ([response objectForKey:@"error"]) {
             if (result) {
                 [self stopActivityIndicator];
@@ -165,11 +153,9 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
         }
     }];
     
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginWebViewController];
     UIViewController *mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
-    [mainVC presentViewController:nav
-                         animated:YES
-                       completion:nil];
+    [mainVC presentViewController:nav animated:YES completion:nil];
 }
 
 
@@ -335,13 +321,28 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
 
 - (void)startActivityIndicatorWithTitle:(NSString *)title {
     dispatch_async(kMainQueue, ^{
+        self.messageFrame = [UIView new];
+        self.activityIndicator = [UIActivityIndicatorView new];
+        self.strLabel = [UILabel new];
+        
+        UIViewController *topmostVC;
+        UIViewController *rootVC1 = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+        
+        if ([rootVC1 isKindOfClass:[UINavigationController class]]) {
+            UINavigationController *navVC = (UINavigationController *)rootVC1;
+            topmostVC = [navVC viewControllers][0];
+            self.mainVC = topmostVC;
+        } else {
+            self.mainVC = [[[[UIApplication sharedApplication] windows] firstObject] rootViewController];
+        }
+        
         self.strLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 150, 50)];
         self.strLabel.text = title;
         // self.strLabel.font = [UIFont systemFontOfSize:15.f];
         self.strLabel.textColor = [UIColor whiteColor];
         
         CGFloat xPos = self.mainVC.view.frame.size.width / 2 - 100;
-        CGFloat yPos = self.mainVC.view.frame.size.height / 2 + 30;
+        CGFloat yPos = self.mainVC.view.frame.size.height / 2 + 50;
         self.messageFrame = [[UIView alloc] initWithFrame:CGRectMake(xPos, yPos, 250, 50)];
         self.messageFrame.layer.cornerRadius = 15;
         self.messageFrame.backgroundColor = [UIColor clearColor];

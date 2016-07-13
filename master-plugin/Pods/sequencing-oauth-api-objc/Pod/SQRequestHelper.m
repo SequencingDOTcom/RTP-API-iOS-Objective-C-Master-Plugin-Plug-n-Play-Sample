@@ -36,19 +36,29 @@
 - (NSMutableDictionary *)parseRequest:(NSURLRequest *)request {
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     NSString *query = [[request URL] description];
-    NSArray *array = [query componentsSeparatedByString:@"?"];
-    if ([array count] > 1) {
-        query = [array lastObject];
-    }
-    NSArray *params = [query componentsSeparatedByString:@"&"];
-    for (NSString *param in params) {
-        NSArray *elements = [param componentsSeparatedByString:@"="];
-        if ([elements count] == 2) {
-            NSString *key = [[elements firstObject] stringByRemovingPercentEncoding];
-            NSString *val = [[elements lastObject] stringByRemovingPercentEncoding];
-            [dict setObject:val forKey:key];
+    
+    if ([query containsString:@"access_denied"]) {
+        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"didCancelAuthorization"];
+        
+    } else if ([query containsString:@"invalid_request"]) {
+        [dict setObject:[NSNumber numberWithBool:YES] forKey:@"error"];
+        
+    } else {
+        NSArray *array = [query componentsSeparatedByString:@"?"];
+        if ([array count] > 1) {
+            query = [array lastObject];
+        }
+        NSArray *params = [query componentsSeparatedByString:@"&"];
+        for (NSString *param in params) {
+            NSArray *elements = [param componentsSeparatedByString:@"="];
+            if ([elements count] == 2) {
+                NSString *key = [[elements firstObject] stringByRemovingPercentEncoding];
+                NSString *val = [[elements lastObject] stringByRemovingPercentEncoding];
+                [dict setObject:val forKey:key];
+            }
         }
     }
+    
     return dict;
 }
 

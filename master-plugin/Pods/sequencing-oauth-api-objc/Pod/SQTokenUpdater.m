@@ -25,7 +25,7 @@ dispatch_source_t CreateDispatchTimer(double interval, dispatch_queue_t queue, d
 @implementation SQTokenUpdater
 
 dispatch_source_t _timer;
-static double SECONDS_TO_FIRE = 300.000f; // time interval lengh in seconds, in order to check token expiration periodically
+static double SECONDS_TO_FIRE = 300.f; // 300 time interval lengh in seconds, in order to check token expiration periodically
 
 + (instancetype)sharedInstance {
     static SQTokenUpdater *instance = nil;
@@ -41,13 +41,14 @@ static double SECONDS_TO_FIRE = 300.000f; // time interval lengh in seconds, in 
 #pragma mark Timer methods
 
 - (void)startTimer {
+    NSLog(@"\nTokenUpdater: startTimer");
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     _timer = CreateDispatchTimer(SECONDS_TO_FIRE, queue, ^{
         // NSLog(@"check date");
         NSDate *nowDate = [NSDate date];
         SQToken *oldToken = [[SQAuthResult sharedInstance] token];
         NSDate *expDate = oldToken.expirationDate;
-        if ([nowDate compare:expDate] == NSOrderedDescending) {
+        if ([nowDate compare:expDate] == NSOrderedDescending) { // NSOrderedDescending
             // access token is expired, let's refresh it
             [self executeRefreshTokenRequest];
         }
@@ -70,6 +71,7 @@ static double SECONDS_TO_FIRE = 300.000f; // time interval lengh in seconds, in 
 #pragma mark Refresh token
 
 - (void)executeRefreshTokenRequest {
+    NSLog(@"TokenUpdater: executeRefreshTokenRequest");
     [[SQServerManager sharedInstance] postForNewTokenWithRefreshToken:[[SQAuthResult sharedInstance] token] onSuccess:^(SQToken *updatedToken) {
         if (updatedToken) {
             // [self printToken:[[AuthResult sharedInstance] token] AndActivity:@"oldToken:"];

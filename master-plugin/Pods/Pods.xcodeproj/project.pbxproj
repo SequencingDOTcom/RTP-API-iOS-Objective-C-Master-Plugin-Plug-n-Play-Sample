@@ -24,20 +24,27 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>0291565194AF73BBDC14C9B7BCD37513</key>
+		<key>026E545075A851059921436D7B984840</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQPopoverMyFilesViewController.h</string>
+			<string>SQMyFilesViewController.m</string>
 			<key>path</key>
-			<string>Pod/SQPopoverMyFilesViewController.h</string>
+			<string>Pod/SQMyFilesViewController.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>03DA492A03D5CEC9F4B87E18B68908F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FD21D1EAD5844CB01ECEABCBDDA29AC0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>04F04BF671CA5714D947E8E7E3EC94D3</key>
 		<dict>
@@ -46,54 +53,25 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>07E48F59F87A1D562CC9F79BB2FB8BC8</key>
+		<key>04FEDF7D9CB975F0B166277C0DA3B147</key>
+		<dict>
+			<key>fileRef</key>
+			<string>412159E436F7E8A122F13B362D39C6EA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>086826C547155E71B90C409BCEF2DB78</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQFilesHelper.h</string>
+			<string>SQToken.m</string>
 			<key>path</key>
-			<string>Pod/SQFilesHelper.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>07E5E0FC6C9DF8978709E7E74E509C23</key>
-		<dict>
-			<key>fileRef</key>
-			<string>98C59585A0B1420A499C337F39EE67EF</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>094E7255E4958AE6A5FA354606224252</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B1342EF17026EB8A65483A875B4BC901</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>09D5535A14C72C7BCB8734992F953929</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQExtendedNavBarView.h</string>
-			<key>path</key>
-			<string>Pod/SQExtendedNavBarView.h</string>
+			<string>Pod/SQToken.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -110,19 +88,32 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0D84936387A1A86361B40430435A268F</key>
+		<key>0D943C529096FA892AE4F2A8221284C9</key>
 		<dict>
-			<key>fileRef</key>
-			<string>57D4838205BAD2190D75BD84D9DF215B</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>869A73F123F56500052084DCCFCF17D3</string>
+				<string>5BE088437AD2C62228EA3B82002CD600</string>
+				<string>1C70E8BB4B98333690C03B99F2B72800</string>
+				<string>9F8E8FB3A0E2A4FC045DD2FB8AF10D60</string>
+				<string>A168C20FC636F55D59BDA11802759E62</string>
+				<string>03DA492A03D5CEC9F4B87E18B68908F6</string>
+				<string>69D6BAAA02A14310378B7C63F8EB41C1</string>
+				<string>B8B7F3D0C3624EC64746D8185AF6E08F</string>
+				<string>3F3A0D6A85504006E5BD68B70087E646</string>
+				<string>8BE63B9185B6B9E4DF7AE1C655F287EC</string>
+				<string>04FEDF7D9CB975F0B166277C0DA3B147</string>
+				<string>E267666BE8BDEDA0231C068BCB42D3BC</string>
+				<string>AC0CD4E364CBFFB704ACEF4ADA5ACB0A</string>
+				<string>237E457AECA78DC8F52CBAF6483EE7C3</string>
+				<string>9020B12571BDD2E3E38B53A848A353A2</string>
+			</array>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>0DA197928AA864A5D02F851DEE350F1D</key>
 		<dict>
@@ -139,22 +130,35 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>0E20E22C2A19F7184DF588CABF270B82</key>
+		<key>0FC6CF46CDEC6A6808829E1F8C05F782</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>19151E840712A9B11242119ADB3BFCD5</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQMyFilesViewController.h</string>
-			<key>path</key>
-			<string>Pod/SQMyFilesViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
-		<key>0F4B97807BB17E9FF5B9658B33703C06</key>
+		<key>125B4CFA7E3E31BF51DE854496E9E69A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>53DF8669BDC66DAE4F27D9992D25E157</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>145A4604E4BE8431068395CAD056137B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -163,88 +167,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQSegmentedControlHelper.m</string>
+			<string>SQRequestHelper.m</string>
 			<key>path</key>
-			<string>Pod/SQSegmentedControlHelper.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>0FFA123D7C2C48A3D9948E0C74ABE994</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>AEE4E02C08698B13913BDF498A29A820</string>
-				<string>243B43C38E33DE713A04E291CDFC07E7</string>
-				<string>7FD01B7BE1257B7785DAD4A4B7D7F897</string>
-				<string>205A868055296FC9910E32EC0F8D0623</string>
-				<string>AF538B1810AAD950308BE23A54EDC81F</string>
-				<string>D7DC11897329F1062273454AB20F04BF</string>
-				<string>85ED4E9060B022CE8385481791C484C2</string>
-				<string>36D6ADBF0BF737CB10BB504D94440B79</string>
-				<string>204779791A5CAB0816325E6AF89A9FD3</string>
-				<string>57D4838205BAD2190D75BD84D9DF215B</string>
-				<string>69F12C950F3656A21EB6170A82EB3768</string>
-				<string>5FBB5B7D77CE44112D5DFC9545622FCE</string>
-				<string>B6061B47D97642BF6CD755705992C8D3</string>
-				<string>B1342EF17026EB8A65483A875B4BC901</string>
-				<string>A2DB67D214508FDC467243B02DB0FF91</string>
-				<string>ACAF07ADE173C7A7D79627AC0C963EBB</string>
-				<string>4BC9F9C575D0BB3A81E13BD4A88248C2</string>
-				<string>98C59585A0B1420A499C337F39EE67EF</string>
-				<string>3677475BB254759E4835C47F40785E45</string>
-				<string>ED52AD7A0A3D850B723F9638A9BF1F17</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>sequencing-oauth-api-objc</string>
-			<key>path</key>
-			<string>sequencing-oauth-api-objc</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>11F5E261FC6F05BB377B257091CFB19F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQFilesContainer.h</string>
-			<key>path</key>
-			<string>Pod/SQFilesContainer.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>14F7BD3F683335A13DD25BD19C728F2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQSegmentedControlHelper.h</string>
-			<key>path</key>
-			<string>Pod/SQSegmentedControlHelper.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>14FAC3CDF54F27B2749B0CDDB2D54A18</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQSectionInfo.h</string>
-			<key>path</key>
-			<string>Pod/SQSectionInfo.h</string>
+			<string>Pod/SQRequestHelper.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -261,6 +186,21 @@
 			<key>remoteInfo</key>
 			<string>sequencing-oauth-api-objc</string>
 		</dict>
+		<key>168167A0426FBBD17E203CA2C6E6B3D0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQPopoverInfoViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>16CB51266AE82FF0EF77580870374F79</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -276,12 +216,64 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>175DB00686EBFD0B82D37CC97A7B8622</key>
+		<key>186BEB6E90D5F3F06D8900855A7D37C9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQHttpHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQHttpHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>18D4E5D190A73EB1E211A2E8C0F35D84</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesHelper.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>19151E840712A9B11242119ADB3BFCD5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQLoginWebViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQLoginWebViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>19299373CBCD7746424104DF64C53DD9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>40392CA8F5FF8F69AFB5FA123F5A18F9</string>
+			<string>55F3E678FE7B6A2F40EA0CFD276BE318</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>198F00A1C781944247C2341C25C474E9</key>
 		<dict>
@@ -296,15 +288,29 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>1A134B54C6C73E5C67B305EFAC79C2DE</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E0C984B81A8C2E1054F9305AD70EBAE1</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>1A6F304E0013687F20C49BE12584F477</key>
 		<dict>
 			<key>buildConfigurationList</key>
 			<string>1FC8C1D9373837159BE0AE5A144D480B</string>
 			<key>buildPhases</key>
 			<array>
-				<string>6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB</string>
+				<string>0D943C529096FA892AE4F2A8221284C9</string>
 				<string>86E93A4BBFFB2FD75DC7E4D10F2C8011</string>
-				<string>AEF8A802E0C557C015502F0E70650476</string>
+				<string>4B4F3BACDEBB1409E995FFD9D01253A4</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -327,9 +333,9 @@
 			<string>2C474427FFEBD99E7CB711256CB8AD65</string>
 			<key>buildPhases</key>
 			<array>
-				<string>5AB24A2209D402646A163D7A0B961A8A</string>
+				<string>AE745FE772B4CFBB20E6683B649C4399</string>
 				<string>9B0157BD542168D58CE6281C0C3B3CBD</string>
-				<string>D814F1FF3A1C8ECEBB6B73E1C96405E8</string>
+				<string>24D109E37262AA8D7E3531C715D35DC2</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -346,20 +352,12 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>1EB64611FCA4B2340EB1083E157036D4</key>
+		<key>1C70E8BB4B98333690C03B99F2B72800</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>33D8C1B4E1ABB5F9087B30D635F0DED4</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQFilesHelper.m</string>
-			<key>path</key>
-			<string>Pod/SQFilesHelper.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>1FC8C1D9373837159BE0AE5A144D480B</key>
 		<dict>
@@ -375,22 +373,7 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>204779791A5CAB0816325E6AF89A9FD3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQOAuth.m</string>
-			<key>path</key>
-			<string>Pod/SQOAuth.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>205A868055296FC9910E32EC0F8D0623</key>
+		<key>21CC9538A4CD4AD935F9422254B9110D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -399,16 +382,45 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQHttpHelper.h</string>
+			<string>SQMyFilesViewController.h</string>
 			<key>path</key>
-			<string>Pod/SQHttpHelper.h</string>
+			<string>Pod/SQMyFilesViewController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2195A2E71FF9105D41BA1A02E54C548F</key>
+		<key>237E457AECA78DC8F52CBAF6483EE7C3</key>
 		<dict>
 			<key>fileRef</key>
-			<string>5B06942693A0B4ADF56375C8D1B82AB1</string>
+			<string>7A2C91269F35B8F593E1F49A2263BDF7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>24D109E37262AA8D7E3531C715D35DC2</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>5F2D4D58DA4129B378F13A3870C44B10</string>
+				<string>125B4CFA7E3E31BF51DE854496E9E69A</string>
+				<string>E7CACFDBE854AC76A7F2EF920E4C0F63</string>
+				<string>0FC6CF46CDEC6A6808829E1F8C05F782</string>
+				<string>893667F2B104ED4174B31579813E53F6</string>
+				<string>DC3543B65576E962E00C918F0F17E41D</string>
+				<string>663ABA4952FAC3DBEA24A564CBBB027F</string>
+				<string>459D9079070CEBAA69C3CB24D9C227D6</string>
+				<string>DE14861ACB08928948EC351A1FE95A74</string>
+				<string>3BBA384F317D05A09EFB511C0071A1B9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>25D224485EA8C6C784F9FFBE64A9B5AF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C2BDE68109420BF3A3A6E178417A17D8</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -419,38 +431,7 @@
 				</array>
 			</dict>
 		</dict>
-		<key>21E1AB6EFF705AC528A2C0663E8494D6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B817693D3500B548D3F7D61E8521E3A6</string>
-				<string>B365AB7F644C4F2D370304959E6031D9</string>
-				<string>6CD78041D3EA56F1A393717C7DE013AE</string>
-				<string>0FFA123D7C2C48A3D9948E0C74ABE994</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Pods</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>241E4C2EFCD48F379BFDF91F62E6EAF1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQFilesHttpHelper.m</string>
-			<key>path</key>
-			<string>Pod/SQFilesHttpHelper.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>243B43C38E33DE713A04E291CDFC07E7</key>
+		<key>266B2AB77BB115D4E470494183AA7606</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -459,9 +440,9 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQAuthResult.h</string>
+			<string>SQTokenRefreshProtocol.h</string>
 			<key>path</key>
-			<string>Pod/SQAuthResult.h</string>
+			<string>Pod/SQTokenRefreshProtocol.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -478,12 +459,20 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>279C38C1879A163EDA03FC40E975C6A1</key>
+		<key>279A6FEA9238AB211678AB53CA35DFE4</key>
 		<dict>
-			<key>fileRef</key>
-			<string>A2DB67D214508FDC467243B02DB0FF91</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQLoginWebViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQLoginWebViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>27D41E42BB3BCAF5426D31B2452D8A53</key>
 		<dict>
@@ -498,6 +487,20 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>2842D526160052B293B56B4E7FAA2736</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BBECB9B2AF47A974DAAE752D8950A260</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>2850084D76F96316EBE939340EE5DC02</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -510,6 +513,56 @@
 			<string>Pods-master-plugin.release.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2971D4863BC1655597FC06F418B68426</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSegmentedControlHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQSegmentedControlHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>29E708E53795F61478DD8EC7FDC7E925</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2AFBAAB21F3E6217201D0DC186DAA9DE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQExtendedNavBarView.m</string>
+			<key>path</key>
+			<string>Pod/SQExtendedNavBarView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>2B943D91C8B3BD9D66682F67DCF2D314</key>
+		<dict>
+			<key>fileRef</key>
+			<string>086826C547155E71B90C409BCEF2DB78</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>2C474427FFEBD99E7CB711256CB8AD65</key>
 		<dict>
@@ -525,32 +578,31 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>2CADAEDF7CCF2FA93949467AB69B38D1</key>
+		<key>2D45C7CF6D7A6DE428C892488F55B486</key>
 		<dict>
 			<key>fileRef</key>
-			<string>85ED4E9060B022CE8385481791C484C2</string>
+			<string>418085CBF9399CACFF9FF33D52827D89</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>2D495DAA0D67B7B2FB7F230B5A3DDE67</key>
+		<key>2D6E8F4D16B1F6DDD2597D096600DCE2</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>21CC9538A4CD4AD935F9422254B9110D</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQFilesServerManager.h</string>
-			<key>path</key>
-			<string>Pod/SQFilesServerManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>2D75BE32B82AF5AA4233D3573B9EDC60</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
+			<string>BAF4ADA7DF78E947BF45A0745596A323</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -581,6 +633,21 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>2D761E2D95F906949D75B71E95F727E3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>name</key>
+			<string>AuthImages.xcassets</string>
+			<key>path</key>
+			<string>Resources/AuthImages.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>2D8E8EC45A3A1A1D94AE762CB5028504</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -602,10 +669,10 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>318093D82C1C272CEB4EA37454A976E8</key>
+		<key>30C98A1FAADAE33054B8AF0263D8B687</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B89B58687C0B067EA2384DD2F14DE04B</string>
+			<string>F9F87980C7781B1E8D4D7F382D6F5901</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -616,7 +683,20 @@
 				</array>
 			</dict>
 		</dict>
-		<key>33A45FB2ABD70F696189DD49CE8A5AD9</key>
+		<key>328F00EA6D6E8009FD09EBDEF536925C</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>33D8C1B4E1ABB5F9087B30D635F0DED4</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -625,23 +705,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQPopoverInfoViewController.m</string>
+			<string>SQFilesAPI.m</string>
 			<key>path</key>
-			<string>Pod/SQPopoverInfoViewController.m</string>
+			<string>Pod/SQFilesAPI.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>3461F1571E70FE9333009AD2E4A35EDD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>35D62C4971D1682D1AC07994D4FCB93E</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>D693C4E71D81FDD0758D884755A7387F</string>
+			<string>AF657D262E6DD8702EC91D4F8E1F6374</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -672,20 +745,7 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>3677475BB254759E4835C47F40785E45</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>FEEB955E231098E6CBA44722F9E12F95</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>36D6ADBF0BF737CB10BB504D94440B79</key>
+		<key>3A3BCBDB715A0663B71C3C830CCB2B2B</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -694,23 +754,31 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQOAuth.h</string>
+			<string>SQFilesHelper.h</string>
 			<key>path</key>
-			<string>Pod/SQOAuth.h</string>
+			<string>Pod/SQFilesHelper.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>39DA9AD067CE424FE57C6B7ECAC0C96A</key>
+		<key>3B7E610369D2B99FEF1B7841FAA58C43</key>
 		<dict>
-			<key>fileRef</key>
-			<string>E0B0281046B796D1806C491FB62BDC23</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSectionInfo.h</string>
+			<key>path</key>
+			<string>Pod/SQSectionInfo.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>3E1FC67DC70F390C2185306B651C1671</key>
+		<key>3BBA384F317D05A09EFB511C0071A1B9</key>
 		<dict>
 			<key>fileRef</key>
-			<string>205A868055296FC9910E32EC0F8D0623</string>
+			<string>FFC0FC4A701807DED8B4A14B77641206</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -734,33 +802,14 @@
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
 		</dict>
-		<key>3EF51D08A1C411A887F12085B5551F60</key>
+		<key>3F3A0D6A85504006E5BD68B70087E646</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>026E545075A851059921436D7B984840</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>sequencing-file-selector-api-objc-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
-		<key>3FAE08B50ABC82EA4FE3C76DD7A6D7D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>sequencing-app-chains-api-objc-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>40392CA8F5FF8F69AFB5FA123F5A18F9</key>
+		<key>412159E436F7E8A122F13B362D39C6EA</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -769,18 +818,26 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQSampleFilesViewController.m</string>
+			<string>SQPopoverMyFilesViewController.m</string>
 			<key>path</key>
-			<string>Pod/SQSampleFilesViewController.m</string>
+			<string>Pod/SQPopoverMyFilesViewController.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>415536691934178B1E54601B73CF3A07</key>
+		<key>418085CBF9399CACFF9FF33D52827D89</key>
 		<dict>
-			<key>fileRef</key>
-			<string>204779791A5CAB0816325E6AF89A9FD3</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQOAuth.m</string>
+			<key>path</key>
+			<string>Pod/SQOAuth.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4232EEAFD399D72304CB1232BE50D390</key>
 		<dict>
@@ -795,23 +852,10 @@
 			<key>remoteInfo</key>
 			<string>sequencing-file-selector-api-objc</string>
 		</dict>
-		<key>4571F7B3BFDE1FDFC34CA98F27212428</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>sequencing-app-chains-api-objc-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>485D9420516E20BF7DD7C65324F7E96D</key>
+		<key>459D9079070CEBAA69C3CB24D9C227D6</key>
 		<dict>
 			<key>fileRef</key>
-			<string>ACAF07ADE173C7A7D79627AC0C963EBB</string>
+			<string>BBD7F5D4B7DBB020A273AACBCF16A187</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -821,11 +865,46 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>463175002077B05223838DED291CA0D3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SQPopoverMyFilesViewController.xib</string>
+			<key>path</key>
+			<string>Resources/SQPopoverMyFilesViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>493E232C937544BADB576BD15A52ED9D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>2D761E2D95F906949D75B71E95F727E3</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>49EBEF6FC9959AEC126AF4689062670B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>CDE0C080D75800F3B3E9AE3F359CFAC6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>4B3B6F712FD6610ADCE4DAC74B090C6D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>ADB632365FEA78F9879A07CF4421E478</string>
+			<string>73E372304E12CF534D26BF3F1C8C9B7E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -836,20 +915,32 @@
 				</array>
 			</dict>
 		</dict>
-		<key>4BC9F9C575D0BB3A81E13BD4A88248C2</key>
+		<key>4B4F3BACDEBB1409E995FFD9D01253A4</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>74250C26693236DAA5AF63706EAC379A</string>
+				<string>DFDBA70D6DECC02032E6673698BDF122</string>
+				<string>9992EB1D80A5844B90E9B4F3A613F02D</string>
+				<string>25D224485EA8C6C784F9FFBE64A9B5AF</string>
+				<string>B4FA8563743755F17E50708CE7EEAE40</string>
+				<string>30C98A1FAADAE33054B8AF0263D8B687</string>
+				<string>1A134B54C6C73E5C67B305EFAC79C2DE</string>
+				<string>7DB965B7681DA2E777CCBC74579FC578</string>
+				<string>2D6E8F4D16B1F6DDD2597D096600DCE2</string>
+				<string>19299373CBCD7746424104DF64C53DD9</string>
+				<string>64516FA4ACD24A5DDD2ADF54C9B9481B</string>
+				<string>2842D526160052B293B56B4E7FAA2736</string>
+				<string>E43DD8EBD339C6A24C21862C0FE22F55</string>
+				<string>A2E45CB0CC20D10FEBD7DA672A7275D8</string>
+				<string>549ABD9C0C3A4C24AB0879308226F41D</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQTokenUpdater.h</string>
-			<key>path</key>
-			<string>Pod/SQTokenUpdater.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>4D594872E8FA7597B812CEBC6B45ED32</key>
 		<dict>
@@ -864,59 +955,54 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4F85A0CB2F20D09395488A1889175CFD</key>
+		<key>4E25A09AB5C6428F13B6A2403517CF48</key>
 		<dict>
-			<key>fileRef</key>
-			<string>1EB64611FCA4B2340EB1083E157036D4</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
-		<key>53C6FBEF7C88D23A36887EECAE28D4B7</key>
+		<key>505C6C001ABDB6CD3C9C64CD807168AC</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
-				<string>3EF51D08A1C411A887F12085B5551F60</string>
-				<string>FEE1012224187813816BDEA2D7392B83</string>
+				<string>F485DFBD364C27B26D5FD3283CEF7A75</string>
+				<string>53DF8669BDC66DAE4F27D9992D25E157</string>
+				<string>CDE0C080D75800F3B3E9AE3F359CFAC6</string>
+				<string>F76366F8F7A6C006EB0020AB88525F82</string>
+				<string>186BEB6E90D5F3F06D8900855A7D37C9</string>
+				<string>19151E840712A9B11242119ADB3BFCD5</string>
+				<string>279A6FEA9238AB211678AB53CA35DFE4</string>
+				<string>FCE3804DAF50FEC0B54DCCC129BE8DF0</string>
+				<string>418085CBF9399CACFF9FF33D52827D89</string>
+				<string>9ECD882F99B1C5508E7494FDB16281F5</string>
+				<string>145A4604E4BE8431068395CAD056137B</string>
+				<string>A5D60D55358E31C7A0271F64049ECCF6</string>
+				<string>C74BD2D4B0E75AA19D33A7E52EB05AEE</string>
+				<string>BBD7F5D4B7DBB020A273AACBCF16A187</string>
+				<string>086826C547155E71B90C409BCEF2DB78</string>
+				<string>266B2AB77BB115D4E470494183AA7606</string>
+				<string>FFC0FC4A701807DED8B4A14B77641206</string>
+				<string>7F62B47795F4C104AD30D1C11D4E2DCE</string>
+				<string>493E232C937544BADB576BD15A52ED9D</string>
+				<string>8A5467E1B58CAB68F1D8F0D4AD3E3F60</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Support Files</string>
+			<string>sequencing-oauth-api-objc</string>
 			<key>path</key>
-			<string>../Target Support Files/sequencing-file-selector-api-objc</string>
+			<string>sequencing-oauth-api-objc</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>558F40831A9F519EBEEAB5BDD4DFFD74</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>sequencing-file-selector-api-objc.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>56B52466BD6272AC5A9FE7152C13D1B4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQFilesServerManager.m</string>
-			<key>path</key>
-			<string>Pod/SQFilesServerManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>57D4838205BAD2190D75BD84D9DF215B</key>
+		<key>536EE762B7A98011AB37AAF1751769E5</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -925,13 +1011,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQRequestHelper.h</string>
+			<string>SQIntroViewController.h</string>
 			<key>path</key>
-			<string>Pod/SQRequestHelper.h</string>
+			<string>Pod/SQIntroViewController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>584E233944804FAD5AFEA1A325612E7E</key>
+		<key>53DF8669BDC66DAE4F27D9992D25E157</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -940,67 +1026,16 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQTableCell.h</string>
+			<string>SQAuthResult.h</string>
 			<key>path</key>
-			<string>Pod/SQTableCell.h</string>
+			<string>Pod/SQAuthResult.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>59849A820D487723567FD7B59257CEE8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQMyFilesViewController.m</string>
-			<key>path</key>
-			<string>Pod/SQMyFilesViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5AB24A2209D402646A163D7A0B961A8A</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>3461F1571E70FE9333009AD2E4A35EDD</string>
-				<string>6CB54D517079B9EDBEB8D532BD7D103B</string>
-				<string>F0EDCB886C7A71F63C2B194BEC5B1F3F</string>
-				<string>2CADAEDF7CCF2FA93949467AB69B38D1</string>
-				<string>415536691934178B1E54601B73CF3A07</string>
-				<string>5F4AF19E0570FC6BE24C53FF0901A2DE</string>
-				<string>B8C3D447EC5E7E64FF30F1CD46B4D9F0</string>
-				<string>279C38C1879A163EDA03FC40E975C6A1</string>
-				<string>07E5E0FC6C9DF8978709E7E74E509C23</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>5B06942693A0B4ADF56375C8D1B82AB1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQSampleFilesViewController.h</string>
-			<key>path</key>
-			<string>Pod/SQSampleFilesViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5C57C0202CC7DED8951C22A06A29D1CF</key>
+		<key>549ABD9C0C3A4C24AB0879308226F41D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D2F3B7E27CE181225DF773E02EA37024</string>
+			<string>CC8128F8752C1A9D8B804ABFB2BD5A60</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1010,6 +1045,75 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>55F3E678FE7B6A2F40EA0CFD276BE318</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQPopoverInfoViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>582C7B2B473593EA29046B512AA1C7DF</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQSampleFilesViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQSampleFilesViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5A0E5877047F0F9BC9AF9C33D836E125</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>AppChains.m</string>
+			<key>path</key>
+			<string>Pod/AppChains.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5B3EBD954B832AFCE6F3BFECF54C55BA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>328F00EA6D6E8009FD09EBDEF536925C</string>
+				<string>29E708E53795F61478DD8EC7FDC7E925</string>
+				<string>ACB86E9D1813C715800A46AE25CE27B5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/sequencing-app-chains-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>5BE088437AD2C62228EA3B82002CD600</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2AFBAAB21F3E6217201D0DC186DAA9DE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>5C6E1320F4500947A524536C0FA6DD65</key>
 		<dict>
@@ -1029,7 +1133,7 @@
 		<key>5D48CF9008B078326082D816FEB6CF78</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>BB7899F1D3A48BB39BD968A265E58999</string>
+			<string>328F00EA6D6E8009FD09EBDEF536925C</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -1060,10 +1164,10 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4</key>
+		<key>5F2D4D58DA4129B378F13A3870C44B10</key>
 		<dict>
 			<key>fileRef</key>
-			<string>0E20E22C2A19F7184DF588CABF270B82</string>
+			<string>F485DFBD364C27B26D5FD3283CEF7A75</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1106,28 +1210,6 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>5F4AF19E0570FC6BE24C53FF0901A2DE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>69F12C950F3656A21EB6170A82EB3768</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5FBB5B7D77CE44112D5DFC9545622FCE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQServerManager.h</string>
-			<key>path</key>
-			<string>Pod/SQServerManager.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>618217E112529669DFB9DF117A435AD3</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -1143,10 +1225,24 @@
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>671394D152AA2C5554EFB4C7C7C4D471</key>
+		<key>64516FA4ACD24A5DDD2ADF54C9B9481B</key>
 		<dict>
 			<key>fileRef</key>
-			<string>07E48F59F87A1D562CC9F79BB2FB8BC8</string>
+			<string>DB73BB4BD1CFCB8A0065302625E552F4</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>663ABA4952FAC3DBEA24A564CBBB027F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A5D60D55358E31C7A0271F64049ECCF6</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1160,7 +1256,7 @@
 		<key>67F5A5FA78C38FEE753C9D0C685A9A1B</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>BB7899F1D3A48BB39BD968A265E58999</string>
+			<string>328F00EA6D6E8009FD09EBDEF536925C</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -1191,88 +1287,32 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>67F93D9E746EAAE0705F2E15BB59961A</key>
+		<key>68CDD3EE7932AB3AE2DF2AE43A469F94</key>
 		<dict>
 			<key>fileRef</key>
-			<string>807D50E191AB04F8BF181C1A98B21640</string>
+			<string>C74BD2D4B0E75AA19D33A7E52EB05AEE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>695A620573D810429F19565B1F0E621E</key>
+		<key>69D6BAAA02A14310378B7C63F8EB41C1</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FA880C5DC81615CEEC848435A5EBE8AC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>6ABF339FADD742898A595DCA6F9260B8</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQExtendedNavBarView.m</string>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>Pod/SQExtendedNavBarView.m</string>
+			<string>sequencing-oauth-api-objc-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>69F12C950F3656A21EB6170A82EB3768</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQRequestHelper.m</string>
-			<key>path</key>
-			<string>Pod/SQRequestHelper.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6CB54D517079B9EDBEB8D532BD7D103B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>7FD01B7BE1257B7785DAD4A4B7D7F897</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>6CD78041D3EA56F1A393717C7DE013AE</key>
-		<dict>
-			<key>children</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>sequencing-master-plugin-api-objc</string>
-			<key>path</key>
-			<string>sequencing-master-plugin-api-objc</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6F6CA23AB7E0FFC77CF4F9C2E7EEAEAB</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>BDFBC46C94F7FB5BAA494A66FD8439D4</string>
-				<string>EA488D9107270E7E6272B5B8663E65D1</string>
-				<string>67F93D9E746EAAE0705F2E15BB59961A</string>
-				<string>39DA9AD067CE424FE57C6B7ECAC0C96A</string>
-				<string>4F85A0CB2F20D09395488A1889175CFD</string>
-				<string>830141AC6023CFCBE66D7D96742C43DD</string>
-				<string>BE66177287531EBDDBE7E21EA6E0697E</string>
-				<string>A111798A232017AA930BA8A50A372808</string>
-				<string>8E7B79951FC708D1824083942A4A7146</string>
-				<string>A02AF99C5C78DD190D8C153E6C8C77CA</string>
-				<string>175DB00686EBFD0B82D37CC97A7B8622</string>
-				<string>9D05CB69F3A3333A9F017F0C7E02B5CE</string>
-				<string>78AD121DFD343A758CC92316CF79C217</string>
-				<string>C23A6AF9F31415DFDDB9F5DC71202431</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
 		</dict>
 		<key>723FFDE2D565F68559CFF7CB37980C94</key>
 		<dict>
@@ -1288,36 +1328,7 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>740616D9D23879E67F950B1424947DC8</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQPopoverMyFilesViewController.m</string>
-			<key>path</key>
-			<string>Pod/SQPopoverMyFilesViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>78AD121DFD343A758CC92316CF79C217</key>
-		<dict>
-			<key>fileRef</key>
-			<string>0F4B97807BB17E9FF5B9658B33703C06</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7C43267B84DEB2F65A650DDF4111D3C0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>7CFDEBBBF6CE9E2D792D959EA55C4A96</key>
+		<key>73E372304E12CF534D26BF3F1C8C9B7E</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1325,67 +1336,17 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>sequencing-oauth-api-objc-prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7DB346D0F39D3F0E887471402A8071AB</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
-				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
-				<string>21E1AB6EFF705AC528A2C0663E8494D6</string>
-				<string>B01320259274A58C62FD8DED9E137F18</string>
-				<string>8958ABBA9CAA645714C8E0804D0EFF5C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>7FD01B7BE1257B7785DAD4A4B7D7F897</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQAuthResult.m</string>
+			<string>AppChains.h</string>
 			<key>path</key>
-			<string>Pod/SQAuthResult.m</string>
+			<string>Pod/AppChains.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>807D50E191AB04F8BF181C1A98B21640</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQFilesAPI.m</string>
-			<key>path</key>
-			<string>Pod/SQFilesAPI.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>830141AC6023CFCBE66D7D96742C43DD</key>
+		<key>74250C26693236DAA5AF63706EAC379A</key>
 		<dict>
 			<key>fileRef</key>
-			<string>241E4C2EFCD48F379BFDF91F62E6EAF1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85AD1595201A4942BB082F5C8163946E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D7DC11897329F1062273454AB20F04BF</string>
+			<string>9BCC70A75D878353F57031B1F8D211D4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -1396,14 +1357,7 @@
 				</array>
 			</dict>
 		</dict>
-		<key>85D819C69648BCFD9CC742FCC3DF6DBA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3E4E89230EF59BC255123B67864ACF77</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>85ED4E9060B022CE8385481791C484C2</key>
+		<key>7A2C91269F35B8F593E1F49A2263BDF7</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1412,11 +1366,83 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQLoginViewController.m</string>
+			<string>SQSegmentedControlHelper.m</string>
 			<key>path</key>
-			<string>Pod/SQLoginViewController.m</string>
+			<string>Pod/SQSegmentedControlHelper.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C43267B84DEB2F65A650DDF4111D3C0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7D51042E6ECB8105754C3A38B56CD416</key>
+		<dict>
+			<key>fileRef</key>
+			<string>145A4604E4BE8431068395CAD056137B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>7DB346D0F39D3F0E887471402A8071AB</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BA6428E9F66FD5A23C0A2E06ED26CD2F</string>
+				<string>BC3CA7F9E30CC8F7E2DD044DD34432FC</string>
+				<string>9EF63ED493B5B7A87D0CD2CAB50F1C75</string>
+				<string>B01320259274A58C62FD8DED9E137F18</string>
+				<string>8958ABBA9CAA645714C8E0804D0EFF5C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7DB965B7681DA2E777CCBC74579FC578</key>
+		<dict>
+			<key>fileRef</key>
+			<string>536EE762B7A98011AB37AAF1751769E5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>7F62B47795F4C104AD30D1C11D4E2DCE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQTokenUpdater.m</string>
+			<key>path</key>
+			<string>Pod/SQTokenUpdater.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>85D819C69648BCFD9CC742FCC3DF6DBA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3E4E89230EF59BC255123B67864ACF77</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>869A73F123F56500052084DCCFCF17D3</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AD05973580B2DC163AB672AB6C67D882</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>86E93A4BBFFB2FD75DC7E4D10F2C8011</key>
 		<dict>
@@ -1438,6 +1464,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>893667F2B104ED4174B31579813E53F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FCE3804DAF50FEC0B54DCCC129BE8DF0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>8958ABBA9CAA645714C8E0804D0EFF5C</key>
 		<dict>
 			<key>children</key>
@@ -1451,34 +1491,29 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8A0D3334044FC21DA2BB61B9C1F424FA</key>
+		<key>8A5467E1B58CAB68F1D8F0D4AD3E3F60</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>AF657D262E6DD8702EC91D4F8E1F6374</string>
+				<string>D1564A858AEE298EA07E34C3469A3903</string>
+				<string>6ABF339FADD742898A595DCA6F9260B8</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>SQPopoverInfoViewController.xib</string>
+			<string>Support Files</string>
 			<key>path</key>
-			<string>Resources/SQPopoverInfoViewController.xib</string>
+			<string>../Target Support Files/sequencing-oauth-api-objc</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>8A0D9EDCDB7210E9E509518D8BA96011</key>
+		<key>8BE63B9185B6B9E4DF7AE1C655F287EC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>584E233944804FAD5AFEA1A325612E7E</string>
+			<string>168167A0426FBBD17E203CA2C6E6B3D0</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>8D1534490D941DCA47C62AC4314182AF</key>
 		<dict>
@@ -1564,10 +1599,10 @@
 			<key>targetProxy</key>
 			<string>167E0848E134212E708624854B0049E9</string>
 		</dict>
-		<key>8E7B79951FC708D1824083942A4A7146</key>
+		<key>9020B12571BDD2E3E38B53A848A353A2</key>
 		<dict>
 			<key>fileRef</key>
-			<string>33A45FB2ABD70F696189DD49CE8A5AD9</string>
+			<string>EAB93F4E792D6F1E33E6F8BD9B2EB270</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -1597,35 +1632,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>98C59585A0B1420A499C337F39EE67EF</key>
+		<key>9992EB1D80A5844B90E9B4F3A613F02D</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>B7FB0C55DADCE5C1A7BB8D8E5C693B6A</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQTokenUpdater.m</string>
-			<key>path</key>
-			<string>Pod/SQTokenUpdater.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>994E2BF913C11240600C59E43FC27C86</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQTableCell.m</string>
-			<key>path</key>
-			<string>Pod/SQTableCell.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>9B0157BD542168D58CE6281C0C3B3CBD</key>
 		<dict>
@@ -1640,72 +1659,67 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>9B771AF0959F83B141579BF90A048D18</key>
+		<key>9BCC70A75D878353F57031B1F8D211D4</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>file.xib</string>
+			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQPopoverMyFilesViewController.xib</string>
+			<string>SQExtendedNavBarView.h</string>
 			<key>path</key>
-			<string>Resources/SQPopoverMyFilesViewController.xib</string>
+			<string>Pod/SQExtendedNavBarView.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>9D05CB69F3A3333A9F017F0C7E02B5CE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F5E6C798F54BEEFF206CE1B75A56CA2A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A02AF99C5C78DD190D8C153E6C8C77CA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>740616D9D23879E67F950B1424947DC8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A111798A232017AA930BA8A50A372808</key>
-		<dict>
-			<key>fileRef</key>
-			<string>59849A820D487723567FD7B59257CEE8</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A2DB67D214508FDC467243B02DB0FF91</key>
+		<key>9ECD882F99B1C5508E7494FDB16281F5</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
+			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQToken.m</string>
+			<string>SQRequestHelper.h</string>
 			<key>path</key>
-			<string>Pod/SQToken.m</string>
+			<string>Pod/SQRequestHelper.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>A9DF8CE6E82DA35837C0681B41BD755D</key>
+		<key>9EF63ED493B5B7A87D0CD2CAB50F1C75</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F78E6F44F7699EB322B8CE65AC349579</string>
+				<string>CE4DB3F2287C950B4E7B37CE14D0CD3E</string>
+				<string>D84449C6FC723AB9D39107AB74A7D4F1</string>
+				<string>505C6C001ABDB6CD3C9C64CD807168AC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9F8E8FB3A0E2A4FC045DD2FB8AF10D60</key>
 		<dict>
 			<key>fileRef</key>
-			<string>5FBB5B7D77CE44112D5DFC9545622FCE</string>
+			<string>A9E6F944D253F15CC7075021DB857E6D</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
-		<key>AB2F0AABAFBE5EF5387EB4B1D36BDCDB</key>
+		<key>A168C20FC636F55D59BDA11802759E62</key>
+		<dict>
+			<key>fileRef</key>
+			<string>18D4E5D190A73EB1E211A2E8C0F35D84</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A199F77396175C44C9EE8341D4EFB293</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1718,7 +1732,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>ACAF07ADE173C7A7D79627AC0C963EBB</key>
+		<key>A2E45CB0CC20D10FEBD7DA672A7275D8</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2971D4863BC1655597FC06F418B68426</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>A593098E8D426B846D40AD1A53D025AA</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1727,29 +1755,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQTokenRefreshProtocol.h</string>
+			<string>SQFilesAPI.h</string>
 			<key>path</key>
-			<string>Pod/SQTokenRefreshProtocol.h</string>
+			<string>Pod/SQFilesAPI.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AD10EEDABA82ECFFEAF18EDE4DC3149B</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F0F35EFB09C3745386585F2FACF0D47B</string>
-				<string>8A0D3334044FC21DA2BB61B9C1F424FA</string>
-				<string>9B771AF0959F83B141579BF90A048D18</string>
-				<string>AB2F0AABAFBE5EF5387EB4B1D36BDCDB</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ADB632365FEA78F9879A07CF4421E478</key>
+		<key>A5D60D55358E31C7A0271F64049ECCF6</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1758,54 +1770,13 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>AppChains.h</string>
+			<string>SQServerManager.h</string>
 			<key>path</key>
-			<string>Pod/AppChains.h</string>
+			<string>Pod/SQServerManager.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AEE4E02C08698B13913BDF498A29A820</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQAuthorizationProtocol.h</string>
-			<key>path</key>
-			<string>Pod/SQAuthorizationProtocol.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>AEF8A802E0C557C015502F0E70650476</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F46DBDD563784EDDEA0E14723812894E</string>
-				<string>5C57C0202CC7DED8951C22A06A29D1CF</string>
-				<string>CC6F62162DF567EFC52A625E681A5294</string>
-				<string>BA2F6DC09F42395F3074B1F057DA801C</string>
-				<string>671394D152AA2C5554EFB4C7C7C4D471</string>
-				<string>B8E7C299C9A06BBCB5410345838591DC</string>
-				<string>AFE80D587551A182C3C11CBC96499566</string>
-				<string>5EE1B1E7FD0E5EA4C5A6A82DBD6E41E4</string>
-				<string>318093D82C1C272CEB4EA37454A976E8</string>
-				<string>DE97DB7B19A5D228E37B5D3C9F67226D</string>
-				<string>2195A2E71FF9105D41BA1A02E54C548F</string>
-				<string>B6D0B634567D72937FC9265A7A91A02E</string>
-				<string>FDF20D9B6B852EF9E04B92F3AC8CA738</string>
-				<string>8A0D9EDCDB7210E9E509518D8BA96011</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>AF538B1810AAD950308BE23A54EDC81F</key>
+		<key>A9E6F944D253F15CC7075021DB857E6D</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1814,9 +1785,76 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQHttpHelper.m</string>
+			<string>SQFilesContainer.m</string>
 			<key>path</key>
-			<string>Pod/SQHttpHelper.m</string>
+			<string>Pod/SQFilesContainer.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AC0CD4E364CBFFB704ACEF4ADA5ACB0A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E1FBE4526B76C31626718F88D709E2D2</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>ACB86E9D1813C715800A46AE25CE27B5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AD05973580B2DC163AB672AB6C67D882</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AE745FE772B4CFBB20E6683B649C4399</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>DD04BE2E7E16D001F5B9AEDD36A71725</string>
+				<string>49EBEF6FC9959AEC126AF4689062670B</string>
+				<string>D2B1301707DED01FD571EDE3E64C0B5E</string>
+				<string>E34443FBC376A02B8F277D3719BDE379</string>
+				<string>2D45C7CF6D7A6DE428C892488F55B486</string>
+				<string>7D51042E6ECB8105754C3A38B56CD416</string>
+				<string>68CDD3EE7932AB3AE2DF2AE43A469F94</string>
+				<string>2B943D91C8B3BD9D66682F67DCF2D314</string>
+				<string>F7C684DBD1E2C445EBADC89857D81EFE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>AF657D262E6DD8702EC91D4F8E1F6374</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>sequencing-oauth-api-objc.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1834,20 +1872,6 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>AFE80D587551A182C3C11CBC96499566</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2D495DAA0D67B7B2FB7F230B5A3DDE67</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>B01320259274A58C62FD8DED9E137F18</key>
 		<dict>
 			<key>children</key>
@@ -1864,7 +1888,21 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B1342EF17026EB8A65483A875B4BC901</key>
+		<key>B4FA8563743755F17E50708CE7EEAE40</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3A3BCBDB715A0663B71C3C830CCB2B2B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>B7FB0C55DADCE5C1A7BB8D8E5C693B6A</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1873,150 +1911,34 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>name</key>
-			<string>SQToken.h</string>
+			<string>SQFilesContainer.h</string>
 			<key>path</key>
-			<string>Pod/SQToken.h</string>
+			<string>Pod/SQFilesContainer.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B365AB7F644C4F2D370304959E6031D9</key>
+		<key>B8B7F3D0C3624EC64746D8185AF6E08F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>E30DF13AB00808C5A74FCA7F2E677036</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B9D76D14930A0E8A52B15A5380C61D76</key>
 		<dict>
 			<key>children</key>
 			<array>
-				<string>09D5535A14C72C7BCB8734992F953929</string>
-				<string>695A620573D810429F19565B1F0E621E</string>
-				<string>D2F3B7E27CE181225DF773E02EA37024</string>
-				<string>807D50E191AB04F8BF181C1A98B21640</string>
-				<string>11F5E261FC6F05BB377B257091CFB19F</string>
-				<string>E0B0281046B796D1806C491FB62BDC23</string>
-				<string>D6F828C671929AD66FC1C53DC7872670</string>
-				<string>07E48F59F87A1D562CC9F79BB2FB8BC8</string>
-				<string>1EB64611FCA4B2340EB1083E157036D4</string>
-				<string>FA6A589180B9B6A9239D47D8CE85C6FB</string>
-				<string>241E4C2EFCD48F379BFDF91F62E6EAF1</string>
-				<string>2D495DAA0D67B7B2FB7F230B5A3DDE67</string>
-				<string>56B52466BD6272AC5A9FE7152C13D1B4</string>
-				<string>0E20E22C2A19F7184DF588CABF270B82</string>
-				<string>59849A820D487723567FD7B59257CEE8</string>
-				<string>B89B58687C0B067EA2384DD2F14DE04B</string>
-				<string>33A45FB2ABD70F696189DD49CE8A5AD9</string>
-				<string>0291565194AF73BBDC14C9B7BCD37513</string>
-				<string>740616D9D23879E67F950B1424947DC8</string>
-				<string>5B06942693A0B4ADF56375C8D1B82AB1</string>
-				<string>40392CA8F5FF8F69AFB5FA123F5A18F9</string>
-				<string>14FAC3CDF54F27B2749B0CDDB2D54A18</string>
-				<string>F5E6C798F54BEEFF206CE1B75A56CA2A</string>
-				<string>14F7BD3F683335A13DD25BD19C728F2A</string>
-				<string>0F4B97807BB17E9FF5B9658B33703C06</string>
-				<string>584E233944804FAD5AFEA1A325612E7E</string>
-				<string>994E2BF913C11240600C59E43FC27C86</string>
-				<string>AD10EEDABA82ECFFEAF18EDE4DC3149B</string>
-				<string>53C6FBEF7C88D23A36887EECAE28D4B7</string>
+				<string>EBA4F56A79A9DFA4A3B9E952042680A2</string>
+				<string>FBD56E648366215019A6D69003B77FC0</string>
+				<string>463175002077B05223838DED291CA0D3</string>
+				<string>A199F77396175C44C9EE8341D4EFB293</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
 			<key>name</key>
-			<string>sequencing-file-selector-api-objc</string>
-			<key>path</key>
-			<string>sequencing-file-selector-api-objc</string>
+			<string>Resources</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B6061B47D97642BF6CD755705992C8D3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQServerManager.m</string>
-			<key>path</key>
-			<string>Pod/SQServerManager.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B6D0B634567D72937FC9265A7A91A02E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>14FAC3CDF54F27B2749B0CDDB2D54A18</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>B817693D3500B548D3F7D61E8521E3A6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>ADB632365FEA78F9879A07CF4421E478</string>
-				<string>F4435B92C1BBE67B7A576F04FDD01E1F</string>
-				<string>D09CF0531456ED6C7C954639D98688CA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>sequencing-app-chains-api-objc</string>
-			<key>path</key>
-			<string>sequencing-app-chains-api-objc</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B89B58687C0B067EA2384DD2F14DE04B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQPopoverInfoViewController.h</string>
-			<key>path</key>
-			<string>Pod/SQPopoverInfoViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B8C3D447EC5E7E64FF30F1CD46B4D9F0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B6061B47D97642BF6CD755705992C8D3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B8E7C299C9A06BBCB5410345838591DC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>FA6A589180B9B6A9239D47D8CE85C6FB</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>BA2F6DC09F42395F3074B1F057DA801C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D6F828C671929AD66FC1C53DC7872670</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>BA6428E9F66FD5A23C0A2E06ED26CD2F</key>
 		<dict>
@@ -2035,7 +1957,7 @@
 			<key>xcLanguageSpecificationIdentifier</key>
 			<string>xcode.lang.ruby</string>
 		</dict>
-		<key>BB7899F1D3A48BB39BD968A265E58999</key>
+		<key>BAF4ADA7DF78E947BF45A0745596A323</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2044,7 +1966,37 @@
 			<key>lastKnownFileType</key>
 			<string>text.xcconfig</string>
 			<key>path</key>
-			<string>sequencing-app-chains-api-objc.xcconfig</string>
+			<string>sequencing-file-selector-api-objc.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBD7F5D4B7DBB020A273AACBCF16A187</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQToken.h</string>
+			<key>path</key>
+			<string>Pod/SQToken.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBECB9B2AF47A974DAAE752D8950A260</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQSampleFilesViewController.h</string>
+			<key>path</key>
+			<string>Pod/SQSampleFilesViewController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -2074,20 +2026,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BDFBC46C94F7FB5BAA494A66FD8439D4</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3EF51D08A1C411A887F12085B5551F60</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>BE66177287531EBDDBE7E21EA6E0697E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>56B52466BD6272AC5A9FE7152C13D1B4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>BF10AE6ECC4E7289F9966AB9775DADDE</key>
 		<dict>
 			<key>containerPortal</key>
@@ -2114,26 +2052,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>BF70D38C9A36BCD78E1BA80C18585054</key>
+		<key>C2BDE68109420BF3A3A6E178417A17D8</key>
 		<dict>
-			<key>fileRef</key>
-			<string>36D6ADBF0BF737CB10BB504D94440B79</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>C23A6AF9F31415DFDDB9F5DC71202431</key>
-		<dict>
-			<key>fileRef</key>
-			<string>994E2BF913C11240600C59E43FC27C86</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFileSelectorProtocol.h</string>
+			<key>path</key>
+			<string>Pod/SQFileSelectorProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C5A18280E9321A9268D1C80B7DA43967</key>
 		<dict>
@@ -2203,6 +2135,21 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
+		<key>C74BD2D4B0E75AA19D33A7E52EB05AEE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQServerManager.m</string>
+			<key>path</key>
+			<string>Pod/SQServerManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>CA435FA67D995461D355A58E53AC7C5C</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -2216,7 +2163,22 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</key>
+		<key>CC8128F8752C1A9D8B804ABFB2BD5A60</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQTableCell.h</string>
+			<key>path</key>
+			<string>Pod/SQTableCell.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CDE0C080D75800F3B3E9AE3F359CFAC6</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2224,31 +2186,64 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQAuthResult.m</string>
 			<key>path</key>
-			<string>sequencing-oauth-api-objc-dummy.m</string>
+			<string>Pod/SQAuthResult.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>CC6F62162DF567EFC52A625E681A5294</key>
-		<dict>
-			<key>fileRef</key>
-			<string>11F5E261FC6F05BB377B257091CFB19F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>CE0B9EE96FEB1FE693B62B56285D1BBA</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4571F7B3BFDE1FDFC34CA98F27212428</string>
+			<string>29E708E53795F61478DD8EC7FDC7E925</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>CE4DB3F2287C950B4E7B37CE14D0CD3E</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>9BCC70A75D878353F57031B1F8D211D4</string>
+				<string>2AFBAAB21F3E6217201D0DC186DAA9DE</string>
+				<string>A593098E8D426B846D40AD1A53D025AA</string>
+				<string>33D8C1B4E1ABB5F9087B30D635F0DED4</string>
+				<string>B7FB0C55DADCE5C1A7BB8D8E5C693B6A</string>
+				<string>A9E6F944D253F15CC7075021DB857E6D</string>
+				<string>C2BDE68109420BF3A3A6E178417A17D8</string>
+				<string>3A3BCBDB715A0663B71C3C830CCB2B2B</string>
+				<string>18D4E5D190A73EB1E211A2E8C0F35D84</string>
+				<string>F9F87980C7781B1E8D4D7F382D6F5901</string>
+				<string>FD21D1EAD5844CB01ECEABCBDDA29AC0</string>
+				<string>E0C984B81A8C2E1054F9305AD70EBAE1</string>
+				<string>FA880C5DC81615CEEC848435A5EBE8AC</string>
+				<string>536EE762B7A98011AB37AAF1751769E5</string>
+				<string>E30DF13AB00808C5A74FCA7F2E677036</string>
+				<string>21CC9538A4CD4AD935F9422254B9110D</string>
+				<string>026E545075A851059921436D7B984840</string>
+				<string>55F3E678FE7B6A2F40EA0CFD276BE318</string>
+				<string>168167A0426FBBD17E203CA2C6E6B3D0</string>
+				<string>DB73BB4BD1CFCB8A0065302625E552F4</string>
+				<string>412159E436F7E8A122F13B362D39C6EA</string>
+				<string>BBECB9B2AF47A974DAAE752D8950A260</string>
+				<string>582C7B2B473593EA29046B512AA1C7DF</string>
+				<string>3B7E610369D2B99FEF1B7841FAA58C43</string>
+				<string>E1FBE4526B76C31626718F88D709E2D2</string>
+				<string>2971D4863BC1655597FC06F418B68426</string>
+				<string>7A2C91269F35B8F593E1F49A2263BDF7</string>
+				<string>CC8128F8752C1A9D8B804ABFB2BD5A60</string>
+				<string>EAB93F4E792D6F1E33E6F8BD9B2EB270</string>
+				<string>B9D76D14930A0E8A52B15A5380C61D76</string>
+				<string>FB521B43D167E252DB1C8148D8989817</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>path</key>
+			<string>sequencing-file-selector-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>CE6EE64228F965F9147AB15F278E3E09</key>
 		<dict>
@@ -2278,27 +2273,23 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>D09CF0531456ED6C7C954639D98688CA</key>
+		<key>D1564A858AEE298EA07E34C3469A3903</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>BB7899F1D3A48BB39BD968A265E58999</string>
-				<string>4571F7B3BFDE1FDFC34CA98F27212428</string>
-				<string>3FAE08B50ABC82EA4FE3C76DD7A6D7D3</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>../Target Support Files/sequencing-app-chains-api-objc</string>
+			<string>sequencing-oauth-api-objc-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
 		<key>D17A083EBFE4ABA7AAC86675CC921B7A</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>D693C4E71D81FDD0758D884755A7387F</string>
+			<string>AF657D262E6DD8702EC91D4F8E1F6374</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -2329,20 +2320,12 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>D2F3B7E27CE181225DF773E02EA37024</key>
+		<key>D2B1301707DED01FD571EDE3E64C0B5E</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>186BEB6E90D5F3F06D8900855A7D37C9</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQFilesAPI.h</string>
-			<key>path</key>
-			<string>Pod/SQFilesAPI.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>D40BE684F64C611F19A21301DD961673</key>
 		<dict>
@@ -2417,23 +2400,38 @@
 				<string>1C2C5594049C5FC568C56E4EC093CA35</string>
 			</array>
 		</dict>
-		<key>D693C4E71D81FDD0758D884755A7387F</key>
+		<key>D84449C6FC723AB9D39107AB74A7D4F1</key>
+		<dict>
+			<key>children</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-master-plugin-api-objc</string>
+			<key>path</key>
+			<string>sequencing-master-plugin-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>DB73BB4BD1CFCB8A0065302625E552F4</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQPopoverMyFilesViewController.h</string>
 			<key>path</key>
-			<string>sequencing-oauth-api-objc.xcconfig</string>
+			<string>Pod/SQPopoverMyFilesViewController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D6DAF75FAFEB83991C158C0E11E20079</key>
+		<key>DC3543B65576E962E00C918F0F17E41D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AEE4E02C08698B13913BDF498A29A820</string>
+			<string>9ECD882F99B1C5508E7494FDB16281F5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2444,62 +2442,17 @@
 				</array>
 			</dict>
 		</dict>
-		<key>D6F828C671929AD66FC1C53DC7872670</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQFileSelectorProtocol.h</string>
-			<key>path</key>
-			<string>Pod/SQFileSelectorProtocol.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D7DC11897329F1062273454AB20F04BF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>name</key>
-			<string>SQLoginViewController.h</string>
-			<key>path</key>
-			<string>Pod/SQLoginViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D814F1FF3A1C8ECEBB6B73E1C96405E8</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D6DAF75FAFEB83991C158C0E11E20079</string>
-				<string>E3159D306A700A796383AF4CB8B1FF2A</string>
-				<string>3E1FC67DC70F390C2185306B651C1671</string>
-				<string>85AD1595201A4942BB082F5C8163946E</string>
-				<string>BF70D38C9A36BCD78E1BA80C18585054</string>
-				<string>0D84936387A1A86361B40430435A268F</string>
-				<string>A9DF8CE6E82DA35837C0681B41BD755D</string>
-				<string>094E7255E4958AE6A5FA354606224252</string>
-				<string>485D9420516E20BF7DD7C65324F7E96D</string>
-				<string>E2EE98FF78C5C2CCAD98C5C2F68D307F</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>DE97DB7B19A5D228E37B5D3C9F67226D</key>
+		<key>DD04BE2E7E16D001F5B9AEDD36A71725</key>
 		<dict>
 			<key>fileRef</key>
-			<string>0291565194AF73BBDC14C9B7BCD37513</string>
+			<string>D1564A858AEE298EA07E34C3469A3903</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>DE14861ACB08928948EC351A1FE95A74</key>
+		<dict>
+			<key>fileRef</key>
+			<string>266B2AB77BB115D4E470494183AA7606</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2510,7 +2463,43 @@
 				</array>
 			</dict>
 		</dict>
-		<key>E0B0281046B796D1806C491FB62BDC23</key>
+		<key>DFDBA70D6DECC02032E6673698BDF122</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A593098E8D426B846D40AD1A53D025AA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>E0C984B81A8C2E1054F9305AD70EBAE1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQFilesServerManager.h</string>
+			<key>path</key>
+			<string>Pod/SQFilesServerManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E13A3D1B88C51E781EB5C575AADAB1A7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5A0E5877047F0F9BC9AF9C33D836E125</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E1FBE4526B76C31626718F88D709E2D2</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2519,37 +2508,45 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>SQFilesContainer.m</string>
+			<string>SQSectionInfo.m</string>
 			<key>path</key>
-			<string>Pod/SQFilesContainer.m</string>
+			<string>Pod/SQSectionInfo.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>E13A3D1B88C51E781EB5C575AADAB1A7</key>
+		<key>E267666BE8BDEDA0231C068BCB42D3BC</key>
 		<dict>
 			<key>fileRef</key>
-			<string>F4435B92C1BBE67B7A576F04FDD01E1F</string>
+			<string>582C7B2B473593EA29046B512AA1C7DF</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>E2EE98FF78C5C2CCAD98C5C2F68D307F</key>
+		<key>E30DF13AB00808C5A74FCA7F2E677036</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQIntroViewController.m</string>
+			<key>path</key>
+			<string>Pod/SQIntroViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E34443FBC376A02B8F277D3719BDE379</key>
 		<dict>
 			<key>fileRef</key>
-			<string>4BC9F9C575D0BB3A81E13BD4A88248C2</string>
+			<string>279A6FEA9238AB211678AB53CA35DFE4</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
-		<key>E3159D306A700A796383AF4CB8B1FF2A</key>
+		<key>E43DD8EBD339C6A24C21862C0FE22F55</key>
 		<dict>
 			<key>fileRef</key>
-			<string>243B43C38E33DE713A04E291CDFC07E7</string>
+			<string>3B7E610369D2B99FEF1B7841FAA58C43</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -2563,7 +2560,7 @@
 		<key>E4C65A2B17400F0394859BAEA851DE92</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>558F40831A9F519EBEEAB5BDD4DFFD74</string>
+			<string>BAF4ADA7DF78E947BF45A0745596A323</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
@@ -2605,12 +2602,49 @@
 			<key>targetProxy</key>
 			<string>4232EEAFD399D72304CB1232BE50D390</string>
 		</dict>
-		<key>EA488D9107270E7E6272B5B8663E65D1</key>
+		<key>E7CACFDBE854AC76A7F2EF920E4C0F63</key>
 		<dict>
 			<key>fileRef</key>
-			<string>695A620573D810429F19565B1F0E621E</string>
+			<string>F76366F8F7A6C006EB0020AB88525F82</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
+		<key>EAB93F4E792D6F1E33E6F8BD9B2EB270</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQTableCell.m</string>
+			<key>path</key>
+			<string>Pod/SQTableCell.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EBA4F56A79A9DFA4A3B9E952042680A2</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>name</key>
+			<string>Images.xcassets</string>
+			<key>path</key>
+			<string>Resources/Images.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>EC45BD13D6E0446B549076F074D7D318</key>
 		<dict>
@@ -2637,23 +2671,6 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
-		<key>ED52AD7A0A3D850B723F9638A9BF1F17</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D693C4E71D81FDD0758D884755A7387F</string>
-				<string>CBFF8EB9E2D2D2EFF2D817AEC8829F9E</string>
-				<string>7CFDEBBBF6CE9E2D792D959EA55C4A96</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/sequencing-oauth-api-objc</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>F0B1FC78D738BE6E81086E0A47FD98AA</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -2667,71 +2684,59 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>F0EDCB886C7A71F63C2B194BEC5B1F3F</key>
+		<key>F485DFBD364C27B26D5FD3283CEF7A75</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQAuthorizationProtocol.h</string>
+			<key>path</key>
+			<string>Pod/SQAuthorizationProtocol.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F76366F8F7A6C006EB0020AB88525F82</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQHttpHelper.h</string>
+			<key>path</key>
+			<string>Pod/SQHttpHelper.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F78E6F44F7699EB322B8CE65AC349579</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>73E372304E12CF534D26BF3F1C8C9B7E</string>
+				<string>5A0E5877047F0F9BC9AF9C33D836E125</string>
+				<string>5B3EBD954B832AFCE6F3BFECF54C55BA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>path</key>
+			<string>sequencing-app-chains-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F7C684DBD1E2C445EBADC89857D81EFE</key>
 		<dict>
 			<key>fileRef</key>
-			<string>AF538B1810AAD950308BE23A54EDC81F</string>
+			<string>7F62B47795F4C104AD30D1C11D4E2DCE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>F0F35EFB09C3745386585F2FACF0D47B</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>name</key>
-			<string>Images.xcassets</string>
-			<key>path</key>
-			<string>Resources/Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F4435B92C1BBE67B7A576F04FDD01E1F</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>AppChains.m</string>
-			<key>path</key>
-			<string>Pod/AppChains.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F46DBDD563784EDDEA0E14723812894E</key>
-		<dict>
-			<key>fileRef</key>
-			<string>09D5535A14C72C7BCB8734992F953929</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>F5E6C798F54BEEFF206CE1B75A56CA2A</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>name</key>
-			<string>SQSectionInfo.m</string>
-			<key>path</key>
-			<string>Pod/SQSectionInfo.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>F9113ADAB9EC37BFD9C2E8D0919FB01A</key>
 		<dict>
@@ -2754,7 +2759,7 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FA6A589180B9B6A9239D47D8CE85C6FB</key>
+		<key>F9F87980C7781B1E8D4D7F382D6F5901</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2769,6 +2774,53 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>FA880C5DC81615CEEC848435A5EBE8AC</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>SQFilesServerManager.m</string>
+			<key>path</key>
+			<string>Pod/SQFilesServerManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FB521B43D167E252DB1C8148D8989817</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BAF4ADA7DF78E947BF45A0745596A323</string>
+				<string>AD05973580B2DC163AB672AB6C67D882</string>
+				<string>4E25A09AB5C6428F13B6A2403517CF48</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/sequencing-file-selector-api-objc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FBD56E648366215019A6D69003B77FC0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SQPopoverInfoViewController.xib</string>
+			<key>path</key>
+			<string>Resources/SQPopoverInfoViewController.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>FC891315301CAFD6A4CC507D1134FD5F</key>
 		<dict>
 			<key>isa</key>
@@ -2780,21 +2832,7 @@
 			<key>targetProxy</key>
 			<string>BF10AE6ECC4E7289F9966AB9775DADDE</string>
 		</dict>
-		<key>FDF20D9B6B852EF9E04B92F3AC8CA738</key>
-		<dict>
-			<key>fileRef</key>
-			<string>14F7BD3F683335A13DD25BD19C728F2A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>FEE1012224187813816BDEA2D7392B83</key>
+		<key>FCE3804DAF50FEC0B54DCCC129BE8DF0</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -2802,23 +2840,40 @@
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQOAuth.h</string>
 			<key>path</key>
-			<string>sequencing-file-selector-api-objc-prefix.pch</string>
+			<string>Pod/SQOAuth.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>FEEB955E231098E6CBA44722F9E12F95</key>
+		<key>FD21D1EAD5844CB01ECEABCBDDA29AC0</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
+			<string>sourcecode.c.objc</string>
 			<key>name</key>
-			<string>AuthImages.xcassets</string>
+			<string>SQFilesHttpHelper.m</string>
 			<key>path</key>
-			<string>Resources/AuthImages.xcassets</string>
+			<string>Pod/SQFilesHttpHelper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FFC0FC4A701807DED8B4A14B77641206</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>SQTokenUpdater.h</string>
+			<key>path</key>
+			<string>Pod/SQTokenUpdater.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
