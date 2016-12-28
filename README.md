@@ -40,6 +40,10 @@ This sample works out of the box. To modify it to work with your apps:
 
 ![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.28%20PM.png)
 
+* select file button pressed
+
+![select file button pressed](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.02.57%20PM.png)
+
 * select file - intro page
 
 ![select file intro page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.34%20PM.png)
@@ -58,15 +62,15 @@ This sample works out of the box. To modify it to work with your apps:
 
 * selected file displayed in Select File screen
 
-![selected file in previous screen](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.46%20PM.png)
+![selected file in previous screen](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.03.04%20PM.png)
 
 * retrieved information about "Vitamin D"
 
-![vitamin D](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.55%20PM.png)
+![vitamin D](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.07.05%20PM.png)
 
 * retrieved information about "Melanoma risk"
 
-![melanoma risk](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.53.03%20PM.png)
+![melanoma risk](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.07.27%20PM.png)
 
 
 

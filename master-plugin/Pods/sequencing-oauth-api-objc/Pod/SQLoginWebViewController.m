@@ -86,7 +86,7 @@
 #pragma mark WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    NSLog(@"request: %@", navigationAction.request);
+    // NSLog(@"\nrequest: %@\n", navigationAction.request);
     
     if ([[SQRequestHelper sharedInstance] verifyRequestForRedirectBack:navigationAction.request]) {
         self.webView.navigationDelegate = nil;
@@ -105,6 +105,7 @@
     NSHTTPURLResponse *response = (NSHTTPURLResponse *)navigationResponse.response;
     NSURL *url = [response URL];
     NSString *urlString = [url absoluteString];
+    // NSLog(@"\nresponse: %@\n", urlString);
     
     if ([urlString containsString:@"sequencing.com/"]) {
         
@@ -138,6 +139,8 @@
 
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    // NSLog(@"didFailProvisionalNavigation: %@", [error localizedDescription]);
+    
     [self.activityIndicator stopAnimating];
     self.webView.navigationDelegate = nil;
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
@@ -154,6 +157,8 @@
 
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    //NSLog(@"didFailNavigation: %@", [error localizedDescription]);
+    
     [self.activityIndicator stopAnimating];
     self.webView.navigationDelegate = nil;
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];

@@ -22,7 +22,15 @@ typedef void (^HttpCallback)(NSString *responseText, NSURLResponse *response, NS
                   andAuthScope:(NSString *)authScope
                  andParameters:(NSDictionary *)parameters
                     andHandler:(HttpCallback)callback;
+
+
++ (void)execPostHttpRequestWithUrl:(NSString *)url
+                        parameters:(NSDictionary *)parameters
+                        andHandler:(HttpCallback)callback;
+
 @end
+
+
 
 @interface NSDictionary (UrlEncoding)
 - (NSString *)urlEncodedString;

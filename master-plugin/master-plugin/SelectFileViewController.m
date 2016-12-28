@@ -1,9 +1,6 @@
 //
 //  SelectFileViewController.m
-//  master-plugin
-//
-//  Created by Bogdan Laukhin on 3/29/16.
-//  Copyright © 2016 Bogdan Laukhin. All rights reserved.
+//  Copyright © 2016 Sequencing.com. All rights reserved
 //
 
 #import "SelectFileViewController.h"
@@ -33,6 +30,9 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *getFileInfo;
 @property (weak, nonatomic) IBOutlet UIView *segmentedControlView;
+
+@property (weak, nonatomic) IBOutlet UIView *batchButtonView;
+@property (weak, nonatomic) IBOutlet UIButton *batchButton;
 
 @property (weak, nonatomic) IBOutlet UILabel    *selectedFileTagline;
 @property (weak, nonatomic) IBOutlet UILabel    *selectedFileName;
@@ -66,13 +66,23 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     // adjust buttons view
     self.buttonView.layer.cornerRadius = 5;
     self.buttonView.layer.masksToBounds = YES;
+    self.buttonView.layer.borderColor = [UIColor colorWithRed:35/255.0 green:121/255.0 blue:254/255.0 alpha:1.0].CGColor;
+    self.buttonView.layer.borderWidth = 1.f;
+    
     self.segmentedControlView.layer.cornerRadius = 5;
     self.segmentedControlView.layer.masksToBounds = YES;
+    
+    self.batchButtonView.layer.cornerRadius = 5;
+    self.batchButtonView.layer.masksToBounds = YES;
+    self.batchButtonView.layer.borderColor = [UIColor colorWithRed:35/255.0 green:121/255.0 blue:254/255.0 alpha:1.0].CGColor;
+    self.batchButtonView.layer.borderWidth = 1.f;
     
     [self.selectedFileTagline setHidden:YES];
     [self.selectedFileName setHidden:YES];
     [self.getFileInfo setHidden:YES];
     [self.segmentedControlView setHidden:YES];
+    [self.batchButtonView setHidden:YES];
+    [self.batchButton setHidden:YES];
     [self.vitaminDInfo setHidden:YES];
     [self.melanomaInfo setHidden:YES];
 }
@@ -98,6 +108,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     [self.selectedFileName setHidden:YES];
     [self.getFileInfo setHidden:YES];
     [self.segmentedControlView setHidden:YES];
+    [self.batchButtonView setHidden:YES];
+    [self.batchButton setHidden:YES];
     [self.vitaminDInfo setHidden:YES];
     [self.melanomaInfo setHidden:YES];
     
@@ -147,6 +159,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
             [self.selectedFileName setHidden:NO];
             [self.getFileInfo setHidden:NO];
             [self.segmentedControlView setHidden:NO];
+            [self.batchButtonView setHidden:NO];
+            [self.batchButton setHidden:NO];
         });
         
     } else {
@@ -159,6 +173,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
             [self.selectedFileName setHidden:YES];
             [self.getFileInfo setHidden:YES];
             [self.segmentedControlView setHidden:YES];
+            [self.batchButtonView setHidden:YES];
+            [self.batchButton setHidden:YES];
         });
     }
 }
@@ -193,6 +209,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 - (void)getVitaminDInfo {
     if (self.token && self.selectedFile) {
         
+        [self.vitaminDInfo setHidden:YES];
         [self startActivityIndicatorWithTitle:@"Loading info..."];
         self.view.userInteractionEnabled = NO;
         
@@ -202,39 +219,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
                                             accessToken:self.token.accessToken
                                          withCompletion:^(NSString *vitaminDValue) {
                                              
-                                             if (vitaminDValue && [vitaminDValue length] > 0) {
-                                                 dispatch_async(kMainQueue, ^{
-                                                     if ([vitaminDValue containsString:@"False"]) {
-                                                         
-                                                         [self stopActivityIndicator];
-                                                         self.view.userInteractionEnabled = YES;
-                                                         [self.vitaminDInfo setHidden:NO];
-                                                         self.vitaminDInfo.text = @"There is no issue with vitamin D";
-                                                         
-                                                     } else if ([vitaminDValue containsString:@"True"]) {
-                                                         
-                                                         [self stopActivityIndicator];
-                                                         self.view.userInteractionEnabled = YES;
-                                                         [self.vitaminDInfo setHidden:NO];
-                                                         self.vitaminDInfo.text = @"There is an issue with vitamin D";
-                                                         
-                                                     } else {
-                                                         [self stopActivityIndicator];
-                                                         self.view.userInteractionEnabled = YES;
-                                                         [self.vitaminDInfo setHidden:YES];
-                                                         [self showAlertWithMessage:@"Sorry, there is an error from server."];
-                                                     }
-                                                 });
-                                             } else {
-                                                 dispatch_async(kMainQueue, ^{
-                                                     [self stopActivityIndicator];
-                                                     self.view.userInteractionEnabled = YES;
-                                                     [self.vitaminDInfo setHidden:YES];
-                                                     [self showAlertWithMessage:@"There is error from the server.Probably it's because you're using demo app parameters.\nPlease get valid CLIENT_ID and CLIENT_SECRET for your app in Developer Center on sequencing.com"];
-                                                 });
-                                             }
+                                             [self handleVitaminDLabel:vitaminDValue];
                                          }];
-        
     } else {
         dispatch_async(kMainQueue, ^{
             [self.vitaminDInfo setHidden:YES];
@@ -247,6 +233,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 - (void)getMelanomaInfo {
     if (self.token && self.selectedFile) {
         
+        [self.melanomaInfo setHidden:YES];
         [self startActivityIndicatorWithTitle:@"Loading info..."];
         self.view.userInteractionEnabled = NO;
         
@@ -256,23 +243,8 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
                                            accessToken:self.token.accessToken
                                         withCompletion:^(NSString *melanomaRiskValue) {
                                             
-                                            if (melanomaRiskValue && [melanomaRiskValue length] > 0) {
-                                                dispatch_async(kMainQueue, ^{
-                                                    [self stopActivityIndicator];
-                                                    self.view.userInteractionEnabled = YES;
-                                                    [self.melanomaInfo setHidden:NO];
-                                                    self.melanomaInfo.text = [NSString stringWithFormat:@"Melanoma issue level is: %@", [melanomaRiskValue capitalizedString]];
-                                                });
-                                            } else {
-                                                dispatch_async(kMainQueue, ^{
-                                                    [self stopActivityIndicator];
-                                                    self.view.userInteractionEnabled = YES;
-                                                    [self.melanomaInfo setHidden:YES];
-                                                    [self showAlertWithMessage:@"There is error from the server.Probably it's because you're using demo app parameters.\nPlease get valid CLIENT_ID and CLIENT_SECRET for your app in Developer Center on sequencing.com"];
-                                                });
-                                            }
+                                            [self handleMelanomaLabel:melanomaRiskValue];
                                         }];
-        
     } else {
         dispatch_async(kMainQueue, ^{
             [self.melanomaInfo setHidden:YES];
@@ -280,6 +252,79 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
         });
     }
     
+}
+
+
+- (IBAction)getVitaminDMelanomaInBatchRequest:(id)sender {
+    if (self.token && self.selectedFile) {
+        
+        [self.vitaminDInfo setHidden:YES];
+        [self.melanomaInfo setHidden:YES];
+        [self startActivityIndicatorWithTitle:@"Loading info..."];
+        self.view.userInteractionEnabled = NO;
+        
+        AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
+        [appChainsHelper batchRequestForChain88AndChain9BasedOnFileID:[_selectedFile objectForKey:@"Id"]
+                                                          accessToken:self.token.accessToken
+                                                       withCompletion:^(NSArray *appchainsResults) {
+                                                           
+                                                           // @appchainsResults - result of string values for chains for batch request, it's an array of dictionaries
+                                                           // each dictionary has following keys: "appChainID": appChainID string, "appChainValue": *String value
+                                                           for (NSDictionary *appChainResult in appchainsResults) {
+                                                               
+                                                               if ([[appChainResult objectForKey:@"appChainID"] isEqualToString:@"Chain88"])
+                                                                   [self handleVitaminDLabel:[appChainResult objectForKey:@"appChainValue"]];
+                                                               
+                                                               else if ([[appChainResult objectForKey:@"appChainID"] isEqualToString:@"Chain9"])
+                                                                   [self handleMelanomaLabel:[appChainResult objectForKey:@"appChainValue"]];
+                                                           }
+                                                       }];
+    } else {
+        dispatch_async(kMainQueue, ^{
+            [self.vitaminDInfo setHidden:YES];
+            [self.melanomaInfo setHidden:YES];
+            [self showAlertWithMessage:@"Corrupted user info, can't load information."];
+        });
+    }
+}
+
+
+- (void)handleVitaminDLabel:(NSString *)vitaminDValue {
+    dispatch_async(kMainQueue, ^{
+        [self stopActivityIndicator];
+        self.view.userInteractionEnabled = YES;
+        [self.vitaminDInfo setHidden:NO];
+        
+        if (vitaminDValue && [vitaminDValue length] > 0) {
+            
+            if ([vitaminDValue containsString:@"False"])
+                self.vitaminDInfo.text = @"Chain88: There is no issue with vitamin D";
+            
+            else if ([vitaminDValue containsString:@"True"])
+                self.vitaminDInfo.text = @"Chain88: There is an issue with vitamin D";
+            
+            else
+                self.vitaminDInfo.text = @"Chain88: Sorry, there is an error from server.";
+            
+        } else
+            self.vitaminDInfo.text = @"Chain88: Sorry, there is an error from server.";
+    });
+}
+
+
+- (void)handleMelanomaLabel:(NSString *)melanomaRiskValue {
+    dispatch_async(kMainQueue, ^{
+        [self stopActivityIndicator];
+        self.view.userInteractionEnabled = YES;
+        [self.melanomaInfo setHidden:NO];
+        
+        if (melanomaRiskValue && [melanomaRiskValue length] > 0) {
+            
+            self.melanomaInfo.text = [NSString stringWithFormat:@"Chain9: Melanoma issue level is: %@", [melanomaRiskValue capitalizedString]];
+            
+        } else
+            self.melanomaInfo.text = @"Chain9: Sorry, there is an error from server.";
+    });
 }
 
 

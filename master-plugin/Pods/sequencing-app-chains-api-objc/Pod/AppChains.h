@@ -4,7 +4,6 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @class Job;
 @class ResultValue;
 @class TextResultValue;
@@ -12,48 +11,66 @@
 @class Result;
 @class Report;
 @class RawReportJobResult;
-
 @class HttpResponse;
+
+typedef void(^ReportsArray)(NSArray *reportResultsArray);
+
+
 
 @interface AppChains : NSObject
 
 // Simple init
 - (instancetype)init;
 
-// Init with token, uses in getReport request
-- (instancetype)initWithToken:(NSString *)token;
-
 // Init with token and with host name
 - (instancetype)initWithToken:(NSString *)token withHostName:(NSString *)hostName;
 
+
+
 #pragma mark High level public API
 
-- (void)getPublicBeaconWithChrom:(int)chrom
-                         withPos:(int)pos
-                      withAllele:(NSString *)allele
-                withSuccessBlock:(void (^)(NSString *result))success
-                withFailureBlock:(void (^)(NSError *error))failure;
+// AppChains protocol v2
 
-- (void)getSequencingBeaconWithChrom:(int)chrom
-                             withPos:(int)pos
-                          withAllele:(NSString *)allele
-                    withSuccessBlock:(void (^)(NSString *result))success
-                    withFailureBlock:(void (^) (NSError *error))failure;
+/**
+ * Get report method for one app chain
+ * @param applicationMethodName - report/application specific identifier (i.e. MelanomaDsAppv)
+ * @param datasourceId - resource with data to use for report generation
+ * @return success success block with report
+ * @return failure failure block with error
+ */
+- (void)getReportWithApplicationMethodName:(NSString *)applicationMethodName
+                          withDatasourceId:(NSString *)datasourceId
+                          withSuccessBlock:(void (^)(Report *result))success
+                          withFailureBlock:(void (^)(NSError *error))failure;
 
+/** 
+ * get batch report for several appchains in one request
+ * @param appChainsParams - array of params. each param shoould be an array (2 items: first object applicationMethodName *string, last object datasourceId *string)
+ *
+ * @reportResultsArray - result of report for batch request, it's an array of dictionaries
+ * each dictionary has following keys: "appChainID": appChainID string, "report": *Report object
+ */
+- (void)getBatchReportWithApplicationMethodName:(NSArray *)appChainsParams
+                          withSuccessBlock:(ReportsArray)success
+                          withFailureBlock:(void (^)(NSError *error))failure;
+
+
+
+// AppChains protocol v1
+/*
 - (void)getReportWithRemoteMethodName:(NSString *)remoteMethodName
             withApplicationMethodName:(NSString *)applicationMethodName
                      withDatasourceId:(NSString *)datasourceId
                      withSuccessBlock:(void (^)(Report *result))success
-                     withFailureBlock:(void (^)(NSError *error))failure;
+                     withFailureBlock:(void (^)(NSError *error))failure; */
 
-- (void)getReportWithRemoteMethodName:(NSString *)remoteMethodName
-                      withRequestBody:(NSString *)requestBody
-                     withSuccessBlock:(void (^)(Report *result))success
-                     withFailureBlock:(void (^)(NSError *error))failure;
+
+
+
 
 
 #pragma mark Low level public API
-
+/*
 - (void)getRawReportWithRemoteMethodName:(NSString *)remoteMethodName
                withApplicationMethodName:(NSString *)applicationMethodName
                         withDatasourceId:(NSString *)datasourceId
@@ -70,19 +87,15 @@
 - (void)getBeaconWithMethodName:(NSString *)methodName
                  withParameters:(NSDictionary *)parameters
                withSuccessBlock:(void (^)(NSString *result))success
-               withFailureBlock:(void (^)(NSError *error))failure;
-
-
-- (void)getBeaconWithMethodName:(NSString *)methodName
-                withQueryString:(NSString *)queryString
-               withSuccessBlock:(void (^)(NSString *result))success
-               withFailureBlock:(void (^)(NSError *error))failure;
+               withFailureBlock:(void (^)(NSError *error))failure;*/
 
 @end
 
 
-#pragma mark - Job
 
+
+
+#pragma mark - Job
 /**
  * Class that represents generic job identifier
  */
@@ -94,7 +107,6 @@
 @end
 
 #pragma mark - ResultValue
-
 /**
  * Enumerates possible result entity types
  */
@@ -112,7 +124,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - TextResultValue
-
 /**
  * Class that represents result entity if plain text string
  */
@@ -125,7 +136,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - FileResultValue
-
 /**
  * Class that represents result entity if it's file
  */
@@ -144,7 +154,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - Result
-
 /**
  * Class that represents single report result entity
  */
@@ -158,7 +167,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - Report
-
 /**
  * Class that represents report available to
  * the end client
@@ -174,7 +182,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - RawReportJobResult
-
 /**
  * Class that represents unstructured job response
  */
@@ -197,7 +204,6 @@ typedef NS_ENUM (NSUInteger, ResultType) {
 
 
 #pragma mark - HttpResponse
-
 /**
  * Class that represents generic HTTP response
  */

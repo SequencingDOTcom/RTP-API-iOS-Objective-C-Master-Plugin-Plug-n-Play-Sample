@@ -1,15 +1,14 @@
 //
 //  AppChainsHelper.m
-//  master-plugin
-//
-//  Created by Bogdan Laukhin on 5/27/16.
-//  Copyright © 2016 Bogdan Laukhin. All rights reserved.
+//  Copyright © 2016 Sequencing.com. All rights reserved
 //
 
 #import "AppChainsHelper.h"
 #import "AppChains.h"
 
+
 @implementation AppChainsHelper
+
 
 - (void)requestForChain88BasedOnFileID:(NSString *)fileID
                            accessToken:(NSString *)accessToken
@@ -18,54 +17,21 @@
     
     AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
     
-    [appChains getReportWithRemoteMethodName:@"StartApp"
-                   withApplicationMethodName:@"Chain88"
-                            withDatasourceId:fileID
-                            withSuccessBlock:^(Report *result) {
-                                if ([result isSucceeded]) {
-                                    
-                                    NSString *vitaminDKey = @"result";
-                                    NSString *vitaminDValue;
-                                    
-                                    for (Result *obj in [result getResults]) {
-                                        ResultValue *frv = [obj getValue];
-                                        
-                                        if ([frv getType] == kResultTypeText) {
-                                            
-                                            NSLog(@"\nfrv %@=%@\n", [obj getName], [(TextResultValue *)frv getData]);
-                                            
-                                            if ([[obj getName] isEqualToString:vitaminDKey]) {
-                                                NSString *vitaminDRawValue = [(TextResultValue *)frv getData];
-                                                
-                                                if ([vitaminDRawValue length] != 0) {
-                                                    if ([vitaminDRawValue isEqualToString:@"no"]) {
-                                                        vitaminDValue = @"False";
-                                                    } else {
-                                                        vitaminDValue = @"True";
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                    
-                                    if (vitaminDValue && [vitaminDValue length] != 0) {
-                                        completion(vitaminDValue);
-                                        
-                                    } else {
-                                        completion(nil);
-                                    }
-                                } else {
-                                    completion(nil);
-                                }
-                            }
-                            withFailureBlock:^(NSError *error) {
-                                if (error) {
-                                    NSLog(@"[appChain88 Error] %@", error);
-                                    completion(nil);
-                                } else {
-                                    completion(nil);
-                                }
-                            }];
+    // v2 protocol
+    [appChains getReportWithApplicationMethodName:@"Chain88"
+                                 withDatasourceId:fileID
+                                 withSuccessBlock:^(Report *result) {
+                                     
+                                     completion([self parseReportForChain88:result]);
+                                 }
+                                 withFailureBlock:^(NSError *error) {
+                                     if (error) {
+                                         NSLog(@"[appChain88 Error] %@", error);
+                                         completion(nil);
+                                     } else {
+                                         completion(nil);
+                                     }
+                                 }];
 }
 
 
@@ -77,46 +43,120 @@
     
     AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
     
-    [appChains getReportWithRemoteMethodName:@"StartApp"
-                   withApplicationMethodName:@"Chain9"
-                            withDatasourceId:fileID
-                            withSuccessBlock:^(Report *result) {
-                                if ([result isSucceeded]) {
-                                    
-                                    NSString *riskKey = @"RiskDescription";
-                                    NSString *riskValue;
-                                    
-                                    for (Result *obj in [result getResults]) {
-                                        ResultValue *frv = [obj getValue];
-                                        
-                                        if ([frv getType] == kResultTypeText) {
-                                            
-                                            NSLog(@"\nfrv %@=%@\n", [obj getName], [(TextResultValue *)frv getData]);
-                                            
-                                            if ([[obj getName] isEqualToString:riskKey]) {
-                                                riskValue = [(TextResultValue *)frv getData];
-                                            }
-                                        }
-                                    }
-                                    
-                                    if (riskValue && [riskValue length] != 0) {
-                                        completion(riskValue);
-                                        
-                                    } else {
-                                        NSLog(@"appChains error: Result is empty");
-                                        completion(nil);
-                                    }
-                                } else {
-                                    NSLog(@"appChains error: Result is empty");
-                                    completion(nil);
-                                }
-                            }
-                            withFailureBlock:^(NSError *error) {
-                                if (error) {
-                                    NSLog(@"appChains error: %@", error);
-                                    completion(nil);
-                                }
-                            }];
+    [appChains getReportWithApplicationMethodName:@"Chain9"
+                                 withDatasourceId:fileID
+                                 withSuccessBlock:^(Report *result) {
+                                     
+                                     completion([self parseReportForChain9:result]);
+                                     
+                                 }
+                                 withFailureBlock:^(NSError *error) {
+                                     if (error) {
+                                         NSLog(@"appChains error: %@", error);
+                                         completion(nil);
+                                     }
+                                 }];
+}
+
+
+- (void)batchRequestForChain88AndChain9BasedOnFileID:(NSString *)fileID
+                                         accessToken:(NSString *)accessToken
+                                      withCompletion:(void (^)(NSArray *appchainsResults))completion {
+    NSLog(@"starting batch request for chains88 (vitaminDValue) and chains9 (melanomaRiskValue)");
+    
+    AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
+    
+    NSArray *appChainsForRequest = @[@[@"Chain88", fileID],
+                                     @[@"Chain9",  fileID]];
+    
+    [appChains getBatchReportWithApplicationMethodName:appChainsForRequest
+                                      withSuccessBlock:^(NSArray *reportResultsArray) {
+                                          // @reportResultsArray - result of reports for batch request, it's an array of dictionaries
+                                          // each dictionary has following keys: "appChainID": keyAppChainID string, "report": *Report object
+                                          
+                                          NSMutableArray *appChainsResultsArray = [[NSMutableArray alloc] init];
+                                          
+                                          for (NSDictionary *appChainReportDict in reportResultsArray) {
+                                              
+                                              Report *result = [appChainReportDict objectForKey:@"report"];
+                                              NSString *appChainID = [appChainReportDict objectForKey:@"appChainID"];
+                                              NSString *appChainValue = [NSString stringWithFormat:@""];
+                                              
+                                              if ([appChainID isEqualToString:@"Chain88"])
+                                                  appChainValue = [self parseReportForChain88:result];
+                                              
+                                              else if ([appChainID isEqualToString:@"Chain9"])
+                                                  appChainValue = [self parseReportForChain9:result];
+                                              
+                                              NSDictionary *reportItem = @{@"appChainID":   appChainID,
+                                                                           @"appChainValue":appChainValue};
+                                              [appChainsResultsArray addObject:reportItem];
+                                          }
+                                          
+                                          completion(appChainsResultsArray);
+                                          
+                                      }
+                                      withFailureBlock:^(NSError *error) {
+                                          if (error) {
+                                              NSLog(@"batch request error: %@", error);
+                                              completion(nil);
+                                          }
+                                      }];
+}
+
+
+
+- (NSString *)parseReportForChain88:(Report *)result {
+    NSString *vitaminDValue;
+    
+    if ([result isSucceeded]) {
+        NSString *vitaminDKey = @"result";
+        
+        for (Result *obj in [result getResults]) {
+            ResultValue *frv = [obj getValue];
+            
+            if ([frv getType] == kResultTypeText) {
+                NSLog(@"\nfrv %@=%@\n", [obj getName], [(TextResultValue *)frv getData]);
+                
+                if ([[obj getName] isEqualToString:vitaminDKey]) {
+                    NSString *vitaminDRawValue = [(TextResultValue *)frv getData];
+                    
+                    if ([vitaminDRawValue length] != 0) {
+                        if ([vitaminDRawValue isEqualToString:@"no"]) {
+                            
+                            vitaminDValue = @"False";
+                            
+                        } else {
+                            vitaminDValue = @"True";
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return vitaminDValue;
+}
+
+
+- (NSString *)parseReportForChain9:(Report *)result {
+    NSString *riskValue;
+    
+    if ([result isSucceeded]) {
+        NSString *riskKey = @"RiskDescription";
+        
+        for (Result *obj in [result getResults]) {
+            ResultValue *frv = [obj getValue];
+            
+            if ([frv getType] == kResultTypeText) {
+                NSLog(@"\nfrv %@=%@\n", [obj getName], [(TextResultValue *)frv getData]);
+                
+                if ([[obj getName] isEqualToString:riskKey]) {
+                    riskValue = [(TextResultValue *)frv getData];
+                }
+            }
+        }
+    }
+    return riskValue;;
 }
 
 

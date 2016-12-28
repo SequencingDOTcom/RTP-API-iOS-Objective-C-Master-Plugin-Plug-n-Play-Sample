@@ -5,70 +5,68 @@
 
 #import "AppChains.h"
 
-/**
- * Schema to access remote API (http or https)
- */
+
+
+// Schema to access remote API (http or https)
 #define kDefaultAppChainsSchema @"https"
 
-/**
- * Port to access remote API
- */
+// Port to access remote API
 #define kDefaultAppChainsPort 443
 
-/**
- * Timeout to wait between tries to update Job status in seconds
- */
+// Timeout to wait between tries to update Job status in seconds
 static const NSUInteger kDefaultReportRetryTimeout = 3;
 
-/**
- * Default hostname for Beacon requests
- */
+// Default hostname for Beacon requests
 #define kBeaconHostName @"beacon.sequencing.com"
 
-/**
- * Default hostname for sequesing requests
- */
+// Default hostname for sequesing requests
 #define kDefaultHostName @"api.sequencing.com"
 
-/**
- * Default AppChains protocol version
- */
-#define kDefaultApiVersion @"v1"
+// Default AppChains protocol version
+#define kDefaultApiVersion @"v2"
+#define kOldApiVersion     @"v1"
 
 
-@interface AppChains ()
-{
+
+
+@interface AppChains () {
     // Variable contain number of status checking attempts
     NSUInteger checkCompletionCount;
 }
 
-/**
- * Security token supplied by the client
- */
+// Security token supplied by the client
 @property (nonatomic, strong) NSString *token;
-/**
- * Remote hostname to send requests to
- */
+
+// Remote hostname to send requests to
 @property (nonatomic, strong) NSString *chainsHostname;
 
+
+// properties for Batch requests
+@property (copy, nonatomic) ReportsArray reportsArray;
+@property (assign, nonatomic) NSInteger reportIndex;
+
+// @rawResultsArray (from StartApp) - array of dictionaries {"appChainID": appChainID string, "rawReport": *RawReportJobResult}
+@property (strong, nonatomic) NSArray *rawReportResultsArray;
+
+// @reportResultsArray (results to return) - array of dictionaries {"appChainID": appChainID string, "report": *Report object}
+@property (strong, nonatomic) NSMutableArray *reportResultsArray;
+
 @end
+
+
+
 
 @implementation AppChains
 
 // Simple init
 - (instancetype)init {
-    
     self = [super init];
-    
-    if (self) {
-        
-    }
+    if (self) { }
     return self;
 }
 
 // Init with token, uses in getReport request
 - (instancetype)initWithToken:(NSString *)token {
-    
     self = [super init];
     if (self) {
         _token = token;
@@ -78,7 +76,6 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 
 // Init with token and with host name
 - (instancetype)initWithToken:(NSString *)token withHostName:(NSString *)hostName {
-    
     self = [super init];
     if (self) {
         _token = token;
@@ -87,6 +84,382 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     return self;
 }
 
+
+
+
+#pragma mark -
+#pragma mark AppChains v2 protocol
+
+// =========================================================================================
+/**
+ * Request for report
+ * v2 protocol implementation
+ */
+- (void)getReportWithApplicationMethodName:(NSString *)applicationMethodName
+                          withDatasourceId:(NSString *)datasourceId
+                          withSuccessBlock:(void (^)(Report *result))success
+                          withFailureBlock:(void (^)(NSError *error))failure {
+    if ([self.chainsHostname length] == 0) self.chainsHostname = kDefaultHostName;
+    
+    [self submitStartAppRequestWithApplicationMethodName:applicationMethodName
+                                        withDatasourceId:datasourceId
+                                        withSuccessBlock:^(RawReportJobResult *rawResult) {
+                                            
+                                            if (rawResult.isCompleted) { // StartApp is 'Completed' (we already have a result)
+                                                NSLog(@">>> StartApp request status: Completed");
+                                                success([self processCompletedJobWithRawReportJobResult:rawResult]);
+                                                
+                                            } else { // StartApp is 'Pending' (we need to use 'GetAppResults' endpoint now)
+                                                NSLog(@">>> StartApp request status: Pending");
+                                                Job *pendingJob = [[Job alloc] init];
+                                                [pendingJob jobWithId:rawResult.getJobId];
+                                                
+                                                [self getAppResultsReportImplWithJob:pendingJob
+                                                                    withSuccessBlock:^(Report *result) {
+                                                                        success(result);
+                                                                    }
+                                                                    withFailureBlock:^(NSError *error) {
+                                                                        failure(error);
+                                                                    }];
+                                            }
+                                        }
+                                        withFailureBlock:^(NSError *error) {
+                                            failure(error);
+                                        }];
+}
+
+
+/**
+ * Request for batch report
+ * v2 protocol implementation
+ * @param appChainsParams - array of params. each param is a array (2 items: first object applicationMethodName, last object datasourceId)
+ *
+ * @reportResultsArray - result of reports for batch request, it's an array of dictionaries
+ * each dictionary has following keys: "appChainID": appChainID string, "report": *Report object
+ */
+- (void)getBatchReportWithApplicationMethodName:(NSArray *)appChainsParams
+                               withSuccessBlock:(ReportsArray)success
+                               withFailureBlock:(void (^)(NSError *error))failure {
+    self.reportsArray = success;
+    if ([self.chainsHostname length] == 0) self.chainsHostname = kDefaultHostName;
+    
+    [self submitStartAppBatchRequestWithParameters:appChainsParams
+                                  withSuccessBlock:^(NSArray *rawReportResultsArray) {
+                                      
+                                      // @rawResultsArray - array of dictionaries {"appChainID": appChainID string, "rawReport": *RawReportJobResult}
+                                      self.rawReportResultsArray = rawReportResultsArray;
+                                      
+                                      // @reportResultsArray - result of Reports for batch request, array of dictionaries
+                                      // each dictionary has following keys: "appChainID": appChainID string, "report": *Report object
+                                      self.reportResultsArray = [[NSMutableArray alloc] init];
+                                      
+                                      [self handleRawReportsFromStartAppBatchRequestAsFirstCall:YES];
+                                      
+                                  }
+                                  withFailureBlock:^(NSError *error) {
+                                      failure(error);
+                                  }];
+}
+
+
+- (void)handleRawReportsFromStartAppBatchRequestAsFirstCall:(BOOL)firstCall {
+    if (firstCall)
+        self.reportIndex = 0;
+    else
+        self.reportIndex++;
+        
+    int numberOfRawReportItems = (int)[self.rawReportResultsArray count];
+    
+    if (self.reportIndex < numberOfRawReportItems) {
+        NSDictionary *rawResultDict = self.rawReportResultsArray[self.reportIndex];
+        RawReportJobResult *rawResult = [rawResultDict objectForKey:@"rawReport"];
+        NSString *appChainID = [rawResultDict objectForKey:@"appChainID"];
+        
+        if (rawResult.isCompleted) {
+            NSLog(@">>> StartApp request is Completed for: %@", appChainID);
+            [self addReportObjectToTheArrayOfBatchResults:[self processCompletedJobWithRawReportJobResult:rawResult]
+                                            forAppChainID:appChainID];
+            
+        } else {
+            NSLog(@">>> StartApp request is Pending for: %@", appChainID);
+            Job *pendingJob = [[Job alloc] init];
+            [pendingJob jobWithId:rawResult.getJobId];
+            
+            [self getAppResultsReportImplWithJob:pendingJob
+                                withSuccessBlock:^(Report *result) {
+                                    
+                                    [self addReportObjectToTheArrayOfBatchResults:result
+                                                                    forAppChainID:appChainID];
+                                }
+                                withFailureBlock:^(NSError *error) {
+                                    [self handleRawReportsFromStartAppBatchRequestAsFirstCall:NO];
+                                }];
+        }
+        
+    } else {
+        // the rawReports are finished > let's return the result of Reports
+        self.reportsArray([NSArray arrayWithArray:self.reportResultsArray]);
+    }
+}
+
+
+- (void)addReportObjectToTheArrayOfBatchResults:(Report *)reportObject forAppChainID:(NSString *)appChainID {
+    NSDictionary *reportItem = @{@"appChainID": appChainID,
+                                 @"report"    : reportObject};
+    [self.reportResultsArray addObject:reportItem];
+    [self handleRawReportsFromStartAppBatchRequestAsFirstCall:NO];
+}
+
+
+/**
+ * Submit StartApp request
+ * v2 protocol
+ * @param applicationMethodName report/application specific identifier (i.e. MelanomaDsAppv)
+ * @param datasourceId resource with data to use for report generation
+ */
+- (void)submitStartAppRequestWithApplicationMethodName:(NSString *)applicationMethodName
+                                      withDatasourceId:(NSString *)datasourceId
+                                      withSuccessBlock:(void (^)(RawReportJobResult *rawResult))success
+                                      withFailureBlock:(void (^)(NSError *error))failure {
+    NSLog(@">>> sending '/v2/StartApp' request");
+    
+    [self submitStartAppRawRequestWithHTTPMethod:@"POST"
+                            withRemoteMethodName:@"StartApp"
+                                 withRequestBody:[self buildReportRequestBodyWithApplicationMethodName:applicationMethodName withDataSourceID:datasourceId]
+                                withSuccessBlock:^(RawReportJobResult *rawResult) {
+                                    success(rawResult);
+                                }
+                                withFailureBlock:^(NSError *error) {
+                                    failure(error);
+                                }];
+}
+
+
+/**
+ * Submit StartApp request
+ * v2 protocol
+ * @appchainsParametersArray - array of params
+ * each param is an array too (2 items: first object applicationMethodName, last object datasourceId)
+ *
+ * @success - array of dictionaries
+ * each dictionary has following keys: "appChainID": appChainID string, "rawReport": *RawReportJobResult
+ */
+- (void)submitStartAppBatchRequestWithParameters:(NSArray *)appchainsParametersArray
+                                withSuccessBlock:(void (^)(NSArray *rawReportResultsArray))success
+                                withFailureBlock:(void (^)(NSError *error))failure {
+    NSLog(@">>> sending '/v2/StartAppBatch' request");
+    
+    [self submitStartAppBatchRawRequestWithHTTPMethod:@"POST"
+                                 withRemoteMethodName:@"StartAppBatch"
+                                      withRequestBody:[self buildBatchReportRequestBodyWithParametersArray:appchainsParametersArray]
+                                     withSuccessBlock:^(NSArray *rawResultsArray) {
+                                         
+                                         // @rawResultsArray - array of dictionaries
+                                         // each dictionary has following keys: "appChainID": appChainID string, "rawReport": *RawReportJobResult
+                                         success(rawResultsArray);
+                                     }
+                                     withFailureBlock:^(NSError *error) {
+                                         failure(error);
+                                     }];
+}
+
+
+/**
+ * Submit StartApp low level request
+ */
+- (void)submitStartAppRawRequestWithHTTPMethod:(NSString *)httpMethod
+                          withRemoteMethodName:(NSString *)remoteMethodName
+                               withRequestBody:(NSString *)requestBody
+                              withSuccessBlock:(void (^)(RawReportJobResult *rawResult))success
+                              withFailureBlock:(void (^)(NSError *error))failure {
+    
+    [self httpRequestWithHTTPMethod:httpMethod
+                            withURL:[self getJobSubmissionUrlWithApplicationMethodName:remoteMethodName]
+                    withRequestBody:requestBody
+                   withSuccessBlock:^(HttpResponse *httpResponse) {
+                       
+                       NSString *rawResponseData = [httpResponse getResponseData];
+                       if ([[rawResponseData lowercaseString] rangeOfString:@"exception"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"invalid"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"error"].location != NSNotFound) {
+                           
+                           NSLog(@"appchains error: %@", rawResponseData);
+                           failure([NSError errorWithDomain:@""
+                                                       code:0
+                                                   userInfo:@{@"Server error. Operation couldn't be completed" : @"localizationDescription"}]);
+                           
+                       } else {
+                           NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
+                           NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+                           NSLog(@"decodedResponse: %@", decodedResponse);
+                           
+                           NSArray *resultProps;
+                           if (decodedResponse[@"ResultProps"] != nil) {
+                               resultProps = decodedResponse[@"ResultProps"];
+                           }
+                           NSDictionary *status = decodedResponse[@"Status"];
+                           NSString *completedSuccesfully = status[@"CompletedSuccesfully"];
+                           
+                           BOOL succeeded;
+                           if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
+                               succeeded = NO;
+                           } else {
+                               succeeded = ([completedSuccesfully integerValue] == 1) ? YES : NO;
+                           }
+                           
+                           NSString *jobStatus = status[@"Status"];
+                           NSString *statusString = [jobStatus lowercaseString];
+                           
+                           Job *reportJob = [[Job alloc] init];
+                           [reportJob jobWithId:[status[@"IdJob"] integerValue]];
+                           
+                           RawReportJobResult *result = [[RawReportJobResult alloc] init];
+                           [result setSource:decodedResponse];
+                           [result setJobId:[reportJob getJobId]];
+                           [result setSucceded:succeeded];
+                           [result setCompleted:([statusString isEqualToString:@"completed"]) ? YES : NO];
+                           if (resultProps) [result setResultProps:resultProps];
+                           [result setStatus:jobStatus];
+                           
+                           success(result);
+                       }
+                   }
+                   withFailureBlock:^(NSError *error) {
+                       failure(error);
+                   }];
+}
+
+
+/**
+ * Submit StartAppBatch low level request
+ *
+ * @rawResultsArray - array of dictionaries
+ * each dictionary has following keys: "appChainID": appChainID string, "rawReport": *RawReportJobResult
+ */
+- (void)submitStartAppBatchRawRequestWithHTTPMethod:(NSString *)httpMethod
+                               withRemoteMethodName:(NSString *)remoteMethodName
+                                    withRequestBody:(NSString *)requestBody
+                                   withSuccessBlock:(void (^)(NSArray *rawResultsArray))success
+                                   withFailureBlock:(void (^)(NSError *error))failure {
+    
+    [self httpRequestWithHTTPMethod:httpMethod
+                            withURL:[self getJobSubmissionUrlWithApplicationMethodName:remoteMethodName]
+                    withRequestBody:requestBody
+                   withSuccessBlock:^(HttpResponse *httpResponse) {
+                       
+                       NSString *rawResponseData = [httpResponse getResponseData];
+                       if ([[rawResponseData lowercaseString] rangeOfString:@"exception"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"invalid"].location != NSNotFound ||
+                           [[rawResponseData lowercaseString] rangeOfString:@"error"].location != NSNotFound) {
+                           
+                           NSLog(@"appchains error: %@", rawResponseData);
+                           failure([NSError errorWithDomain:@""
+                                                       code:0
+                                                   userInfo:@{@"Server error. Operation couldn't be completed" : @"localizationDescription"}]);
+                           
+                       } else {
+                           NSMutableArray *resultsArray = [[NSMutableArray alloc] init];
+                           NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
+                           NSArray *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+                           NSLog(@"decodedResponse: %@", decodedResponse);
+                           
+                           for (NSDictionary *rawResponseItem in decodedResponse) {
+                               if ([[rawResponseItem allKeys] containsObject:@"Key"] && [[rawResponseItem allKeys] containsObject:@"Value"]) {
+                                   
+                                   NSString *appChainID = [rawResponseItem objectForKey:@"Key"];
+                                   NSDictionary *responseValue = [rawResponseItem objectForKey:@"Value"];
+                                   
+                                   NSArray *resultProps;
+                                   if (responseValue[@"ResultProps"] != nil) {
+                                       resultProps = responseValue[@"ResultProps"];
+                                   }
+                                   NSDictionary *status = responseValue[@"Status"];
+                                   NSString *completedSuccesfully = status[@"CompletedSuccesfully"];
+                                   
+                                   BOOL succeeded;
+                                   if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
+                                       succeeded = NO;
+                                   } else {
+                                       succeeded = ([completedSuccesfully integerValue] == 1) ? YES : NO;
+                                   }
+                                   
+                                   NSString *jobStatus = status[@"Status"];
+                                   NSString *statusString = [jobStatus lowercaseString];
+                                   
+                                   Job *reportJob = [[Job alloc] init];
+                                   [reportJob jobWithId:[status[@"IdJob"] integerValue]];
+                                   
+                                   RawReportJobResult *result = [[RawReportJobResult alloc] init];
+                                   [result setSource:responseValue];
+                                   [result setJobId:[reportJob getJobId]];
+                                   [result setSucceded:succeeded];
+                                   [result setCompleted:([statusString isEqualToString:@"completed"]) ? YES : NO];
+                                   if (resultProps) [result setResultProps:resultProps];
+                                   [result setStatus:jobStatus];
+                                   
+                                   NSDictionary *rawResultItem = @{@"appChainID": appChainID,
+                                                                   @"rawReport":     result};
+                                   [resultsArray addObject:rawResultItem];
+                                   
+                               } else {
+                                   NSLog(@"batch appChains error: %@", rawResponseData);
+                                   failure([NSError errorWithDomain:@""
+                                                               code:0
+                                                           userInfo:@{@"Invalid batch appchains server response. Operation couldn't be completed" : @"localizationDescription"}]);
+                               }
+                           }
+                           
+                           success([NSArray arrayWithArray:resultsArray]);
+                       }
+                   }
+                   withFailureBlock:^(NSError *error) {
+                       failure(error);
+                   }];
+}
+
+
+/**
+ * Retrieves report data from the GetAppResults endpoint
+ * @param job identifier to retrieve report
+ */
+- (void)getAppResultsReportImplWithJob:(Job *)job
+                      withSuccessBlock:(void (^)(Report *result))success
+                      withFailureBlock:(void (^)(NSError *error))failure {
+    NSLog(@">>> sending '/v2/GetAppResults' request");
+    
+    [self getAppResultsRawReportImplWithJob:job
+                           withSuccessBlock:^(RawReportJobResult *rawResult) {
+                               
+                               if (rawResult.isCompleted) {
+                                   success([self processCompletedJobWithRawReportJobResult:rawResult]);
+                               }
+                           }
+                           withFailureBlock:^(NSError *error) {
+                               failure(error);
+                           }];
+}
+
+
+/**
+ * Retrieves report data from the GetAppResults endpoint low level request
+ */
+- (void)getAppResultsRawReportImplWithJob:(Job *)job
+                         withSuccessBlock:(void (^)(RawReportJobResult *rawResult))success
+                         withFailureBlock:(void (^)(NSError *error))failure {
+    
+    [self getRawJobResultWithJob:job
+                withSuccessBlock:^(RawReportJobResult *rawResult) {
+                    success(rawResult);
+                }
+                withFailureBlock:^(NSError *error) {
+                    failure(error);
+                }];
+}
+
+
+
+
+#pragma mark -
 #pragma mark High level public API
 
 /**
@@ -111,6 +484,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                  }];
 }
 
+
 /**
  * Requests sequencing beacon
  * @param parameters dictionary with request parameters
@@ -133,6 +507,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                  }];
 }
 
+
 /**
  * Requests patient report
  * @param applicationMethodName report/application specific identifier (i.e. MelanomaDsAppv)
@@ -146,7 +521,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                      withSuccessBlock:(void (^)(Report *result))success
                      withFailureBlock:(void (^)(NSError *error))failure {
     
-    self.chainsHostname = kDefaultHostName;
+    if ([self.chainsHostname length] == 0)
+        self.chainsHostname = kDefaultHostName;
     
     // Submitting job request
     [self submitReportJobWithHTTPMethod:@"POST"
@@ -218,6 +594,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        }];
 }
 
+
+#pragma mark -
 #pragma mark Low level public API
 
 /**
@@ -240,6 +618,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                      failure(error);
                  }];
 }
+
 
 /**
  * Returns beacon
@@ -264,6 +643,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        failure(error);
                    }];
 }
+
 
 /**
  * Requests report in raw form it is sent from the server
@@ -309,6 +689,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        }];
 }
 
+
 /**
  * Requests report in raw form it is sent from the server
  * without parsing and transforming it
@@ -351,8 +732,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 }
 
 
+#pragma mark - 
 #pragma mark Internal methods
-
 - (NSDictionary *)getBeaconParametersWithChrom:(int)chrom
                                        withPos:(int)pos
                                     withAllele:(NSString *)allele {
@@ -360,37 +741,34 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:@(chrom), @"chrom",
                                 @(pos), @"pos",
                                 allele, @"allele", nil];
-    
     return parameters;
 }
 
+
 - (NSString *)getRequestStringWithParameters:(NSDictionary *)parameters {
-    
     NSString *queryString = @"";
     
     if (parameters) {
-        
         queryString = @"?";
         
         for (NSString *key in parameters.allKeys) {
-            
             NSString *param = [NSString stringWithFormat:@"%@=%@&", key, parameters[key]];
             queryString = [queryString stringByAppendingString:param];
         }
-        
         queryString =  [queryString substringToIndex:[queryString length] - 1];
     }
     
     return queryString;
 }
 
+
 - (NSURL *)getBeaconUrlWithMethodName:(NSString *)methodName withQueryString:(NSString *)queryString {
-    
     NSString *urlString = [NSString stringWithFormat:@"%@://%@:%d/%@/", kDefaultAppChainsSchema, self.chainsHostname, kDefaultAppChainsPort, methodName];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", urlString, queryString]];
     
     return url;
 }
+
 
 /**
  * Submits job to the API server
@@ -571,6 +949,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     
 }
 
+
+//==========================================================================================================
 /**
  * Builds request body used for report generation
  * @param applicationMethodName
@@ -585,18 +965,47 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     NSDictionary *result = @{@"AppCode": appMethodName,
                              @"Pars": @[parameters]};
     
-    NSError *err = nil;
-    NSData *dJSON = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:&err];
-    
-    if (err) {
-        
-        NSLog(@"ERROR: %@", err.localizedDescription);
+    NSError *jsonError = nil;
+    NSData  *dataJSON = [NSJSONSerialization dataWithJSONObject:result options:NSJSONWritingPrettyPrinted error:&jsonError];
+    if (jsonError) {
+        NSLog(@"ERROR: %@", jsonError.localizedDescription);
     }
     
-    NSString *resultString = [[NSString alloc] initWithData:dJSON encoding:NSUTF8StringEncoding];
-    
+    NSString *resultString = [[NSString alloc] initWithData:dataJSON encoding:NSUTF8StringEncoding];
     return resultString;
 }
+
+
+/**
+ * Builds request body used for batch report generation
+ * array of params. each param is a array (2 items: first object applicationMethodName, last object datasourceId)
+ */
+- (NSString *)buildBatchReportRequestBodyWithParametersArray:(NSArray *)appchainsParamsArray {
+    NSMutableArray *paramsArray = [[NSMutableArray alloc] init];
+    
+    for (NSArray *appchainParams in appchainsParamsArray) {
+        
+        NSDictionary *parameters = @{@"Name": @"dataSourceId",
+                                     @"Value": [appchainParams lastObject]};
+        
+        NSDictionary *result = @{@"AppCode": [appchainParams firstObject], //appMethodName
+                                 @"Pars": @[parameters]};
+        
+        [paramsArray addObject:result];
+    }
+    
+    NSDictionary *batchResult = @{@"Pars": paramsArray};
+    
+    NSError *jsonError = nil;
+    NSData  *dataJSON = [NSJSONSerialization dataWithJSONObject:batchResult options:NSJSONWritingPrettyPrinted error:&jsonError];
+    if (jsonError) {
+        NSLog(@"ERROR: %@", jsonError.localizedDescription);
+    }
+    
+    NSString *resultString = [[NSString alloc] initWithData:dataJSON encoding:NSUTF8StringEncoding];
+    return resultString;
+}
+
 
 /**
  * Constructs URL for job submission
@@ -606,6 +1015,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 - (NSURL *)getJobSubmissionUrlWithApplicationMethodName:(NSString *)applicationMethodName {
     return [self getBaseAppChainsUrlWithContext:applicationMethodName];
 }
+
 
 /**
  * Constructs URL for getting job results
@@ -618,12 +1028,13 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     return [self getBaseAppChainsUrlWithContext:appMethodNameString];
 }
 
+
 /**
  * Constructs base URL for accessing sequencing backend
  * @param jobId job identifier
  * @return NSURL
  */
-- (NSURL *)getBaseAppChainsUrlWithContext:(NSString*) context {
+- (NSURL *)getBaseAppChainsUrlWithContext:(NSString*)context {
     
     NSString *urlString = [NSString stringWithFormat:@"%@://%@:%d/%@/%@", kDefaultAppChainsSchema,
                            self.chainsHostname, kDefaultAppChainsPort, kDefaultApiVersion, context];
@@ -631,6 +1042,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     return [NSURL URLWithString:urlString];
 }
 
+
+// ===================================================================================================
 /**
  * Retrieves report data from the API server
  * @param job identifier to retrieve report
@@ -672,7 +1085,6 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                    withSuccessBlock:^(HttpResponse *httpResponse) {
                        
                        NSString *rawResponseData = [httpResponse getResponseData];
-                       
                        if ([[rawResponseData lowercaseString] rangeOfString:@"exception"].location != NSNotFound ||
                            [[rawResponseData lowercaseString] rangeOfString:@"invalid"].location != NSNotFound ||
                            [[rawResponseData lowercaseString] rangeOfString:@"error"].location != NSNotFound) {
@@ -683,17 +1095,17 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                                                    userInfo:@{@"Server error. Operation couldn't be completed" : @"localizationDescription"}]);
                            
                        } else {
-                           
                            NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
-                           
                            NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+                           NSLog(@"decodedResponse: %@", decodedResponse);
                            
-                           NSArray *resultProps = decodedResponse[@"ResultProps"];
-                           
+                           NSArray *resultProps;
+                           if (decodedResponse[@"ResultProps"] != nil) {
+                               resultProps = decodedResponse[@"ResultProps"];
+                           }
                            NSDictionary *status = decodedResponse[@"Status"];
                            
                            BOOL succeeded;
-                           
                            if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
                                succeeded = NO;
                            } else {
@@ -701,12 +1113,10 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                            }
                            
                            NSString *jobStatus = status[@"Status"];
-                           
                            NSString *statusString = [jobStatus lowercaseString];
                            
                            
-                           if ([statusString isEqualToString:@"completed"] || [statusString isEqualToString:@"failed"]) {
-                               
+                           if ([statusString isEqualToString:@"completed"]) { // || [statusString isEqualToString:@"failed"]
                                RawReportJobResult *result = [[RawReportJobResult alloc] init];
                                [result setSource:decodedResponse];
                                [result setJobId:[job getJobId]];
@@ -714,19 +1124,13 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                                [result setCompleted:YES];
                                [result setResultProps:resultProps];
                                [result setStatus:jobStatus];
-                               
                                success(result);
                                
                            } else {
-                               
                                // if (checkCompletionCount <= kDefaultTimeout) {
-                               
                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(kDefaultReportRetryTimeout * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                   
-                                   NSLog(@">> call check completion step {%02lu}, %@", (unsigned long)checkCompletionCount, statusString);
-                                   
-                                   checkCompletionCount ++;
-                                   
+                                   NSLog(@">> check job completion {%02lu}, %@", (unsigned long)checkCompletionCount, statusString);
+                                   checkCompletionCount++;
                                    [self getRawJobResultWithJob:job withSuccessBlock:success withFailureBlock:failure];
                                });
                                // } else {
@@ -737,15 +1141,18 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                            }
                            
                        }
-                       
                    } withFailureBlock:^(NSError *error) {
                        failure(error);
                    }];
 }
 
 
+/**
+ * Handles raw report result by transforming it to user friendly state
+ * @param name="rawResult"
+ * @return Report
+ */
 - (Report *)processCompletedJobWithRawReportJobResult:(RawReportJobResult *)rawResult {
-    
     NSMutableArray *results = [NSMutableArray new];
     
     for (NSDictionary *resultProp in rawResult.getResultProps) {
@@ -795,14 +1202,13 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
     return finalResult;
 }
 
+
 /**
  * Constructs URL for getting report file
  * @param fileId file identifier
  * @return URL
  */
-
 - (NSURL *)getReportFileUrlWithFileId:(NSInteger)fileId {
-    
     NSString *appMethodNameString = [NSString stringWithFormat:@"GetReportFile?id=%ld", (long)fileId];
     return [self getBaseAppChainsUrlWithContext:appMethodNameString];
 }
@@ -810,8 +1216,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - Job
 
+
+#pragma mark - Job
 /**
  * Class that represents generic job identifier
  */
@@ -834,6 +1241,8 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
+
+
 #pragma mark - ResultValue
 
 @interface ResultValue ()
@@ -854,8 +1263,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - TextResultValue
 
+
+#pragma mark - TextResultValue
 /**
  * Class that represents result entity if plain text string
  */
@@ -879,8 +1289,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - FileResultValue
 
+
+#pragma mark - FileResultValue
 /**
  * Class that represents result entity if it's file
  */
@@ -948,8 +1359,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - Result
 
+
+#pragma mark - Result
 /**
  * Class that represents single report result entity
  */
@@ -978,8 +1390,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - Report
 
+
+#pragma mark - Report
 /**
  * Class that represents report available to
  * the end client
@@ -1012,8 +1425,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - RawReportJobResult
 
+
+#pragma mark - RawReportJobResult
 /**
  * Class that represents unstructured job response
  */
@@ -1081,8 +1495,9 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
 @end
 
 
-#pragma mark - HttpResponse
 
+
+#pragma mark - HttpResponse
 /**
  * Class that represents generic HTTP response
  */

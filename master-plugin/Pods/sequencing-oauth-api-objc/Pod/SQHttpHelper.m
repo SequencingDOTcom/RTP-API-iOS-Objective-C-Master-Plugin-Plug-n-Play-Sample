@@ -5,6 +5,7 @@
 
 #import "SQHttpHelper.h"
 
+
 @implementation SQHttpHelper
 
 + (void)execHttpRequestWithUrl:(NSString *)url
@@ -47,6 +48,32 @@
     
     [dataTask resume];
 }
+
+
+
++ (void)execPostHttpRequestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters andHandler:(HttpCallback)callback {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setTimeoutInterval:15];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setValue:@"en-us" forHTTPHeaderField:@"Accept-Language"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    if (jsonData) {
+        [request setHTTPBody:jsonData];
+    }
+    
+    NSURLSessionDataTask *dataTask =
+    [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                        callback([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding], response, error);
+                                    }];
+    [dataTask resume];
+}
+
+
 
 
 #pragma mark - 

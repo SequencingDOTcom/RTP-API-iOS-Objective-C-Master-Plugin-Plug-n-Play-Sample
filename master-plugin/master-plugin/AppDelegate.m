@@ -1,9 +1,6 @@
 //
 //  AppDelegate.m
-//  master-plugin
-//
-//  Created by Bogdan Laukhin on 3/22/16.
-//  Copyright © 2016 Bogdan Laukhin. All rights reserved.
+//  Copyright © 2016 Sequencing.com. All rights reserved
 //
 
 #import "AppDelegate.h"
