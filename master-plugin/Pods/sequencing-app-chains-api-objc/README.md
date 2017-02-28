@@ -76,7 +76,7 @@ Please follow this guide to install App-Chain module in your existed or new proj
 * specify ```sequencing-app-chains-api-objc``` pod parameters in Podfile: 
 
 	```
-	pod 'sequencing-app-chains-api-objc', '~> 1.1.0'
+	pod 'sequencing-app-chains-api-objc', '~> 1.1.1'
 	```		
 		
 * install the dependency in your project: 

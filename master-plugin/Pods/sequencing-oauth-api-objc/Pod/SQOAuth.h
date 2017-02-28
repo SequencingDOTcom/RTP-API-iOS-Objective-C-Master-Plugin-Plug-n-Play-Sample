@@ -6,7 +6,6 @@
 #import <Foundation/Foundation.h>
 #import "SQAuthorizationProtocol.h"
 #import "SQResetPasswordProtocol.h"
-#import "SQTokenRefreshProtocol.h"
 #import "SQSignUpProtocol.h"
 
 @class SQToken;
@@ -15,7 +14,6 @@
 @interface SQOAuth : NSObject
 
 @property (weak, nonatomic) id<SQAuthorizationProtocol> authorizationDelegate;
-@property (weak, nonatomic) id<SQTokenRefreshProtocol>  refreshTokenDelegate;
 @property (weak, nonatomic) id<SQResetPasswordProtocol> resetPasswordDelegate;
 @property (weak, nonatomic) id<SQSignUpProtocol>        signUpDelegate;
 
@@ -35,11 +33,13 @@
 // authorization method that uses SQAuthorizationProtocol as result
 - (void)authorizeUser;
 
+
+// receive updated token
+- (void)token:(void(^)(SQToken *token))tokenResult;
+
 // shoud be used when user is authorized but token is expired
 - (void)withRefreshToken:(SQToken *)refreshToken updateAccessToken:(void(^)(SQToken *token))tokenResult;
 
-// save token object into AuthResult container, and launch token timer updater
-- (void)launchTokenTimerUpdateWithToken:(SQToken *)token;
 
 // should be called when sign out, this method will stop refreshToken autoupdater
 - (void)userDidSignOut;

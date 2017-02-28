@@ -7,65 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07FAA4721890FF3FD68A1FA402EFD227 /* SQFilesServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D9AA5D04AD37FC0775ACA4B4D12E74 /* SQFilesServerManager.m */; };
+		04581DF4A5A332EC6175492F9C55D8EB /* SQLoginWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F0F27A79771502E64CB5D333D76BF23 /* SQLoginWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07FAA4721890FF3FD68A1FA402EFD227 /* SQFilesServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BA3B34C013A92B335C638923AC5034 /* SQFilesServerManager.m */; };
 		089E096F311C02C0B3CA28F14F7F0842 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		08B2E19AA72F69C6C67F35C3670AC2E6 /* SQSegmentedControlHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 409DCC833F8F43182B9FB6E7435BCB77 /* SQSegmentedControlHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0FD069BF6A2FBB98B7F6F43535C97115 /* SQFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BC754A891366C89BF8FE587FB283A92D /* SQFilesContainer.m */; };
-		19CDC4A9A7D857ADE859E8E072918DB3 /* SQServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 258282BF58825AAEFEC447D969D77591 /* SQServerManager.m */; };
-		219FA2142D292433348BC60CAB28F04B /* SQExtendedNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C2FD3DE032989ACF32CDDB0F15F3BF /* SQExtendedNavBarView.m */; };
+		08B2E19AA72F69C6C67F35C3670AC2E6 /* SQSegmentedControlHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 24EE1D2A26257683DC3753DD42AB5C5F /* SQSegmentedControlHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FD069BF6A2FBB98B7F6F43535C97115 /* SQFilesContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04352E2E59A1D5108564906C52164D6A /* SQFilesContainer.m */; };
+		14BAB50F12D7618FE247388C47DAEF8E /* SQServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D5BEE4DC09F41FB6F06995B3A4705D /* SQServerManager.m */; };
+		1D4EA89C1AA8FC6A75A1BD39EAAA2B61 /* SQServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 876FDB3BDF654802BE574CDC70329C65 /* SQServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		219FA2142D292433348BC60CAB28F04B /* SQExtendedNavBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB0089197F5703EEF230DA6A93DF6286 /* SQExtendedNavBarView.m */; };
 		228A6F3F9B9FB58122EA86A3C31CBE13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		24CD9B5BD6FB5BFDB7BFCD0AEA48DDBE /* SQTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FF925C4872D857FA42C292FECBF3B433 /* SQTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25C19D4324ADC436CDAC4B5626E22600 /* SQFilesHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 40622ACBD3B1DE6ECD3EABCC2A21C135 /* SQFilesHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28628A40C22A89EBFD1F70324DE5C26D /* SQPopoverInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3384D96D6E6DFCBF7BD4D624B33C34EE /* SQPopoverInfoViewController.m */; };
-		3466E315DA9C58E559E5AED6469F9EC3 /* SQMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEADB0A848E3DFAB3B1D8B67D268B786 /* SQMyFilesViewController.m */; };
-		352376B546C22BEB4C3BC2088D080E1C /* SQExtendedNavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0B497D965DC93CA7581E80040275CEB /* SQExtendedNavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24CD9B5BD6FB5BFDB7BFCD0AEA48DDBE /* SQTableCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2302C51DF66C9315F84CE6EBA9CE9FC3 /* SQTableCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25C19D4324ADC436CDAC4B5626E22600 /* SQFilesHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = C5036BA049FB90A97BA1500C6F11843E /* SQFilesHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28628A40C22A89EBFD1F70324DE5C26D /* SQPopoverInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B19C8B9C17A65FE6935777658E149E /* SQPopoverInfoViewController.m */; };
+		28F702AF276AA8EA6E13B76DD475FC02 /* SQHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B94986FC8E2E8209946A02B356DF5B5E /* SQHttpHelper.m */; };
+		2D6E785667EB95C1B81CD20E9AA6D6F9 /* SQLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457F5343B888275C106A9881CF02DF90 /* SQLoginWebViewController.m */; };
+		2EF898D4C0565F1EF67F906AA676F953 /* SQRequestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 71584B615A32D3C42B67B26976B68BE4 /* SQRequestHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3466E315DA9C58E559E5AED6469F9EC3 /* SQMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCCAF1CF3003A8F5BDF887170C793CB2 /* SQMyFilesViewController.m */; };
+		352376B546C22BEB4C3BC2088D080E1C /* SQExtendedNavBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 97890429E40239B5FA63CF72142193F1 /* SQExtendedNavBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		357ABDA2D26126CE28229E2DB466102A /* SQHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 636988408FB2011CC51B1C01E70F5760 /* SQHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35DA2F4C6CFF45D86093882B15C07F12 /* Pods-master-plugin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 928389DD7B5CF3115894DDB29A1A2DFB /* Pods-master-plugin-dummy.m */; };
-		389DA90E12D1A873992A9254949FA29B /* SQSampleFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 475EA51DB2A3294E0E25750083EB6AD0 /* SQSampleFilesViewController.m */; };
-		3CC053EFDE9BCAD9D4BA2E6D0D5333B8 /* SQAuthorizationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A1B7AC590E96FCEC922805CC583D1E53 /* SQAuthorizationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		464C67CD550A2C858E3924831C9CF556 /* SQTokenUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = C358FB72916FA1E0474C00BE62A8F49A /* SQTokenUpdater.m */; };
-		4888951ECF50FBBDEF30A17B066FB009 /* SQHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 06819F8FF6B22B89A347779E45E38E93 /* SQHttpHelper.m */; };
-		489FF2A8E2C90D8392090875306CCAD2 /* sequencing-file-selector-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6969063688C38CCAC5F439E4B39EDE8 /* sequencing-file-selector-api-objc-dummy.m */; };
-		4F690DA279A37ECEDD1C25C83CC34126 /* SQTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 779D58FD1602F9AB1FC5C5EE1284F4DE /* SQTableCell.m */; };
-		526A7D4D1C94B12B1711BA58CBE21D44 /* SQOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 520E0CEF780AC0FFE4F57295FE7DC9C2 /* SQOAuth.m */; };
-		5E0E9195F741A3FA33065B2595BAD3AF /* SQSectionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 1446BC4E0A586E227B1BC9B0382085C5 /* SQSectionInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		64C7E0FF6C68D2E0E63DD34DB8403E53 /* SQFilesServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 479F7B2ADA672F3D6CD39BBA136AD940 /* SQFilesServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		66486FAC9028FA2C570241E04E29A7E9 /* SQResetPasswordProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 047890F2FDDA2B1F67F00FA37295B5C9 /* SQResetPasswordProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		389DA90E12D1A873992A9254949FA29B /* SQSampleFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C54228AD658B40CFC0DAA1618E023F /* SQSampleFilesViewController.m */; };
+		489FF2A8E2C90D8392090875306CCAD2 /* sequencing-file-selector-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E45B44A645EB22328DD689289D1C2E7 /* sequencing-file-selector-api-objc-dummy.m */; };
+		4F690DA279A37ECEDD1C25C83CC34126 /* SQTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AD4A3C37547E4EF0938167FB240AB3 /* SQTableCell.m */; };
+		5ABEE6835FC5C6BEF50A4A3C52FDAB60 /* SQOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F77FF7C9CE10EBF845D36754BFD634 /* SQOAuth.m */; };
+		5D13BB6BC64E19C56F2A935B02FDD384 /* sequencing-oauth-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6523695EF4519E5E565E25C4D4CDEFD /* sequencing-oauth-api-objc-dummy.m */; };
+		5E0E9195F741A3FA33065B2595BAD3AF /* SQSectionInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F305961C0CF8FD8DBB8264B91AD8A76 /* SQSectionInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5ECAE1EE70C0E98F8A1FF61BA6B703D8 /* SQSignUpProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F5A15A1ED9498194C435E3E0B05A78 /* SQSignUpProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64C7E0FF6C68D2E0E63DD34DB8403E53 /* SQFilesServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A77027F209C5724766C99DB5CD2D06A /* SQFilesServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70E814A065A8A5C93E7C060422F565D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		71E74AF4FE611F84928DE47A1E8F99E9 /* SQLoginWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FE8CE37612A48B6C16699E069E3D1022 /* SQLoginWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		78D756607E90EA0C170DCA211975EC7E /* SQFileSelectorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 36D9E885F0A36AF164FBC3F3E54FA91E /* SQFileSelectorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A71D96D279B67D211BC4A16D7F7E29F /* SQPopoverMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9942CEDBCC4D96B0554EC6271A2EB38 /* SQPopoverMyFilesViewController.m */; };
-		80F94B4C5B8E9C0777829B9CA354699E /* sequencing-oauth-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EEBF583636A0DBAA910E6D2EA35140A3 /* sequencing-oauth-api-objc-dummy.m */; };
-		84CE8B71D19D65790C38A13ACF904646 /* SQRequestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BC4D25692D64AE5626933F33A9BAB2 /* SQRequestHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		88171D908DE16A574B3839DFEF040D60 /* SQSegmentedControlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 030538D94BCE4B399D6439D0DE0CBCA5 /* SQSegmentedControlHelper.m */; };
-		894CBE3B38453F1CB0303BAED0FEACDF /* AppChains.m in Sources */ = {isa = PBXBuildFile; fileRef = BF18143CEA757E41698AD262710783DA /* AppChains.m */; };
-		8D19F463EF5A34C87FAD821FE2462F0F /* SQFilesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = 556A64AEF97975FC47BD83226CC6F8BB /* SQFilesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8DCAE37F3EF429D3270BE4CF34552304 /* SQTokenRefreshProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = F916951C3F8BE23747F7D6FB9C9E1A36 /* SQTokenRefreshProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8EDCCCF2E90AD6BE1C678FF379B7B795 /* sequencing-app-chains-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 549FB33398B742FDE3DE939CF27C64A8 /* sequencing-app-chains-api-objc-dummy.m */; };
-		8FEE4AF5090A9BAFE97A96699D1EB3D6 /* SQOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 392534D5C7034AC2AB3005198A95D9B3 /* SQOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EB144B0058369B165A34CC888FFA49 /* SQLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055E57F264B8A7B9ACAC3F3E1A790787 /* SQLoginWebViewController.m */; };
-		9C15604F2D5EE6AF69553DFA3FE00B4B /* SQSampleFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B0DC79985D68B3700749442FA8863A /* SQSampleFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DB626026D24197ACC09555E1A0BE851 /* SQSignUpProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = FA985F897E02B33307F72FD316BF587F /* SQSignUpProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A16A3436E606EF67982160B6463119CB /* SQRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FC3CCD546692747B57A36FC0127EF9 /* SQRequestHelper.m */; };
-		AA4F50365B48222C095FC730FC868DF5 /* SQFilesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E30248298B09F164B50FF161DB5555EC /* SQFilesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAB688638B711E144C0D943187DEBCC1 /* SQIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9621703592D7CDAC85F2D0D9982426 /* SQIntroViewController.m */; };
-		B00C5BFFDFC9EB2EB4C4F41E3D2B6173 /* SQAuthResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 310F66D9611E9055DA794FFC2E0563DC /* SQAuthResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B7672A8316D4C02FF59ED80A43CD5F24 /* SQAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 80A500C5F13D86A332B5E0C6EF5A53D1 /* SQAuthResult.m */; };
-		B88674DE6FD4E66428C44DC572578135 /* SQPopoverMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF2BBA002069E3AE2F74FA9144571E7 /* SQPopoverMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBA89E45D07AB48DD93F71B6A44DEA55 /* SQMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FDBC3009D7E12246C42C0C9FDB9D7E9 /* SQMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BF167E4E24D746FE8BA58D6771F2B08D /* SQSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D96136046A85B16E4A46A8465F203CE /* SQSectionInfo.m */; };
-		C63239354D3D6D7115DB69BBD2440054 /* SQIntroViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9494E7CA88301535E98CAC72A34AF8E8 /* SQIntroViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C95D599B229E8FEBC45C231A0FBB58FF /* SQTokenUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = A00BF8B32A46C199F4ED0E93C6A35CCA /* SQTokenUpdater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D4868115DE573DCCFD55A18444F8AC43 /* AppChains.h in Headers */ = {isa = PBXBuildFile; fileRef = E7625CA23B99585FAE288B6C91F01ECF /* AppChains.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D612D44DADF30888A8021ECEB4700D8A /* SQFilesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA4737C7364443D4766A316E4EE2ABE /* SQFilesHelper.m */; };
-		D80BE1A6DE2E55F906B9D9B75A8AC2CB /* SQServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 99560F2F477E7C4B922D2EAF5ED5E205 /* SQServerManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD1E2105A0A1B0CD18DD22E3194470BE /* SQHttpHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 8709B328CB4DE6B13E21D206AD6F0BC6 /* SQHttpHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E0141C8325A9E962A1CA76CC2E4D7D92 /* SQFilesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 223F0007EBA33F33876A6C9B7344CE8C /* SQFilesAPI.m */; };
-		E080ECFEA3A86EDEF48F91AD05E5190F /* SQPopoverInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6701DEEF0FC2C04F8C1A6584DC61EE /* SQPopoverInfoViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E602C89EFC1D7A3EB4381E8CDD3B6995 /* SQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = FEF7225A50CD8CA6454423125F6E6054 /* SQToken.m */; };
-		EB0908907AF027F1610788DF4A0D9460 /* SQFilesHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DAA00F053ACFDA8E21C5ADE55018A7 /* SQFilesHttpHelper.m */; };
+		73BEC5A0BBE8B1885771E6A06C6647E4 /* SQRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 196446C52BCA3F44FDC5DAB913A0FF85 /* SQRequestHelper.m */; };
+		7864C1E3925BB516ED13309D590DE6DC /* SQAuthResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D2D4EEC5D0D956B80F180670997646 /* SQAuthResult.m */; };
+		78D756607E90EA0C170DCA211975EC7E /* SQFileSelectorProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C188A599BB141D35F0208DE1B1ED83D /* SQFileSelectorProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A71D96D279B67D211BC4A16D7F7E29F /* SQPopoverMyFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9D235435C42CD94F1EB253A1779C48 /* SQPopoverMyFilesViewController.m */; };
+		7EDA932481C651D86430C58BBD26D2B1 /* SQOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FC3885E0657C185B20EC0F91BC85701 /* SQOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8592E84F51F9F72FE5E1C3AE14FD947C /* SQAuthorizationProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C0FD6DB581FF8D2C38CC00743451EC6 /* SQAuthorizationProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88171D908DE16A574B3839DFEF040D60 /* SQSegmentedControlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B52BAE1C12D5BF794EC4F041C60D4520 /* SQSegmentedControlHelper.m */; };
+		894CBE3B38453F1CB0303BAED0FEACDF /* AppChains.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D45EC416C0FE6C51BDCA28A763A2E4 /* AppChains.m */; };
+		8D19F463EF5A34C87FAD821FE2462F0F /* SQFilesContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EA136EEE656D7D3A9A1C5D67A866609E /* SQFilesContainer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8EDCCCF2E90AD6BE1C678FF379B7B795 /* sequencing-app-chains-api-objc-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8865548CA5287CAE1558DD6A33AFEE8A /* sequencing-app-chains-api-objc-dummy.m */; };
+		986279E60E4DB77573A10A3EDEA34C1D /* SQAuthResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9C3C17335C0B857F4BA556531665ED /* SQAuthResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C15604F2D5EE6AF69553DFA3FE00B4B /* SQSampleFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 10EA8B8C88A1C47DA50BD40EA1DC00DE /* SQSampleFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA4F50365B48222C095FC730FC868DF5 /* SQFilesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E5C79440A54CC858B473F54A86E8ED9 /* SQFilesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAB688638B711E144C0D943187DEBCC1 /* SQIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99A978A7581FF5704C121B335F9B052 /* SQIntroViewController.m */; };
+		B88674DE6FD4E66428C44DC572578135 /* SQPopoverMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 943F6B140DB76167D15E48EA6CD6FBE0 /* SQPopoverMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBA89E45D07AB48DD93F71B6A44DEA55 /* SQMyFilesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A7C443DC2A4C9E47339C7027C12760CF /* SQMyFilesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF167E4E24D746FE8BA58D6771F2B08D /* SQSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F8E4BDA41360BA9A876E73E0B705CCD9 /* SQSectionInfo.m */; };
+		C63239354D3D6D7115DB69BBD2440054 /* SQIntroViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D145230BB6D25CC0560ACB79AC4CA6C /* SQIntroViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2136213C2F24B5C616CD39F4766E9B6 /* SQToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B43379BFD4005E18992F0D82D7B0E56A /* SQToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4868115DE573DCCFD55A18444F8AC43 /* AppChains.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E0935CFA7B0787E9E1DB3D915719560 /* AppChains.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D612D44DADF30888A8021ECEB4700D8A /* SQFilesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 448DB53A8522499538AD2501E795BE57 /* SQFilesHelper.m */; };
+		D750CCEB9E25E54D23BE2679ED6D5AC5 /* SQToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C9D2EF49FE191F89D9C0F0431A8AB0 /* SQToken.m */; };
+		E0141C8325A9E962A1CA76CC2E4D7D92 /* SQFilesAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FB488955AB1B71328ECF32D9FF668EBA /* SQFilesAPI.m */; };
+		E080ECFEA3A86EDEF48F91AD05E5190F /* SQPopoverInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F94829696DA0F4447FA4797D8DAC3C65 /* SQPopoverInfoViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB0908907AF027F1610788DF4A0D9460 /* SQFilesHttpHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 61CE2448E75CC104476FDA7D7F76A1A3 /* SQFilesHttpHelper.m */; };
 		EBF86CA88B2DD7C7B97ADF05D364C38F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		F5AB5B536CB61F4CF1E47F9DBBF6E810 /* SQFilesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = E5B3B5A55F7E591427ED5C7F6F85FF29 /* SQFilesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8348CB399BFE820B68D3F7AF36C6384 /* SQToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8298D959DC2F174A67727160B1F6F5 /* SQToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5A6D16624EC66095392438890DE9F2B /* SQResetPasswordProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FD6E868A8D0F69E2926DF7C416C0D2 /* SQResetPasswordProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5AB5B536CB61F4CF1E47F9DBBF6E810 /* SQFilesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = F9427D1905E94D4CDA0F570AD8EF2038 /* SQFilesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,84 +90,81 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		030538D94BCE4B399D6439D0DE0CBCA5 /* SQSegmentedControlHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSegmentedControlHelper.m; path = Pod/SQSegmentedControlHelper.m; sourceTree = "<group>"; };
-		047890F2FDDA2B1F67F00FA37295B5C9 /* SQResetPasswordProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQResetPasswordProtocol.h; path = Pod/SQResetPasswordProtocol.h; sourceTree = "<group>"; };
-		055E57F264B8A7B9ACAC3F3E1A790787 /* SQLoginWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLoginWebViewController.m; path = Pod/SQLoginWebViewController.m; sourceTree = "<group>"; };
-		06819F8FF6B22B89A347779E45E38E93 /* SQHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQHttpHelper.m; path = Pod/SQHttpHelper.m; sourceTree = "<group>"; };
+		00AD4A3C37547E4EF0938167FB240AB3 /* SQTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTableCell.m; path = Pod/SQTableCell.m; sourceTree = "<group>"; };
+		04352E2E59A1D5108564906C52164D6A /* SQFilesContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesContainer.m; path = Pod/SQFilesContainer.m; sourceTree = "<group>"; };
+		09D6646103DB0809E3BCFCB74829BDC9 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		0BA2B6C3F952C0B397A9B4C0E4E5D6C5 /* Pods-master-plugin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-master-plugin-acknowledgements.plist"; sourceTree = "<group>"; };
 		0DA197928AA864A5D02F851DEE350F1D /* libPods-master-plugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-master-plugin.a"; path = "libPods-master-plugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1446BC4E0A586E227B1BC9B0382085C5 /* SQSectionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSectionInfo.h; path = Pod/SQSectionInfo.h; sourceTree = "<group>"; };
+		0FC3885E0657C185B20EC0F91BC85701 /* SQOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQOAuth.h; path = Pod/SQOAuth.h; sourceTree = "<group>"; };
+		10EA8B8C88A1C47DA50BD40EA1DC00DE /* SQSampleFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSampleFilesViewController.h; path = Pod/SQSampleFilesViewController.h; sourceTree = "<group>"; };
+		13C54228AD658B40CFC0DAA1618E023F /* SQSampleFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSampleFilesViewController.m; path = Pod/SQSampleFilesViewController.m; sourceTree = "<group>"; };
 		16CB51266AE82FF0EF77580870374F79 /* libsequencing-app-chains-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-app-chains-api-objc.a"; path = "libsequencing-app-chains-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		223F0007EBA33F33876A6C9B7344CE8C /* SQFilesAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesAPI.m; path = Pod/SQFilesAPI.m; sourceTree = "<group>"; };
-		258282BF58825AAEFEC447D969D77591 /* SQServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQServerManager.m; path = Pod/SQServerManager.m; sourceTree = "<group>"; };
+		196446C52BCA3F44FDC5DAB913A0FF85 /* SQRequestHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQRequestHelper.m; path = Pod/SQRequestHelper.m; sourceTree = "<group>"; };
+		2302C51DF66C9315F84CE6EBA9CE9FC3 /* SQTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTableCell.h; path = Pod/SQTableCell.h; sourceTree = "<group>"; };
+		24EE1D2A26257683DC3753DD42AB5C5F /* SQSegmentedControlHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSegmentedControlHelper.h; path = Pod/SQSegmentedControlHelper.h; sourceTree = "<group>"; };
 		2850084D76F96316EBE939340EE5DC02 /* Pods-master-plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-master-plugin.release.xcconfig"; sourceTree = "<group>"; };
-		2C6701DEEF0FC2C04F8C1A6584DC61EE /* SQPopoverInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverInfoViewController.h; path = Pod/SQPopoverInfoViewController.h; sourceTree = "<group>"; };
-		2EA4737C7364443D4766A316E4EE2ABE /* SQFilesHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHelper.m; path = Pod/SQFilesHelper.m; sourceTree = "<group>"; };
-		310F66D9611E9055DA794FFC2E0563DC /* SQAuthResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthResult.h; path = Pod/SQAuthResult.h; sourceTree = "<group>"; };
-		3384D96D6E6DFCBF7BD4D624B33C34EE /* SQPopoverInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverInfoViewController.m; path = Pod/SQPopoverInfoViewController.m; sourceTree = "<group>"; };
-		368BE78D3D1E4BBFCCE45DC53CA10C80 /* sequencing-file-selector-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-file-selector-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		36D9E885F0A36AF164FBC3F3E54FA91E /* SQFileSelectorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFileSelectorProtocol.h; path = Pod/SQFileSelectorProtocol.h; sourceTree = "<group>"; };
-		392534D5C7034AC2AB3005198A95D9B3 /* SQOAuth.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQOAuth.h; path = Pod/SQOAuth.h; sourceTree = "<group>"; };
-		3D96136046A85B16E4A46A8465F203CE /* SQSectionInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSectionInfo.m; path = Pod/SQSectionInfo.m; sourceTree = "<group>"; };
-		40622ACBD3B1DE6ECD3EABCC2A21C135 /* SQFilesHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHttpHelper.h; path = Pod/SQFilesHttpHelper.h; sourceTree = "<group>"; };
-		409DCC833F8F43182B9FB6E7435BCB77 /* SQSegmentedControlHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSegmentedControlHelper.h; path = Pod/SQSegmentedControlHelper.h; sourceTree = "<group>"; };
-		4351A41D9F833F4BC83ED0FD1AA68B98 /* SQPopoverInfoViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverInfoViewController.xib; path = Resources/SQPopoverInfoViewController.xib; sourceTree = "<group>"; };
-		475EA51DB2A3294E0E25750083EB6AD0 /* SQSampleFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSampleFilesViewController.m; path = Pod/SQSampleFilesViewController.m; sourceTree = "<group>"; };
-		479F7B2ADA672F3D6CD39BBA136AD940 /* SQFilesServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesServerManager.h; path = Pod/SQFilesServerManager.h; sourceTree = "<group>"; };
+		2A2CAEB72FF223F7C2F842D235A8C4B2 /* AuthImages.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = AuthImages.xcassets; path = Resources/AuthImages.xcassets; sourceTree = "<group>"; };
+		2E5C79440A54CC858B473F54A86E8ED9 /* SQFilesHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHelper.h; path = Pod/SQFilesHelper.h; sourceTree = "<group>"; };
+		2F0F27A79771502E64CB5D333D76BF23 /* SQLoginWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLoginWebViewController.h; path = Pod/SQLoginWebViewController.h; sourceTree = "<group>"; };
+		3640172956B4E4AB9797CA4812266618 /* sequencing-app-chains-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-app-chains-api-objc.xcconfig"; sourceTree = "<group>"; };
+		38FE5283841C06C01B07E7BC9256059D /* sequencing-file-selector-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-file-selector-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		448DB53A8522499538AD2501E795BE57 /* SQFilesHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHelper.m; path = Pod/SQFilesHelper.m; sourceTree = "<group>"; };
+		452E5E736FF2E33B048A4C5BE4C44E7F /* sequencing-oauth-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-oauth-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		457F5343B888275C106A9881CF02DF90 /* SQLoginWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQLoginWebViewController.m; path = Pod/SQLoginWebViewController.m; sourceTree = "<group>"; };
+		49B19C8B9C17A65FE6935777658E149E /* SQPopoverInfoViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverInfoViewController.m; path = Pod/SQPopoverInfoViewController.m; sourceTree = "<group>"; };
+		4A77027F209C5724766C99DB5CD2D06A /* SQFilesServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesServerManager.h; path = Pod/SQFilesServerManager.h; sourceTree = "<group>"; };
+		4C66532A4537E49D9D7D716E87636EFC /* SQPopoverInfoViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverInfoViewController.xib; path = Resources/SQPopoverInfoViewController.xib; sourceTree = "<group>"; };
 		4D594872E8FA7597B812CEBC6B45ED32 /* Pods-master-plugin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-master-plugin-resources.sh"; sourceTree = "<group>"; };
-		520E0CEF780AC0FFE4F57295FE7DC9C2 /* SQOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQOAuth.m; path = Pod/SQOAuth.m; sourceTree = "<group>"; };
-		549FB33398B742FDE3DE939CF27C64A8 /* sequencing-app-chains-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-app-chains-api-objc-dummy.m"; sourceTree = "<group>"; };
-		556A64AEF97975FC47BD83226CC6F8BB /* SQFilesContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesContainer.h; path = Pod/SQFilesContainer.h; sourceTree = "<group>"; };
-		57D9AA5D04AD37FC0775ACA4B4D12E74 /* SQFilesServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesServerManager.m; path = Pod/SQFilesServerManager.m; sourceTree = "<group>"; };
+		4E45B44A645EB22328DD689289D1C2E7 /* sequencing-file-selector-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-file-selector-api-objc-dummy.m"; sourceTree = "<group>"; };
+		4F305961C0CF8FD8DBB8264B91AD8A76 /* SQSectionInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSectionInfo.h; path = Pod/SQSectionInfo.h; sourceTree = "<group>"; };
+		532E5D6EDCCBDBB6EA754BCA42C20CB7 /* SQPopoverMyFilesViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverMyFilesViewController.xib; path = Resources/SQPopoverMyFilesViewController.xib; sourceTree = "<group>"; };
+		5C188A599BB141D35F0208DE1B1ED83D /* SQFileSelectorProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFileSelectorProtocol.h; path = Pod/SQFileSelectorProtocol.h; sourceTree = "<group>"; };
 		5C6E1320F4500947A524536C0FA6DD65 /* libsequencing-oauth-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-oauth-api-objc.a"; path = "libsequencing-oauth-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D145230BB6D25CC0560ACB79AC4CA6C /* SQIntroViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQIntroViewController.h; path = Pod/SQIntroViewController.h; sourceTree = "<group>"; };
 		618217E112529669DFB9DF117A435AD3 /* libsequencing-file-selector-api-objc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libsequencing-file-selector-api-objc.a"; path = "libsequencing-file-selector-api-objc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		69BAC8375676051DE0D33B0DAD07D4D2 /* TabbarFileSelector.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; name = TabbarFileSelector.storyboard; path = Resources/TabbarFileSelector.storyboard; sourceTree = "<group>"; };
-		779D58FD1602F9AB1FC5C5EE1284F4DE /* SQTableCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTableCell.m; path = Pod/SQTableCell.m; sourceTree = "<group>"; };
-		80A500C5F13D86A332B5E0C6EF5A53D1 /* SQAuthResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQAuthResult.m; path = Pod/SQAuthResult.m; sourceTree = "<group>"; };
-		8709B328CB4DE6B13E21D206AD6F0BC6 /* SQHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQHttpHelper.h; path = Pod/SQHttpHelper.h; sourceTree = "<group>"; };
+		61CE2448E75CC104476FDA7D7F76A1A3 /* SQFilesHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHttpHelper.m; path = Pod/SQFilesHttpHelper.m; sourceTree = "<group>"; };
+		636988408FB2011CC51B1C01E70F5760 /* SQHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQHttpHelper.h; path = Pod/SQHttpHelper.h; sourceTree = "<group>"; };
+		63BA3B34C013A92B335C638923AC5034 /* SQFilesServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesServerManager.m; path = Pod/SQFilesServerManager.m; sourceTree = "<group>"; };
+		68F5A15A1ED9498194C435E3E0B05A78 /* SQSignUpProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSignUpProtocol.h; path = Pod/SQSignUpProtocol.h; sourceTree = "<group>"; };
+		6F939A340DAB0BB7CFF2F57B74B1A561 /* TabbarFileSelector.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; name = TabbarFileSelector.storyboard; path = Resources/TabbarFileSelector.storyboard; sourceTree = "<group>"; };
+		71584B615A32D3C42B67B26976B68BE4 /* SQRequestHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQRequestHelper.h; path = Pod/SQRequestHelper.h; sourceTree = "<group>"; };
+		72D45EC416C0FE6C51BDCA28A763A2E4 /* AppChains.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppChains.m; path = Pod/AppChains.m; sourceTree = "<group>"; };
+		7B89FC45EAEAD05CA0D004856B1810C2 /* sequencing-file-selector-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-file-selector-api-objc.xcconfig"; sourceTree = "<group>"; };
+		7C0FD6DB581FF8D2C38CC00743451EC6 /* SQAuthorizationProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthorizationProtocol.h; path = Pod/SQAuthorizationProtocol.h; sourceTree = "<group>"; };
+		81F77FF7C9CE10EBF845D36754BFD634 /* SQOAuth.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQOAuth.m; path = Pod/SQOAuth.m; sourceTree = "<group>"; };
+		876FDB3BDF654802BE574CDC70329C65 /* SQServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQServerManager.h; path = Pod/SQServerManager.h; sourceTree = "<group>"; };
+		8865548CA5287CAE1558DD6A33AFEE8A /* sequencing-app-chains-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-app-chains-api-objc-dummy.m"; sourceTree = "<group>"; };
+		8C9D235435C42CD94F1EB253A1779C48 /* SQPopoverMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverMyFilesViewController.m; path = Pod/SQPopoverMyFilesViewController.m; sourceTree = "<group>"; };
+		91C9D2EF49FE191F89D9C0F0431A8AB0 /* SQToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQToken.m; path = Pod/SQToken.m; sourceTree = "<group>"; };
+		91D2D4EEC5D0D956B80F180670997646 /* SQAuthResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQAuthResult.m; path = Pod/SQAuthResult.m; sourceTree = "<group>"; };
 		928389DD7B5CF3115894DDB29A1A2DFB /* Pods-master-plugin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-master-plugin-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9494E7CA88301535E98CAC72A34AF8E8 /* SQIntroViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQIntroViewController.h; path = Pod/SQIntroViewController.h; sourceTree = "<group>"; };
+		943F6B140DB76167D15E48EA6CD6FBE0 /* SQPopoverMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverMyFilesViewController.h; path = Pod/SQPopoverMyFilesViewController.h; sourceTree = "<group>"; };
 		94BE0656703BEDAD0CED7408B3498290 /* Pods-master-plugin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-master-plugin-frameworks.sh"; sourceTree = "<group>"; };
-		99560F2F477E7C4B922D2EAF5ED5E205 /* SQServerManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQServerManager.h; path = Pod/SQServerManager.h; sourceTree = "<group>"; };
-		9A8298D959DC2F174A67727160B1F6F5 /* SQToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQToken.h; path = Pod/SQToken.h; sourceTree = "<group>"; };
-		9BD7519E157CE39308BC24E20D35E291 /* sequencing-app-chains-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-app-chains-api-objc.xcconfig"; sourceTree = "<group>"; };
-		9FDBC3009D7E12246C42C0C9FDB9D7E9 /* SQMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQMyFilesViewController.h; path = Pod/SQMyFilesViewController.h; sourceTree = "<group>"; };
-		A00BF8B32A46C199F4ED0E93C6A35CCA /* SQTokenUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenUpdater.h; path = Pod/SQTokenUpdater.h; sourceTree = "<group>"; };
-		A0B497D965DC93CA7581E80040275CEB /* SQExtendedNavBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQExtendedNavBarView.h; path = Pod/SQExtendedNavBarView.h; sourceTree = "<group>"; };
-		A1B7AC590E96FCEC922805CC583D1E53 /* SQAuthorizationProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthorizationProtocol.h; path = Pod/SQAuthorizationProtocol.h; sourceTree = "<group>"; };
-		A3FC3CCD546692747B57A36FC0127EF9 /* SQRequestHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQRequestHelper.m; path = Pod/SQRequestHelper.m; sourceTree = "<group>"; };
-		A6BC4D25692D64AE5626933F33A9BAB2 /* SQRequestHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQRequestHelper.h; path = Pod/SQRequestHelper.h; sourceTree = "<group>"; };
-		B5AE7EB9C88F5472568B08E14489EBFC /* sequencing-file-selector-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-file-selector-api-objc.xcconfig"; sourceTree = "<group>"; };
-		BC754A891366C89BF8FE587FB283A92D /* SQFilesContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesContainer.m; path = Pod/SQFilesContainer.m; sourceTree = "<group>"; };
+		97890429E40239B5FA63CF72142193F1 /* SQExtendedNavBarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQExtendedNavBarView.h; path = Pod/SQExtendedNavBarView.h; sourceTree = "<group>"; };
+		97D5BEE4DC09F41FB6F06995B3A4705D /* SQServerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQServerManager.m; path = Pod/SQServerManager.m; sourceTree = "<group>"; };
+		9D9C3C17335C0B857F4BA556531665ED /* SQAuthResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQAuthResult.h; path = Pod/SQAuthResult.h; sourceTree = "<group>"; };
+		9E0935CFA7B0787E9E1DB3D915719560 /* AppChains.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppChains.h; path = Pod/AppChains.h; sourceTree = "<group>"; };
+		A7C443DC2A4C9E47339C7027C12760CF /* SQMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQMyFilesViewController.h; path = Pod/SQMyFilesViewController.h; sourceTree = "<group>"; };
+		B43379BFD4005E18992F0D82D7B0E56A /* SQToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQToken.h; path = Pod/SQToken.h; sourceTree = "<group>"; };
+		B52BAE1C12D5BF794EC4F041C60D4520 /* SQSegmentedControlHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSegmentedControlHelper.m; path = Pod/SQSegmentedControlHelper.m; sourceTree = "<group>"; };
+		B5FD6E868A8D0F69E2926DF7C416C0D2 /* SQResetPasswordProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQResetPasswordProtocol.h; path = Pod/SQResetPasswordProtocol.h; sourceTree = "<group>"; };
+		B94986FC8E2E8209946A02B356DF5B5E /* SQHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQHttpHelper.m; path = Pod/SQHttpHelper.m; sourceTree = "<group>"; };
 		BC8258C73E36C25712CFEE20D6C3D5A8 /* Pods-master-plugin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-master-plugin-acknowledgements.markdown"; sourceTree = "<group>"; };
-		BF18143CEA757E41698AD262710783DA /* AppChains.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppChains.m; path = Pod/AppChains.m; sourceTree = "<group>"; };
-		BF9621703592D7CDAC85F2D0D9982426 /* SQIntroViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQIntroViewController.m; path = Pod/SQIntroViewController.m; sourceTree = "<group>"; };
-		C358FB72916FA1E0474C00BE62A8F49A /* SQTokenUpdater.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQTokenUpdater.m; path = Pod/SQTokenUpdater.m; sourceTree = "<group>"; };
-		C6D661436382C1C1E5CAE499E3351560 /* AuthImages.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = AuthImages.xcassets; path = Resources/AuthImages.xcassets; sourceTree = "<group>"; };
-		C7A8DF1681E680CCF4288D5D9DD82915 /* sequencing-oauth-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-oauth-api-objc.xcconfig"; sourceTree = "<group>"; };
+		C5036BA049FB90A97BA1500C6F11843E /* SQFilesHttpHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHttpHelper.h; path = Pod/SQFilesHttpHelper.h; sourceTree = "<group>"; };
 		CA435FA67D995461D355A58E53AC7C5C /* Pods-master-plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-master-plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CC8116D5E7E77FE0741F6A9E6B7DBBBC /* sequencing-oauth-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-oauth-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		D6969063688C38CCAC5F439E4B39EDE8 /* sequencing-file-selector-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-file-selector-api-objc-dummy.m"; sourceTree = "<group>"; };
-		DF44C60F7A8E514E1909F3EB2CCE2DC3 /* sequencing-app-chains-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-app-chains-api-objc-prefix.pch"; sourceTree = "<group>"; };
-		E05A3BCA7420878F0727DC8A3260CEF8 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
-		E30248298B09F164B50FF161DB5555EC /* SQFilesHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesHelper.h; path = Pod/SQFilesHelper.h; sourceTree = "<group>"; };
-		E4B0DC79985D68B3700749442FA8863A /* SQSampleFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSampleFilesViewController.h; path = Pod/SQSampleFilesViewController.h; sourceTree = "<group>"; };
-		E5B3B5A55F7E591427ED5C7F6F85FF29 /* SQFilesAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesAPI.h; path = Pod/SQFilesAPI.h; sourceTree = "<group>"; };
-		E6C2FD3DE032989ACF32CDDB0F15F3BF /* SQExtendedNavBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQExtendedNavBarView.m; path = Pod/SQExtendedNavBarView.m; sourceTree = "<group>"; };
-		E7625CA23B99585FAE288B6C91F01ECF /* AppChains.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppChains.h; path = Pod/AppChains.h; sourceTree = "<group>"; };
-		EEBF583636A0DBAA910E6D2EA35140A3 /* sequencing-oauth-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-oauth-api-objc-dummy.m"; sourceTree = "<group>"; };
-		EECFACBCE18182D9177EFC961C01061A /* SQPopoverMyFilesViewController.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SQPopoverMyFilesViewController.xib; path = Resources/SQPopoverMyFilesViewController.xib; sourceTree = "<group>"; };
-		F916951C3F8BE23747F7D6FB9C9E1A36 /* SQTokenRefreshProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTokenRefreshProtocol.h; path = Pod/SQTokenRefreshProtocol.h; sourceTree = "<group>"; };
-		F9942CEDBCC4D96B0554EC6271A2EB38 /* SQPopoverMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQPopoverMyFilesViewController.m; path = Pod/SQPopoverMyFilesViewController.m; sourceTree = "<group>"; };
-		F9DAA00F053ACFDA8E21C5ADE55018A7 /* SQFilesHttpHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesHttpHelper.m; path = Pod/SQFilesHttpHelper.m; sourceTree = "<group>"; };
-		FA985F897E02B33307F72FD316BF587F /* SQSignUpProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQSignUpProtocol.h; path = Pod/SQSignUpProtocol.h; sourceTree = "<group>"; };
-		FE8CE37612A48B6C16699E069E3D1022 /* SQLoginWebViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLoginWebViewController.h; path = Pod/SQLoginWebViewController.h; sourceTree = "<group>"; };
-		FEADB0A848E3DFAB3B1D8B67D268B786 /* SQMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQMyFilesViewController.m; path = Pod/SQMyFilesViewController.m; sourceTree = "<group>"; };
-		FEF2BBA002069E3AE2F74FA9144571E7 /* SQPopoverMyFilesViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverMyFilesViewController.h; path = Pod/SQPopoverMyFilesViewController.h; sourceTree = "<group>"; };
-		FEF7225A50CD8CA6454423125F6E6054 /* SQToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQToken.m; path = Pod/SQToken.m; sourceTree = "<group>"; };
-		FF925C4872D857FA42C292FECBF3B433 /* SQTableCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQTableCell.h; path = Pod/SQTableCell.h; sourceTree = "<group>"; };
+		CC6CADEC2E009E0F48922248D58109D5 /* sequencing-oauth-api-objc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "sequencing-oauth-api-objc.xcconfig"; sourceTree = "<group>"; };
+		CCCAF1CF3003A8F5BDF887170C793CB2 /* SQMyFilesViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQMyFilesViewController.m; path = Pod/SQMyFilesViewController.m; sourceTree = "<group>"; };
+		D6523695EF4519E5E565E25C4D4CDEFD /* sequencing-oauth-api-objc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "sequencing-oauth-api-objc-dummy.m"; sourceTree = "<group>"; };
+		DB0089197F5703EEF230DA6A93DF6286 /* SQExtendedNavBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQExtendedNavBarView.m; path = Pod/SQExtendedNavBarView.m; sourceTree = "<group>"; };
+		DE59E6A1038B8216DEFA6AAEDC4D11E3 /* sequencing-app-chains-api-objc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "sequencing-app-chains-api-objc-prefix.pch"; sourceTree = "<group>"; };
+		E99A978A7581FF5704C121B335F9B052 /* SQIntroViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQIntroViewController.m; path = Pod/SQIntroViewController.m; sourceTree = "<group>"; };
+		EA136EEE656D7D3A9A1C5D67A866609E /* SQFilesContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesContainer.h; path = Pod/SQFilesContainer.h; sourceTree = "<group>"; };
+		F8E4BDA41360BA9A876E73E0B705CCD9 /* SQSectionInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQSectionInfo.m; path = Pod/SQSectionInfo.m; sourceTree = "<group>"; };
+		F9427D1905E94D4CDA0F570AD8EF2038 /* SQFilesAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQFilesAPI.h; path = Pod/SQFilesAPI.h; sourceTree = "<group>"; };
+		F94829696DA0F4447FA4797D8DAC3C65 /* SQPopoverInfoViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQPopoverInfoViewController.h; path = Pod/SQPopoverInfoViewController.h; sourceTree = "<group>"; };
+		FB488955AB1B71328ECF32D9FF668EBA /* SQFilesAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SQFilesAPI.m; path = Pod/SQFilesAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,67 +203,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		129D9F90DA7341ED7E62CDFA958F3BC6 /* Resources */ = {
+		2BC410E3BBB0430BB9D74AC843D7333F /* sequencing-oauth-api-objc */ = {
 			isa = PBXGroup;
 			children = (
-				E05A3BCA7420878F0727DC8A3260CEF8 /* Images.xcassets */,
-				4351A41D9F833F4BC83ED0FD1AA68B98 /* SQPopoverInfoViewController.xib */,
-				EECFACBCE18182D9177EFC961C01061A /* SQPopoverMyFilesViewController.xib */,
-				69BAC8375676051DE0D33B0DAD07D4D2 /* TabbarFileSelector.storyboard */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		1AA03455E8552E91D9D0315AED190A04 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B5AE7EB9C88F5472568B08E14489EBFC /* sequencing-file-selector-api-objc.xcconfig */,
-				D6969063688C38CCAC5F439E4B39EDE8 /* sequencing-file-selector-api-objc-dummy.m */,
-				368BE78D3D1E4BBFCCE45DC53CA10C80 /* sequencing-file-selector-api-objc-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/sequencing-file-selector-api-objc";
-			sourceTree = "<group>";
-		};
-		41EC019E145EC4DBAAE387ECFF9F0FA0 /* sequencing-oauth-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-				A1B7AC590E96FCEC922805CC583D1E53 /* SQAuthorizationProtocol.h */,
-				310F66D9611E9055DA794FFC2E0563DC /* SQAuthResult.h */,
-				80A500C5F13D86A332B5E0C6EF5A53D1 /* SQAuthResult.m */,
-				8709B328CB4DE6B13E21D206AD6F0BC6 /* SQHttpHelper.h */,
-				06819F8FF6B22B89A347779E45E38E93 /* SQHttpHelper.m */,
-				FE8CE37612A48B6C16699E069E3D1022 /* SQLoginWebViewController.h */,
-				055E57F264B8A7B9ACAC3F3E1A790787 /* SQLoginWebViewController.m */,
-				392534D5C7034AC2AB3005198A95D9B3 /* SQOAuth.h */,
-				520E0CEF780AC0FFE4F57295FE7DC9C2 /* SQOAuth.m */,
-				A6BC4D25692D64AE5626933F33A9BAB2 /* SQRequestHelper.h */,
-				A3FC3CCD546692747B57A36FC0127EF9 /* SQRequestHelper.m */,
-				047890F2FDDA2B1F67F00FA37295B5C9 /* SQResetPasswordProtocol.h */,
-				99560F2F477E7C4B922D2EAF5ED5E205 /* SQServerManager.h */,
-				258282BF58825AAEFEC447D969D77591 /* SQServerManager.m */,
-				FA985F897E02B33307F72FD316BF587F /* SQSignUpProtocol.h */,
-				9A8298D959DC2F174A67727160B1F6F5 /* SQToken.h */,
-				FEF7225A50CD8CA6454423125F6E6054 /* SQToken.m */,
-				F916951C3F8BE23747F7D6FB9C9E1A36 /* SQTokenRefreshProtocol.h */,
-				A00BF8B32A46C199F4ED0E93C6A35CCA /* SQTokenUpdater.h */,
-				C358FB72916FA1E0474C00BE62A8F49A /* SQTokenUpdater.m */,
-				BB837950286DB684C0E026056F11DB11 /* Resources */,
-				5E22E2C68AB808566E97752E08C9A829 /* Support Files */,
+				7C0FD6DB581FF8D2C38CC00743451EC6 /* SQAuthorizationProtocol.h */,
+				9D9C3C17335C0B857F4BA556531665ED /* SQAuthResult.h */,
+				91D2D4EEC5D0D956B80F180670997646 /* SQAuthResult.m */,
+				636988408FB2011CC51B1C01E70F5760 /* SQHttpHelper.h */,
+				B94986FC8E2E8209946A02B356DF5B5E /* SQHttpHelper.m */,
+				2F0F27A79771502E64CB5D333D76BF23 /* SQLoginWebViewController.h */,
+				457F5343B888275C106A9881CF02DF90 /* SQLoginWebViewController.m */,
+				0FC3885E0657C185B20EC0F91BC85701 /* SQOAuth.h */,
+				81F77FF7C9CE10EBF845D36754BFD634 /* SQOAuth.m */,
+				71584B615A32D3C42B67B26976B68BE4 /* SQRequestHelper.h */,
+				196446C52BCA3F44FDC5DAB913A0FF85 /* SQRequestHelper.m */,
+				B5FD6E868A8D0F69E2926DF7C416C0D2 /* SQResetPasswordProtocol.h */,
+				876FDB3BDF654802BE574CDC70329C65 /* SQServerManager.h */,
+				97D5BEE4DC09F41FB6F06995B3A4705D /* SQServerManager.m */,
+				68F5A15A1ED9498194C435E3E0B05A78 /* SQSignUpProtocol.h */,
+				B43379BFD4005E18992F0D82D7B0E56A /* SQToken.h */,
+				91C9D2EF49FE191F89D9C0F0431A8AB0 /* SQToken.m */,
+				D2C2BDA20C9E9B4C276E326F228862FD /* Resources */,
+				EA7ADEF93461339F98B1D2FA69C00F21 /* Support Files */,
 			);
 			name = "sequencing-oauth-api-objc";
 			path = "sequencing-oauth-api-objc";
 			sourceTree = "<group>";
 		};
-		5E22E2C68AB808566E97752E08C9A829 /* Support Files */ = {
+		3011B50A6EAA0E2EA5385613A94981AA /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C7A8DF1681E680CCF4288D5D9DD82915 /* sequencing-oauth-api-objc.xcconfig */,
-				EEBF583636A0DBAA910E6D2EA35140A3 /* sequencing-oauth-api-objc-dummy.m */,
-				CC8116D5E7E77FE0741F6A9E6B7DBBBC /* sequencing-oauth-api-objc-prefix.pch */,
+				7B89FC45EAEAD05CA0D004856B1810C2 /* sequencing-file-selector-api-objc.xcconfig */,
+				4E45B44A645EB22328DD689289D1C2E7 /* sequencing-file-selector-api-objc-dummy.m */,
+				38FE5283841C06C01B07E7BC9256059D /* sequencing-file-selector-api-objc-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/sequencing-oauth-api-objc";
+			path = "../Target Support Files/sequencing-file-selector-api-objc";
+			sourceTree = "<group>";
+		};
+		33043E31175387AFE77E2841699514D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09D6646103DB0809E3BCFCB74829BDC9 /* Images.xcassets */,
+				4C66532A4537E49D9D7D716E87636EFC /* SQPopoverInfoViewController.xib */,
+				532E5D6EDCCBDBB6EA754BCA42C20CB7 /* SQPopoverMyFilesViewController.xib */,
+				6F939A340DAB0BB7CFF2F57B74B1A561 /* TabbarFileSelector.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4F123BD5C1DED88927FA66C40353E0F7 /* sequencing-master-plugin-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "sequencing-master-plugin-api-objc";
+			path = "sequencing-master-plugin-api-objc";
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -285,7 +273,7 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				FB6861D5C7915EA793C61A9193A0E145 /* Pods */,
+				EA02F5C67C9A34CF4CB88B91A98A5CE7 /* Pods */,
 				B01320259274A58C62FD8DED9E137F18 /* Products */,
 				8958ABBA9CAA645714C8E0804D0EFF5C /* Targets Support Files */,
 			);
@@ -299,23 +287,15 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A85D60548F47E73C984B51378BF8CC32 /* sequencing-master-plugin-api-objc */ = {
+		897E9D89AFC58017E9CCDDDA83012700 /* sequencing-app-chains-api-objc */ = {
 			isa = PBXGroup;
 			children = (
+				9E0935CFA7B0787E9E1DB3D915719560 /* AppChains.h */,
+				72D45EC416C0FE6C51BDCA28A763A2E4 /* AppChains.m */,
+				D4A8402E79CD244BE28B60A6C3625725 /* Support Files */,
 			);
-			name = "sequencing-master-plugin-api-objc";
-			path = "sequencing-master-plugin-api-objc";
-			sourceTree = "<group>";
-		};
-		ACA496433E0559D1A75BD854510224E6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				9BD7519E157CE39308BC24E20D35E291 /* sequencing-app-chains-api-objc.xcconfig */,
-				549FB33398B742FDE3DE939CF27C64A8 /* sequencing-app-chains-api-objc-dummy.m */,
-				DF44C60F7A8E514E1909F3EB2CCE2DC3 /* sequencing-app-chains-api-objc-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/sequencing-app-chains-api-objc";
+			name = "sequencing-app-chains-api-objc";
+			path = "sequencing-app-chains-api-objc";
 			sourceTree = "<group>";
 		};
 		B01320259274A58C62FD8DED9E137F18 /* Products */ = {
@@ -329,53 +309,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B8423C39E335FC97ADBE1D42C28C6267 /* sequencing-file-selector-api-objc */ = {
-			isa = PBXGroup;
-			children = (
-				A0B497D965DC93CA7581E80040275CEB /* SQExtendedNavBarView.h */,
-				E6C2FD3DE032989ACF32CDDB0F15F3BF /* SQExtendedNavBarView.m */,
-				E5B3B5A55F7E591427ED5C7F6F85FF29 /* SQFilesAPI.h */,
-				223F0007EBA33F33876A6C9B7344CE8C /* SQFilesAPI.m */,
-				556A64AEF97975FC47BD83226CC6F8BB /* SQFilesContainer.h */,
-				BC754A891366C89BF8FE587FB283A92D /* SQFilesContainer.m */,
-				36D9E885F0A36AF164FBC3F3E54FA91E /* SQFileSelectorProtocol.h */,
-				E30248298B09F164B50FF161DB5555EC /* SQFilesHelper.h */,
-				2EA4737C7364443D4766A316E4EE2ABE /* SQFilesHelper.m */,
-				40622ACBD3B1DE6ECD3EABCC2A21C135 /* SQFilesHttpHelper.h */,
-				F9DAA00F053ACFDA8E21C5ADE55018A7 /* SQFilesHttpHelper.m */,
-				479F7B2ADA672F3D6CD39BBA136AD940 /* SQFilesServerManager.h */,
-				57D9AA5D04AD37FC0775ACA4B4D12E74 /* SQFilesServerManager.m */,
-				9494E7CA88301535E98CAC72A34AF8E8 /* SQIntroViewController.h */,
-				BF9621703592D7CDAC85F2D0D9982426 /* SQIntroViewController.m */,
-				9FDBC3009D7E12246C42C0C9FDB9D7E9 /* SQMyFilesViewController.h */,
-				FEADB0A848E3DFAB3B1D8B67D268B786 /* SQMyFilesViewController.m */,
-				2C6701DEEF0FC2C04F8C1A6584DC61EE /* SQPopoverInfoViewController.h */,
-				3384D96D6E6DFCBF7BD4D624B33C34EE /* SQPopoverInfoViewController.m */,
-				FEF2BBA002069E3AE2F74FA9144571E7 /* SQPopoverMyFilesViewController.h */,
-				F9942CEDBCC4D96B0554EC6271A2EB38 /* SQPopoverMyFilesViewController.m */,
-				E4B0DC79985D68B3700749442FA8863A /* SQSampleFilesViewController.h */,
-				475EA51DB2A3294E0E25750083EB6AD0 /* SQSampleFilesViewController.m */,
-				1446BC4E0A586E227B1BC9B0382085C5 /* SQSectionInfo.h */,
-				3D96136046A85B16E4A46A8465F203CE /* SQSectionInfo.m */,
-				409DCC833F8F43182B9FB6E7435BCB77 /* SQSegmentedControlHelper.h */,
-				030538D94BCE4B399D6439D0DE0CBCA5 /* SQSegmentedControlHelper.m */,
-				FF925C4872D857FA42C292FECBF3B433 /* SQTableCell.h */,
-				779D58FD1602F9AB1FC5C5EE1284F4DE /* SQTableCell.m */,
-				129D9F90DA7341ED7E62CDFA958F3BC6 /* Resources */,
-				1AA03455E8552E91D9D0315AED190A04 /* Support Files */,
-			);
-			name = "sequencing-file-selector-api-objc";
-			path = "sequencing-file-selector-api-objc";
-			sourceTree = "<group>";
-		};
-		BB837950286DB684C0E026056F11DB11 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C6D661436382C1C1E5CAE499E3351560 /* AuthImages.xcassets */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,15 +317,84 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C1AACA825ACA82D7ABAD0E22307F3B38 /* sequencing-app-chains-api-objc */ = {
+		D2C2BDA20C9E9B4C276E326F228862FD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E7625CA23B99585FAE288B6C91F01ECF /* AppChains.h */,
-				BF18143CEA757E41698AD262710783DA /* AppChains.m */,
-				ACA496433E0559D1A75BD854510224E6 /* Support Files */,
+				2A2CAEB72FF223F7C2F842D235A8C4B2 /* AuthImages.xcassets */,
 			);
-			name = "sequencing-app-chains-api-objc";
-			path = "sequencing-app-chains-api-objc";
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4A8402E79CD244BE28B60A6C3625725 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3640172956B4E4AB9797CA4812266618 /* sequencing-app-chains-api-objc.xcconfig */,
+				8865548CA5287CAE1558DD6A33AFEE8A /* sequencing-app-chains-api-objc-dummy.m */,
+				DE59E6A1038B8216DEFA6AAEDC4D11E3 /* sequencing-app-chains-api-objc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/sequencing-app-chains-api-objc";
+			sourceTree = "<group>";
+		};
+		EA02F5C67C9A34CF4CB88B91A98A5CE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				897E9D89AFC58017E9CCDDDA83012700 /* sequencing-app-chains-api-objc */,
+				F096774F5224A1549F4AE4BCE88C0839 /* sequencing-file-selector-api-objc */,
+				4F123BD5C1DED88927FA66C40353E0F7 /* sequencing-master-plugin-api-objc */,
+				2BC410E3BBB0430BB9D74AC843D7333F /* sequencing-oauth-api-objc */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EA7ADEF93461339F98B1D2FA69C00F21 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC6CADEC2E009E0F48922248D58109D5 /* sequencing-oauth-api-objc.xcconfig */,
+				D6523695EF4519E5E565E25C4D4CDEFD /* sequencing-oauth-api-objc-dummy.m */,
+				452E5E736FF2E33B048A4C5BE4C44E7F /* sequencing-oauth-api-objc-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/sequencing-oauth-api-objc";
+			sourceTree = "<group>";
+		};
+		F096774F5224A1549F4AE4BCE88C0839 /* sequencing-file-selector-api-objc */ = {
+			isa = PBXGroup;
+			children = (
+				97890429E40239B5FA63CF72142193F1 /* SQExtendedNavBarView.h */,
+				DB0089197F5703EEF230DA6A93DF6286 /* SQExtendedNavBarView.m */,
+				F9427D1905E94D4CDA0F570AD8EF2038 /* SQFilesAPI.h */,
+				FB488955AB1B71328ECF32D9FF668EBA /* SQFilesAPI.m */,
+				EA136EEE656D7D3A9A1C5D67A866609E /* SQFilesContainer.h */,
+				04352E2E59A1D5108564906C52164D6A /* SQFilesContainer.m */,
+				5C188A599BB141D35F0208DE1B1ED83D /* SQFileSelectorProtocol.h */,
+				2E5C79440A54CC858B473F54A86E8ED9 /* SQFilesHelper.h */,
+				448DB53A8522499538AD2501E795BE57 /* SQFilesHelper.m */,
+				C5036BA049FB90A97BA1500C6F11843E /* SQFilesHttpHelper.h */,
+				61CE2448E75CC104476FDA7D7F76A1A3 /* SQFilesHttpHelper.m */,
+				4A77027F209C5724766C99DB5CD2D06A /* SQFilesServerManager.h */,
+				63BA3B34C013A92B335C638923AC5034 /* SQFilesServerManager.m */,
+				5D145230BB6D25CC0560ACB79AC4CA6C /* SQIntroViewController.h */,
+				E99A978A7581FF5704C121B335F9B052 /* SQIntroViewController.m */,
+				A7C443DC2A4C9E47339C7027C12760CF /* SQMyFilesViewController.h */,
+				CCCAF1CF3003A8F5BDF887170C793CB2 /* SQMyFilesViewController.m */,
+				F94829696DA0F4447FA4797D8DAC3C65 /* SQPopoverInfoViewController.h */,
+				49B19C8B9C17A65FE6935777658E149E /* SQPopoverInfoViewController.m */,
+				943F6B140DB76167D15E48EA6CD6FBE0 /* SQPopoverMyFilesViewController.h */,
+				8C9D235435C42CD94F1EB253A1779C48 /* SQPopoverMyFilesViewController.m */,
+				10EA8B8C88A1C47DA50BD40EA1DC00DE /* SQSampleFilesViewController.h */,
+				13C54228AD658B40CFC0DAA1618E023F /* SQSampleFilesViewController.m */,
+				4F305961C0CF8FD8DBB8264B91AD8A76 /* SQSectionInfo.h */,
+				F8E4BDA41360BA9A876E73E0B705CCD9 /* SQSectionInfo.m */,
+				24EE1D2A26257683DC3753DD42AB5C5F /* SQSegmentedControlHelper.h */,
+				B52BAE1C12D5BF794EC4F041C60D4520 /* SQSegmentedControlHelper.m */,
+				2302C51DF66C9315F84CE6EBA9CE9FC3 /* SQTableCell.h */,
+				00AD4A3C37547E4EF0938167FB240AB3 /* SQTableCell.m */,
+				33043E31175387AFE77E2841699514D9 /* Resources */,
+				3011B50A6EAA0E2EA5385613A94981AA /* Support Files */,
+			);
+			name = "sequencing-file-selector-api-objc";
+			path = "sequencing-file-selector-api-objc";
 			sourceTree = "<group>";
 		};
 		F9113ADAB9EC37BFD9C2E8D0919FB01A /* Pods-master-plugin */ = {
@@ -410,44 +412,31 @@
 			path = "Target Support Files/Pods-master-plugin";
 			sourceTree = "<group>";
 		};
-		FB6861D5C7915EA793C61A9193A0E145 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C1AACA825ACA82D7ABAD0E22307F3B38 /* sequencing-app-chains-api-objc */,
-				B8423C39E335FC97ADBE1D42C28C6267 /* sequencing-file-selector-api-objc */,
-				A85D60548F47E73C984B51378BF8CC32 /* sequencing-master-plugin-api-objc */,
-				41EC019E145EC4DBAAE387ECFF9F0FA0 /* sequencing-oauth-api-objc */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		5B503CE0B738BDEA50928866D19A43E7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8592E84F51F9F72FE5E1C3AE14FD947C /* SQAuthorizationProtocol.h in Headers */,
+				986279E60E4DB77573A10A3EDEA34C1D /* SQAuthResult.h in Headers */,
+				357ABDA2D26126CE28229E2DB466102A /* SQHttpHelper.h in Headers */,
+				04581DF4A5A332EC6175492F9C55D8EB /* SQLoginWebViewController.h in Headers */,
+				7EDA932481C651D86430C58BBD26D2B1 /* SQOAuth.h in Headers */,
+				2EF898D4C0565F1EF67F906AA676F953 /* SQRequestHelper.h in Headers */,
+				F5A6D16624EC66095392438890DE9F2B /* SQResetPasswordProtocol.h in Headers */,
+				1D4EA89C1AA8FC6A75A1BD39EAAA2B61 /* SQServerManager.h in Headers */,
+				5ECAE1EE70C0E98F8A1FF61BA6B703D8 /* SQSignUpProtocol.h in Headers */,
+				D2136213C2F24B5C616CD39F4766E9B6 /* SQToken.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8CEB1BD31A85749A8F52B02A43206A62 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D4868115DE573DCCFD55A18444F8AC43 /* AppChains.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9567B407BB2F041E2E097DD7F233A7E4 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3CC053EFDE9BCAD9D4BA2E6D0D5333B8 /* SQAuthorizationProtocol.h in Headers */,
-				B00C5BFFDFC9EB2EB4C4F41E3D2B6173 /* SQAuthResult.h in Headers */,
-				DD1E2105A0A1B0CD18DD22E3194470BE /* SQHttpHelper.h in Headers */,
-				71E74AF4FE611F84928DE47A1E8F99E9 /* SQLoginWebViewController.h in Headers */,
-				8FEE4AF5090A9BAFE97A96699D1EB3D6 /* SQOAuth.h in Headers */,
-				84CE8B71D19D65790C38A13ACF904646 /* SQRequestHelper.h in Headers */,
-				66486FAC9028FA2C570241E04E29A7E9 /* SQResetPasswordProtocol.h in Headers */,
-				D80BE1A6DE2E55F906B9D9B75A8AC2CB /* SQServerManager.h in Headers */,
-				9DB626026D24197ACC09555E1A0BE851 /* SQSignUpProtocol.h in Headers */,
-				F8348CB399BFE820B68D3F7AF36C6384 /* SQToken.h in Headers */,
-				8DCAE37F3EF429D3270BE4CF34552304 /* SQTokenRefreshProtocol.h in Headers */,
-				C95D599B229E8FEBC45C231A0FBB58FF /* SQTokenUpdater.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,9 +469,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87913530C9BF85F86E9479EFC5DFA6C2 /* Build configuration list for PBXNativeTarget "sequencing-oauth-api-objc" */;
 			buildPhases = (
-				6DD80D2853776D5B34821B0148CDF481 /* Sources */,
+				9C1C2927C8A9A2B6AB08B1C329D534C1 /* Sources */,
 				A62399201574898EEF6C1B1C34A215B0 /* Frameworks */,
-				9567B407BB2F041E2E097DD7F233A7E4 /* Headers */,
+				5B503CE0B738BDEA50928866D19A43E7 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -576,28 +565,27 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6DD80D2853776D5B34821B0148CDF481 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80F94B4C5B8E9C0777829B9CA354699E /* sequencing-oauth-api-objc-dummy.m in Sources */,
-				B7672A8316D4C02FF59ED80A43CD5F24 /* SQAuthResult.m in Sources */,
-				4888951ECF50FBBDEF30A17B066FB009 /* SQHttpHelper.m in Sources */,
-				93EB144B0058369B165A34CC888FFA49 /* SQLoginWebViewController.m in Sources */,
-				526A7D4D1C94B12B1711BA58CBE21D44 /* SQOAuth.m in Sources */,
-				A16A3436E606EF67982160B6463119CB /* SQRequestHelper.m in Sources */,
-				19CDC4A9A7D857ADE859E8E072918DB3 /* SQServerManager.m in Sources */,
-				E602C89EFC1D7A3EB4381E8CDD3B6995 /* SQToken.m in Sources */,
-				464C67CD550A2C858E3924831C9CF556 /* SQTokenUpdater.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8E3A91DE52663259DEB40BAF86A4F3A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				894CBE3B38453F1CB0303BAED0FEACDF /* AppChains.m in Sources */,
 				8EDCCCF2E90AD6BE1C678FF379B7B795 /* sequencing-app-chains-api-objc-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C1C2927C8A9A2B6AB08B1C329D534C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D13BB6BC64E19C56F2A935B02FDD384 /* sequencing-oauth-api-objc-dummy.m in Sources */,
+				7864C1E3925BB516ED13309D590DE6DC /* SQAuthResult.m in Sources */,
+				28F702AF276AA8EA6E13B76DD475FC02 /* SQHttpHelper.m in Sources */,
+				2D6E785667EB95C1B81CD20E9AA6D6F9 /* SQLoginWebViewController.m in Sources */,
+				5ABEE6835FC5C6BEF50A4A3C52FDAB60 /* SQOAuth.m in Sources */,
+				73BEC5A0BBE8B1885771E6A06C6647E4 /* SQRequestHelper.m in Sources */,
+				14BAB50F12D7618FE247388C47DAEF8E /* SQServerManager.m in Sources */,
+				D750CCEB9E25E54D23BE2679ED6D5AC5 /* SQToken.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +668,7 @@
 		};
 		47EEC745B78BD7E7715BE9B946777742 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BD7519E157CE39308BC24E20D35E291 /* sequencing-app-chains-api-objc.xcconfig */;
+			baseConfigurationReference = 3640172956B4E4AB9797CA4812266618 /* sequencing-app-chains-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -726,7 +714,7 @@
 		};
 		9B7D7AAEB862C4EA64F910B77F45A916 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BD7519E157CE39308BC24E20D35E291 /* sequencing-app-chains-api-objc.xcconfig */;
+			baseConfigurationReference = 3640172956B4E4AB9797CA4812266618 /* sequencing-app-chains-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -749,7 +737,7 @@
 		};
 		A5A7F5245435BDF6E37E4CBA80424382 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5AE7EB9C88F5472568B08E14489EBFC /* sequencing-file-selector-api-objc.xcconfig */;
+			baseConfigurationReference = 7B89FC45EAEAD05CA0D004856B1810C2 /* sequencing-file-selector-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -856,7 +844,7 @@
 		};
 		B2A6884138B7412447FD010303104AB2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7A8DF1681E680CCF4288D5D9DD82915 /* sequencing-oauth-api-objc.xcconfig */;
+			baseConfigurationReference = CC6CADEC2E009E0F48922248D58109D5 /* sequencing-oauth-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -879,7 +867,7 @@
 		};
 		C2D34A7FF41C57EF90BF2E1ACDF436E9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5AE7EB9C88F5472568B08E14489EBFC /* sequencing-file-selector-api-objc.xcconfig */;
+			baseConfigurationReference = 7B89FC45EAEAD05CA0D004856B1810C2 /* sequencing-file-selector-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -902,7 +890,7 @@
 		};
 		F15FDBAF06B7D56F55B27FB7EE97AE56 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7A8DF1681E680CCF4288D5D9DD82915 /* sequencing-oauth-api-objc.xcconfig */;
+			baseConfigurationReference = CC6CADEC2E009E0F48922248D58109D5 /* sequencing-oauth-api-objc.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

@@ -4,13 +4,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SQTokenRefreshProtocol.h"
 #import "SQFileSelectorProtocol.h"
 
 @class SQToken;
 
 
-@interface SelectFileViewController : UIViewController <SQFileSelectorProtocol, SQTokenRefreshProtocol>
+@interface SelectFileViewController : UIViewController <SQFileSelectorProtocol>
 
 @property (strong, nonatomic) SQToken *token;
 

@@ -56,9 +56,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     self.activityIndicator = [UIActivityIndicatorView new];
     self.strLabel = [UILabel new];
     
-    // subscribe self as delegate to SQTokenRefreshProtocol
-    [[SQOAuth sharedInstance] setRefreshTokenDelegate:self];
-    
     // subscribe self as delegate to SQFileSelectorProtocol
     [[SQFilesAPI sharedInstance] setFileSelectedHandler:self];
     [SQFilesAPI sharedInstance].closeButton = YES;
@@ -89,9 +86,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 
 - (void)dealloc {
-    // unsubscribe self as delegate to SQTokenRefreshProtocol
-    [[SQOAuth sharedInstance] setRefreshTokenDelegate:nil];
-    
     // unsubscribe self as delegate to SQFileSelectorProtocol
     [[SQFilesAPI sharedInstance] setFileSelectedHandler:nil];
 }
@@ -328,17 +322,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 }
 
 
-
-#pragma mark -
-#pragma mark SQTokenRefreshProtocol
-
-- (void)tokenIsRefreshed:(SQToken *)updatedToken {
-    self.token.accessToken = updatedToken.accessToken;
-    self.token.expirationDate = updatedToken.expirationDate;
-    self.token.tokenType = updatedToken.tokenType;
-    self.token.scope = updatedToken.scope;
-    // DO NOT OVERRIDE REFRESH_TOKEN PROPERTY (it comes as null after refresh token request)
-}
 
 
 

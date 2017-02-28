@@ -6,12 +6,13 @@
 #import "SQOAuth.h"
 #import "SQServerManager.h"
 #import "SQToken.h"
+#import "SQAuthResult.h"
+
 
 
 @implementation SQOAuth
 
-#pragma mark -
-#pragma mark Initializer
+#pragma mark - Initializer
 
 + (instancetype)sharedInstance {
     static SQOAuth *instance = nil;
@@ -29,8 +30,8 @@
 
 
 
-#pragma mark -
-#pragma mark for Guest user
+
+#pragma mark - for Guest user
 
 - (void)authorizeUser {
     [[SQServerManager sharedInstance] authorizeUser:^(SQToken *token, BOOL didCancel, BOOL error) {
@@ -52,23 +53,90 @@
 
 
 
-#pragma mark -
-#pragma mark for Authorized user
+
+#pragma mark - Token methods for Authorized user
+
+- (void)token:(void(^)(SQToken *token))tokenResult {
+    if ([self isTokenUpToDay]) { // token is valid > let's return current token
+        SQToken *currentToken = [[SQAuthResult sharedInstance] token];
+        tokenResult(currentToken);
+        
+    } else { // token is expired > let's update it
+        [self updateUserTokenWithCompletion:^(BOOL success) {
+            
+            if (success) {
+                SQToken *updatedToken = [[SQAuthResult sharedInstance] token];
+                tokenResult(updatedToken);
+                
+            } else // smth is wrong, we can't update token
+                tokenResult(nil);
+        }];
+    }
+}
+
+
+- (BOOL)isTokenUpToDay {
+    NSLog(@">>>>> [SQOAuth]: verifying if Token is UpToDay");
+    
+    BOOL tokenIsValid = NO;
+    SQToken *currentToken = [[SQAuthResult sharedInstance] token];
+    
+    if (currentToken) {
+        NSDate *nowDate = [NSDate date];
+        NSDate *expDate = currentToken.expirationDate;
+        
+        if ([nowDate compare:expDate] == NSOrderedDescending) { // token is expired
+            NSLog(@">>>>> [SQOAuth]: token is expired");
+            
+        } else { // token is valid
+            NSLog(@">>>>> [SQOAuth]: token is valid");
+            tokenIsValid = YES;
+        }
+    }
+    
+    return tokenIsValid;
+}
+
+
+- (void)updateUserTokenWithCompletion:(void (^)(BOOL success))completion {
+    NSLog(@">>>>> [SQOAuth]: execute refresh token request (token update)");
+    SQToken *currentToken = [[SQAuthResult sharedInstance] token];
+    
+    if (currentToken.refreshToken == nil) { // we can't updated token without "refresh token" value
+        completion(NO);
+        return;
+    }
+    
+    // current token is valid > let's execute refresh token request
+    [self withRefreshToken:currentToken updateAccessToken:^(SQToken *updatedToken) {
+        
+        if (updatedToken == nil) { // invalid token
+            completion(NO);
+            return;
+        }
+        
+        if (updatedToken.accessToken == nil) { // invalid token
+            completion(NO);
+            return;
+        }
+        
+        if (updatedToken.refreshToken == nil) { // invalid token
+            completion(NO);
+            return;
+        }
+        
+        // let's return valid token
+        completion(YES);
+    }];
+}
+
 
 - (void)withRefreshToken:(SQToken *)refreshToken updateAccessToken:(void (^)(SQToken *))tokenResult {
     [[SQServerManager sharedInstance] withRefreshToken:refreshToken
                                      updateAccessToken:^(SQToken *token) {
-                                         if (token) {
-                                             tokenResult(token);
-                                         } else {
-                                             tokenResult(nil);
-                                         }
+                                         
+                                         tokenResult(token);
                                      }];
-}
-
-
-- (void)launchTokenTimerUpdateWithToken:(SQToken *)token {
-    [[SQServerManager sharedInstance] launchTokenTimerUpdateWithToken:token];
 }
 
 

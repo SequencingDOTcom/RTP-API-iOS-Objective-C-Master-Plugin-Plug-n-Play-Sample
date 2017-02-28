@@ -5,7 +5,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SQAuthResult;
 @class SQToken;
 
 
@@ -26,14 +25,10 @@
 // reset password
 - (void)resetPasswordForEmailAddress:(NSString *)emailAddress withResult:(void(^)(NSString *error))result;
 
+
 // for authorized user, shoud be used when user is authorized but token is expired
 - (void)withRefreshToken:(SQToken *)refreshToken updateAccessToken:(void(^)(SQToken *token))refreshedToken;
 
-// for authorized user, shoud be used when user is authorized and token is valid
-- (void)launchTokenTimerUpdateWithToken:(SQToken *)token;
-
-// for authorized user, update token method on lower level
-- (void)postForNewTokenWithRefreshToken:(SQToken *)token onSuccess:(void(^)(SQToken *updatedToken))success onFailure:(void(^)(NSError *error))failure;
 
 // should be called when sign out, this method will stop refreshToken autoupdater
 - (void)userDidSignOut;

@@ -94,7 +94,7 @@ You need to follow instruction below if you want to install and use OAuth logic 
 	* create Podfile in your project directory: ```$ pod init```
     * specify "sequencing-oauth-api-objc" pod parameters in Podfile:
     
-    	```pod 'sequencing-oauth-api-objc', '~> 1.0.8'```
+    	```pod 'sequencing-oauth-api-objc', '~> 1.2.0'```
     	
 	* install the dependency in your project: ```$ pod install```
 	* always open the Xcode workspace instead of the project file: ```$ open *.xcworkspace```
@@ -111,181 +111,148 @@ You need to follow instruction below if you want to install and use OAuth logic 
 	
 	
 * **Use authorization method**
-	* **create View Controllers, e.g. for Login screen and for Start screen**
 	
-	* **in your LoginViewController class:**
-	
-		* add imports
-			```
-			#import "SQOAuth.h"
-			#import "SQToken.h"
-			```
+	* add imports
+		```
+		#import "SQOAuth.h"
+		#import "SQToken.h"
+		```
 		
-		* for authorization you need to specify your application parameters in NSString format (BEFORE using authorization method) 
-			```
-			static NSString *const CLIENT_ID	 = @"your CLIENT_ID here";
-			static NSString *const CLIENT_SECRET = @"your CLIENT_SECRET here";
-			static NSString *const REDIRECT_URI	 = @"REDIRECT_URI here";
-			static NSString *const SCOPE         = @"SCOPE here";
-			```    
+	* for authorization you need to specify your application parameters in NSString format (BEFORE using authorization method) 
+		```
+		static NSString *const CLIENT_ID	 = @"your CLIENT_ID here";
+		static NSString *const CLIENT_SECRET = @"your CLIENT_SECRET here";
+		static NSString *const REDIRECT_URI	 = @"REDIRECT_URI here";
+		static NSString *const SCOPE         = @"SCOPE here";
+		```    
 			
-		* register these parameters into OAuth module instance
-			```
+	* register these parameters into OAuth module instance
+		```
 			[[SQOAuth sharedInstance] registrateApplicationParametersCliendID:CLIENT_ID 
-										ClientSecret:CLIENT_SECRET 
-										RedirectUri:REDIRECT_URI 
-										Scope:SCOPE];
-			```
+					ClientSecret:CLIENT_SECRET 
+					RedirectUri:REDIRECT_URI 
+					Scope:SCOPE];
+		```
 		
-		* add import for protocol
-			```
-			#import "SQAuthorizationProtocol.h"
-			```
+	* add import for protocol
+		```
+		#import "SQAuthorizationProtocol.h"
+		```
 			
-		* subscribe your class for this protocol
-			```
-			<SQAuthorizationProtocol>
-			```
+	* subscribe your class for Authorization protocol
+		```
+		<SQAuthorizationProtocol>
+		```
 	
-		* subscribe your class as delegate for such protocol
-			```
-			[[SQOAuth sharedInstance] setAuthorizationDelegate:self];
-			```
+	* subscribe your class as delegate for such protocol
+		```
+		[[SQOAuth sharedInstance] setAuthorizationDelegate:self];
+		```
 		
-		* add methods for SQAuthorizationProtocol
-			```
-			- (void)userIsSuccessfullyAuthorized:(SQToken *)token {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					// your code is here for successful user authorization
-				});
-			}
+	* implement methods for SQAuthorizationProtocol
+		```
+		- (void)userIsSuccessfullyAuthorized:(SQToken *)token {
+			// your code is here for successful user authorization
+		}
 
-			- (void)userIsNotAuthorized {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					// your code is here for unsuccessful user authorization
-				});
-			}
+		- (void)userIsNotAuthorized {
+			// your code is here for unsuccessful user authorization
+		}
 			
-			- (void)userDidCancelAuthorization {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					// your code is here for abandoned user authorization
-				});
-			}
-			
-			```
+		- (void)userDidCancelAuthorization {
+			// your code is here for abandoned user authorization
+		}
+		```
 		
-		* you can authorize your user now (e.g. via "login" button). For authorization you can use ```authorizeUser``` method. You can get access via shared instance of SQOAuth class)
-			```
-			[[SQOAuth sharedInstance] authorizeUser];
-			```
-			
-			Related method from SQAuthorizationProtocol will be called as a result
+	* you can authorize your user now (e.g. via "login" button) - use ```authorizeUser``` method (You can get access via shared instance of SQOAuth class)
+		```
+		[[SQOAuth sharedInstance] authorizeUser];
+		```
 		
-		* example of Login button (you can use ```@"button_signin_black"``` image that is included into the Pod within ```AuthImages.xcassets```)
-			```
-			// set up login button
-    		UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    		[loginButton setImage:[UIImage imageNamed:@"button_signin_black"] forState:UIControlStateNormal];
-    		[loginButton addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    		[loginButton sizeToFit];
-    		[loginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    		[self.view addSubview:loginButton];
-    
-    		// adding constraints for login button
-    		NSLayoutConstraint *xCenter = [NSLayoutConstraint constraintWithItem:loginButton 
-    															attribute:NSLayoutAttributeCenterX 
-    															relatedBy:NSLayoutRelationEqual 
-    															toItem:self.view 
-    															attribute:NSLayoutAttributeCenterX 
-    															multiplier:1 constant:0];
-    															
-    		NSLayoutConstraint *yCenter = [NSLayoutConstraint constraintWithItem:loginButton
-    															attribute:NSLayoutAttributeCenterY
-    															relatedBy:NSLayoutRelationEqual
-    															toItem:self.view
-    															attribute:NSLayoutAttributeCenterY
-    															multiplier:1
-    															constant:0];
-    		[self.view addConstraint:xCenter];
-    		[self.view addConstraint:yCenter];
-    		```
-    	
-    	* example of ```loginButtonPressed``` method 
-    		```
-    		- (void)loginButtonPressed {
-    			[[SQOAuth sharedInstance] authorizeUser];
-    		}
-    		```
+	* in method ```userIsSuccessfullyAuthorized``` you'll receive SQToken object, that contains following 5 properties with clear titles for usage:
+		```	
+		NSString *accessToken
+		NSDate   *expirationDate
+		NSString *tokenType
+		NSString *scope
+		NSString *refreshToken
+		```
+		
+		
+* **Access to up-to-date token**
+		
+	* to receive up-to-date token use related method from SQOAuth API (it returns the updated token): 
+		```
+		[[SQOAuth sharedInstance] token:^(SQToken *token) {
+			// your code
+		}];
+		```
+
+    		
+* **Create account methods**
+
+	* add import for protocol
+		```
+		#import "SQSignUpProtocol.h"
+		```
+			
+	* subscribe your class for SignUp protocol
+		```
+		<SQSignUpProtocol>
+		```
+	
+	* subscribe your class as delegate for such protocol
+		```
+		[[SQOAuth sharedInstance] setSignUpDelegate:self];
+		```
+		
+	* implement methods for successful account registration and failed registration
+		```
+		- (void)emailIsRegisteredSuccessfully;
+		- (void)emailIsNotRegistered:(NSString *)errorMessage;
+		```
+		
+	* registrate new account with email address
+		```
+		- (void)registrateNewAccountForEmailAddress:(NSString *)emailAddress;
+		
+		example: [[SQOAuth sharedInstance] registrateNewAccountForEmailAddress:emailAddress];
+		```
+
+
+* **Reset password methods**
+
+	* add import for protocol
+		```
+		#import "SQResetPasswordProtocol.h"
+		```
+			
+	* subscribe your class for Reset password protocol
+		```
+		<SQResetPasswordProtocol>
+		```
+	
+	* subscribe your class as delegate for such protocol
+		```
+		[[SQOAuth sharedInstance] setResetPasswordDelegate:self];
+		```
+		
+	* implement methods for successful reset password request and failed request
+		```
+		- (void)applicationForPasswordResetIsAccepted;
+		- (void)applicationForPasswordResetIsNotAccepted:(NSString *)errorMessage;
+		```
+		
+	* send request for password reset with email address
+		```
+		- (void)resetPasswordForEmailAddress:(NSString *)emailAddress;
+		
+		example: [[SQOAuth sharedInstance] resetPasswordForEmailAddress:emailAddress];
+		```
+	
+    		
     		
 		
-		* add segue in Storyboard from LoginViewController to MainViewController with identifier ```GOTO_MAIN_SCREEN```
-		
-		* add constant for segue id
-			```static NSString *const GOTO_MAIN_SCREEN_SEGUE_ID = @"GOTO_MAIN_SCREEN";```
-		
-		* example of navigation methods when user is authorized
-			```
-			- (void)userIsSuccessfullyAuthorized:(SQToken *)token {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					[self performSegueWithIdentifier:GOTO_MAIN_SCREEN_SEGUE_ID sender:token];
-				});
-			}
-			
-			- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-				if ([segue.identifier isEqual:GOTO_MAIN_SCREEN_SEGUE_ID]) {
-					StartViewController *startVC = segue.destinationViewController;
-					[startVC setToken:sender];
-				}
-			}
-			```
-		
-	* **in your StartViewController class:**
-		
-		* add imports
-			```
-			#import "SQOAuth.h"
-			#import "SQToken.h"
-			```
-		
-		* add import for protocol
-			```
-			#import "SQTokenRefreshProtocol.h"
-			```
-		
-		* subscribe your class for these protocols
-			```
-			<SQTokenRefreshProtocol>
-			```
-		
-		* subscribe your class as delegate for such protocols
-			```
-			[[SQOAuth sharedInstance] setRefreshTokenDelegate:self];
-			```
-		
-		* add method for SQTokenRefreshProtocol - it is called when token is refreshed
-			```
-			- (void)tokenIsRefreshed:(SQToken *)updatedToken {
-				// your code is here to handle refreshed token
-			}
-			```
-		
-		* in method ```userIsSuccessfullyAuthorized``` you'll receive SQToken object, that contains following 5 properties with clear titles for usage:
-			```	
-			NSString *accessToken
-			NSDate   *expirationDate
-			NSString *tokenType
-			NSString *scope
-			NSString *refreshToken
-			```
-	
-		* in method ```tokenIsRefreshed``` you'll receive updated token with the same object model
-		
-			DO NOT OVERRIDE ```refresh_token``` property for ```token``` object - it comes as ```nil``` after refresh token request
-	
-		* for your extra needs you can always get access directly to the up-to-day token object which is stored in ```SQAuthResult``` class via ```token``` property
-			```
-			[[SQAuthResult sharedInstance] token];
-			```
 
 
 Resources

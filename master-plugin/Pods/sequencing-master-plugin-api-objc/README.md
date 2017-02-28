@@ -57,7 +57,7 @@ Master CocoaPod Plugin install
 * create Podfile in your project directory: ```$ pod init```
 * specify "sequencing-master-plugin-api-objc" pod parameters in Podfile: 
 
-	```pod 'sequencing-master-plugin-api-objc', '~> 1.1.2'```
+	```pod 'sequencing-master-plugin-api-objc', '~> 1.2.0'```
 
 * install the dependency in your project: ```$ pod install```
 * always open the Xcode workspace instead of the project file: ```$ open *.xcworkspace```

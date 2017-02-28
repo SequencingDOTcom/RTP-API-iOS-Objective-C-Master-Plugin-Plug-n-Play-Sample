@@ -291,7 +291,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        } else {
                            NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
                            NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
-                           NSLog(@"decodedResponse: %@", decodedResponse);
+                           // NSLog(@"decodedResponse: %@", decodedResponse);
                            
                            NSArray *resultProps;
                            if (decodedResponse[@"ResultProps"] != nil) {
@@ -360,46 +360,64 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        } else {
                            NSMutableArray *resultsArray = [[NSMutableArray alloc] init];
                            NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
-                           NSArray *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
-                           NSLog(@"decodedResponse: %@", decodedResponse);
+                           id decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
+                           // NSLog(@"decodedResponse: %@", decodedResponse);
                            
-                           for (NSDictionary *rawResponseItem in decodedResponse) {
-                               if ([[rawResponseItem allKeys] containsObject:@"Key"] && [[rawResponseItem allKeys] containsObject:@"Value"]) {
+                           if ([decodedResponse isKindOfClass:[NSArray class]]) {
+                               NSArray *decodedResponseArray = decodedResponse;
+                               
+                               for (id rawResponseItem in decodedResponseArray) {
                                    
-                                   NSString *appChainID = [rawResponseItem objectForKey:@"Key"];
-                                   NSDictionary *responseValue = [rawResponseItem objectForKey:@"Value"];
-                                   
-                                   NSArray *resultProps;
-                                   if (responseValue[@"ResultProps"] != nil) {
-                                       resultProps = responseValue[@"ResultProps"];
+                                   if ([rawResponseItem isKindOfClass:[NSDictionary class]]) {
+                                       NSDictionary *rawResponseItemDict = rawResponseItem;
+                                       
+                                       if ([[rawResponseItemDict allKeys] containsObject:@"Key"] && [[rawResponseItemDict allKeys] containsObject:@"Value"]) {
+                                           NSString *appChainID = [rawResponseItemDict objectForKey:@"Key"];
+                                           NSDictionary *responseValue = [rawResponseItemDict objectForKey:@"Value"];
+                                           
+                                           NSArray *resultProps;
+                                           if (responseValue[@"ResultProps"] != nil) {
+                                               resultProps = responseValue[@"ResultProps"];
+                                           }
+                                           NSDictionary *status = responseValue[@"Status"];
+                                           NSString *completedSuccesfully = status[@"CompletedSuccesfully"];
+                                           
+                                           BOOL succeeded;
+                                           if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
+                                               succeeded = NO;
+                                           } else {
+                                               succeeded = ([completedSuccesfully integerValue] == 1) ? YES : NO;
+                                           }
+                                           
+                                           NSString *jobStatus = status[@"Status"];
+                                           NSString *statusString = [jobStatus lowercaseString];
+                                           
+                                           Job *reportJob = [[Job alloc] init];
+                                           [reportJob jobWithId:[status[@"IdJob"] integerValue]];
+                                           
+                                           RawReportJobResult *result = [[RawReportJobResult alloc] init];
+                                           [result setSource:responseValue];
+                                           [result setJobId:[reportJob getJobId]];
+                                           [result setSucceded:succeeded];
+                                           [result setCompleted:([statusString isEqualToString:@"completed"]) ? YES : NO];
+                                           if (resultProps) [result setResultProps:resultProps];
+                                           [result setStatus:jobStatus];
+                                           
+                                           NSDictionary *rawResultItem = @{@"appChainID": appChainID,
+                                                                           @"rawReport":     result};
+                                           [resultsArray addObject:rawResultItem];
+                                           
+                                       } else {
+                                           NSLog(@"batch appChains error: %@", rawResponseData);
+                                           failure([NSError errorWithDomain:@""
+                                                                       code:0
+                                                                   userInfo:@{@"Invalid batch appchains server response. Operation couldn't be completed" : @"localizationDescription"}]);
+                                       }
                                    }
-                                   NSDictionary *status = responseValue[@"Status"];
-                                   NSString *completedSuccesfully = status[@"CompletedSuccesfully"];
-                                   
-                                   BOOL succeeded;
-                                   if ([status[@"CompletedSuccesfully"] isKindOfClass:[NSNull class]]) {
-                                       succeeded = NO;
-                                   } else {
-                                       succeeded = ([completedSuccesfully integerValue] == 1) ? YES : NO;
-                                   }
-                                   
-                                   NSString *jobStatus = status[@"Status"];
-                                   NSString *statusString = [jobStatus lowercaseString];
-                                   
-                                   Job *reportJob = [[Job alloc] init];
-                                   [reportJob jobWithId:[status[@"IdJob"] integerValue]];
-                                   
-                                   RawReportJobResult *result = [[RawReportJobResult alloc] init];
-                                   [result setSource:responseValue];
-                                   [result setJobId:[reportJob getJobId]];
-                                   [result setSucceded:succeeded];
-                                   [result setCompleted:([statusString isEqualToString:@"completed"]) ? YES : NO];
-                                   if (resultProps) [result setResultProps:resultProps];
-                                   [result setStatus:jobStatus];
-                                   
-                                   NSDictionary *rawResultItem = @{@"appChainID": appChainID,
-                                                                   @"rawReport":     result};
-                                   [resultsArray addObject:rawResultItem];
+                               }
+                               
+                               if ([resultsArray count] > 0) {
+                                   success([NSArray arrayWithArray:resultsArray]);
                                    
                                } else {
                                    NSLog(@"batch appChains error: %@", rawResponseData);
@@ -407,9 +425,12 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                                                                code:0
                                                            userInfo:@{@"Invalid batch appchains server response. Operation couldn't be completed" : @"localizationDescription"}]);
                                }
+                           } else {
+                               NSLog(@"batch appChains error: %@", rawResponseData);
+                               failure([NSError errorWithDomain:@""
+                                                           code:0
+                                                       userInfo:@{@"Invalid batch appchains server response. Operation couldn't be completed" : @"localizationDescription"}]);
                            }
-                           
-                           success([NSArray arrayWithArray:resultsArray]);
                        }
                    }
                    withFailureBlock:^(NSError *error) {
@@ -1097,7 +1118,7 @@ static const NSUInteger kDefaultReportRetryTimeout = 3;
                        } else {
                            NSData *responseData = [[httpResponse getResponseData] dataUsingEncoding:NSUTF8StringEncoding];
                            NSDictionary *decodedResponse = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:nil];
-                           NSLog(@"decodedResponse: %@", decodedResponse);
+                           // NSLog(@"decodedResponse: %@", decodedResponse);
                            
                            NSArray *resultProps;
                            if (decodedResponse[@"ResultProps"] != nil) {

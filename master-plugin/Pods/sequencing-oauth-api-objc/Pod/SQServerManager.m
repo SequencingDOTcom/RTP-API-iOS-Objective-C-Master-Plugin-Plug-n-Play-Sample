@@ -9,7 +9,7 @@
 #import "SQHttpHelper.h"
 #import "SQAuthResult.h"
 #import "SQRequestHelper.h"
-#import "SQTokenUpdater.h"
+
 
 #define kMainQueue dispatch_get_main_queue()
 
@@ -129,10 +129,8 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                     if (token) {
                         [self stopActivityIndicator];
                         [[SQAuthResult sharedInstance] setToken:token];
-                        [[SQTokenUpdater sharedInstance] cancelTimer];
-                        // THIS WILL START TIMER TO AUTOMATICALLY REFRESH ACCESS_TOKEN WHEN IT'S EXPIRED
-                        [[SQTokenUpdater sharedInstance] startTimer];
                         result(token, NO, NO);
+                        
                     } else {
                         if (result) {
                             [self stopActivityIndicator];
@@ -226,9 +224,6 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
         }
         // save new token into SQAuthResult container
         [[SQAuthResult sharedInstance] setToken:updatedToken];
-        [[SQTokenUpdater sharedInstance] cancelTimer];
-        // THIS WILL START TIMER TO AUTOMATICALLY REFRESH ACCESS_TOKEN WHEN IT'S EXPIRED
-        [[SQTokenUpdater sharedInstance] startTimer];
         refreshedToken(updatedToken);
         
     } onFailure:^(NSError *error) {
@@ -239,13 +234,6 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
     }];
 }
 
-
-- (void)launchTokenTimerUpdateWithToken:(SQToken *)token {
-    [[SQAuthResult sharedInstance] setToken:token];
-    [[SQTokenUpdater sharedInstance] cancelTimer];
-    // THIS WILL START TIMER TO AUTOMATICALLY REFRESH ACCESS_TOKEN WHEN IT'S EXPIRED
-    [[SQTokenUpdater sharedInstance] startTimer];
-}
 
 
 - (void)postForNewTokenWithRefreshToken:(SQToken *)token
@@ -300,7 +288,6 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
 
 - (void)userDidSignOut {
     [[SQAuthResult sharedInstance] setToken:nil];
-    [[SQTokenUpdater sharedInstance] cancelTimer];
 }
 
 
@@ -320,7 +307,7 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                                   parameters:parameters
                                   andHandler:^(NSString *responseText, NSURLResponse *response, NSError *error) {
                                       
-                                      NSLog(@"\nresponseText: %@", responseText);
+                                      NSLog(@"\n[registrateAccountForEmailAddress] responseText: %@", responseText);
                                       // NSLog(@"\nresponse: %@", response);
                                       NSLog(@"\nerror: %@", error.localizedDescription);
                                       
@@ -373,7 +360,7 @@ static NSString *filesPath      = @"/DataSourceList?all=true";
                                   parameters:parameters
                                   andHandler:^(NSString *responseText, NSURLResponse *response, NSError *error) {
                                       
-                                      NSLog(@"\nresponseText: %@", responseText);
+                                      NSLog(@"\n[resetPasswordForEmailAddress] responseText: %@", responseText);
                                       // NSLog(@"\nresponse: %@", response);
                                       NSLog(@"\nerror: %@", error.localizedDescription);
                                       

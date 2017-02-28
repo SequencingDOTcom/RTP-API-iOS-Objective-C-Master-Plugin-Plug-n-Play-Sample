@@ -1,21 +1,21 @@
 PODS:
-  - sequencing-app-chains-api-objc (1.1.0)
-  - sequencing-file-selector-api-objc (1.0.14)
-  - sequencing-master-plugin-api-objc (1.1.2):
-    - sequencing-app-chains-api-objc (~> 1.1.0)
-    - sequencing-file-selector-api-objc (~> 1.0.14)
-    - sequencing-oauth-api-objc (~> 1.1.0)
-  - sequencing-oauth-api-objc (1.1.0)
+  - sequencing-app-chains-api-objc (1.1.1)
+  - sequencing-file-selector-api-objc (1.0.15)
+  - sequencing-master-plugin-api-objc (1.2.0):
+    - sequencing-app-chains-api-objc (~> 1.1.1)
+    - sequencing-file-selector-api-objc (~> 1.0.15)
+    - sequencing-oauth-api-objc (~> 1.2.1)
+  - sequencing-oauth-api-objc (1.2.1)
 
 DEPENDENCIES:
-  - sequencing-master-plugin-api-objc (~> 1.1.2)
+  - sequencing-master-plugin-api-objc (~> 1.2.0)
 
 SPEC CHECKSUMS:
-  sequencing-app-chains-api-objc: 0d41c38e91acc18da0b68e4754bc4ac813b0754c
-  sequencing-file-selector-api-objc: 6624476b42ba5a1fa5e11d514cf355789a0cf7dc
-  sequencing-master-plugin-api-objc: d98687a9c85485b677682f6cf5b6d165ef3a8b84
-  sequencing-oauth-api-objc: 4c77e212459d8d03c9a3be269da3309553bffde5
+  sequencing-app-chains-api-objc: cbf5ef5c0a3fad5886e18b25627ae8418de2f372
+  sequencing-file-selector-api-objc: c4a9b9f0603f98de17fd70e3d88f54d077e5c5f7
+  sequencing-master-plugin-api-objc: b1635768b9c6115c100073c7a8c00ca419c996a1
+  sequencing-oauth-api-objc: 9d6d4ac5ae82b7b30fea684bc96c568d16cf3a42
 
-PODFILE CHECKSUM: 2e06cf9fd44ee28ef2728c605d8a59ed23138629
+PODFILE CHECKSUM: 5b72b24a8d7e56ca77ac9803eb424c9eb47acc09
 
 COCOAPODS: 1.1.1
