@@ -1,32 +1,32 @@
 //
 //  SQFilesAPI.h
-//  Copyright © 2015-2016 Sequencing.com. All rights reserved
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "SQFileSelectorProtocol.h"
+#import "SQTokenAccessProtocol.h"
+@class SQToken;
+
 
 @interface SQFilesAPI : NSObject
 
-// instance for protocol delegate
-@property (nonatomic) id <SQFileSelectorProtocol> fileSelectedHandler;
+@property (weak, nonatomic) UIViewController<SQFileSelectorProtocol> *delegate;
 
-@property (nonatomic) BOOL closeButton;
-@property (strong, nonatomic) NSString *selectedFileID;
-@property (strong, nonatomic) NSString *videoFileName;
++ (instancetype)sharedInstance; // designated initializer
 
-// designated initializer
-+ (instancetype)sharedInstance;
-
-
-// load all files in one method
-- (void)withToken:(NSString *)accessToken loadFiles:(void(^)(BOOL success))success;
+- (void)showFilesWithTokenProvider:(id<SQTokenAccessProtocol>)tokenProvider
+                   showCloseButton:(BOOL)showCloseButton
+          previouslySelectedFileID:(NSString *)selectedFileID
+                          delegate:(UIViewController<SQFileSelectorProtocol> *)delegate;
 
 
-// load own files method
-// - (void)loadOwnFiles:(void(^)(NSArray *myFiles))files;
+- (void)showFilesWithTokenProvider:(id<SQTokenAccessProtocol>)tokenProvider
+                   showCloseButton:(BOOL)showCloseButton
+          previouslySelectedFileID:(NSString *)selectedFileID
+           backgroundVideoFileName:(NSString *)videoFileName
+                          delegate:(UIViewController<SQFileSelectorProtocol> *)delegate;
 
-// load sample files method
-// - (void)loadSampleFiles:(void(^)(NSArray *sampleFiles))files;
 
 @end

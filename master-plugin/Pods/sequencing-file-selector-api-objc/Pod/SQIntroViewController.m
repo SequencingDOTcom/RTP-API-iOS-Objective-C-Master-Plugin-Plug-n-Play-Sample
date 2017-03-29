@@ -1,61 +1,65 @@
 //
 //  SQIntroViewController.m
-//  Pods
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
-//  Created by Bogdan Laukhin on 6/1/16.
-//
-//
+
 
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "SQIntroViewController.h"
 #import "SQPopoverInfoViewController.h"
 #import "SQFilesAPI.h"
+#import "SQFilesContainer.h"
+#import "SQMyFilesViewController.h"
+#import "SQSampleFilesViewController.h"
 
 
 #define FILES_CONTROLLER_SEGUE_ID @"SHOW_FILES_SEGUE_ID"
 
 
-@interface SQIntroViewController () <UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate>
+
+@interface SQIntroViewController () <UIGestureRecognizerDelegate, UIPopoverPresentationControllerDelegate, MyFilesViewControllerClosedProtocol, SampleFilesViewControllerClosedProtocol>
 
 // info button
-@property (strong, nonatomic) UIBarButtonItem *infoButton;
+@property (strong, nonatomic) UIBarButtonItem    *infoButton;
 
-@property (weak, nonatomic) IBOutlet UIView *grayView;
-@property (weak, nonatomic) IBOutlet UILabel *introLabel;
+@property (weak, nonatomic) IBOutlet UIView      *grayView;
+@property (weak, nonatomic) IBOutlet UILabel     *introLabel;
 
 // my files button
-@property (weak, nonatomic) IBOutlet UIView *myFilesButton;
+@property (weak, nonatomic) IBOutlet UIView      *myFilesButton;
 @property (weak, nonatomic) IBOutlet UIImageView *myFilesIcon;
-@property (weak, nonatomic) IBOutlet UILabel *myFilesLabel;
+@property (weak, nonatomic) IBOutlet UILabel     *myFilesLabel;
 
 // sample files button
-@property (weak, nonatomic) IBOutlet UIView *sampleFilesButton;
+@property (weak, nonatomic) IBOutlet UIView      *sampleFilesButton;
 @property (weak, nonatomic) IBOutlet UIImageView *sampleFilesIcon;
-@property (weak, nonatomic) IBOutlet UILabel *sampleFilesLabel;
+@property (weak, nonatomic) IBOutlet UILabel     *sampleFilesLabel;
 
 // properties for videoPlayer
-@property (nonatomic) AVPlayer  *avPlayer;
-@property (nonatomic) UIView    *videoPlayerView;
-@property (nonatomic) AVPlayerLayer *videoLayer;
+@property (strong, nonatomic) NSString  *videoFileName;
+@property (nonatomic) AVPlayer          *avPlayer;
+@property (nonatomic) UIView            *videoPlayerView;
+@property (nonatomic) AVPlayerLayer     *videoLayer;
 
 @end
 
 
 
+
 @implementation SQIntroViewController
 
-#pragma mark -
-#pragma mark View Lyfecycle
+#pragma mark - View Lyfecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
+    SQFilesContainer *filesContainer = [SQFilesContainer sharedInstance];
+    
+    self.videoFileName = filesContainer.videoFileName;
     UIColor *defaultTextColor = [UIColor blackColor];
     
-    if ([filesAPI.videoFileName length] != 0) {
-        
+    if ([self.videoFileName length] > 0) {
         // set navigation bar fully transpanent
         [self.navigationController.navigationBar setTranslucent:YES];
         [self.navigationController.navigationBar setShadowImage:[UIImage new]];
@@ -66,9 +70,8 @@
         self.view.backgroundColor = [UIColor blackColor];
         _introLabel.textColor = [UIColor whiteColor];
         
-    } else {
+    } else
         _grayView.backgroundColor = [UIColor clearColor];
-    }
     
     // set up font font title
     self.title = @"Select a file";
@@ -76,7 +79,7 @@
                                                                       NSForegroundColorAttributeName: defaultTextColor}];
     
     // closeButton
-    if (filesAPI.closeButton) {
+    if (filesContainer.showCloseButton) {
         UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
                                                                                      target:self
                                                                                      action:@selector(closeButtonPressed)];
@@ -98,15 +101,15 @@
     self.myFilesButton.layer.masksToBounds = YES;
     
     UITapGestureRecognizer *myFilesIconTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myFilesButtonPressed)];
-    myFilesIconTapGesture.numberOfTapsRequired = 1;
+    [myFilesIconTapGesture setNumberOfTapsRequired:1];
     [myFilesIconTapGesture setDelegate:self];
-    _myFilesIcon.userInteractionEnabled = YES;
+    [_myFilesIcon setUserInteractionEnabled:YES];
     [_myFilesIcon addGestureRecognizer:myFilesIconTapGesture];
     
     UITapGestureRecognizer *myFilesLabelTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myFilesButtonPressed)];
-    myFilesLabelTapGesture.numberOfTapsRequired = 1;
+    [myFilesLabelTapGesture setNumberOfTapsRequired:1];
     [myFilesLabelTapGesture setDelegate:self];
-    _myFilesLabel.userInteractionEnabled = YES;
+    [_myFilesLabel setUserInteractionEnabled:YES];
     [_myFilesLabel addGestureRecognizer:myFilesLabelTapGesture];
     
     
@@ -115,15 +118,15 @@
     self.sampleFilesButton.layer.masksToBounds = YES;
     
     UITapGestureRecognizer *sampleFilesIconTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myFilesButtonPressed)];
-    sampleFilesIconTapGesture.numberOfTapsRequired = 1;
+    [sampleFilesIconTapGesture setNumberOfTapsRequired:1];
     [sampleFilesIconTapGesture setDelegate:self];
-    _sampleFilesButton.userInteractionEnabled = YES;
+    [_sampleFilesButton setUserInteractionEnabled:YES];
     [_sampleFilesButton addGestureRecognizer:sampleFilesIconTapGesture];
     
     UITapGestureRecognizer *sampleFilesLabelTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(myFilesButtonPressed)];
-    sampleFilesLabelTapGesture.numberOfTapsRequired = 1;
+    [sampleFilesLabelTapGesture setNumberOfTapsRequired:1];
     [sampleFilesLabelTapGesture setDelegate:self];
-    _sampleFilesIcon.userInteractionEnabled = YES;
+    [_sampleFilesIcon setUserInteractionEnabled:YES];
     [_sampleFilesIcon addGestureRecognizer:sampleFilesLabelTapGesture];
 }
 
@@ -131,16 +134,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
-    
-    if ([filesAPI.videoFileName length] != 0) {
+    if ([self.videoFileName length] > 0) {
+        
         // setup video and add observes
         [self initializeAndAddVideoToView];
         
         // set transpanent grey background for navigation bar in case when video with white part is used now
-        if ([self isVideoWhite]) {
+        if ([self isVideoWhite])
             [self.navigationController.navigationBar setBackgroundImage:[self greyTranspanentImage] forBarMetrics:UIBarMetricsDefault];
-        }
         
         // video
         [self playVideo];
@@ -151,14 +152,12 @@
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    
     [self updateVideoLayerFrame];
 }
 
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self pauseVideo];
     [self deallocateAndRemoveVideoFromView];
@@ -172,14 +171,12 @@
 
 
 
-#pragma mark -
-#pragma mark Videoplayer Methods
+
+#pragma mark - Videoplayer Methods
 
 - (void)initializeAndAddVideoToView {
-    SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
-    
     // set up videoPlayer with local video file
-    NSString *filepath = [[NSBundle mainBundle] pathForResource:filesAPI.videoFileName ofType:nil inDirectory:@"Video"];
+    NSString *filepath = [[NSBundle mainBundle] pathForResource:self.videoFileName ofType:nil inDirectory:@"Video"];
     NSURL *fileURL = [NSURL fileURLWithPath:filepath];
     
     _avPlayer = [AVPlayer playerWithURL:fileURL];
@@ -249,18 +246,16 @@
 
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
-    if ([filesAPI.videoFileName length] != 0) {
+    if ([self.videoFileName length] > 0)
         return UIStatusBarStyleLightContent;
-    } else {
+    else
         return UIStatusBarStyleDefault;
-    }
 }
 
 
 
-#pragma mark -
-#pragma mark Action
+
+#pragma mark - Action
 
 - (void)myFilesButtonPressed {
     [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:@0];
@@ -275,18 +270,27 @@
 // close button tapped
 - (void)closeButtonPressed {
     SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
-    if ([filesAPI.fileSelectedHandler respondsToSelector:@selector(closeButtonPressed)]) {
-        SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
-        filesAPI.selectedFileID = nil;
-        [filesAPI.fileSelectedHandler closeButtonPressed];
+    
+    if ([filesAPI.delegate respondsToSelector:@selector(closeButtonPressed)]) {
+        [[SQFilesContainer sharedInstance] setSelectedFileID:nil];
+        [filesAPI.delegate closeButtonPressed];
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void)myFilesViewControllerClosed {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)sampleFilesViewControllerClosed {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 
 
-#pragma mark -
-#pragma mark Popover
+#pragma mark - Info Popover
 
 - (void)showInfoPopover {
     UIViewController *popoverContentController = [[UIViewController alloc] initWithNibName:@"SQPopoverInfoViewController" bundle:nil];
@@ -312,25 +316,33 @@
 
 
 
-#pragma mark -
-#pragma mark Navigation
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqual:FILES_CONTROLLER_SEGUE_ID]) {
         NSNumber *indexToShow = sender;
         UITabBarController *tabBar = segue.destinationViewController;
+        
+        UINavigationController *myfilesNav     = [[tabBar viewControllers] firstObject];
+        UINavigationController *samplefilesNav = [[tabBar viewControllers] lastObject];
+        
+        SQMyFilesViewController     *myfilesVC     = [[myfilesNav viewControllers] firstObject];
+        SQSampleFilesViewController *samplefilesVC = [[samplefilesNav viewControllers] firstObject];
+        
+        myfilesVC.viewCloseDelegate = self;
+        samplefilesVC.viewCloseDelegate = self;
+        
         [tabBar setSelectedIndex:indexToShow.unsignedIntegerValue];
     }
 }
 
 
 
-#pragma mark -
-#pragma mark White video issue helper
+
+#pragma mark - White video issue helper
 
 - (BOOL)isVideoWhite {
     BOOL videoFileIsWhite = NO;
-    SQFilesAPI *filesAPI = [SQFilesAPI sharedInstance];
     
     NSArray *arrayOfVideoFilesWithWhiteBarInTheTop = @[@"shutterstock_v120847.mp4",
                                                        @"shutterstock_v1126162.mp4",
@@ -340,9 +352,8 @@
                                                        @"shutterstock_v4627466.mp4",
                                                        @"shutterstock_v5468858.mp4"];
     
-    if ([arrayOfVideoFilesWithWhiteBarInTheTop containsObject:filesAPI.videoFileName]) {
+    if ([arrayOfVideoFilesWithWhiteBarInTheTop containsObject:self.videoFileName])
         videoFileIsWhite = YES;
-    }
     return videoFileIsWhite;
 }
 
@@ -359,13 +370,6 @@
     return image;
 }
 
-#pragma mark -
-#pragma mark Other methods
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

@@ -10,12 +10,12 @@
 		1C17E1351CF8AAFE008C26E3 /* AppChainsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C17E1341CF8AAFE008C26E3 /* AppChainsHelper.m */; };
 		1C5B75BD1CAAE98300D68B59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */; };
 		1C5B75C01CAAE99B00D68B59 /* SelectFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B75BF1CAAE99B00D68B59 /* SelectFileViewController.m */; };
-		1C5B75C21CAAEE5300D68B59 /* TabbarFileSelector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B75C11CAAEE5300D68B59 /* TabbarFileSelector.storyboard */; };
 		1CAACEA91CA1C17900177B12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAACEA81CA1C17900177B12 /* main.m */; };
 		1CAACEAC1CA1C17900177B12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CAACEAB1CA1C17900177B12 /* AppDelegate.m */; };
 		1CAACEB21CA1C17900177B12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAACEB01CA1C17900177B12 /* Main.storyboard */; };
 		1CAACEB41CA1C17900177B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CAACEB31CA1C17900177B12 /* Assets.xcassets */; };
 		1CAACEB71CA1C17900177B12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAACEB51CA1C17900177B12 /* LaunchScreen.storyboard */; };
+		1CF5A3CA1E8BC24B00B7CD6F /* ImportFilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF5A3C91E8BC24B00B7CD6F /* ImportFilesViewController.m */; };
 		A9745B4255EBC96FAB0EB09F /* libPods-master-plugin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6638B37B2448A2C9BD6718C /* libPods-master-plugin.a */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,6 @@
 		1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1C5B75BE1CAAE99B00D68B59 /* SelectFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFileViewController.h; sourceTree = "<group>"; };
 		1C5B75BF1CAAE99B00D68B59 /* SelectFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFileViewController.m; sourceTree = "<group>"; };
-		1C5B75C11CAAEE5300D68B59 /* TabbarFileSelector.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = TabbarFileSelector.storyboard; path = "Pods/sequencing-file-selector-api-objc/Resources/TabbarFileSelector.storyboard"; sourceTree = "<group>"; };
 		1CAACEA41CA1C17900177B12 /* master-plugin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "master-plugin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CAACEA81CA1C17900177B12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CAACEAA1CA1C17900177B12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +34,8 @@
 		1CAACEB31CA1C17900177B12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CAACEB61CA1C17900177B12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CAACEB81CA1C17900177B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CF5A3C81E8BC24B00B7CD6F /* ImportFilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportFilesViewController.h; sourceTree = "<group>"; };
+		1CF5A3C91E8BC24B00B7CD6F /* ImportFilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportFilesViewController.m; sourceTree = "<group>"; };
 		3B7123291777C6B953602373 /* Pods-master-plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-master-plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-master-plugin/Pods-master-plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		6D3E059B92CD71861577BBC9 /* Pods-master-plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-master-plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-master-plugin/Pods-master-plugin.release.xcconfig"; sourceTree = "<group>"; };
 		D6638B37B2448A2C9BD6718C /* libPods-master-plugin.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-master-plugin.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +65,6 @@
 		1CAACE9B1CA1C17900177B12 = {
 			isa = PBXGroup;
 			children = (
-				1C5B75C11CAAEE5300D68B59 /* TabbarFileSelector.storyboard */,
 				1CAACEA61CA1C17900177B12 /* master-plugin */,
 				1CAACEA51CA1C17900177B12 /* Products */,
 				0A72969C8AF747FEDE2850F7 /* Pods */,
@@ -89,6 +89,8 @@
 				1C5B75BC1CAAE98300D68B59 /* LoginViewController.m */,
 				1C5B75BE1CAAE99B00D68B59 /* SelectFileViewController.h */,
 				1C5B75BF1CAAE99B00D68B59 /* SelectFileViewController.m */,
+				1CF5A3C81E8BC24B00B7CD6F /* ImportFilesViewController.h */,
+				1CF5A3C91E8BC24B00B7CD6F /* ImportFilesViewController.m */,
 				1C17E1331CF8AAFE008C26E3 /* AppChainsHelper.h */,
 				1C17E1341CF8AAFE008C26E3 /* AppChainsHelper.m */,
 				1CAACEB01CA1C17900177B12 /* Main.storyboard */,
@@ -176,7 +178,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C5B75C21CAAEE5300D68B59 /* TabbarFileSelector.storyboard in Resources */,
 				1CAACEB71CA1C17900177B12 /* LaunchScreen.storyboard in Resources */,
 				1CAACEB41CA1C17900177B12 /* Assets.xcassets in Resources */,
 				1CAACEB21CA1C17900177B12 /* Main.storyboard in Resources */,
@@ -241,6 +242,7 @@
 				1C5B75C01CAAE99B00D68B59 /* SelectFileViewController.m in Sources */,
 				1C5B75BD1CAAE98300D68B59 /* LoginViewController.m in Sources */,
 				1CAACEAC1CA1C17900177B12 /* AppDelegate.m in Sources */,
+				1CF5A3CA1E8BC24B00B7CD6F /* ImportFilesViewController.m in Sources */,
 				1CAACEA91CA1C17900177B12 /* main.m in Sources */,
 				1C17E1351CF8AAFE008C26E3 /* AppChainsHelper.m in Sources */,
 			);

@@ -8,7 +8,7 @@
 
 
 
-@interface SQLoginWebViewController () <WKNavigationDelegate>
+@interface SQLoginWebViewController () <WKNavigationDelegate, WKUIDelegate>
 
 @property (copy, nonatomic) LoginCompletionBlock completionBlock;
 @property (strong, nonatomic) WKWebView *webView;
@@ -58,16 +58,24 @@
     self.navigationItem.titleView = self.activityIndicator;
     
     [self.activityIndicator startAnimating];
+    
     // open login page from url with params
     NSURLRequest *request = [NSURLRequest requestWithURL:self.url];
     [self.webView loadRequest:request];
     self.webView.navigationDelegate = self;
+    
+    // NSString *htmlPage = @"<!DOCTYPE html><html><head><title>Page Title</title></head><body><input type=\"button\" value=\"Close window\" onclick=\"window.close()\"/></body></html>";
+    // [self.webView loadHTMLString:htmlPage baseURL:nil];
+    // self.webView.UIDelegate = self;
 }
 
 
+/*
+- (void)webViewDidClose:(WKWebView *)webView API_AVAILABLE(macosx(10.11), ios(9.0)) {
+    NSLog(@"webViewDidClose");
+}*/
 
-#pragma mark -
-#pragma mark Actions
+#pragma mark - Actions
 
 - (void)actionCancel:(UIBarButtonItem *)sender {
     if (self.completionBlock) {
@@ -82,8 +90,7 @@
 
 
 
-#pragma mark -
-#pragma mark WKNavigationDelegate
+#pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     // NSLog(@"\nrequest: %@\n", navigationAction.request);

@@ -1,6 +1,6 @@
 //
 //  SelectFileViewController.m
-//  Copyright © 2016 Sequencing.com. All rights reserved
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
 
 #import "SelectFileViewController.h"
@@ -11,37 +11,38 @@
 #import "SQOAuth.h"
 #import "SQToken.h"
 #import "SQFilesAPI.h"
-#import "SQAuthResult.h"
 
 
 #define kMainQueue dispatch_get_main_queue()
-static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
+
 
 
 @interface SelectFileViewController ()
 
 // activity indicator with label properties
-@property (retain, nonatomic) UIView *messageFrame;
-@property (retain, nonatomic) UILabel *strLabel;
 @property (retain, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (retain, nonatomic) UIView    *messageFrame;
+@property (retain, nonatomic) UILabel   *strLabel;
+
 
 @property (weak, nonatomic) IBOutlet UIView     *buttonView;
 @property (weak, nonatomic) IBOutlet UIButton   *buttonSelectFile;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *getFileInfo;
-@property (weak, nonatomic) IBOutlet UIView *segmentedControlView;
+@property (weak, nonatomic) IBOutlet UIView     *segmentedControlView;
 
-@property (weak, nonatomic) IBOutlet UIView *batchButtonView;
-@property (weak, nonatomic) IBOutlet UIButton *batchButton;
+@property (weak, nonatomic) IBOutlet UIView     *batchButtonView;
+@property (weak, nonatomic) IBOutlet UIButton   *batchButton;
 
 @property (weak, nonatomic) IBOutlet UILabel    *selectedFileTagline;
 @property (weak, nonatomic) IBOutlet UILabel    *selectedFileName;
 @property (weak, nonatomic) IBOutlet UILabel    *vitaminDInfo;
 @property (weak, nonatomic) IBOutlet UILabel    *melanomaInfo;
 
-@property (strong, nonatomic) NSDictionary *selectedFile;
+@property (strong, nonatomic) NSDictionary      *selectedFile;
 
 @end
+
 
 
 @implementation SelectFileViewController
@@ -56,9 +57,6 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     self.activityIndicator = [UIActivityIndicatorView new];
     self.strLabel = [UILabel new];
     
-    // subscribe self as delegate to SQFileSelectorProtocol
-    [[SQFilesAPI sharedInstance] setFileSelectedHandler:self];
-    [SQFilesAPI sharedInstance].closeButton = YES;
     
     // adjust buttons view
     self.buttonView.layer.cornerRadius = 5;
@@ -87,7 +85,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 - (void)dealloc {
     // unsubscribe self as delegate to SQFileSelectorProtocol
-    [[SQFilesAPI sharedInstance] setFileSelectedHandler:nil];
+    [[SQFilesAPI sharedInstance] setDelegate:nil];
 }
 
 
@@ -107,20 +105,10 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     [self.vitaminDInfo setHidden:YES];
     [self.melanomaInfo setHidden:YES];
     
-    [[SQFilesAPI sharedInstance] withToken:self.token.accessToken loadFiles:^(BOOL success) {
-        dispatch_async(kMainQueue, ^{
-            if (success) {
-                [self stopActivityIndicator];
-                self.view.userInteractionEnabled = YES;
-                [self performSegueWithIdentifier:FILES_CONTROLLER_SEGUE_ID sender:nil];
-                
-            } else {
-                [self stopActivityIndicator];
-                self.view.userInteractionEnabled = YES;
-                [self showAlertWithMessage:@"Sorry, can't load files"];
-            }
-        });
-    }];
+    [[SQFilesAPI sharedInstance] showFilesWithTokenProvider:[SQOAuth sharedInstance]
+                                            showCloseButton:YES
+                                   previouslySelectedFileID:nil
+                                                   delegate:self];
 }
 
 
@@ -128,9 +116,11 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 #pragma mark -
 #pragma mark SQFileSelectorProtocol
 
-- (void)handleFileSelected:(NSDictionary *)file {
+- (void)selectedGeneticFile:(NSDictionary *)file {
     NSLog(@"handleFileSelected: %@", file);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    self.view.userInteractionEnabled = YES;
+    [self stopActivityIndicator];
     
     if (file && [[file allKeys] count] > 0) {
         dispatch_async(kMainQueue, ^{
@@ -173,9 +163,24 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
     }
 }
 
-- (void)closeButtonPressed {
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+- (void)errorWhileReceivingGeneticFiles:(NSError *)error {
+    dispatch_async(kMainQueue, ^{
+        [self stopActivityIndicator];
+        self.view.userInteractionEnabled = YES;
+        NSLog(@"error: %@", error);
+    });
 }
+
+
+- (void)closeButtonPressed {
+    dispatch_async(kMainQueue, ^{
+        [self stopActivityIndicator];
+        self.view.userInteractionEnabled = YES;
+    });
+}
+
+
 
 
 
@@ -201,7 +206,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 
 - (void)getVitaminDInfo {
-    if (self.token && self.selectedFile) {
+    if (self.selectedFile) {
         
         [self.vitaminDInfo setHidden:YES];
         [self startActivityIndicatorWithTitle:@"Loading info..."];
@@ -210,7 +215,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
         AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
         
         [appChainsHelper requestForChain88BasedOnFileID:[_selectedFile objectForKey:@"Id"]
-                                            accessToken:self.token.accessToken
+                                            accessToken:[SQOAuth sharedInstance]
                                          withCompletion:^(NSString *vitaminDValue) {
                                              
                                              [self handleVitaminDLabel:vitaminDValue];
@@ -225,7 +230,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 
 - (void)getMelanomaInfo {
-    if (self.token && self.selectedFile) {
+    if (self.selectedFile) {
         
         [self.melanomaInfo setHidden:YES];
         [self startActivityIndicatorWithTitle:@"Loading info..."];
@@ -234,7 +239,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
         AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
         
         [appChainsHelper requestForChain9BasedOnFileID:[_selectedFile objectForKey:@"Id"]
-                                           accessToken:self.token.accessToken
+                                           accessToken:[SQOAuth sharedInstance]
                                         withCompletion:^(NSString *melanomaRiskValue) {
                                             
                                             [self handleMelanomaLabel:melanomaRiskValue];
@@ -250,7 +255,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
 
 
 - (IBAction)getVitaminDMelanomaInBatchRequest:(id)sender {
-    if (self.token && self.selectedFile) {
+    if (self.selectedFile) {
         
         [self.vitaminDInfo setHidden:YES];
         [self.melanomaInfo setHidden:YES];
@@ -259,7 +264,7 @@ static NSString *const FILES_CONTROLLER_SEGUE_ID = @"GET_FILES";
         
         AppChainsHelper *appChainsHelper = [[AppChainsHelper alloc] init];
         [appChainsHelper batchRequestForChain88AndChain9BasedOnFileID:[_selectedFile objectForKey:@"Id"]
-                                                          accessToken:self.token.accessToken
+                                                          accessToken:[SQOAuth sharedInstance]
                                                        withCompletion:^(NSArray *appchainsResults) {
                                                            
                                                            // @appchainsResults - result of string values for chains for batch request, it's an array of dictionaries

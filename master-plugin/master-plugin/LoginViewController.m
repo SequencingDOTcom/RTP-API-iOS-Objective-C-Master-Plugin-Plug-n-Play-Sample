@@ -22,9 +22,7 @@ static NSString *const SCOPE            = @"demo,external";
 static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 
 
-@interface LoginViewController ()
 
-@end
 
 @implementation LoginViewController
 
@@ -59,13 +57,12 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
     
     
     // REGISTER APPLICATION PARAMETERS
-    [[SQOAuth sharedInstance] registrateApplicationParametersCliendID:CLIENT_ID
-                                                         ClientSecret:CLIENT_SECRET
-                                                          RedirectUri:REDIRECT_URI
-                                                                Scope:SCOPE];
-    
-    // subscribe self as delegate to SQAuthorizationProtocol
-    [[SQOAuth sharedInstance] setAuthorizationDelegate:self];
+    [[SQOAuth sharedInstance] registerApplicationParametersCliendID:CLIENT_ID
+                                                       clientSecret:CLIENT_SECRET
+                                                        redirectUri:REDIRECT_URI
+                                                              scope:SCOPE
+                                                           delegate:self
+                                             viewControllerDelegate:self];
 }
 
 
@@ -74,7 +71,6 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 #pragma mark Actions
 
 - (void)loginButtonPressed {
-    self.view.userInteractionEnabled = NO;
     [[SQOAuth sharedInstance] authorizeUser];
 }
 
@@ -85,10 +81,8 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 
 - (void)userIsSuccessfullyAuthorized:(SQToken *)token {
     dispatch_async(kMainQueue, ^{
-        // self.token = token;
         self.view.userInteractionEnabled = YES;
         [self performSegueWithIdentifier:SELECT_FILES_SEGUE_ID sender:token];
-        
     });
 }
 
@@ -106,6 +100,7 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 }
 
 
+/*
 #pragma mark -
 #pragma mark Navigation
 
@@ -114,7 +109,7 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
         SelectFileViewController *selectFileVC = segue.destinationViewController;
         [selectFileVC setToken:sender];
     }
-}
+}*/
 
 
 

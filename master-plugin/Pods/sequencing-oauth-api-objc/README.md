@@ -94,7 +94,7 @@ You need to follow instruction below if you want to install and use OAuth logic 
 	* create Podfile in your project directory: ```$ pod init```
     * specify "sequencing-oauth-api-objc" pod parameters in Podfile:
     
-    	```pod 'sequencing-oauth-api-objc', '~> 1.2.0'```
+    	```pod 'sequencing-oauth-api-objc', '~> 2.0.4’```
     	
 	* install the dependency in your project: ```$ pod install```
 	* always open the Xcode workspace instead of the project file: ```$ open *.xcworkspace```
@@ -110,61 +110,56 @@ You need to follow instruction below if you want to install and use OAuth logic 
 	![sample files](https://github.com/SequencingDOTcom/CocoaPod-iOS-OAuth-ObjectiveC/blob/master/Screenshots/authTransportSecuritySetting.png)
 	
 	
-* **Use authorization method**
-	
+* **Register app parameters and delegate**
+
 	* add imports
 		```
 		#import "SQOAuth.h"
 		#import "SQToken.h"
-		```
-		
-	* for authorization you need to specify your application parameters in NSString format (BEFORE using authorization method) 
-		```
-		static NSString *const CLIENT_ID	 = @"your CLIENT_ID here";
-		static NSString *const CLIENT_SECRET = @"your CLIENT_SECRET here";
-		static NSString *const REDIRECT_URI	 = @"REDIRECT_URI here";
-		static NSString *const SCOPE         = @"SCOPE here";
-		```    
-			
-	* register these parameters into OAuth module instance
-		```
-			[[SQOAuth sharedInstance] registrateApplicationParametersCliendID:CLIENT_ID 
-					ClientSecret:CLIENT_SECRET 
-					RedirectUri:REDIRECT_URI 
-					Scope:SCOPE];
-		```
-		
-	* add import for protocol
-		```
 		#import "SQAuthorizationProtocol.h"
 		```
-			
+		
 	* subscribe your class for Authorization protocol
 		```
 		<SQAuthorizationProtocol>
 		```
-	
-	* subscribe your class as delegate for such protocol
+		
+	* have access to SQOAuth via ```shared instance``` method
 		```
-		[[SQOAuth sharedInstance] setAuthorizationDelegate:self];
+		[SQOAuth sharedInstance]
 		```
 		
-	* implement methods for SQAuthorizationProtocol
+	* register your app parameters and delegate
 		```
-		- (void)userIsSuccessfullyAuthorized:(SQToken *)token {
-			// your code is here for successful user authorization
-		}
+		- (void)registerApplicationParametersCliendID:(NSString *)client_id
+                                 clientSecret:(NSString *)client_secret
+                                  redirectUri:(NSString *)redirect_uri
+                                        scope:(NSString *)scope
+                                     delegate:(UIViewController<SQAuthorizationProtocol> *)delegate;                                     
+		``` 
+		
+		where:
+		```
+		client_id - your app CLIENT_ID
+		client_secret - your app CLIENT_SECRET
+		redirect_uri - your app REDIRECT_URI
+		scope - your app SCOPE
+		delegate - UIViewController instance that conform to "SQAuthorizationProtocol" protocol
+		```
 
-		- (void)userIsNotAuthorized {
-			// your code is here for unsuccessful user authorization
-		}
+
+* **Use authorization method**		
+				
+	* implement methods from SQAuthorizationProtocol
+		```
+		- (void)userIsSuccessfullyAuthorized:(SQToken *)token
+
+		- (void)userIsNotAuthorized
 			
-		- (void)userDidCancelAuthorization {
-			// your code is here for abandoned user authorization
-		}
+		- (void)userDidCancelAuthorization
 		```
 		
-	* you can authorize your user now (e.g. via "login" button) - use ```authorizeUser``` method (You can get access via shared instance of SQOAuth class)
+	* you can authorize your user via ```authorizeUser``` method
 		```
 		[[SQOAuth sharedInstance] authorizeUser];
 		```
@@ -181,77 +176,19 @@ You need to follow instruction below if you want to install and use OAuth logic 
 		
 * **Access to up-to-date token**
 		
-	* to receive up-to-date token use related method from SQOAuth API (it returns the updated token): 
+	* to receive up-to-date token use ```token:``` method from SQOAuth API (it returns the updated token): 
 		```
-		[[SQOAuth sharedInstance] token:^(SQToken *token) {
-			// your code
-		}];
+		[[SQOAuth sharedInstance] token:^(SQToken *token) {}];
 		```
 
     		
-* **Create account methods**
+* **Register new account / Reset password methods**
 
-	* add import for protocol
+	* just call ```callRegisterResetAccountFlow``` method - it will open dialog popup
 		```
-		#import "SQSignUpProtocol.h"
+		[[SQOAuth sharedInstance] callRegisterResetAccountFlow];		
 		```
-			
-	* subscribe your class for SignUp protocol
-		```
-		<SQSignUpProtocol>
-		```
-	
-	* subscribe your class as delegate for such protocol
-		```
-		[[SQOAuth sharedInstance] setSignUpDelegate:self];
-		```
-		
-	* implement methods for successful account registration and failed registration
-		```
-		- (void)emailIsRegisteredSuccessfully;
-		- (void)emailIsNotRegistered:(NSString *)errorMessage;
-		```
-		
-	* registrate new account with email address
-		```
-		- (void)registrateNewAccountForEmailAddress:(NSString *)emailAddress;
-		
-		example: [[SQOAuth sharedInstance] registrateNewAccountForEmailAddress:emailAddress];
-		```
-
-
-* **Reset password methods**
-
-	* add import for protocol
-		```
-		#import "SQResetPasswordProtocol.h"
-		```
-			
-	* subscribe your class for Reset password protocol
-		```
-		<SQResetPasswordProtocol>
-		```
-	
-	* subscribe your class as delegate for such protocol
-		```
-		[[SQOAuth sharedInstance] setResetPasswordDelegate:self];
-		```
-		
-	* implement methods for successful reset password request and failed request
-		```
-		- (void)applicationForPasswordResetIsAccepted;
-		- (void)applicationForPasswordResetIsNotAccepted:(NSString *)errorMessage;
-		```
-		
-	* send request for password reset with email address
-		```
-		- (void)resetPasswordForEmailAddress:(NSString *)emailAddress;
-		
-		example: [[SQOAuth sharedInstance] resetPasswordForEmailAddress:emailAddress];
-		```
-	
-    		
-    		
+				
 		
 
 

@@ -1,12 +1,10 @@
 //
 //  SQIntroViewController.h
-//  Pods
-//
-//  Created by Bogdan Laukhin on 6/1/16.
-//
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
 
 #import <UIKit/UIKit.h>
+
 
 @interface SQIntroViewController : UIViewController
 

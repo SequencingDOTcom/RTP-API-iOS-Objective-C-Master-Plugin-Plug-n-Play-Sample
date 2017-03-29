@@ -5,103 +5,123 @@
 
 #import "AppChainsHelper.h"
 #import "AppChains.h"
+#import "SQOAuth.h"
 
 
 @implementation AppChainsHelper
 
 
 - (void)requestForChain88BasedOnFileID:(NSString *)fileID
-                           accessToken:(NSString *)accessToken
+                           accessToken:(id)tokenProvider
                         withCompletion:(void (^)(NSString *vitaminDValue))completion {
+    
     NSLog(@"starting request for chains88: vitaminDValue");
-    
-    AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
-    
-    // v2 protocol
-    [appChains getReportWithApplicationMethodName:@"Chain88"
-                                 withDatasourceId:fileID
-                                 withSuccessBlock:^(Report *result) {
-                                     
-                                     completion([self parseReportForChain88:result]);
-                                 }
-                                 withFailureBlock:^(NSError *error) {
-                                     if (error) {
-                                         NSLog(@"[appChain88 Error] %@", error);
-                                         completion(nil);
-                                     } else {
-                                         completion(nil);
+    [tokenProvider token:^(SQToken *token, NSString *accessToken) {
+        if (!accessToken || [accessToken length] == 0) {
+            completion(nil);
+            return;
+        }
+        
+        AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
+        
+        // v2 protocol
+        [appChains getReportWithApplicationMethodName:@"Chain88"
+                                     withDatasourceId:fileID
+                                     withSuccessBlock:^(Report *result) {
+                                         
+                                         completion([self parseReportForChain88:result]);
                                      }
-                                 }];
+                                     withFailureBlock:^(NSError *error) {
+                                         if (error) {
+                                             NSLog(@"[appChain88 Error] %@", error);
+                                             completion(nil);
+                                         } else {
+                                             completion(nil);
+                                         }
+                                     }];
+    }];
 }
 
 
 
 - (void)requestForChain9BasedOnFileID:(NSString *)fileID
-                          accessToken:(NSString *)accessToken
+                          accessToken:(id)tokenProvider
                        withCompletion:(void (^)(NSString *melanomaRiskValue))completion {
     NSLog(@"starting request for chains9: melanomaRiskValue");
-    
-    AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
-    
-    [appChains getReportWithApplicationMethodName:@"Chain9"
-                                 withDatasourceId:fileID
-                                 withSuccessBlock:^(Report *result) {
-                                     
-                                     completion([self parseReportForChain9:result]);
-                                     
-                                 }
-                                 withFailureBlock:^(NSError *error) {
-                                     if (error) {
-                                         NSLog(@"appChains error: %@", error);
-                                         completion(nil);
+    [tokenProvider token:^(SQToken *token, NSString *accessToken) {
+        if (!accessToken || [accessToken length] == 0) {
+            completion(nil);
+            return;
+        }
+        
+        AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
+        
+        [appChains getReportWithApplicationMethodName:@"Chain9"
+                                     withDatasourceId:fileID
+                                     withSuccessBlock:^(Report *result) {
+                                         
+                                         completion([self parseReportForChain9:result]);
+                                         
                                      }
-                                 }];
+                                     withFailureBlock:^(NSError *error) {
+                                         if (error) {
+                                             NSLog(@"appChains error: %@", error);
+                                             completion(nil);
+                                         }
+                                     }];
+    }];
 }
 
 
 - (void)batchRequestForChain88AndChain9BasedOnFileID:(NSString *)fileID
-                                         accessToken:(NSString *)accessToken
+                                         accessToken:(id)tokenProvider
                                       withCompletion:(void (^)(NSArray *appchainsResults))completion {
     NSLog(@"starting batch request for chains88 (vitaminDValue) and chains9 (melanomaRiskValue)");
-    
-    AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
-    
-    NSArray *appChainsForRequest = @[@[@"Chain88", fileID],
-                                     @[@"Chain9",  fileID]];
-    
-    [appChains getBatchReportWithApplicationMethodName:appChainsForRequest
-                                      withSuccessBlock:^(NSArray *reportResultsArray) {
-                                          // @reportResultsArray - result of reports for batch request, it's an array of dictionaries
-                                          // each dictionary has following keys: "appChainID": keyAppChainID string, "report": *Report object
-                                          
-                                          NSMutableArray *appChainsResultsArray = [[NSMutableArray alloc] init];
-                                          
-                                          for (NSDictionary *appChainReportDict in reportResultsArray) {
+    [tokenProvider token:^(SQToken *token, NSString *accessToken) {
+        if (!accessToken || [accessToken length] == 0) {
+            completion(nil);
+            return;
+        }
+        
+        AppChains *appChains = [[AppChains alloc] initWithToken:accessToken withHostName:@"api.sequencing.com"];
+        
+        NSArray *appChainsForRequest = @[@[@"Chain88", fileID],
+                                         @[@"Chain9",  fileID]];
+        
+        [appChains getBatchReportWithApplicationMethodName:appChainsForRequest
+                                          withSuccessBlock:^(NSArray *reportResultsArray) {
+                                              // @reportResultsArray - result of reports for batch request, it's an array of dictionaries
+                                              // each dictionary has following keys: "appChainID": keyAppChainID string, "report": *Report object
                                               
-                                              Report *result = [appChainReportDict objectForKey:@"report"];
-                                              NSString *appChainID = [appChainReportDict objectForKey:@"appChainID"];
-                                              NSString *appChainValue = [NSString stringWithFormat:@""];
+                                              NSMutableArray *appChainsResultsArray = [[NSMutableArray alloc] init];
                                               
-                                              if ([appChainID isEqualToString:@"Chain88"])
-                                                  appChainValue = [self parseReportForChain88:result];
+                                              for (NSDictionary *appChainReportDict in reportResultsArray) {
+                                                  
+                                                  Report *result = [appChainReportDict objectForKey:@"report"];
+                                                  NSString *appChainID = [appChainReportDict objectForKey:@"appChainID"];
+                                                  NSString *appChainValue = [NSString stringWithFormat:@""];
+                                                  
+                                                  if ([appChainID isEqualToString:@"Chain88"])
+                                                      appChainValue = [self parseReportForChain88:result];
+                                                  
+                                                  else if ([appChainID isEqualToString:@"Chain9"])
+                                                      appChainValue = [self parseReportForChain9:result];
+                                                  
+                                                  NSDictionary *reportItem = @{@"appChainID":   appChainID,
+                                                                               @"appChainValue":appChainValue};
+                                                  [appChainsResultsArray addObject:reportItem];
+                                              }
                                               
-                                              else if ([appChainID isEqualToString:@"Chain9"])
-                                                  appChainValue = [self parseReportForChain9:result];
+                                              completion(appChainsResultsArray);
                                               
-                                              NSDictionary *reportItem = @{@"appChainID":   appChainID,
-                                                                           @"appChainValue":appChainValue};
-                                              [appChainsResultsArray addObject:reportItem];
                                           }
-                                          
-                                          completion(appChainsResultsArray);
-                                          
-                                      }
-                                      withFailureBlock:^(NSError *error) {
-                                          if (error) {
-                                              NSLog(@"batch request error: %@", error);
-                                              completion(nil);
-                                          }
-                                      }];
+                                          withFailureBlock:^(NSError *error) {
+                                              if (error) {
+                                                  NSLog(@"batch request error: %@", error);
+                                                  completion(nil);
+                                              }
+                                          }];
+    }];
 }
 
 

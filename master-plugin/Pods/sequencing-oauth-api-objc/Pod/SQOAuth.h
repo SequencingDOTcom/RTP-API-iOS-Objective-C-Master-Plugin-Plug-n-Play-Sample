@@ -1,47 +1,49 @@
 //
 //  SQOAuth.h
-//  Copyright © 2015-2016 Sequencing.com. All rights reserved
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "SQAuthorizationProtocol.h"
-#import "SQResetPasswordProtocol.h"
-#import "SQSignUpProtocol.h"
-
+#import "SQTokenAccessProtocol.h"
+#import "SQClientSecretAccessProtocol.h"
 @class SQToken;
 
 
-@interface SQOAuth : NSObject
 
-@property (weak, nonatomic) id<SQAuthorizationProtocol> authorizationDelegate;
-@property (weak, nonatomic) id<SQResetPasswordProtocol> resetPasswordDelegate;
-@property (weak, nonatomic) id<SQSignUpProtocol>        signUpDelegate;
+@interface SQOAuth : NSObject <SQTokenAccessProtocol, SQClientSecretAccessProtocol>
+
+@property (weak, nonatomic) UIViewController            *viewControllerDelegate;
+@property (weak, nonatomic) id<SQAuthorizationProtocol> delegate;
 
 
 // designated initializer
 + (instancetype)sharedInstance;
 
 // method to set up apllication registration parameters
-- (void)registrateApplicationParametersCliendID:(NSString *)client_id ClientSecret:(NSString *)client_secret RedirectUri:(NSString *)redirect_uri Scope:(NSString *)scope;
+- (void)registerApplicationParametersCliendID:(NSString *)client_id
+                                 clientSecret:(NSString *)client_secret
+                                  redirectUri:(NSString *)redirect_uri
+                                        scope:(NSString *)scope
+                                     delegate:(id<SQAuthorizationProtocol>)delegate
+                       viewControllerDelegate:(UIViewController *)viewControllerDelegate;
 
-// method to registrate new account
-- (void)registrateNewAccountForEmailAddress:(NSString *)emailAddress;
-
-// method to reset password
-- (void)resetPasswordForEmailAddress:(NSString *)emailAddress;
 
 // authorization method that uses SQAuthorizationProtocol as result
 - (void)authorizeUser;
 
+// should be called when sign out, this method will erase token and delegates
+- (void)userDidSignOut;
+
+// method to registrate new account / resetpassword
+- (void)callRegisterResetAccountFlow;
 
 // receive updated token
-- (void)token:(void(^)(SQToken *token))tokenResult;
+- (void)token:(void(^)(SQToken *token, NSString *accessToken))tokenResult;
 
-// shoud be used when user is authorized but token is expired
-- (void)withRefreshToken:(SQToken *)refreshToken updateAccessToken:(void(^)(SQToken *token))tokenResult;
+// receive client_secret
+- (NSString *)clientSecret;
 
-
-// should be called when sign out, this method will stop refreshToken autoupdater
-- (void)userDidSignOut;
 
 @end

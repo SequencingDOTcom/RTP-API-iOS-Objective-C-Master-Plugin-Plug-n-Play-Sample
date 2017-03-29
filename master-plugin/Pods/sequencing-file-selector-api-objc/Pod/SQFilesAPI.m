@@ -1,6 +1,6 @@
 //
 //  SQFilesAPI.h
-//  Copyright © 2015-2016 Sequencing.com. All rights reserved
+//  Copyright © 2017 Sequencing.com. All rights reserved
 //
 
 #import "SQFilesAPI.h"
@@ -10,12 +10,16 @@
 
 #define kMainQueue dispatch_get_main_queue()
 
+
+
 @interface SQFilesAPI()
 
-// token property
 @property (readwrite, nonatomic) NSString *accessToken;
 
 @end
+
+
+
 
 @implementation SQFilesAPI
 
@@ -29,77 +33,98 @@
 }
 
 
-#pragma mark -
-#pragma mark API methods
-/*
-- (void)instance:(id<SQFileSelectorProtocol>)fileSelectedHandler loadFiles:(void (^)(BOOL))success {
-    self.fileSelectedHandler = fileSelectedHandler;
-    [self loadFiles:success];
-} */
+#pragma mark - API methods
 
-
-- (void)withToken:(NSString *)accessToken loadFiles:(void(^)(BOOL success))success {
-    // send request to server to get files assigned to account
-    // and then parse these files into categories and subcategories
-    self.accessToken = [accessToken copy];
+- (void)showFilesWithTokenProvider:(id<SQTokenAccessProtocol>)tokenProvider
+                   showCloseButton:(BOOL)showCloseButton
+          previouslySelectedFileID:(NSString *)selectedFileID
+                          delegate:(UIViewController<SQFileSelectorProtocol> *)delegate {
     
-    [self loadFilesFromServer:^(NSArray *files) {
-        if (files) {
-            [SQFilesHelper parseFilesMainArray:files withHandler:^(NSMutableArray *mySectionsArray, NSMutableArray *sampleSectionsArray) {
-                dispatch_async(kMainQueue, ^{
-                    SQFilesContainer *filesContainer = [SQFilesContainer sharedInstance];
-                    [filesContainer setMySectionsArray:[mySectionsArray copy]];
-                    [filesContainer setSampleSectionsArray:[sampleSectionsArray copy]];
-                    success(YES);
-                });
-            }];
-        } else {
-            success(NO);
+    [self showFilesWithTokenProvider:tokenProvider
+                     showCloseButton:showCloseButton
+            previouslySelectedFileID:selectedFileID
+             backgroundVideoFileName:nil
+                            delegate:delegate];
+}
+
+
+- (void)showFilesWithTokenProvider:(id<SQTokenAccessProtocol>)tokenProvider
+                   showCloseButton:(BOOL)showCloseButton
+          previouslySelectedFileID:(NSString *)selectedFileID
+           backgroundVideoFileName:(NSString *)videoFileName
+                          delegate:(UIViewController<SQFileSelectorProtocol> *)delegate {
+    if (!delegate) return;
+    self.delegate = delegate;
+    
+    [tokenProvider token:^(SQToken *token, NSString *accessToken) {
+        if (!token || !accessToken || [accessToken length] == 0) {
+            [[SQFilesContainer sharedInstance] setSelectedFileID:nil];
+            [_delegate errorWhileReceivingGeneticFiles:nil];
+            return;
         }
+        self.accessToken = accessToken;
+        
+        SQFilesContainer *filesContainer = [SQFilesContainer sharedInstance];
+        [filesContainer setShowCloseButton: showCloseButton];
+        [filesContainer setVideoFileName:   videoFileName];
+        [filesContainer setSelectedFileID:  selectedFileID];
+        
+        // send request to server to get files assigned to account and then parse these files into categories and subcategories
+        [self loadFilesWithToken:accessToken result:^(NSArray *files, NSError *error) {
+            if (!files) {
+                [[SQFilesContainer sharedInstance] setSelectedFileID:nil];
+                [_delegate errorWhileReceivingGeneticFiles:error];
+                return;
+            }
+            
+            [SQFilesHelper parseFilesMainArray:files withHandler:^(NSMutableArray *mySectionsArray, NSMutableArray *sampleSectionsArray) {
+                if (!sampleSectionsArray) {
+                    [[SQFilesContainer sharedInstance] setSelectedFileID:nil];
+                    [_delegate errorWhileReceivingGeneticFiles:nil];
+                    return;
+                }
+                
+                [filesContainer setMySectionsArray:    [mySectionsArray copy]];
+                [filesContainer setSampleSectionsArray:[sampleSectionsArray copy]];
+                [self showUIforDelegate:_delegate];
+            }];
+        }];
+        
     }];
 }
 
 
-- (void)loadFilesFromServer:(void (^)(NSArray *files))files {
-    [[SQFilesServerManager sharedInstance] getForFilesWithToken:self.accessToken onSuccess:^(NSArray *filesList) {
-        if (filesList) {
-            files(filesList);
-            
-        } else {
-            files(nil);
-        }
+- (void)loadFilesWithToken:(NSString *)token result:(void (^)(NSArray *files, NSError *error))files {
+    [[SQFilesServerManager sharedInstance] getForFilesWithToken:token onSuccess:^(NSArray *filesList) {
+        files(filesList, nil);
         
     } onFailure:^(NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);
-        files(nil);
+        files(nil, error);
     }];
 }
 
 
-/*
-- (void)loadOwnFiles:(void (^)(NSArray *))files {
-    [[SQServerManager sharedInstance] getForOwnFilesWithToken:[[SQAuthResult sharedInstance] token] onSuccess:^(NSArray *ownFilesList) {
-        if (ownFilesList) {
-            files(ownFilesList);
-        }
-    } onFailure:^(NSError *error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-        files(nil);
-    }];
-} */
+- (void)showUIforDelegate:(UIViewController *)delegate {
+    dispatch_async(kMainQueue, ^{
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TabbarFileSelector" bundle:nil];
+        UINavigationController *fileNavViewController = [storyboard instantiateInitialViewController];
+        fileNavViewController.modalPresentationStyle  = UIModalTransitionStyleCoverVertical;
+        [delegate presentViewController:fileNavViewController animated:YES completion:nil];
+        
+        // UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TabbarFileSelector" bundle:nil];
+        // UINavigationController *fileSelectorVC = (UINavigationController *)[storyboard instantiateInitialViewController];
+        // fileSelectorVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        // [self presentViewController:fileSelectorVC animated:YES completion:nil];
+    });
+}
 
 
-/*
-- (void)loadSampleFiles:(void (^)(NSArray *))files {
-    [[SQServerManager sharedInstance] getForSampleFilesWithToken:[[SQAuthResult sharedInstance] token] onSuccess:^(NSArray *sampleFilesList) {
-        if (sampleFilesList) {
-            files(sampleFilesList);
-        }
-    } onFailure:^(NSError *error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-        files(nil);
-    }];
-} */
+- (void)deselectFile {
+    SQFilesContainer *filesContainer = [SQFilesContainer sharedInstance];
+    [filesContainer setSelectedFileID:nil];
+}
 
 
 @end
