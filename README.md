@@ -38,11 +38,7 @@ This sample works out of the box. To modify it to work with your apps:
 
 * select file page
 
-![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.28%20PM.png)
-
-* select file button pressed
-
-![select file button pressed](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.02.57%20PM.png)
+![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.03%20PM.png)
 
 * select file - intro page
 
@@ -62,15 +58,27 @@ This sample works out of the box. To modify it to work with your apps:
 
 * selected file displayed in Select File screen
 
-![selected file in previous screen](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.03.04%20PM.png)
+![selected file displayed](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.42%20PM.png)
 
-* retrieved information about "Vitamin D"
+* retrieved information about "Vitamin D" and "Melanoma risk"
 
-![vitamin D](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.07.05%20PM.png)
+![file info](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.55%20PM.png)
 
-* retrieved information about "Melanoma risk"
+* file import page
 
-![melanoma risk](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-12-28%20at%207.07.27%20PM.png)
+![file import page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%202.44.47%20PM.png)
+
+* "Connect To Sequencing" dialog page
+
+![file import page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.50.51%20PM.png)
+
+* 23andMe files import dialog
+
+![23andMe files import dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.50.57%20PM.png)
+
+* Ancestry.com files import dialog
+
+![Ancestry.com files import dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.51.02%20PM.png)
 
 
 
