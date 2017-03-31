@@ -26,7 +26,7 @@ This sample works out of the box. To modify it to work with your apps:
 
 * sign in page
 
-![sign in page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.49.56%20PM.png)
+![sign in page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-31%20at%206.11.16%20PM.png)
 
 * login dialog
 
@@ -36,9 +36,13 @@ This sample works out of the box. To modify it to work with your apps:
 
 ![authorize access dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202016-07-13%20at%207.52.14%20PM.png)
 
+* register account / reset password dialog
+
+![register account / reset password dialog](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-31%20at%206.11.23%20PM.png)
+
 * select file page
 
-![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.03%20PM.png)
+![select file page](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-31%20at%206.11.56%20PM.png)
 
 * select file - intro page
 
@@ -58,11 +62,11 @@ This sample works out of the box. To modify it to work with your apps:
 
 * selected file displayed in Select File screen
 
-![selected file displayed](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.42%20PM.png)
+![selected file displayed](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-31%20at%206.12.52%20PM.png)
 
 * retrieved information about "Vitamin D" and "Melanoma risk"
 
-![file info](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-29%20at%201.52.55%20PM.png)
+![file info](https://github.com/SequencingDOTcom/iOS-Objective-C-Master-Plugin-Plug-n-Play-Sample/blob/master/Screenshots/Screen%20Shot%202017-03-31%20at%206.13.08%20PM.png)
 
 * file import page
 
