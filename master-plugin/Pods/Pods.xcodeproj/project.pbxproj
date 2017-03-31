@@ -731,6 +731,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		1460C9D1EDB614E5A13AE619B5CAF05F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173A05A231B28D44BA3EB8D16390C170 /* sequencing-app-chains-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		146C1DD34611BACEAEB51F1214C7D7B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1364717544693C78D3A5A9B1FA4093FB /* sequencing-oauth-api-objc.xcconfig */;
@@ -800,29 +823,6 @@
 			};
 			name = Release;
 		};
-		47EEC745B78BD7E7715BE9B946777742 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 173A05A231B28D44BA3EB8D16390C170 /* sequencing-app-chains-api-objc.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		780D1EF13059568545BD8E3D4E891FB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73B89067CA03BB54F1B686368B01BA62 /* sequencing-file-selector-api-objc.xcconfig */;
@@ -869,6 +869,29 @@
 			};
 			name = Release;
 		};
+		7E34F3D9D458180C4454D3D8E3C809C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 173A05A231B28D44BA3EB8D16390C170 /* sequencing-app-chains-api-objc.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		9B3778B1B87FF58B8AE989FC00883E06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CA435FA67D995461D355A58E53AC7C5C /* Pods-master-plugin.debug.xcconfig */;
@@ -887,29 +910,6 @@
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9B7D7AAEB862C4EA64F910B77F45A916 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 173A05A231B28D44BA3EB8D16390C170 /* sequencing-app-chains-api-objc.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/sequencing-app-chains-api-objc/sequencing-app-chains-api-objc-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -1014,8 +1014,8 @@
 		688E304416F38C1938925B49F8C96EAD /* Build configuration list for PBXNativeTarget "sequencing-app-chains-api-objc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9B7D7AAEB862C4EA64F910B77F45A916 /* Debug */,
-				47EEC745B78BD7E7715BE9B946777742 /* Release */,
+				1460C9D1EDB614E5A13AE619B5CAF05F /* Debug */,
+				7E34F3D9D458180C4454D3D8E3C809C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
