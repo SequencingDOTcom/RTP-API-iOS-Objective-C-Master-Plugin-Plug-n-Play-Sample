@@ -23,38 +23,16 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 
 
 
+@interface LoginViewController () <UserSignOutProtocol>
+
+@end
+
+
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // set up login button
-    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setImage:[UIImage imageNamed:@"button_signin_black"] forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(loginButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [loginButton sizeToFit];
-    [loginButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.view addSubview:loginButton];
-    
-    // adding constraints for login button
-    NSLayoutConstraint *xCenter = [NSLayoutConstraint constraintWithItem:loginButton
-                                                               attribute:NSLayoutAttributeCenterX
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.view
-                                                               attribute:NSLayoutAttributeCenterX
-                                                              multiplier:1
-                                                                constant:0];
-    NSLayoutConstraint *yCenter = [NSLayoutConstraint constraintWithItem:loginButton
-                                                               attribute:NSLayoutAttributeCenterY
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.view
-                                                               attribute:NSLayoutAttributeCenterY
-                                                              multiplier:1
-                                                                constant:0];
-    [self.view addConstraint:xCenter];
-    [self.view addConstraint:yCenter];
-    
     
     // REGISTER APPLICATION PARAMETERS
     [[SQOAuth sharedInstance] registerApplicationParametersCliendID:CLIENT_ID
@@ -67,17 +45,21 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 
 
 
-#pragma mark -
-#pragma mark Actions
+#pragma mark - Actions
 
-- (void)loginButtonPressed {
+- (IBAction)authorizeButtonPressed:(id)sender {
     [[SQOAuth sharedInstance] authorizeUser];
 }
 
 
+- (IBAction)registerResetButtonPressed:(id)sender {
+    [[SQOAuth sharedInstance] callRegisterResetAccountFlow];
+}
 
-#pragma mark -
-#pragma mark SQAuthorizationProtocol
+
+
+
+#pragma mark - SQAuthorizationProtocol
 
 - (void)userIsSuccessfullyAuthorized:(SQToken *)token {
     dispatch_async(kMainQueue, ^{
@@ -100,21 +82,60 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 }
 
 
-/*
-#pragma mark -
-#pragma mark Navigation
+
+#pragma mark - UserSignOutProtocol
+
+- (void)userDidSignOut {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Delete any cached URLrequests!
+    NSURLCache *sharedCache = [NSURLCache sharedURLCache];
+    [sharedCache removeAllCachedResponses];
+    
+    // Also delete all stored cookies!
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *cookies = [cookieStorage cookies];
+    id cookie;
+    for (cookie in cookies) {
+        [cookieStorage deleteCookie:cookie];
+    }
+    
+    NSDictionary *credentialsDict = [[NSURLCredentialStorage sharedCredentialStorage] allCredentials];
+    if ([credentialsDict count] > 0) {
+        // the credentialsDict has NSURLProtectionSpace objs as keys and dicts of userName => NSURLCredential
+        NSEnumerator *protectionSpaceEnumerator = [credentialsDict keyEnumerator];
+        id urlProtectionSpace;
+        // iterate over all NSURLProtectionSpaces
+        while (urlProtectionSpace = [protectionSpaceEnumerator nextObject]) {
+            NSEnumerator *userNameEnumerator = [[credentialsDict objectForKey:urlProtectionSpace] keyEnumerator];
+            id userName;
+            // iterate over all usernames for this protectionspace, which are the keys for the actual NSURLCredentials
+            while (userName = [userNameEnumerator nextObject]) {
+                NSURLCredential *cred = [[credentialsDict objectForKey:urlProtectionSpace] objectForKey:userName];
+                //NSLog(@"credentials to be removed: %@", cred);
+                [[NSURLCredentialStorage sharedCredentialStorage] removeCredential:cred forProtectionSpace:urlProtectionSpace];
+            }
+        }
+    }
+}
+
+
+
+
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqual:SELECT_FILES_SEGUE_ID]) {
-        SelectFileViewController *selectFileVC = segue.destinationViewController;
-        [selectFileVC setToken:sender];
+        UINavigationController *selectFileNav = segue.destinationViewController;
+        SelectFileViewController *selectFileVC = [[selectFileNav viewControllers] firstObject];
+        [selectFileVC setDelegate:self];
     }
-}*/
+}
 
 
 
-#pragma mark -
-#pragma mark Alert message
+
+#pragma mark - Alert message
 
 - (void)showAlertWithMessage:(NSString *)message {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
@@ -127,10 +148,6 @@ static NSString *const SELECT_FILES_SEGUE_ID = @"SELECT_FILES";
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end

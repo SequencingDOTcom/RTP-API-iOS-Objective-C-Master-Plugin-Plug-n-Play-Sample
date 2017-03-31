@@ -22,11 +22,36 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc5-ap-0Lp">
+                                <rect key="frame" x="19.5" y="305.5" width="336" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uc5-ap-0Lp" secondAttribute="height" multiplier="6:1" id="DXV-aM-PRv"/>
+                                </constraints>
+                                <state key="normal" image="button_signin_black"/>
+                                <connections>
+                                    <action selector="authorizeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ELG-dv-i8V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mDo-G5-smP">
+                                <rect key="frame" x="54.5" y="371.5" width="266" height="30"/>
+                                <state key="normal" title="Register new account / reset password"/>
+                                <connections>
+                                    <action selector="registerResetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8jf-ho-B38"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uc5-ap-0Lp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O8L-P9-7O0"/>
+                            <constraint firstItem="mDo-G5-smP" firstAttribute="top" secondItem="uc5-ap-0Lp" secondAttribute="bottom" constant="10" id="T8P-Zd-s2U"/>
+                            <constraint firstItem="mDo-G5-smP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jyB-hT-MPL"/>
+                            <constraint firstItem="uc5-ap-0Lp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nsA-KS-O2P"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Master plugin sample" id="cFp-mc-8rt"/>
                     <connections>
-                        <segue destination="smd-me-orf" kind="show" identifier="SELECT_FILES" id="ksB-Vi-0AA"/>
+                        <segue destination="ZBH-9V-idD" kind="presentation" identifier="SELECT_FILES" id="ksB-Vi-0AA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -144,6 +169,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sli-Ux-1VB">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="PPm-o1-NbU">
+                            <connections>
+                                <action selector="signOutButtonPressed:" destination="smd-me-orf" id="c0E-z7-8bQ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Files Import" id="yVY-Ao-wYr">
                             <connections>
                                 <segue destination="8bt-ac-saY" kind="show" identifier="IMPORT_FILES" id="8Xx-xp-ynr"/>
@@ -165,7 +195,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKj-KB-Hij" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="1179"/>
+            <point key="canvasLocation" x="2852" y="1179"/>
         </scene>
         <!--Import Files View Controller-->
         <scene sceneID="L1n-za-4IX">
@@ -250,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KKS-Io-xJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="1178.8605697151424"/>
+            <point key="canvasLocation" x="3689" y="1179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O2k-mU-IbX">
@@ -270,8 +300,27 @@
             </objects>
             <point key="canvasLocation" x="470" y="1179"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Oj7-d4-CRz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZBH-9V-idD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4tA-hx-FOG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="smd-me-orf" kind="relationship" relationship="rootViewController" id="BGq-Qh-Otc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xm3-BW-e25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2061.5999999999999" y="1178.8605697151424"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Connect-to-Sequencing.com-button-light-blue" width="1221" height="228"/>
+        <image name="button_signin_black" width="282" height="56"/>
     </resources>
 </document>

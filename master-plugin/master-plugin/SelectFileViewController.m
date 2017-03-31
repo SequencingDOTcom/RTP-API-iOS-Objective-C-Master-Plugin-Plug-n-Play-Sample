@@ -90,8 +90,7 @@
 
 
 
-#pragma mark -
-#pragma mark Actions
+#pragma mark - Actions
 
 - (IBAction)loadFilesPressed:(id)sender {
     self.view.userInteractionEnabled = NO;
@@ -110,6 +109,13 @@
                                    previouslySelectedFileID:nil
                                                    delegate:self];
 }
+
+
+
+- (IBAction)signOutButtonPressed:(id)sender {
+    [_delegate userDidSignOut];
+}
+
 
 
 

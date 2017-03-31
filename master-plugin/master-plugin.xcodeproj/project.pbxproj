@@ -152,6 +152,7 @@
 				TargetAttributes = {
 					1CAACEA31CA1C17900177B12 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 9HWXJ897TL;
 					};
 				};
 			};
@@ -359,6 +360,7 @@
 			baseConfigurationReference = 3B7123291777C6B953602373 /* Pods-master-plugin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9HWXJ897TL;
 				INFOPLIST_FILE = "master-plugin/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bogdan.org.ua.master-plugin";
@@ -371,6 +373,7 @@
 			baseConfigurationReference = 6D3E059B92CD71861577BBC9 /* Pods-master-plugin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9HWXJ897TL;
 				INFOPLIST_FILE = "master-plugin/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "bogdan.org.ua.master-plugin";
